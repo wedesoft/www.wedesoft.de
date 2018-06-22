@@ -11,6 +11,6 @@ title: Contact
 * Zotero: [wedesoft](https://www.zotero.org/wedesoft/items)
 * Github: [wedesoft](https://github.com/wedesoft/)
 * Gitlab: [wedesoft](https://gitlab.com/wedesoft/)
-* GnuPG: [3962 E3F7 8001 882D 8459  6D89 E048 1FF2 3CF1 0A42](../public/gnupg-wedekind.asc)
+* GnuPG: [3962 E3F7 8001 882D 8459  6D89 E048 1FF2 3CF1 0A42](../gnupg-wedekind.asc)
 
-![](../public/qrcode.png)
+![](../pics/qrcode.png)
