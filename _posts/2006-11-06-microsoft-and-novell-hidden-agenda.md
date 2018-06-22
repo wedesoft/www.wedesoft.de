@@ -4,7 +4,7 @@ title: "Microsoft and Novell: Hidden Agenda?"
 thumb: pics/noway1.jpg
 ---
 
-<span class="right"><img src="../pics/mslinux.jpg" alt=""/></span>
+![](/pics/mslinux.jpg)
 
 [Microsoft and Novell announced a deal][Deal] at a press-conference held on November 2nd 2006. This is the first time that Microsoft actually is accepting Linux as an even competitor. Furthermore this deal has raised a lot of speculation because Novell only recently took over SuSE (popular Linux distribution from Germany). Also we should not forget that Microsoft did a large amount of lobbying nearly leading to the legalization of software patents in Europe.
 
@@ -36,7 +36,7 @@ openSuSE-users and -developers are even considering switching to <a href="http:/
 
 Here's a funny picture which was posted to the <a href="http://www.suseforums.net/index.php?s=&showtopic=26319&view=findpost&p=140356">SuSE-forum</a>.
 
-<span class="center"><img src="pics/noway1.jpg" alt=""/></span>
-<span class="center"><img src="pics/noway2.jpg" alt=""/></span>
+![](/pics/noway1.jpg)
+![](/pics/noway2.jpg)
 
 [Deal]: http://www.novell.com/news/press/item.jsp?id=1196
