@@ -24,4 +24,3 @@ Let me know if you have any questions.
 [other]: http://confreaks.net/events/rubyconf2009
 [speakerrate]: http://speakerrate.com/talks/1796-computer-vision-using-ruby-and-libjit
 [slideshare]: http://www.slideshare.net/wedesoft/rubyconf09
-
