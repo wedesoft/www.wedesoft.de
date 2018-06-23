@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clojure for Schemers
-thumb: pics/clojure.png
+thumb: /pics/clojure.png
 ---
 
 {% vimeo 22675078 %}
