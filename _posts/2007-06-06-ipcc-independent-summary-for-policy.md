@@ -1,10 +1,10 @@
 ---
 layout: post
 title: IPCC independent summary for policy makers
-image: pics/hockeystick.jpg
+image: /pics/hockeystick.jpg
 ---
 
-<span class="center"><img src="pics/Epica_do18_plot.png" width="508" alt="Vostok and Epica ice core data "/></span>
+<span class="center"><img src="/pics/Epica_do18_plot.png" width="508" alt="Vostok and Epica ice core data "/></span>
 
 The [IPCC] has released its 4th assessment report on climate change. Earlier this year I wrote a [critical article] about the mainstream belief of global warming being caused by anthropogenic greenhouse gases and I don't want to do it again anytime soon. However I want to point out to anyone who is interested in this topic that in the meantime the Fraser Institute has released the [Independent summary for policy makers based on the IPCC report][IIPCC] (full report available as [PDF]).
 

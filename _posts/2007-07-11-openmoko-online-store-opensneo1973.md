@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Openmoko online store opens
-image: pics/neo1973.png
+image: /pics/neo1973.png
 ---
 
 The [Openmoko webstore][Openmoko] has opened now. According to [Linuxdevices] 1000 Neo1973 phones are available initially primarily targeted at developers.
 
-<span class="center"><a href="http://www.openmoko.com/"><img src="pics/neo1973.png" width="391" alt="Picture of Openmoko Neo 1973 phone"/></a></span>
+<span class="center"><a href="http://www.openmoko.com/"><img src="/pics/neo1973.png" width="391" alt="Picture of Openmoko Neo 1973 phone"/></a></span>
 
 The current version of the phone (release GTA01Bv4) costs $300 and has the following [features as shown on the product page][features]:
 

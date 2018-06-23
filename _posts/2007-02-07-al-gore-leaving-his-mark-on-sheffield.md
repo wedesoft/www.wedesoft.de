@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Al Gore leaving his mark on Sheffield
-image: pics/hockeystick.jpg
+image: /pics/hockeystick.jpg
 ---
 
 <span class="center"><img src="/pics/Epica_do18_plot.png" width="508" alt=""/></span>

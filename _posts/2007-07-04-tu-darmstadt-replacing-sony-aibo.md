@@ -1,14 +1,14 @@
 ---
 layout: post
 title: TU Darmstadt replacing Sony Aibo
-image: pics/thenewrobot.jpg
+image: /pics/thenewrobot.jpg
 ---
 
-<span class="center"><a href="http://www.tu-darmstadt.de/presse/bildarchiv/IMG_3125.jpg"><img src="pics/thenewrobot.jpg" width="400" alt=""/></a></span>
+<span class="center"><a href="http://www.tu-darmstadt.de/presse/bildarchiv/IMG_3125.jpg"><img src="/pics/thenewrobot.jpg" width="400" alt=""/></a></span>
 
 For participating in the [Robocup] researchers at the institute for [simulation and systems optimisation] at the [Technical University of Darmstadt] were using [Sony AIBO robots] in their Robocup team called the [Dribbling Dackels]. Sony has discontinued the AIBO project some time ago and finally [Oscar von Stryk] and his team at TU Darmstadt decided to develop a successor for Sony's robot dog. The robot is going to be released on the market end of this year but depending on the demand initially it it will probably only be available for Robocup teams. It took six months to develop the robot in collaboration with the [Hajime Research Institute (Osaka, Japan)][Hajime] which helped out with the mechanical part.
 
-<span class="center"><a href="http://www.tu-darmstadt.de/presse/bildarchiv/IMG_3102.jpg"><img src="pics/robotandaibo.jpg" width="400" alt=""/></a></span>
+<span class="center"><a href="http://www.tu-darmstadt.de/presse/bildarchiv/IMG_3102.jpg"><img src="/pics/robotandaibo.jpg" width="400" alt=""/></a></span>
 
 A [new web-page by TU Darmstadt][Newrobot] gives some more information on the robot:
 
