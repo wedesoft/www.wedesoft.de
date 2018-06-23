@@ -29,7 +29,7 @@ More information on the robot will be available starting from July 7th on the we
 * [Robot dog on Deutschlandradio][DRadio] (german)
 * [Deutschlandradio podcast about robot dog][Podcast] (german)
 * [TU Darmstadt press archive]
-* [Robocup 2007 in Atlanta"]
+* [Robocup 2007 in Atlanta]
 * [Robot featured on linuxdevices.com][Linuxdevices]
 * [Robot featured on Robots.net][Robots.net]
 
