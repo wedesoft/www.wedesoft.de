@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Guru Yogi Ramesh's Laughing Yoga
-thumb: pics/laughingyoga.jpg
+image: /pics/laughingyoga.jpg
 ---
 
 If you would like to feel better, <a href="http://www.universalyoga.org/">Guru Yogi Ramesh</a>'s <a href="http://www.yoga-video-reviews.com/yoga-video-clips/Laughing-yoga.wmv">laughing yoga</a> may prove to be helpful to you!

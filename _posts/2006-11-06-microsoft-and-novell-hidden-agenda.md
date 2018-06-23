@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Microsoft and Novell: Hidden Agenda?"
-thumb: pics/noway1.jpg
+image: /pics/noway1.jpg
 ---
 
 ![](/pics/mslinux.jpg)

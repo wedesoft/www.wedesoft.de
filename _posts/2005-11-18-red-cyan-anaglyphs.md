@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Red-Cyan Anaglyphs
-thumb: pics/knight.jpg
+image: /pics/knight.jpg
 ---
 
 I've made a small anaglyph image (you need red-cyan glasses to watch it) of a plastic figure of a knight and a dragon.
