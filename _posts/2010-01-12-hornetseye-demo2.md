@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: HornetsEye demo video
 image: /pics/hornetseye.jpg
 ---

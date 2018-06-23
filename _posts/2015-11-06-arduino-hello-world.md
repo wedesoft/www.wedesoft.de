@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Arduino hello world
 sort_info: 2015/11/06
 thumb: /pics/arduino.png
@@ -7,6 +8,7 @@ thumb: /pics/arduino.png
 <span class="right"><img src="/pics/arduino.png" width="170" alt=""/></span>
 
 <span class="center"><img src="/pics/arduino-led-off.jpg" width="320" alt=""/></span>
+
 <span class="center"><img src="/pics/arduino-led-on.jpg" width="320" alt=""/></span>
 
 Using an [Arduino][1] board with a GNU/Linux personal computer has become [pretty straightforward][3].

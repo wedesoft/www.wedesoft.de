@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Developing machine vision software with Ruby instead of C/C++
 image: /pics/otsuout.png
 ---

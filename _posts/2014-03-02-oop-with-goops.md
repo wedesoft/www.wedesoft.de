@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: OOP with GNU Guile and GOOPS
 sort_info: 2014/03/02
 thumb: /pics/guile.png

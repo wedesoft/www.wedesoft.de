@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Implement an Interpreter using Bison, Flex, and Automake
 thumb: /pics/gnu.jpg
 ---

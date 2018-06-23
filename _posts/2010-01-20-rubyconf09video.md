@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Video of RubyConf 2009 presentation about computer vision
 image: /pics/rubyconf09video.jpg
 ---
