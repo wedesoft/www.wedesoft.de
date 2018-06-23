@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Lucas-Kanade tracker
-thumb: pics/lucaskanade.jpg
+image: /pics/lucaskanade.jpg
 ---
 
 {% youtube "http://www.youtube.com/watch?v=8VbylCRn3iI" %}

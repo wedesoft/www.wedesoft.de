@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mesa3D (OpenGL) and MinGW
-image: pics/gears.png
+image: /pics/gears.png
 ---
 
 <span class="right"><img src="/pics/gears.png" width="146" alt=""/></span>
