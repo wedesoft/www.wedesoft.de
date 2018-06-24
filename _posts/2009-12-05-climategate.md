@@ -14,7 +14,7 @@ The Corbett Report interviewed Dr. Tim Ball about the Climategate scandal.
 
 In the following report (which I found in a comment [here][2]) Rex Murphy notices that this could be an opportunity for the scientific community to get rid of global players and policy makers and restore the principles of proper scientific conduct.
 
-{% youtube "http://www.youtube.com/watch?v=lgIEQqLokL8" %}
+{% youtube "http://www.youtube.com/watch?v=s_Dc8_SdCNc" %}
 
 In the video [Climate Catastrophe Cancelled][4] from 2007 a scene is shown where Tim Patterson speaks in front of a government panel in Canada warning them that "science and politics have become disconnected" and that we are going to end up "sending billions of dollars in the wrong direction".
 
