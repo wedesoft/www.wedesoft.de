@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Counting sheep
+category: humor
 image: /pics/17_08_2007_0331008001187345402_andy_glass.jpg
 ---
 

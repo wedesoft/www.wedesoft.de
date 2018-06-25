@@ -1,6 +1,7 @@
 ---
 layout: post
 title: And God said ...
+category: humor
 image: /pics/light.gif
 ---
 

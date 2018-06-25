@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Hunt for Gollum
+category: movie
 image: /pics/huntforgollum.jpg
 ---
 

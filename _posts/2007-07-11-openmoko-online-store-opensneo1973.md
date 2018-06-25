@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Openmoko online store opens
+category: technology
 image: /pics/neo1973.png
 ---
 

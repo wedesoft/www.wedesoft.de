@@ -2,7 +2,7 @@
 layout: post
 title: Graph colouring
 category: software
-image: pics/graphc.png
+image: /pics/graphc.png
 ---
 
 Currently I am looking into [register allocation using graph colouring][1]

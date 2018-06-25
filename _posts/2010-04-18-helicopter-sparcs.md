@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Flying in sand 
-thumb: /pics/helicopter-sparcs.jpg
+title: Flying in sand
+category: science
+image: /pics/helicopter-sparcs.jpg
 ---
 
 If you are worried about the ash cloud of the current volcano eruption of Iceland, just think about more severe situations such as helicopter landings in the desert. Sand is essentially hard glass (and it melts in turbines of aircrafts leaving a nasty residue). Here's a video of a helicopter landing in Kuwait.

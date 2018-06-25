@@ -8,7 +8,7 @@ image: /pics/debian9.png
 **[Debian][debian]** is a software libre operating system for personal computers.
 The new *[Debian Stretch (9)][stretch]* distribution of *GNU/Linux* is the first *Debian* release to include the new [KDE Plasma 5][plasma] desktop.
 
-<span class="center"><a href="pics/debian-kde-plasma.png"><img src="pics/debian-kde-plasma.png" width="508" alt="Debian Stretch (9) with KDE Plasma 5.8"/></a></span>
+<span class="center"><a href="/pics/debian-kde-plasma.png"><img src="/pics/debian-kde-plasma.png" width="508" alt="Debian Stretch (9) with KDE Plasma 5.8"/></a></span>
 
 * Download the [ISO image][iso] from the [non-free section][nonfree] of the Debian file server.
   The *non-free* installation medium contains proprietary firmware and drivers for WiFi adapters and graphics cards where the manufacturer has not released a free software driver.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Red-Cyan Anaglyphs
+category: technology
 image: /pics/knight.jpg
 ---
 

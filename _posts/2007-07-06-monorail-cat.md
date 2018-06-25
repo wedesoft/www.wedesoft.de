@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Monorail Cat
+category: humor
 image: /pics/monorailcat.jpg
 ---
 

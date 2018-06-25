@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Openmoko discontinued?
+category: technology
 image: /pics/planb.jpg
 ---
 

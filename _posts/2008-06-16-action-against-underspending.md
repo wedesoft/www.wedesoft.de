@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Action against underspending
+category: humor
 image: /pics/equipmentmoney.jpg
 ---
 
