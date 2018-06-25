@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Graph colouring
+category: software
 image: pics/graphc.png
 ---
 

@@ -1,11 +1,8 @@
 ---
 layout: post
 title: Background Replacement
+category: ai
 image: /pics/bgreplace.jpg
-sort_info: 2011/07/11
-in_menu: false
-news: true
-sidebar: "New Computer Vision Podcast!"
 ---
 
 {% youtube "http://www.youtube.com/watch?v=POn5KofPI38" %}

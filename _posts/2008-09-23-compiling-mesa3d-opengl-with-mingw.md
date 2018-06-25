@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mesa3D (OpenGL) and MinGW
+category: software
 image: /pics/gears.png
 ---
 

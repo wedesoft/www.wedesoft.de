@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Chequerboard Corner Detection
+category: ai
 image: /pics/grid.jpg
 ---
 <p style="text-align:center"><iframe id="ytplayer" type="text/html" width="508" height="406" allowfullscreen="allowfullscreen" src="http://www.youtube.com/embed/TmNVErH-yDI" frameborder="0">You need to enable IFrames to display this video.</iframe></p>

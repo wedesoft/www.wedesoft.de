@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Implement an Interpreter using Bison, Flex, and Automake
-thumb: /pics/gnu.jpg
+category: software
+image: /pics/gnu.jpg
 ---
 
 This is a small example on how to implement an interpreter using [Flex][1], [Bison][2] (formerly known as Yacc), and the [Autotools][3]. The example is based on [Ben Reichard's course material][4].

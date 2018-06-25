@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Android Hello World
+category: android
 image: /pics/android.png
 ---
 

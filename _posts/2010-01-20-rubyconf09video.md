@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Video of RubyConf 2009 presentation about computer vision
+category: ruby
 image: /pics/rubyconf09video.jpg
 ---
 I gave a talk titled <b>Computer vision using Ruby and libJIT</b> at the [RubyConf] 2009 in San Francisco. [Confreaks] has provided the video now.

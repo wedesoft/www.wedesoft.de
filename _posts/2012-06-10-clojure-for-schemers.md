@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Clojure for Schemers
+category: software
 thumb: /pics/clojure.png
 ---
 

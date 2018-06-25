@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Arduino hello world
-sort_info: 2015/11/06
-thumb: /pics/arduino.png
+category: arduino
+image: /pics/arduino.png
 ---
 
 <span class="right"><img src="/pics/arduino.png" width="170" alt=""/></span>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Battle Isle
+category: game
 image: /pics/battleisle.png
 ---
 

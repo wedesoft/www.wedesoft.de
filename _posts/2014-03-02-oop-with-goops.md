@@ -1,8 +1,8 @@
 ---
 layout: post
 title: OOP with GNU Guile and GOOPS
-sort_info: 2014/03/02
-thumb: /pics/guile.png
+category: software
+image: /pics/guile.png
 ---
 
 Having worked with the Ruby programming language for many years I started to get

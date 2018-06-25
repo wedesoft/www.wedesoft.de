@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MEncoder options
+category: software
 image: /pics/mplayer.png
 ---
 <span class="center"><img src="/pics/mplayer.png" width="240" alt="MPlayer and MEncoder"/></span>

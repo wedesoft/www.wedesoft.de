@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Racket on Android
+category: android
 image: /pics/racket.png
 ---
 

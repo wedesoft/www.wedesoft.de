@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Patent Absurdity
+category: politics
 image: /pics/patentabsurdity.png
 ---
 

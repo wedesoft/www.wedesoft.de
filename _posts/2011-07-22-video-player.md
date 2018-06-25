@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ruby Video Player
+category: ruby
 image: /pics/sintel.jpg
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: TU Darmstadt replacing Sony Aibo
+category: robot
 image: /pics/thenewrobot.jpg
 ---
 
