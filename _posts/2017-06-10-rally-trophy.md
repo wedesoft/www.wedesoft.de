@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rally Trophy rally driving game
+category: simulation
 image: /pics/rallytrophy.jpg
 ---
 

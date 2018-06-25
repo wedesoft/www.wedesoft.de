@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Broken Tonight
+category: music
 image: /pics/brokentonight.jpg
 ---
 

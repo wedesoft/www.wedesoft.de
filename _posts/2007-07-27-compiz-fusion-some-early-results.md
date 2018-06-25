@@ -2,6 +2,7 @@
 layout: post
 title: Compiz Fusion - Some early results
 image: /pics/compizfusion.jpg
+category: os
 ---
 
 After a lot of work to merge the free software projects [Beryl] and [Compiz] here are some early results of the new plugin manager called [Compiz Fusion]. The video is really impressive:

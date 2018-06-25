@@ -2,6 +2,7 @@
 layout: post
 title: Hornetseye-0.20 released
 image: /pics/hornetseye.jpg
+category: ai
 ---
 
 I have released version 0.20 of the [Ruby] extension [HornetsEye]. The new release comes with an  implementation of the Dual-Tree Hypercomplex Wavelet Transform. The DHWT is useful for filtering 2-D signals.

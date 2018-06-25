@@ -2,6 +2,7 @@
 layout: post
 title: TIE Fighter flight simulator
 image: /pics/tie.png
+category: game
 ---
 
 <span class="center"><a href="/pics/tie.png" alt="TIE Fighter"><img src="/pics/tie.png" width="384" alt="TIE Fighter"/></a></span>

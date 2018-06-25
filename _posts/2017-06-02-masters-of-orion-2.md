@@ -2,6 +2,7 @@
 layout: post
 title: Masters of Orion II
 image: /pics/moo2.png
+category: game
 ---
 
 <span class="center"><a href="/pics/moo2.png" alt="Masters of Orion II"><img src="/pics/moo2.png" width="384" alt="Masters of Orion II"/></a></span>

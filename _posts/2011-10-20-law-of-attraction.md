@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Law of attraction
+category: life
 image: /pics/bs.png
 ---
 

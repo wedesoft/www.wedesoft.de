@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Microsoft and Novell: Hidden Agenda?"
+category: politics
 image: /pics/noway1.jpg
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Kubuntu and Vista on HP laptop
+category: os
 image: /pics/nx7400.jpg
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sainsmart 6-dof robot arm
+category: robot
 image: /pics/sainsmart.jpg
 ---
 

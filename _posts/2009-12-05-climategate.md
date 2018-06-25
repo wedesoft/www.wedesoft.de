@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Climategate casts shadow on IPCC
+category: politics
 image: /pics/hockeystick.jpg
 ---
 

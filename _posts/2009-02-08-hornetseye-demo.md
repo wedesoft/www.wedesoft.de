@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HornetsEye demo video
+category: ai
 image: /pics/hornetseye.jpg
 ---
 

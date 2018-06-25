@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Free software robotic arm
+category: robot
 image: /pics/katana_tux.jpg
 ---
 Industrial robotics still is dominated by proprietary "off-the-shelf"

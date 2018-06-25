@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Debian Stretch
+category: os
 image: /pics/debian9.png
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Time Tracking
+category: life
 image: /pics/clock.jpg
 ---
 I recently read an [interesting article about time tracking by Sebastian Marshall][trackpost]. There are also [two videos about time tracking][trackvideo] by the same author. To quote from the website:

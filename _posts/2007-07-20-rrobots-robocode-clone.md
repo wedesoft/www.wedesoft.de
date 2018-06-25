@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RRobots - Robocode clone
+category: robot
 image: /pics/rrobots.png
 ---
 

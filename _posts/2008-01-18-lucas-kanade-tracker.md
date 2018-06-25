@@ -2,6 +2,7 @@
 layout: post
 title: Lucas-Kanade tracker
 image: /pics/lucaskanade.jpg
+category: ai
 ---
 
 {% youtube "http://www.youtube.com/watch?v=8VbylCRn3iI" %}

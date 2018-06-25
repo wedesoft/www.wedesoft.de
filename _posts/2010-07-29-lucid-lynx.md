@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Kubuntu 10.04
+category: os
 image: /pics/lucid.jpg
 ---
 

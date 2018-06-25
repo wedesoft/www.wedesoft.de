@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Guru Yogi Ramesh's Laughing Yoga
+category: life
 image: /pics/laughingyoga.jpg
 ---
 

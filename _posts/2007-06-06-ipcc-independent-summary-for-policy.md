@@ -1,6 +1,7 @@
 ---
 layout: post
 title: IPCC independent summary for policy makers
+category: politics
 image: /pics/hockeystick.jpg
 ---
 

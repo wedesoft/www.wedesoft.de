@@ -1,11 +1,8 @@
 ---
 layout: post
 title: Tauss leaves social democratic party over censorship row
-thumb: /pics/leyenhaft_neu1.jpg
-sort_info: 2009/06/21
-in_menu: false
-news: true
-sidebar: "Jörg Tauss opposes German internet censorship infrastructure"
+image: /pics/leyenhaft_neu1.jpg
+category: politics
 ---
 
 {% youtube "http://www.youtube.com/watch?v=DwuZS8H4k2w" %}

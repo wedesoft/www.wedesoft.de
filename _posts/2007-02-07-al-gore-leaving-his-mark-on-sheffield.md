@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Al Gore leaving his mark on Sheffield
+category: politics
 image: /pics/hockeystick.jpg
 ---
 

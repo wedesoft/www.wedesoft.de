@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Developing machine vision software with Ruby instead of C/C++
+category: ai
 image: /pics/otsuout.png
 ---
 

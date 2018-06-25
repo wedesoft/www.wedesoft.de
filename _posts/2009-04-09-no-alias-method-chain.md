@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Avoiding alias_method_chain in Ruby
+category: ruby
 image: /pics/rails-refactor.png
 ---
 

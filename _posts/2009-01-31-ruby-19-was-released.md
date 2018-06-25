@@ -2,10 +2,7 @@
 layout: post
 title: Ruby 1.9 was released
 image: /pics/ruby-logo.png
-sort_info: 2009/01/31
-in_menu: false
-news: true
-sidebar: "Ruby 1.9 brings native threads, fibers, and Unicode support"
+category: ruby
 ---
 
 <span class="right"><img src="/pics/ruby-logo.png" width="50" alt=""/></span>

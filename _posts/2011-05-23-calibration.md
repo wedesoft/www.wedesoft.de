@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Camera Calibration
+category: ai
 image: /pics/calibration.png
 ---
 

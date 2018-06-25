@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Obama speech at National Archives
+category: politics
 image: /pics/securityvalues_blog_PS-0238.jpg
 ---
 
