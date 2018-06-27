@@ -28,7 +28,7 @@ The text can be *italic* or **bold**.
 
 <ins>inserted text</ins>
 
-Superscript<sub>text</sub>
+Text with <sub>subscript</sub> and <sup>superscript</sup>
 
 Horizontal line
 
