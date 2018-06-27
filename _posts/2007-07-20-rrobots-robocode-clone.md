@@ -12,8 +12,7 @@ I just stumbled upon [RRobots]. [RRobots] is a [C-Robots]/[Robocode] clone writt
 Since the programming language is Ruby, no compilation or linking is required. When you've finished coding the robot, you are ready to go. The software makes use of a set of images (turret, body, radar with different orientations, explosions). Amazingly the whole software including graphical visualisation, simulation, and mixin-code for the robots is only 835 lines of code. It uses Ruby-Tk for visualisation. Up to 8 robots can participate in a tournament.
 
 {% highlight shell %}
-ruby rrobots.rb bots/SniperDuck.rb bots/SporkBot.rb \
-  bots/ShootingStation.rb bots/MsgBot.rb
+ruby rrobots.rb bots/SniperDuck.rb bots/SporkBot.rb bots/ShootingStation.rb bots/MsgBot.rb
 {% endhighlight %}
 
 You can download a [self-extracting archive with lots of robots][RobotPack] from the [robots forum].
