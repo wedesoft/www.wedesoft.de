@@ -3,13 +3,13 @@ layout: post
 title: Arduino hello world
 category: arduino
 image: /pics/arduino.png
+jsarr:
+- flip.js
 ---
 
 <span class="right"><img src="/pics/arduino.png" width="170" alt=""/></span>
 
-<span class="center"><img src="/pics/arduino-led-off.jpg" width="320" alt=""/></span>
-
-<span class="center"><img src="/pics/arduino-led-on.jpg" width="320" alt=""/></span>
+<span class="center"><img id="flip" src="/pics/arduino-led-off.jpg" width="320" alt=""/></span>
 
 Using an [Arduino][1] board with a GNU/Linux personal computer has become [pretty straightforward][3].
 The following command will install the required software:
