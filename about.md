@@ -3,6 +3,10 @@ layout: page
 title: About
 ---
 
+Hi, I am a computer scientist with specialisation in robotics, compiler construction, and software engineering.
+My interest include computer vision, simulation, and advanced programming languages.
+I also play the harmonica.
+
 <table cellspacing="0" cellpadding="2" border="0">
   <tr><td colspan="4" align="left"><h2>Job</h2></td></tr>
   <tr valign="top">
