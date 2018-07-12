@@ -4,7 +4,8 @@ title: Chequerboard Corner Detection
 category: ai
 image: /pics/grid.jpg
 ---
-<p style="text-align:center"><iframe id="ytplayer" type="text/html" width="508" height="406" allowfullscreen="allowfullscreen" src="http://www.youtube.com/embed/TmNVErH-yDI" frameborder="0">You need to enable IFrames to display this video.</iframe></p>
+
+{% youtube "https://www.youtube.com/watch?v=TmNVErH-yDI" %}
 
 Camera calibration is a fundamental problem in computer vision. In the third episode of the **Computer Vision for the Robotic Age podcast** I am demonstrating a robust algorithm for identifying the corners of a chequerboard pattern. Identifying the corners of a calibration grid is the initial step for camera calibration.
 

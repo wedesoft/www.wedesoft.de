@@ -32,7 +32,8 @@ cd ..
 </ul>
 
 Here's a gameplay video of the Amiga version of the game.
-<p style="text-align:center"><iframe id="ytplayer" type="text/html" width="508" height="344" allowfullscreen="allowfullscreen" src="http://www.youtube.com/embed/UFc1kTU9tqg" frameborder="0">You need to enable IFrames to display this video.</iframe></p>
+
+{% youtube "https://www.youtube.com/watch?v=UFc1kTU9tqg" %}
 
 **See also:**
 
