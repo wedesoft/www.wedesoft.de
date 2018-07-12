@@ -82,7 +82,7 @@ Here's a nice example of a dual-screen desktop running the same *Kubuntu* versio
 [Kubuntu]: http://www.kubuntu.org/
 [Network]: http://ubuntuforums.org/showthread.php?t=1475230
 [Network2]: https://bugs.launchpad.net/ubuntu/+source/plasma-widget-networkmanagement/+bug/465591
-[Compaq]: http://www.wedesoft.de/kubuntu-and-vista-on-hp-laptop.html
+[Compaq]: http://www.wedesoft.de/os/2007/08/02/kubuntu-and-vista-on-hp-laptop/
 [msn-pecan]: http://code.google.com/p/msn-pecan/
 [trash]: http://osdir.com/ml/kubuntu-users/2010-05/msg00204.html
 [Debian]: http://www.debian.org/

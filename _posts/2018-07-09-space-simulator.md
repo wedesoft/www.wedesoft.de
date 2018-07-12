@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Steps towards a space simulator
-category: software
+category: simulation
 ---
 
 I am quite interested in how simulators such as the [Orbiter space simulator][3] are implemented.
@@ -25,6 +25,14 @@ Planetary bodies, spacecraft, and other non-convex objects could be handled by d
 It would also be interesting to integrate soft body physics as shown in [Rigs of Rods][6].
 However the accuracy of Rigs of Rods is not sufficiently high for space simulation.
 *E.g.* an object tumbling in space would not preserve its momentum.
+
+#### Update:
+
+In the following examples, dynamic Coloumb friction with the ground is simulated.
+
+{% youtube "https://www.youtube.com/watch?v=hOupSx5l4lA" %}
+
+{% youtube "https://www.youtube.com/watch?v=6sYDN3NfjwI" %}
 
 [1]: https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 [2]: https://people.eecs.berkeley.edu/~jfc/mirtich/thesis/mirtichThesis.pdf
