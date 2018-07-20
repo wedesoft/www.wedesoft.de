@@ -5,10 +5,10 @@ category: simulation
 ---
 
 I am quite interested in how simulators such as the [Orbiter space simulator][3] are implemented.
-Given a rigid object one can determine the [moments of inertia][4].
-Without any forces acting on the object, the rotational moment does not change.
+A spacecraft can be seen as a rigid object with a [moments of inertia][4] tensor.
+Without any forces acting on the object, the rotational moment of the object does not change.
 In general the moments of inertia tensor causes the direction of the rotation vector to be different at each point in time even if the rotational moment is not changing.
-This motion can be numerically simulated using a higher order integration method such as the [4th order Runge-Kutta method][1].
+This motion can be numerically simulated using a higher order integration method such as [4th order Runge-Kutta][1].
 Here is a video showing the resulting simulation of a cuboid tumbling in space:
 
 {% youtube "https://www.youtube.com/watch?v=haQ-HNBmahw" %}
