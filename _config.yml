@@ -30,4 +30,4 @@ plugins:
 
 liquid_latex:
   debug: false
-  density: 100
+  density: 120
