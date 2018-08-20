@@ -34,7 +34,7 @@ where
 $M(A, B)\coloneqq\{\vec{a}-\vec{b}|\vec{a}\in A, \vec{b}\in B\}$
 {% endlatex %}
 
-The *GJK* algorithm iteratively updates a simplex until the two closest point to the origin is found.
+The *GJK* algorithm iteratively updates a simplex until the closest point to the origin is found.
 
 The algorithm iterates using support points.
 Given a set *M* and a vector *d*, the support point is defined as the furthest point of *M* in direction *d*:
@@ -50,7 +50,7 @@ The *GJK* algorithm detects the two closest points of *A* and *B* as follows:
 1. Let *d* be the closest point of *w<sub>k</sub>* to the origin.
 1. If *d s(w<sub>k</sub>, -d)>=d s(M,-d)* then return *d*.
 1. Set *w'<sub>k+1</sub>=w<sub>k</sub>∪{s(M,-d)}*
-1. Set *w<sub>k+1</sub>* to the smallest simplex in *w'<sub>k+1</sub>* still containing *s(M,d)*.
+1. Set *w<sub>k+1</sub>* to the smallest simplex in *w'<sub>k+1</sub>* still containing *s(M,-d)*.
 
 Note that step 3 requires finding the closest point of the simplex *w<sub>k</sub>* to the origin.
 Most implementations of the *GJK* algorithm seem to use the following approach:
@@ -67,13 +67,13 @@ A much more compact implementation can be obtained using a divide-and-conquer ap
 {% latex usepackages=amsmath,txfonts %}
 $\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\underbrace{\begin{pmatrix}w_{k1}-w_{k0} & w_{kn}-w_{k0}\end{pmatrix}}_{\eqqcolon\mathcal{H}}\vec{t}-\underbrace{w_{k0}}_{\eqqcolon b}||$
 {% endlatex %}
-* If all *t<sub>i</sub>>=0* and *t<sub>1</sub>+t<sub>2</sub>+...+t<sub>n</sub><=1*, then *w<sub>k0</sub>+Ht* is the closest point.
+* If all *t<sub>i</sub>>=0* and *t<sub>1</sub>+t<sub>2</sub>+...+t<sub>n</sub><=1* (or *n=0*), then *w<sub>k0</sub>+Ht* is the closest point.
 * Otherwise take the closest point of all sub-simplices with *n-1* dimensions using the approach above (*i.e.* recursion).
 
 Note that this approach will visit each edge up to two times, and each point up to three times.
 The performance is not optimal, but it makes for a much more concise implementation.
 
-Note that the least squares solution is:
+The least squares solution is:
 
 {% latex usepackages=amsmath %}
 $\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\mathcal{H}\vec{t}-\vec{b}||=(\mathcal{H}^\top\mathcal{H})^{-1}\mathcal{H}^\top\vec{b}$
@@ -248,6 +248,10 @@ By using pairs of points from *A* and *B* instead of the Minkowski difference, o
           (set! simplex-a (cadr result))
           (set! simplex-b (cddr result)))))))
 {% endhighlight %}
+
+Here an example of two colliding cuboids simulated using this implementation is shown:
+
+{% youtube "https://www.youtube.com/watch?v=cypRZzhfXnE" %}
 
 Any feedback, comments, and suggestions are welcome.
 
