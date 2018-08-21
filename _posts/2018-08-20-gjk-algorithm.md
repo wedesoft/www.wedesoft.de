@@ -51,6 +51,7 @@ The *GJK* algorithm detects the two closest points of *A* and *B* as follows:
 1. If *d s(w<sub>k</sub>, -d)>=d s(M,-d)* then return *d*.
 1. Set *w'<sub>k+1</sub>=w<sub>k</sub>∪{s(M,-d)}*
 1. Set *w<sub>k+1</sub>* to the smallest simplex in *w'<sub>k+1</sub>* still containing *s(M,-d)*.
+1. Continue with step 3.
 
 Note that step 3 requires finding the closest point of the simplex *w<sub>k</sub>* to the origin.
 Most implementations of the *GJK* algorithm seem to use the following approach:
@@ -65,7 +66,7 @@ A much more compact implementation can be obtained using a divide-and-conquer ap
 * Let *w<sub>k</sub>={w<sub>k0</sub>,w<sub>k1</sub>,...,w<sub>kn</sub>}*
 * Solve the least squares equation system
 {% latex usepackages=amsmath,txfonts %}
-$\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\underbrace{\begin{pmatrix}w_{k1}-w_{k0} & w_{kn}-w_{k0}\end{pmatrix}}_{\eqqcolon\mathcal{H}}\vec{t}-\underbrace{w_{k0}}_{\eqqcolon b}||$
+$\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\underbrace{\begin{pmatrix}w_{k1}-w_{k0} & \cdots & w_{kn}-w_{k0}\end{pmatrix}}_{\eqqcolon\mathcal{H}}\vec{t}-\underbrace{w_{k0}}_{\eqqcolon b}||$
 {% endlatex %}
 * If all *t<sub>i</sub>>=0* and *t<sub>1</sub>+t<sub>2</sub>+...+t<sub>n</sub><=1* (or *n=0*), then *w<sub>k0</sub>+Ht* is the closest point.
 * Otherwise take the closest point of all sub-simplices with *n-1* dimensions using the approach above (*i.e.* recursion).
