@@ -258,4 +258,8 @@ Any feedback, comments, and suggestions are welcome.
 
 Enjoy!
 
+**Update:**
+
+I noticed that Baraff just uses a [separating plane algorithm](https://www.cs.cmu.edu/~baraff/sigcourse/notesd2.pdf) to achieve the same!
+
 [1]: https://en.wikipedia.org/wiki/Gilbert%E2%80%93Johnson%E2%80%93Keerthi_distance_algorithm
