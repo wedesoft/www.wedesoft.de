@@ -20,7 +20,7 @@ paginate:         5
 
 # Custom vars
 github:
-  repo:           https://github.com/wedesoft/hyde
+  repo:           https://github.com/wedesoft/www.wedesoft.de
 
 plugins:
   - jekyll-paginate
