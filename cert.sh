@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo certbot certonly --standalone --preferred-challenges http
+sudo certbot certonly --manual --preferred-challenges http
