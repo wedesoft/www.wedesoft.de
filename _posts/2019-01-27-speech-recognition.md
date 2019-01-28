@@ -20,5 +20,10 @@ The training took seven hours on a CPU.
 The sequence-to-one setting handles words of different lengths gracefully.
 The resulting example is more minimalistic than the [Tensorflow audio recognition example][2].
 
+## See also:
+* [Voice recording code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-record.scm)
+* [Training code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-train.scm)
+* [Voice recognition code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-run.scm)
+
 [1]: https://en.wikipedia.org/wiki/Long_short-term_memory
 [2]: https://www.tensorflow.org/tutorials/sequences/audio_recognition
