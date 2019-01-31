@@ -20,6 +20,10 @@ The training took seven hours on a CPU.
 The sequence-to-one setting handles words of different lengths gracefully.
 The resulting example is more minimalistic than the [Tensorflow audio recognition example][2].
 
+In the following video the speech recognition is used to control a robot.
+
+{% youtube "https://www.youtube.com/watch?v=xufw3JYK3U8" %}
+
 ## See also:
 * [Voice recording code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-record.scm)
 * [Training code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-train.scm)
