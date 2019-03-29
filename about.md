@@ -16,6 +16,12 @@ I also play the harmonica.
     </td>
   </tr>
   <tr valign="top">
+    <td align="right">3/2019</td><td/><td/>
+    <td>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/G5UXDAPH9DUA">Deep Learning Specialization</a> by Coursera.
+    </td>
+  </tr>
+  <tr valign="top">
     <td align="right">11/2017</td><td/><td/>
     <td>
       Roke excellence awards 2017: Silver project team of the year
