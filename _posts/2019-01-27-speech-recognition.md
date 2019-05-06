@@ -24,10 +24,5 @@ In the following video the speech recognition is used to control a robot.
 
 {% youtube "https://www.youtube.com/watch?v=xufw3JYK3U8" %}
 
-## See also:
-* [Voice recording code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-record.scm)
-* [Training code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-train.scm)
-* [Voice recognition code](https://github.com/wedesoft/aiscm/blob/master/tests/integration/voice-run.scm)
-
 [1]: https://en.wikipedia.org/wiki/Long_short-term_memory
 [2]: https://www.tensorflow.org/tutorials/sequences/audio_recognition
