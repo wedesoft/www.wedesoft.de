@@ -19,7 +19,7 @@ The background noise was cycled randomly and words were inserted with random len
 The network was trained to output the word label 10 times after recognising a word.
 The training took about one hour on a CPU.
 The resulting example is more minimalistic than the [Tensorflow audio recognition example][2].
-The algorithm is very similar to an example exercise of Andrew Ng's [Deep learning specialization][3].
+The algorithm is very similar to an exercise in Andrew Ng's [Deep learning specialization][3].
 
 [1]: https://en.wikipedia.org/wiki/Gated_recurrent_unit
 [2]: https://www.tensorflow.org/tutorials/sequences/audio_recognition
