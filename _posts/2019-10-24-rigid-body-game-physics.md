@@ -96,6 +96,8 @@ Using *h=Δt* the numerical integration for a time step can be performed using t
 \end{equation*}
 {% endlatex %}
 
+Using time-stepping with *F=0* and *τ=0* one can simulate an object tumbling in space.
+
 ![Tumble](/pics/tumble.gif)
 
 [1]: http://myselph.de/gamePhysics/
