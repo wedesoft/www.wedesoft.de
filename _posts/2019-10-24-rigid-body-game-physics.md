@@ -85,7 +85,7 @@ $\dot{y} = f(t, y)$
 {% endlatex %}
 Using *h=Δt* the numerical integration for a time step can be performed using the [Runge-Kutta method][4]:
 {% latex usepackages=amsmath %}
-\begin{equation}
+\begin{equation*}
   \begin{split}
     y^{t+h} &= y^t + \frac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4)\\
     k_1 &= h f(t, y^t)\\
@@ -93,7 +93,7 @@ Using *h=Δt* the numerical integration for a time step can be performed using t
     k_3 &= h f(t + \frac{h}{2}, y^t + \frac{k_2}{2})\\
     k_4 &= h f(t + h, y^t + k_3)
   \end{split}
-\end{equation}
+\end{equation*}
 {% endlatex %}
 
 ![Tumble](/pics/tumble.gif)
