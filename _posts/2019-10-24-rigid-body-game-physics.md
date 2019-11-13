@@ -73,7 +73,7 @@ Note that the vectors get converted to quaternion and back implicitely.
 
 According to David Hammen, the Newton-Euler equation [can be used unmodified in the world inertial frame][5].
 
-## The Runge-Kutta method
+## The Runge-Kutta Method
 The different properties of the rigid body can be stacked in a state vector *y* as follows.
 {% latex usepackages=amsmath %}
 \setcounter{MaxMatrixCols}{20}
@@ -92,6 +92,24 @@ Using *h=Δt* the numerical integration for a time step can be performed using t
     k_2 &= h f(t + \frac{h}{2}, y^t + \frac{k_1}{2})\\
     k_3 &= h f(t + \frac{h}{2}, y^t + \frac{k_2}{2})\\
     k_4 &= h f(t + h, y^t + k_3)
+  \end{split}
+\end{equation*}
+{% endlatex %}
+
+The Runge-Kutta algorithm can also be formulated using a function which instead of derivatives returns infitesimal changes
+{% latex %}
+$y^{t+h} - y^t = f(t, h, y)$
+{% endlatex %}
+
+The Runge-Kutta formula then becomes
+{% latex usepackages=amsmath %}
+\begin{equation*}
+  \begin{split}
+    y^{t+h} &= y^t + \frac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4)\\
+    k_1 &= f(t, h, y^t)\\
+    k_2 &= f(t + \frac{h}{2}, h, y^t + \frac{k_1}{2})\\
+    k_3 &= f(t + \frac{h}{2}, h, y^t + \frac{k_2}{2})\\
+    k_4 &= f(t + h, h, y^t + k_3)
   \end{split}
 \end{equation*}
 {% endlatex %}
