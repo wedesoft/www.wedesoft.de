@@ -4,8 +4,8 @@ title: Rigid body game physics 2
 category: simulation
 ---
 
-The following article is heavily based on [Hubert Eichner's article on equality constraints][1] and concrete examples for joint types
-can be found in [Kenny Erleben's PhD thesis][2].
+The following article is heavily based on [Hubert Eichner's article on equality constraints][1].
+The math for the joint types was taken from [Kenny Erleben's PhD thesis][2].
 
 ## Constraint Impulses
 A constraint between two objects is specified as a multi-dimensional function *C(q(t))*.
@@ -72,12 +72,12 @@ At the anchor point of the joint the speed of the two rigid bodies must be the s
 {% latex %}
 $v_i+\omega_i\times R(q_i)r^i_{anc}-v_j-\omega_j\times R(q_j)r^j_{anc}=\vec{0}$
 {% endlatex %}
-Thus the components of *J* are
+Thus the linear components of *J* are
 {% latex usepackages=amsmath %}
 $J^i_{lin}=\begin{pmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{pmatrix}$,
 $J^j_{lin}=\begin{pmatrix} -1 & 0 & 0\\ 0 & -1 & 0\\ 0 & 0 & -1 \end{pmatrix}$
 {% endlatex %}
-and
+and the angular components of *J* are
 {% latex usepackages=amsmath %}
 $J^i_{ang}=-(R(q_i)r^i_{anc})^\times$,
 $J^j_{ang}=(R(q_j)r^j_{anc})^\times$
@@ -90,6 +90,57 @@ The correcting vector *b* simply corrects for the offset at the anchor point.
 {% latex %}
 $b = r_i+R(q_i)r_{anc}^i - r_j - R(q_j)r_{anc}^j$
 {% endlatex %}
+
+### Hinge Joint
+A hinge joint has the constraints of the ball-in-socket joint and two additional angular constraints.
+I.e. there are five constraints altogether.
+{% latex usepackages=amsmath %}
+$J^i_{lin}=\begin{pmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{pmatrix}$,
+$J^j_{lin}=\begin{pmatrix} -1 & 0 & 0\\ 0 & -1 & 0\\ 0 & 0 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{pmatrix}$
+{% endlatex %}
+The rotation axis in world coordinates can be computed from the average of the two rotated axes
+which should be coinciding under ideal circumstances.
+{% latex %}
+$s=\frac{1}{2}(R(q_i)s_i+R(q_j)s_j)$
+{% endlatex %}
+
+The relative rotation of the two rigid bodies must be parallel to the axis *s* of the hinge.
+Given two vectors *t1* and *t2* orthogonal to the rotation axis of the hinge joint,
+the two additional constraints are:
+{% latex %}
+$t_1 (\omega_i - \omega_j) = 0$ and $t_2 (\omega_i - \omega_j) = 0$
+{% endlatex %}
+Therefore the angular parts of the Jacobian are
+{% latex usepackages=amsmath %}
+$J^i_{ang}=\begin{pmatrix} -(R(q_i)r^i_{anc})^\times \\ t_1^\top \\ t_2^\top \end{pmatrix}$,
+$J^j_{ang}=\begin{pmatrix} (R(q_j)r^j_{anc})^\times \\ -t_1^\top \\ -t_2^\top \end{pmatrix}$
+{% endlatex %}
+
+The error *u* of axis misalignment is the cross product of the two rotated axes.
+{% latex %}
+$u=(R(q_i)s_i)\times (R(q_j)s_j)$
+{% endlatex %}
+The error *u* is orthogonal to the rotation axis *s*.
+It is projected onto the vectors *t1* and *t2* when computing the correction vector *b*:
+{% latex usepackages=amsmath %}
+$b=\begin{pmatrix} r_i+R(q_i)r_{anc}^i - r_j - R(q_j)r_{anc}^j\\ t_1 u \\ t_2 u \end{pmatrix}$
+{% endlatex %}
+
+See [Kenny Erleben's PhD thesis][2] for these and other types of joints
+(slider joint, hinge-2 joint, universal joint, fixed joint).
+
+## Sequential Impulses
+To fulfill multiple constraints, an algorithm called *sequential impulses* is used.
+Basically the constraint impulses are updated a few times until the impulses become stable.
+
+* for each iteration
+    * for each constraint
+        1. compute Jacobian *J* and correction vector *b*
+        1. compute the impulse *P*
+        1. add *P* to accumulated impulse of the two objects
+* use impulses to perform numerical integration step
+
+The sequential impulse computation has to be performed four times when using the Runge-Kutta method.
 
 [1]: http://myselph.de/gamePhysics/equalityConstraints.html
 [2]: http://image.diku.dk/kenny/download/erleben.05.thesis.pdf
