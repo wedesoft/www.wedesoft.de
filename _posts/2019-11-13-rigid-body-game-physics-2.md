@@ -59,13 +59,15 @@ $\lambda = -(J M^{-1} J^\top)^{-1} (J\bar{u}+b)$
 When performing the numerical integration, the external forces (multiplied with the timestep) and the constraint impulse are used
 to determine the change in linear and rotational speed of the two bodies.
 
-## Ball-in-Socket Joint
-The matrix *J* for bodies *i* and *j* and the velocity vector *v* can be split up into the linear and angular parts.
+## Joints
+### Ball-in-Socket Joint
+The matrix *J* for bodies *i* and *j* and the velocity vector *u* can be split up into the linear and angular parts.
 {% latex usepackages=amsmath %}
 $Ju=
 \begin{pmatrix}J^i_{lin} & J^i_{ang} & J^j_{lin} & J^j_{ang}\end{pmatrix}
 \begin{pmatrix}v_i \\ \omega_i \\ v_j \\ \omega_j\end{pmatrix}=\vec{0}$
 {% endlatex %}
+*v* is the three-dimensional linear speed and *ω* is the rotational speed of the individual object.
 At the anchor point of the joint the speed of the two rigid bodies must be the same:
 {% latex %}
 $v_i+\omega_i\times R(q_i)r^i_{anc}-v_j-\omega_j\times R(q_j)r^j_{anc}=\vec{0}$
@@ -80,11 +82,14 @@ and
 $J^i_{ang}=-(R(q_i)r^i_{anc})^\times$,
 $J^j_{ang}=(R(q_j)r^j_{anc})^\times$
 {% endlatex %}
-where the cross-product matrix of a vector is defined as follows
+where the cross-product matrix of a vector is defined as follows:
 {% latex usepackages=amsmath %}
 $x^\times = \begin{pmatrix} 0 & -x_3 & x_2 \\ x_3 & 0 & -x_1 \\ -x_2 & x_1 & 0 \end{pmatrix}$
 {% endlatex %}
-
+The correcting vector *b* simply corrects for the offset at the anchor point.
+{% latex %}
+$b = r_i+R(q_i)r_{anc}^i - r_j - R(q_j)r_{anc}^j$
+{% endlatex %}
 
 [1]: http://myselph.de/gamePhysics/equalityConstraints.html
 [2]: http://image.diku.dk/kenny/download/erleben.05.thesis.pdf
