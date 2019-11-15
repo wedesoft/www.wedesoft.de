@@ -14,7 +14,7 @@ The constrained is fulfilled by attempting to keep each component of the derivat
 $\dot{C}=\displaystyle\frac{\delta C}{\delta q}\frac{\delta q}{\delta t}=Ju=\vec{0}$
 {% endlatex %}
 *J* is the Jacobian matrix and *u* is a twelve-element vector containing the linear and rotational speed of the two bodies.
-The two objects without a connecting joint together have twelve degrees of freedom.
+The two objects without a connecting joint would together have twelve degrees of freedom.
 Let's assume that the two objects are connected by a hinge joint.
 In this case the function *C* has five dimensions because a hinge only leaves seven degrees of freedom.
 The Jacobian *J* has five rows and twelve columns.
@@ -70,7 +70,7 @@ $Ju=
 *v* is the three-dimensional linear speed and *ω* is the rotational speed of the individual object.
 At the anchor point of the joint the speed of the two rigid bodies must be the same:
 {% latex %}
-$v_i+\omega_i\times R(q_i)r^i_{anc}-v_j-\omega_j\times R(q_j)r^j_{anc}=\vec{0}$
+$\dot{C}=v_i+\omega_i\times R(q_i)r^i_{anc}-v_j-\omega_j\times R(q_j)r^j_{anc}=\vec{0}$
 {% endlatex %}
 Thus the linear components of *J* are
 {% latex usepackages=amsmath %}
@@ -137,7 +137,7 @@ Basically the constraint impulses are updated a few times until the impulses bec
     * for each constraint
         1. compute Jacobian *J* and correction vector *b*
         1. compute the impulse *P*
-        1. add *P* to accumulated impulse of the two objects
+        1. add *P* to accumulated impulses of the two objects
 * use impulses to perform numerical integration step
 
 The sequential impulse computation has to be performed four times when using the Runge-Kutta method.
