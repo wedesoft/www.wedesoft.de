@@ -142,5 +142,7 @@ Basically the constraint impulses are updated a few times until the impulses bec
 
 The sequential impulse computation has to be performed four times when using the Runge-Kutta method.
 
+{% youtube "https://www.youtube.com/watch?v=65k6EPsIF6g" %}
+
 [1]: http://myselph.de/gamePhysics/equalityConstraints.html
 [2]: http://image.diku.dk/kenny/download/erleben.05.thesis.pdf
