@@ -61,4 +61,6 @@ The algorithm for solving the joint and contact constraints becomes:
         1. add *P* to accumulated impulses of the two objects
 * use impulses to perform numerical integration step
 
+![Collision](/pics/collision.gif)
+
 [1]: http://myselph.de/gamePhysics/inequalityConstraints.html
