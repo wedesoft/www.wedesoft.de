@@ -136,6 +136,8 @@ Basically the constraint impulses are updated a few times until the impulses bec
 * for each iteration
     * for each constraint
         1. compute Jacobian *J* and correction vector *b*
+        1. predict speed *u*
+        1. compute *λ*
         1. compute the impulse *P*
         1. add *P* to accumulated impulses of the two objects
 * use impulses to perform numerical integration step
