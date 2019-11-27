@@ -7,11 +7,11 @@ category: simulation
 The following article is based on [Hubert Eichner's article on inequality constraints][1].
 
 ## Inequality Constraints
-Collisions are represented as inequality constraints.
-In contrast to a joint, a collision can only create repellent forces and no attracting forces.
-Similar to a joint constraint, the collision is represented using a function *C(q(t))*.
+Contact points are represented as inequality constraints.
+In contrast to a joint, a contact can only create repellent forces and no attracting forces.
+Similar to a joint constraint, the contact is represented using a function *C(q(t))*.
 Here *C* is one-dimensional and it is basically the distance of the two objects at the contact point.
-The inequality constraint of the collision is
+The inequality constraint of the contact is
 {% latex %}
 $\dot{C}=Ju+b\ge 0$
 {% endlatex %}
@@ -61,6 +61,6 @@ The algorithm for solving the joint and contact constraints becomes:
         1. add *P* to accumulated impulses of the two objects
 * use impulses to perform numerical integration step
 
-![Collision](/pics/collision.gif)
+![Contact](/pics/contact.gif)
 
 [1]: http://myselph.de/gamePhysics/inequalityConstraints.html
