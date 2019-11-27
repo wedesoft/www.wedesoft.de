@@ -7,7 +7,7 @@ category: simulation
 The following article is based on [Hubert Eichner's article on inequality constraints][1].
 
 ## Inequality Constraints
-Contact points are represented as inequality constraints.
+Contact points (resting contacts) are represented as inequality constraints.
 In contrast to a joint, a contact can only create repellent forces and no attracting forces.
 Similar to a joint constraint, the contact is represented using a function *C(q(t))*.
 Here *C* is one-dimensional and it is basically the distance of the two objects at the contact point.
