@@ -19,7 +19,7 @@ with the matrix *J* having one row and twelve columns.
 Instead of anchor points, one uses vectors *ri* and *rj* from the center of each object to the contact point.
 Using the contact normal *n* the inequality constraint becomes:
 {% latex %}
-$\dot{C}= n^\top (v_i+\omega_i\times r_i-v_j-\omega_j\times r_j)\ge 0$
+$\dot{C}= n^\top (v_i+\omega_i\times r_i-v_j-\omega_j\times r_j)+b\ge 0$
 {% endlatex %}
 The rotational component can be simplified as shown below:
 {% latex %}
