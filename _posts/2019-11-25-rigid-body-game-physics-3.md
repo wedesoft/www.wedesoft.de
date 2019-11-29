@@ -4,14 +4,19 @@ title: Rigid body game physics 3
 category: simulation
 ---
 
+<a href="/simulation/2019/10/24/rigid-body-game-physics/">part 1</a>
+<a href="/simulation/2019/11/13/rigid-body-game-physics-2/">part 2</a>
+<a href="/simulation/2019/11/25/rigid-body-game-physics-3/">part 3</a>
+<a href="/simulation/2019/11/29/rigid-body-game-physics-4/">part 4</a>
+
 The following article is based on [Hubert Eichner's article on inequality constraints][1].
 
-## Inequality Constraints
+## Inequality Constraints for Resting Contacts
 Contact points (resting contacts) are represented as inequality constraints.
-In contrast to a joint, a contact can only create repellent forces and no attracting forces.
-Similar to a joint constraint, the contact is represented using a function *C(q(t))*.
+In contrast to a joint, a resting contact can only create repellent forces and no attracting forces.
+Similar to a joint constraint, the resting contact is represented using a function *C(q(t))*.
 Here *C* is one-dimensional and it is basically the distance of the two objects at the contact point.
-The inequality constraint of the contact is
+The inequality constraint of the resting contact is
 {% latex %}
 $\dot{C}=Ju+b\ge 0$
 {% endlatex %}
@@ -46,20 +51,22 @@ Note that it has to be the cumulative value which is clipped.
 The algorithm for solving the joint and contact constraints becomes:
 
 * for each iteration
-    * for each joint constraint
+    * for each joint
         1. compute Jacobian *J* and correction vector *b*
         1. predict speed *u*
         1. compute *λ*
         1. compute the impulse *P*
         1. add *P* to accumulated impulses of the two objects
-    * for each contact constraint
+    * for each resting contact
         1. subtract old impulses *P* from previous iteration from accumulated impulses of the two objects
         1. compute Jacobian *J* and correction vector *b*
         1. predict speed *u*
         1. compute new *λ* and clip it to be greater or equal to zero
         1. compute the impulse *P*
         1. add *P* to accumulated impulses of the two objects
-* use impulses to perform numerical integration step
+* use impulses and external forces to perform Runge Kutta integration step
+
+The sequential impulse iterations have to be performed four times when using the Runge-Kutta method.
 
 ![Contact](/pics/contact.gif)
 

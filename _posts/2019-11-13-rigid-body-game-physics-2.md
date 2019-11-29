@@ -4,6 +4,11 @@ title: Rigid body game physics 2
 category: simulation
 ---
 
+<a href="/simulation/2019/10/24/rigid-body-game-physics/">part 1</a>
+<a href="/simulation/2019/11/13/rigid-body-game-physics-2/">part 2</a>
+<a href="/simulation/2019/11/25/rigid-body-game-physics-3/">part 3</a>
+<a href="/simulation/2019/11/29/rigid-body-game-physics-4/">part 4</a>
+
 The following article is heavily based on [Hubert Eichner's article on equality constraints][1].
 The math for the joint types was taken from [Kenny Erleben's PhD thesis][2].
 
@@ -134,15 +139,15 @@ To fulfill multiple constraints, an algorithm called *sequential impulses* is us
 Basically the constraint impulses are updated a few times until the impulses become stable.
 
 * for each iteration
-    * for each constraint
+    * for each joint
         1. compute Jacobian *J* and correction vector *b*
         1. predict speed *u*
         1. compute *λ*
         1. compute the impulse *P*
         1. add *P* to accumulated impulses of the two objects
-* use impulses to perform numerical integration step
+* use impulses and external forces to perform Runge Kutta integration step
 
-The sequential impulse computation has to be performed four times when using the Runge-Kutta method.
+The sequential impulse iterations have to be performed four times when using the Runge-Kutta method.
 
 {% youtube "https://www.youtube.com/watch?v=65k6EPsIF6g" %}
 
