@@ -13,12 +13,16 @@ The following article is heavily based on [Hubert Eichner's article on equality 
 The math for the joint types was taken from [Kenny Erleben's PhD thesis][2].
 
 ## Constraint Impulses
-A constraint between two objects is specified as a multi-dimensional function *C(q(t))*.
+A constraint between two objects is specified as a multi-dimensional function *C(y(t))*.
 The constrained is fulfilled by attempting to keep each component of the derivative of *C* at zero:
 {% latex %}
-$\dot{C}=\displaystyle\frac{\delta C}{\delta q}\frac{\delta q}{\delta t}=Ju=\vec{0}$
+$\dot{C}=\displaystyle\frac{\delta C}{\delta y}\frac{\delta y}{\delta t}=Ju=\vec{0}$
 {% endlatex %}
 *J* is the Jacobian matrix and *u* is a twelve-element vector containing the linear and rotational speed of the two bodies.
+Here the derivative of the orientation is represented using the rotational speed *ω*.
+{% latex %}
+$u^\top=(v_i^\top \omega_i^\top v_j^\top \omega_j^\top)$
+{% endlatex %}
 The two objects without a connecting joint would together have twelve degrees of freedom.
 Let's assume that the two objects are connected by a hinge joint.
 In this case the function *C* has five dimensions because a hinge only leaves seven degrees of freedom.

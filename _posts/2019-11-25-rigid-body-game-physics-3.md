@@ -14,7 +14,7 @@ The following article is based on [Hubert Eichner's article on inequality constr
 ## Inequality Constraints for Resting Contacts
 Contact points (resting contacts) are represented as inequality constraints.
 In contrast to a joint, a resting contact can only create repellent forces and no attracting forces.
-Similar to a joint constraint, the resting contact is represented using a function *C(q(t))*.
+Similar to a joint constraint, the resting contact is represented using a function *C(y(t))*.
 Here *C* is one-dimensional and it is basically the distance of the two objects at the contact point.
 The inequality constraint of the resting contact is
 {% latex %}
