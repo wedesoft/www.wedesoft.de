@@ -53,6 +53,6 @@ The convex hull of the each of the two polygons is determined.
 Then the intersection of the resulting two 2D polygons is computed.
 Finally the convex hull of the intersection is taken.
 The points are projected back into 3D space.
-These are the contact points used for computing the colliding and resting contacts.
+These are the contact points used for simulating the colliding and resting contacts.
 
 [1]: https://www.cs.cmu.edu/%7Ebaraff/sigcourse/notesd2.pdf
