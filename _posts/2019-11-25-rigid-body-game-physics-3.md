@@ -25,7 +25,7 @@ with the matrix *J* having one row and twelve columns.
 Instead of anchor points, one uses vectors *ri* and *rj* from the center of each object to the contact point.
 Using the contact normal *n* the inequality constraint becomes:
 {% latex %}
-$\dot{C}= n^\top (v_i+\omega_i\times r_i-v_j-\omega_j\times r_j)+b\ge 0$
+$\dot{C}= n^\top (v_j+\omega_j\times r_j-v_i-\omega_i\times r_i)+b\ge 0$
 {% endlatex %}
 The rotational component can be simplified as shown below:
 {% latex %}
@@ -33,16 +33,16 @@ $n^\top (\omega_i \times r_i) = -n^\top (r_i \times \omega_i) = -n^\top r_i^\tim
 {% endlatex %}
 Thus the linear components of *J* are
 {% latex %}
-$J_{lin}^i = n^\top$, $J_{lin}^j = -n^\top$
+$J_{lin}^i = -n^\top$, $J_{lin}^j = n^\top$
 {% endlatex %}
 And the angular components of *J* are
 {% latex %}
-$J_{ang}^i = (r_i \times n)^\top$, $J_{ang}^j = -(r_j \times n)^\top$
+$J_{ang}^i = -(r_i \times n)^\top$, $J_{ang}^j = (r_j \times n)^\top$
 {% endlatex %}
 The correction term depends on the distance *d*.
 I.e. if the distance is negative, a correction is required so that the objects do not penetrate each other any more.
 {% latex %}
-$b = max(-d, 0)$
+$b = \min(d, 0)$
 {% endlatex %}
 
 ## Sequential Impulses (updated)

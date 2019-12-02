@@ -128,7 +128,7 @@ $J^j_{ang}=\begin{pmatrix} (R(q_j)r^j_{anc})^\times \\ -t_1^\top \\ -t_2^\top \e
 
 The error *u* of axis misalignment is the cross product of the two rotated axes.
 {% latex %}
-$u=(R(q_i)s_i)\times (R(q_j)s_j)$
+$u=(R(q_j)s_j)\times (R(q_i)s_i)$
 {% endlatex %}
 The error *u* is orthogonal to the rotation axis *s*.
 It is projected onto the vectors *t1* and *t2* when computing the correction vector *b*:
