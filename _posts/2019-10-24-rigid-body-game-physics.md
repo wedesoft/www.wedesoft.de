@@ -13,7 +13,7 @@ category: simulation
 
 Inspired by [Hubert Eichner's articles on game physics][1] I decided to write about game physics as well.
 My motivation is to create a space flight simulator.
-The idea is to simulate a space ship with landing gear and docking adapter using multiple rigid bodies.
+Hopefully it will be possible to simulate a space ship with landing gear and docking adapter using multiple rigid bodies.
 
 ## The Newton-Euler equation
 Each rigid body has a center with the 3D position *c*.
