@@ -9,6 +9,7 @@ category: simulation
 <a href="/simulation/2019/11/25/rigid-body-game-physics-3/">part 3</a>
 <a href="/simulation/2019/11/29/rigid-body-game-physics-4/">part 4</a>
 <a href="/simulation/2019/12/01/rigid-body-game-physics-5/">part 5</a>
+<a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a>
 
 The following article is heavily based on [Hubert Eichner's article on equality constraints][1].
 The math for the joint types was taken from [Kenny Erleben's PhD thesis][2].
