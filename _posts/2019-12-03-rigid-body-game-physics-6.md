@@ -63,3 +63,5 @@ Basically the vector *λ* needs to reside in the friction cone.
 If you have made it this far, you know how to build a small physics engine!
 
 Any feedback, comments, and suggestions are welcome.
+
+![dropping box](/pics/drop.gif)

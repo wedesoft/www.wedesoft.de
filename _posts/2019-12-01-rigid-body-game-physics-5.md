@@ -12,7 +12,7 @@ category: simulation
 <a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a>
 
 In order to handle collisions and resting contacts, it is necessary to determine contact points.
-One can achieve this using [Baraff's separating plane algorithm][1].
+One can achieve this using the separating plane algorithm (also see [Baraff][1]).
 
 ## Separating Planes Algorithm
 The separating plane algorithm only applies to convex polyhedra.
