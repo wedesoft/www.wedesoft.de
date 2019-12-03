@@ -58,6 +58,8 @@ $\sqrt{\lambda_2^2+\lambda_3^2} \le \mu\lambda_1 $
 {% endlatex %}
 Basically the vector *λ* needs to reside in the friction cone.
 
+![friction cone](/pics/cone.svg)
+
 If you have made it this far, you know how to build a small physics engine!
 
 Any feedback, comments, and suggestions are welcome.
