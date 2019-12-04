@@ -65,3 +65,9 @@ If you have made it this far, you know how to build a small physics engine!
 Any feedback, comments, and suggestions are welcome.
 
 ![dropping box](/pics/drop.gif)
+
+## Further reading
+
+* [K. Erleben: Stable, robust, and versatile multibody dynamics animation](http://image.diku.dk/kenny/download/erleben.05.thesis.pdf)
+* [B. Mirtich: Impulse-based dynamics simulation of rigid body systems](http://www.kuffner.org/james/software/dynamics/mirtich/mirtichThesis.pdf)
+* [H. Eichner: Rigid Body Game Physics](http://myselph.de/gamePhysics/index.html)
