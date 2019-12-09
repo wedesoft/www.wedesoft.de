@@ -22,41 +22,35 @@ The inequality constraint is
 {% latex %}
 $\dot{C}=Ju+b\ge 0$
 {% endlatex %}
-*J* and *b* are extended to have three rows.
-The vectors *t1* and *t2* are chosen so that they are orthogonal to *n* and orthogonal to each other.
+*J* and *b* have two rows.
+The vectors *t1* and *t2* are chosen so that they are orthogonal to the normal vector *n* and orthogonal to each other.
 Friction forces try to reduce tangential velocities to zero.
-I.e. in the case of a colliding contact, *b* is
+I.e. *b* is
 {% latex usepackages=amsmath %}
-$b = \begin{pmatrix} \epsilon v_n \\ 0 \\ 0 \end{pmatrix}$
-{% endlatex %}
-In the case of a resting contact, *b* is
-{% latex usepackages=amsmath %}
-$b = \begin{pmatrix} d \\ 0 \\ 0 \end{pmatrix}$
+$b = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$
 {% endlatex %}
 
 The linear components of *J* are
 {% latex usepackages=amsmath %}
-$J_{lin}^i = \begin{pmatrix} -n^\top \\ t_1^\top \\ t_2^\top \end{pmatrix}$,
-$J_{lin}^j = \begin{pmatrix} n^\top \\ -t_1^\top \\ -t_2^\top \end{pmatrix}$
+$J_{lin}^i = \begin{pmatrix} t_1^\top \\ t_2^\top \end{pmatrix}$,
+$J_{lin}^j = \begin{pmatrix} -t_1^\top \\ -t_2^\top \end{pmatrix}$
 {% endlatex %}
 and the angular components of *J* are
 {% latex usepackages=amsmath %}
-$J_{ang}^i = \begin{pmatrix} -(r_i \times n)^\top \\ (r_i \times t_1)^\top \\ (r_i \times t_2)^\top \end{pmatrix}$,
-$J_{ang}^j = \begin{pmatrix} (r_j \times n)^\top \\ -(r_j \times t_1)^\top \\ -(r_j \times t_2)^\top \end{pmatrix}$
+$J_{ang}^i = \begin{pmatrix} (r_i \times t_1)^\top \\ (r_i \times t_2)^\top \end{pmatrix}$,
+$J_{ang}^j = \begin{pmatrix} -(r_j \times t_1)^\top \\ -(r_j \times t_2)^\top \end{pmatrix}$
 {% endlatex %}
 
 As before *λ* is computed
 {% latex %}
 $\lambda = -(J M^{-1} J^\top)^{-1} (J\bar{u}+b)$
 {% endlatex %}
-Here *λ* has three elements.
-*λ1* is thresholded so that it is greater or equal to zero.
-*λ2* and *λ3* are scaled with the same positive factor if necessary so that the length of the 2D vector consisting of *λ2* and *λ3* is smaller than *λ1* multiplied with the friction coefficient *μ*:
+Here *λ* has two elements.
+*λ1* and *λ2* are scaled with the same positive factor if necessary so that the length of the 2D vector consisting of *λ1* and *λ2* is smaller than the normal impulse *Pn* multiplied with the friction constant *μ*.
 {% latex %}
-$\lambda_1 \ge 0$,
-$\sqrt{\lambda_2^2+\lambda_3^2} \le \mu\lambda_1 $
+$\sqrt{\lambda_1^2+\lambda_2^2} \le \mu P_n$
 {% endlatex %}
-Basically the vector *λ* needs to reside in the friction cone.
+Basically the overall force vector needs to reside in the friction cone.
 
 ![friction cone](/pics/cone.svg)
 
