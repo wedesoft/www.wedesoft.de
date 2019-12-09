@@ -25,7 +25,7 @@ $\dot{C}=Ju+b\ge 0$
 The linear and angular components of *J* are the same as for a resting contact.
 The correction term *b* however depends on the initial normal speed at the contact point *vn* and the restitution coefficient *ε*:
 {% latex %}
-$b = \min(\epsilon v_n, 0) $
+$b = \epsilon v_n $
 {% endlatex %}
 
 ## Sequential Impulses for Collisions

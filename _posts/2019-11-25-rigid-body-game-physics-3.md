@@ -43,7 +43,7 @@ $J_{ang}^i = -(r_i \times n)^\top$, $J_{ang}^j = (r_j \times n)^\top$
 The correction term depends on the distance *d*.
 I.e. if the distance is negative, a correction is required so that the objects do not penetrate each other any more.
 {% latex %}
-$b = \min(d, 0)$
+$b = d$
 {% endlatex %}
 
 ## Sequential Impulses (updated)

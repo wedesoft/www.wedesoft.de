@@ -27,11 +27,11 @@ The vectors *t1* and *t2* are chosen so that they are orthogonal to *n* and orth
 Friction forces try to reduce tangential velocities to zero.
 I.e. in the case of a colliding contact, *b* is
 {% latex usepackages=amsmath %}
-$b = \begin{pmatrix} \min(\epsilon v_n, 0) \\ 0 \\ 0 \end{pmatrix}$
+$b = \begin{pmatrix} \epsilon v_n \\ 0 \\ 0 \end{pmatrix}$
 {% endlatex %}
 In the case of a resting contact, *b* is
 {% latex usepackages=amsmath %}
-$b = \begin{pmatrix} \min(d, 0) \\ 0 \\ 0 \end{pmatrix}$
+$b = \begin{pmatrix} d \\ 0 \\ 0 \end{pmatrix}$
 {% endlatex %}
 
 The linear components of *J* are
