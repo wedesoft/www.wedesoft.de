@@ -11,7 +11,7 @@ category: simulation
 <a href="/simulation/2019/12/01/rigid-body-game-physics-5/">part 5</a>
 <a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a>
 
-Inspired by [Hubert Eichner's articles on game physics][1] I decided to write about game physics as well.
+Inspired by [Hubert Eichner's articles on game physics][1] I decided to write about **rigid body dynamics** as well.
 My motivation is to create a space flight simulator.
 Hopefully it will be possible to simulate a space ship with landing gear and docking adapter using multiple rigid bodies.
 
