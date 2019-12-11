@@ -50,6 +50,7 @@ Note that the normal speed *vn* at each contact is determined beforehand and sta
 * apply impulses to objects
 
 The time step here is zero!
+The value *λ* is stored as *Pn* for limiting friction impulses lateron.
 Therefore external forces do not need to be considered while handling collisions.
 An object falling to the floor will experience several collisions until the linear and angular speed has decreased sufficiently for the contacts to become resting contacts.
 

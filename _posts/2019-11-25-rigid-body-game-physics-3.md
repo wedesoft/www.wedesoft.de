@@ -69,6 +69,7 @@ The algorithm for solving the joint and contact constraints becomes:
 * use impulses and external forces to perform Runge Kutta integration step
 
 The sequential impulse iterations have to be performed four times when using the Runge-Kutta method.
+The value *λ* is stored as *Pn* for limiting friction impulses lateron.
 
 ![Contact](/pics/contact.gif)
 

@@ -14,10 +14,10 @@ category: simulation
 A realistic simulation requires the estimation of friction forces.
 
 ## Friction Forces
-Colliding and resting contacts cause constraint forces as well as friction forces.
-So far we have only estimated the constraint forces of colliding and resting contacts.
-Constraint forces are in the direction of the contact's normal vector.
-Friction forces act tangential to the contact plane (orthogonal to the normal vector).
+Colliding as well as resting contacts cause constraint impulses as well as friction impulses.
+So far we have only estimated the constraint impulses of colliding and resting contacts.
+Constraint impulses are in the direction of the contact's normal vector.
+Friction impulses act tangential to the contact plane (orthogonal to the normal vector).
 The inequality constraint is
 {% latex %}
 $\dot{C}=Ju+b\ge 0$
@@ -51,6 +51,7 @@ Here *λ* has two elements.
 $\sqrt{\lambda_1^2+\lambda_2^2} \le \mu P_n$
 {% endlatex %}
 Basically the overall force vector needs to reside in the friction cone.
+In a similar fashion as for constraint impulses, friction impulses are subtracted, recomputed, and then added to the accumulated impulses *P* of the two objects, when iterating.
 
 ![friction cone](/pics/cone.svg)
 
