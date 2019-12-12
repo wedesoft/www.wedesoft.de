@@ -126,7 +126,7 @@ Using time-stepping with *F=0* and *τ=0* one can simulate an object tumbling in
 ![Tumble](/pics/tumble.gif)
 
 [1]: http://myselph.de/gamePhysics/
-[2]: https://people.mpi-inf.mpg.de/~schoemer/publications/VRST98.pdf
+[2]: https://www.staff.uni-mainz.de/schoemer/publications/VRST98.pdf
 [3]: https://en.wikipedia.org/wiki/Newton%E2%80%93Euler_equations
 [4]: https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 [5]: https://physics.stackexchange.com/questions/412181/eulers-equation-for-rigid-body-rotation-applied-to-inertia-frame
