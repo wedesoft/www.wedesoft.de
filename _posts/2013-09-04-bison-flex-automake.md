@@ -18,7 +18,7 @@ sudo aptitude install build-essential bison flex rlwrap
 
 <h4>Build system</h4>
 
-You need to create the file *Makefile.dist* with the folowing content.
+You need to create the file *Makefile.dist* with the following content.
 
 {% highlight make %}
 all:

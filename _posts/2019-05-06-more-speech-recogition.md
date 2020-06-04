@@ -21,11 +21,11 @@ The training took about one hour on a CPU.
 The resulting example is more minimalistic than the [Tensorflow audio recognition example][2].
 The algorithm is very similar to an exercise in Andrew Ng's [Deep learning specialization][3].
 
+{% youtube "https://www.youtube.com/watch?v=ohZ1XMLDYuk" %}
+
 **Update:**
 
 See [CourseDuck for a curated list of machine learning online courses][4].
-
-{% youtube "https://www.youtube.com/watch?v=ohZ1XMLDYuk" %}
 
 [1]: https://en.wikipedia.org/wiki/Gated_recurrent_unit
 [2]: https://www.tensorflow.org/tutorials/sequences/audio_recognition
