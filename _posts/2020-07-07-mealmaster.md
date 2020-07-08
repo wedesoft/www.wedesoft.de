@@ -52,7 +52,7 @@ separator    = 'MMMMM'
 eol          = [ CR ] LF
 ```
 
-The grammar uses several rules from the ABNF grammar:
+The grammar uses several rules from the ABNF standard:
 
 * **/** is used to specify alternative rules.
 * **VCHAR** stands for any printable character (except whitespace)
@@ -283,14 +283,14 @@ Then servings amount and unit are specified.
 
 In this recipe there are three ingredient sections.
 An ingredient section starts with MMMMM or -----.
-The ingredient amount is specified in column 1 to 7.
+Ingredient amounts are specified in column 1 to 7.
 Column 9 and 10 specify the unit token.
 Starting from column 12 ingredient text of up to 28 characters follows.
 If the ingredient text is longer than 28 characters, it is broken up using ingredient continuation lines.
 Ingredient continuation lines begin with a "-" in column 12.
 
-Finally the ingredient text follows.
-The ingredient text also can be split up into multiple sections starting with MMMMM or -----.
+Finally the instruction text follows.
+The instruction text also can be split up into multiple sections starting with MMMMM or -----.
 The recipe ends with MMMMM.
 
 <h4>Two-column format</h4>
@@ -363,9 +363,9 @@ I.e. it is continuing the last ingredient of the first column.
 This example also shows instruction text being indented by two spaces.
 Empty lines are used to create paragraphs.
 
-Not shown in these examples is to use an instruction line beginning with a ":" to force a line break.
-
 The recipe ends with -----.
+
+Not shown in these examples is to use an instruction line beginning with a ":" to force a line break.
 
 <h4>Conclusion</h4>
 
