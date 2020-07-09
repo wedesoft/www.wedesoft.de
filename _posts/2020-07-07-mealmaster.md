@@ -65,7 +65,9 @@ cool down well.
 MMMMM
 ```
 
-The recipe starts with a title of up to 60 characters.
+The recipe header begins with MMMMM or -----.
+The header also has to contain the word "Meal-Master".
+The recipe content then starts with a title of up to 60 characters.
 Then a list of categories follows.
 Each category can have up to 11 characters.
 Then servings amount and unit are specified.
@@ -378,6 +380,7 @@ Also there are a few problems with the file format:
 * There are many recipes with ingredient-text longer than 28 characters. Overlong ingredient lines are making it more difficult to distinguish between the one- and two-column format.
 * The ending of the ingredient section is not defined properly.
 * Some recipe applications are relying on an empty line separating the ingredients from the instructions. On the other hand the original Mealmaster application allows empty lines within the ingredient-section.
+* There are recipe applications exporting MealMaster files containing categories with more than 11 characters.
 
 I hope this description will be useful to you if you are trying to parse MealMaster recipes.
 Please let me know any feedback in the comment section below.
