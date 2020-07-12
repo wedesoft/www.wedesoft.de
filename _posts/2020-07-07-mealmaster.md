@@ -5,7 +5,7 @@ category: software
 image: /pics/anymeal.png
 ---
 
-The MealMaster file format is a popular file format for sharing recipes.
+The MealMaster file format (\*.MMF or \*.MM file) is a popular file format for sharing recipes.
 MealMaster is the file format introduced by the MealMaster software developed by Episoft Systems.
 
 The website of Episoft Systems, which provided the original MealMaster software for DOS, is not online any more.
