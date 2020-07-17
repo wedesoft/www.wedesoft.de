@@ -245,13 +245,13 @@ The following table shows the meaning of each of the unit tokens:
     </th>
   </tr>
   <tr>
-    <td><b>dr</b></td><td>drop (1/5 dash)</td>
+    <td><b>dr</b></td><td>drop (1/64 teaspoon)</td>
   </tr>
   <tr>
-    <td><b>ds</b></td><td>dash (1/2 pinch)</td>
+    <td><b>ds</b></td><td>dash (1/8 teaspoon)</td>
   </tr>
   <tr>
-    <td><b>pn</b></td><td>pinch (1/8 teaspoon)</td>
+    <td><b>pn</b></td><td>pinch (1/16 teaspoon)</td>
   </tr>
   <tr>
     <td><b>ts</b></td><td>teaspoon (1/6 fluid ounce or 4.928921595 milliliter)</td>
@@ -314,6 +314,8 @@ The following table shows the meaning of each of the unit tokens:
     <td><b>T </b></td><td>tablespoon</td>
   </tr>
 </table>
+
+See [Wikipedia page on approximate measures][3] for more details.
 
 <h4>Grammar</h4>
 
@@ -387,3 +389,4 @@ Please let me know any feedback in the comment section below.
 
 [1]: https://web.archive.org/web/20081221021301/http://episoft.home.comcast.net/~episoft/mmdown.htm
 [2]: http://www.faqs.org/rfcs/rfc2234.html
+[3]: https://en.wikipedia.org/wiki/Approximate_measures
