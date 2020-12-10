@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Minimal OpenGL example
+title: Minimal OpenGL example in C
 category: software
 ---
 
