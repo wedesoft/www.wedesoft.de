@@ -1,8 +1,7 @@
 ; clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
 (ns raw-opengl
   (:import [org.lwjgl BufferUtils]
-           [org.lwjgl.opengl Display DisplayMode GL11 GL12 GL13 GL15 GL20 GL30]
-           [org.lwjgl.input Keyboard]))
+           [org.lwjgl.opengl Display DisplayMode GL11 GL12 GL13 GL15 GL20 GL30]))
 
 (def vertex-source "#version 130
 in mediump vec3 point;
@@ -85,9 +84,8 @@ void main()
 (def indices-buffer (make-int-buffer indices))
 (GL15/glBufferData GL15/GL_ELEMENT_ARRAY_BUFFER indices-buffer GL15/GL_STATIC_DRAW)
 
-(def float-size 4)
-(GL20/glVertexAttribPointer (GL20/glGetAttribLocation program "point"   ) 3 GL11/GL_FLOAT false (* 5 float-size) (* 0 float-size))
-(GL20/glVertexAttribPointer (GL20/glGetAttribLocation program "texcoord") 2 GL11/GL_FLOAT false (* 5 float-size) (* 3 float-size))
+(GL20/glVertexAttribPointer (GL20/glGetAttribLocation program "point"   ) 3 GL11/GL_FLOAT false (* 5 Float/BYTES) (* 0 Float/BYTES))
+(GL20/glVertexAttribPointer (GL20/glGetAttribLocation program "texcoord") 2 GL11/GL_FLOAT false (* 5 Float/BYTES) (* 3 Float/BYTES))
 (GL20/glEnableVertexAttribArray 0)
 (GL20/glEnableVertexAttribArray 1)
 
