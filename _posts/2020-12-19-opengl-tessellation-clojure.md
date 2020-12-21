@@ -21,7 +21,7 @@ The example uses several shaders required when doing tessellation using OpenGL:
 * a fragment shader
 
 The example not only shows how to set the tessellation level but it also shows how one can pass through texture coordinates.
-The polygon mode was switched to display lines only so that one can observe how the triangles are split up.
+The polygon mode was switched to display lines only so that one can observe how the quad is split up.
 
 See code below:
 
@@ -41,7 +41,7 @@ void main()
 }")
 
 (def tcs-source "#version 410 core
-layout(vertices = 3) out;
+layout(vertices = 4) out;
 in mediump vec2 texcoord_tcs[];
 out mediump vec2 texcoord_tes[];
 void main(void)
@@ -50,28 +50,30 @@ void main(void)
     gl_TessLevelOuter[0] = 2.0;
     gl_TessLevelOuter[1] = 3.0;
     gl_TessLevelOuter[2] = 4.0;
-    gl_TessLevelInner[0] = 5.0;
+    gl_TessLevelOuter[3] = 5.0;
+    gl_TessLevelInner[0] = 6.0;
+    gl_TessLevelInner[1] = 7.0;
   }
   gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
   texcoord_tes[gl_InvocationID] = texcoord_tcs[gl_InvocationID];
 }")
 
 (def tes-source "#version 410 core
-layout(triangles, equal_spacing, ccw) in;
+layout(quads, equal_spacing, ccw) in;
 in mediump vec2 texcoord_tes[];
 out mediump vec2 texcoord_geo;
 void main()
 {
-  gl_Position.xyzw = gl_in[0].gl_Position.xyzw * gl_TessCoord.x +
-                     gl_in[1].gl_Position.xyzw * gl_TessCoord.y +
-                     gl_in[2].gl_Position.xyzw * gl_TessCoord.z;
-  texcoord_geo = texcoord_tes[0] * gl_TessCoord.x +
-                 texcoord_tes[1] * gl_TessCoord.y +
-                 texcoord_tes[2] * gl_TessCoord.z;
+  vec4 a = mix(gl_in[0].gl_Position, gl_in[1].gl_Position, gl_TessCoord.x);
+  vec4 b = mix(gl_in[3].gl_Position, gl_in[2].gl_Position, gl_TessCoord.x);
+  gl_Position = mix(a, b, gl_TessCoord.y);
+  vec2 c = mix(texcoord_tes[0], texcoord_tes[1], gl_TessCoord.x);
+  vec2 d = mix(texcoord_tes[3], texcoord_tes[2], gl_TessCoord.x);
+  texcoord_geo = mix(c, d, gl_TessCoord.y);
 }")
 
 (def geo-source "#version 410 core
-layout(triangles, invocations = 1) in;
+layout(triangles) in;
 in mediump vec2 texcoord_geo[3];
 layout(triangle_strip, max_vertices = 3) out;
 out mediump vec2 UV;
@@ -79,7 +81,7 @@ void main(void)
 {
 	gl_Position = gl_in[0].gl_Position;
   UV = texcoord_geo[0];
-	EmitVertex();
+	EmitVertex();	
 	gl_Position = gl_in[1].gl_Position;
   UV = texcoord_geo[1];
 	EmitVertex();
@@ -105,7 +107,7 @@ void main()
                  0.5 -0.5 0.0 1.0 0.0]))
 
 (def indices
-  (int-array [0 1 2 0 2 3]))
+  (int-array [0 1 2 3]))
 
 (def pixels
   (float-array [0.0 0.0 1.0
@@ -186,8 +188,8 @@ void main()
   (GL11/glClearColor 0.0 0.0 0.0 0.0)
   (GL11/glClear (bit-or GL11/GL_COLOR_BUFFER_BIT GL11/GL_DEPTH_BUFFER_BIT))
   (GL20/glUseProgram program)
-  (GL40/glPatchParameteri GL40/GL_PATCH_VERTICES 3)
-  (GL11/glDrawElements GL40/GL_PATCHES 6 GL11/GL_UNSIGNED_INT 0)
+  (GL40/glPatchParameteri GL40/GL_PATCH_VERTICES 4)
+  (GL11/glDrawElements GL40/GL_PATCHES 4 GL11/GL_UNSIGNED_INT 0)
   (Display/update)
   (Thread/sleep 40))
 
@@ -213,14 +215,6 @@ void main()
 (GL20/glDeleteShader fragment-shader)
 
 (Display/destroy)
-{% endhighlight %}
-
-You can run the code as follows:
-
-{% highlight shell %}
-sudo apt-get install liblwjgl-java clojure
-wget http://www.wedesoft.de/downloads/tessellation-opengl.clj
-clojure -cp /usr/share/java/lwjgl.jar tessellation-opengl.clj
 {% endhighlight %}
 
 ![image](/pics/square.png)
