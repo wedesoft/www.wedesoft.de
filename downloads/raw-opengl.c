@@ -133,6 +133,8 @@ int main(int argc, char** argv)
   glVertexAttribPointer(glGetAttribLocation(program, "point"), 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
   glVertexAttribPointer(glGetAttribLocation(program, "texcoord"), 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
 
+  glEnable(GL_DEPTH_TEST);
+  
   glUseProgram(program);
 
   glEnableVertexAttribArray(0);
