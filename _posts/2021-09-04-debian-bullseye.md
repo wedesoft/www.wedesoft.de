@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing Debian 11 (bullseye) on a real machine
+title: Installing Debian 11 (bullseye) on a physical machine
 category: software
 image: /pics/debian.png
 ---
