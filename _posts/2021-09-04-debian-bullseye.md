@@ -5,6 +5,8 @@ category: software
 image: /pics/debian.png
 ---
 
+This is a summary on how to install Debian on a physical machine (as opposed to a VM).
+
 I installed Debian 11 with KDE desktop on my HP 255 G3 notebook.
 
 Because my computer has an AMD GPU it is recommended to download the [unofficial Debian image with firmware][1].
