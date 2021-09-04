@@ -53,6 +53,7 @@ I then proceeded with the [instructions on how to set up Plymouth boot splash][2
 Furthermore I added [deb-multimedia.org][3] to the package sources and updated the multimedia software.
 
 Finally a few more tweaks:
+
 * I installed *plasma-browser-integration* and the corresponding browser addon (available for Firefox and Chrome/Chromium)
 * I installed *ffmpegthumbs* and *kdegraphics-thumbnailers* and then enabled the thumbnail generators in the Dolphin settings
 * I installed *bleachbit* and run it to clean up unused disk space
