@@ -16,6 +16,7 @@ I haven't found many minimal examples to understand OpenGL, so I am posting one 
 The example draws a coloured triangle on the screen.
 
 {% highlight c %}
+// Minimal OpenGL shader example using OpenGL directly
 #include <math.h>
 #include <stdio.h>
 #include <GL/glew.h>
@@ -75,7 +76,10 @@ void printError(const char *context)
 void printStatus(const char *step, GLuint context, GLuint status)
 {
   GLint result = GL_FALSE;
-  glGetShaderiv(context, status, &result);
+  if (status == GL_COMPILE_STATUS)
+    glGetShaderiv(context, status, &result);
+  else
+    glGetProgramiv(context, status, &result);
   if (result == GL_FALSE) {
     char buffer[1024];
     if (status == GL_COMPILE_STATUS)

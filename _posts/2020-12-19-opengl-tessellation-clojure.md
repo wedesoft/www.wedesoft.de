@@ -21,7 +21,7 @@ The example uses several shaders required when doing tessellation using OpenGL:
 * a fragment shader
 
 The example not only shows how to set the tessellation level but it also shows how one can pass through texture coordinates.
-The polygon mode was switched to display lines only so that one can observe how the quad is split up.
+The polygon mode was switched to display lines only so that one can observe how the triangle is split up.
 
 See code below:
 
@@ -79,16 +79,16 @@ layout(triangle_strip, max_vertices = 3) out;
 out mediump vec2 UV;
 void main(void)
 {
-	gl_Position = gl_in[0].gl_Position;
+  gl_Position = gl_in[0].gl_Position;
   UV = texcoord_geo[0];
-	EmitVertex();	
-	gl_Position = gl_in[1].gl_Position;
+  EmitVertex();
+  gl_Position = gl_in[1].gl_Position;
   UV = texcoord_geo[1];
-	EmitVertex();
-	gl_Position = gl_in[2].gl_Position;
+  EmitVertex();
+  gl_Position = gl_in[2].gl_Position;
   UV = texcoord_geo[2];
-	EmitVertex();
-	EndPrimitive();
+  EmitVertex();
+  EndPrimitive();
 }")
 
 (def fragment-source "#version 410 core
@@ -127,8 +127,8 @@ void main()
   (let [program (GL20/glCreateProgram)]
     (doseq [shader shaders] (GL20/glAttachShader program shader))
     (GL20/glLinkProgram program)
-    (if (zero? (GL20/glGetShaderi program GL20/GL_LINK_STATUS))
-      (throw (Exception. (GL20/glGetShaderInfoLog program 1024))))
+    (if (zero? (GL20/glGetProgrami program GL20/GL_LINK_STATUS))
+      (throw (Exception. (GL20/glGetProgramInfoLog program 1024))))
     program))
 
 (defmacro def-make-buffer [method create-buffer]

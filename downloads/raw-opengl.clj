@@ -49,8 +49,8 @@ void main()
     (GL20/glAttachShader program vertex-shader)
     (GL20/glAttachShader program fragment-shader)
     (GL20/glLinkProgram program)
-    (if (zero? (GL20/glGetShaderi program GL20/GL_LINK_STATUS))
-      (throw (Exception. (GL20/glGetShaderInfoLog program 1024))))
+    (if (zero? (GL20/glGetProgrami program GL20/GL_LINK_STATUS))
+      (throw (Exception. (GL20/glGetProgramInfoLog program 1024))))
     program))
 
 (defmacro def-make-buffer [method create-buffer]

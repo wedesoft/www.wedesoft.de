@@ -58,7 +58,10 @@ void printError(const char *context)
 void printStatus(const char *step, GLuint context, GLuint status)
 {
   GLint result = GL_FALSE;
-  glGetShaderiv(context, status, &result);
+  if (status == GL_COMPILE_STATUS)
+    glGetShaderiv(context, status, &result);
+  else
+    glGetProgramiv(context, status, &result);
   if (result == GL_FALSE) {
     char buffer[1024];
     if (status == GL_COMPILE_STATUS)

@@ -14,6 +14,7 @@ Using this library, I have translated my earlier example to Clojure.
 See code below:
 
 {% highlight clojure %}
+; clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
 (ns raw-opengl
   (:import [org.lwjgl BufferUtils]
            [org.lwjgl.opengl Display DisplayMode GL11 GL12 GL13 GL15 GL20 GL30]))
@@ -64,8 +65,8 @@ void main()
     (GL20/glAttachShader program vertex-shader)
     (GL20/glAttachShader program fragment-shader)
     (GL20/glLinkProgram program)
-    (if (zero? (GL20/glGetShaderi program GL20/GL_LINK_STATUS))
-      (throw (Exception. (GL20/glGetShaderInfoLog program 1024))))
+    (if (zero? (GL20/glGetProgrami program GL20/GL_LINK_STATUS))
+      (throw (Exception. (GL20/glGetProgramInfoLog program 1024))))
     program))
 
 (defmacro def-make-buffer [method create-buffer]
