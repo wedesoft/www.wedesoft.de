@@ -35,7 +35,7 @@ Normally the 3D point uses a right-handed coordinate system where the z-axis poi
 
 ![frustum](/pics/frustum.svg)
 
-This means that the x- and y-coordinate are projected using negative z, i.e. w' = -z.
+This means that x and y are projected using negative z, i.e. w' = -z.
 
 The camera projection equations are x'/w' = fw x/-z and y'/w' = fh y/-z.
 
