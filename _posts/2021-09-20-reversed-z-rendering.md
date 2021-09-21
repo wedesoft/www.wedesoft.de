@@ -19,6 +19,8 @@ This leads to the depth accuracy to be [highest somewhere between the near and f
 A better solution is to map near coordinates to 1 and far coordinates to 0.
 In this case the higher precision near zero is used to compensate for the large range of distances covered towards the far plane.
 
+![zero to one mapping](/pics/zerotoone.svg)
+
 Fortunately [OpenGL 4.5 provides a way to perform reversed-z rendering][2]:
 
 * set glDepthFunc to GL\_GREATER or GL\_GEQUAL
@@ -26,8 +28,12 @@ Fortunately [OpenGL 4.5 provides a way to perform reversed-z rendering][2]:
 * set glClearDepth to 0.0
 * use a suitable projection matrix
 
+![using 0 to 1 z values](/pics/ndcltd.svg)
+
 Let x, y, z, 1 be the homogeneous coordinate of the 3D point and x', y', z', w' the homogeneous NDC.
 Normally the 3D point uses a right-handed coordinate system where the z-axis points out of the screen.
+
+![frustum](/pics/frustum.svg)
 
 This means that the x- and y-coordinate are projected using negative z, i.e. w' = -z.
 
