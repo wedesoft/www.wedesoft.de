@@ -29,7 +29,7 @@ Fortunately [OpenGL 4.5 provides a way to perform reversed-z rendering][2]:
 Let x, y, z, 1 be the homogeneous coordinate of the 3D point and x', y', z', w' the homogeneous NDC.
 Normally the 3D point uses a right-handed coordinate system where the z-axis points out of the screen.
 
-The x- and y-coordinate are projected using negative z, i.e. w' = -z.
+This means that the x- and y-coordinate are projected using negative z, i.e. w' = -z.
 
 The camera projection equations are x'/w' = fw x/-z and y'/w' = fh y/-z.
 
@@ -47,7 +47,15 @@ When z = -near, we want z'/w' = 1.
 
 When z = -far, we want z'/w' = 0.
 
-Solving for a and b we get:
+For z = -near we get: z' = w' => a + b z = -z => a - b near = near.
+
+For z = -far we get: z' = 0 => a + b z = 0 => a - b far = 0 <=> b = a / far.
+
+Substituting b we get: a - a / far = near <=> a = near far / (far - near)
+
+This means b = a / far = near / (far - near).
+
+I.e. we get:
 
 {% latex %}
 $a = \frac{far \cdot near}{far - near}$
@@ -60,6 +68,7 @@ $b = \frac{near}{far - near}$
 {% endlatex %}
 
 Finally we set fw = 1 / tan(fov / 2) where fov is the horizontal field of view angle (e.g. 60 degrees in radians).
+
 fh then needs to be chosen such that fh / fw = w / h, where w and h are the width and height of the screen.
 
 [1]: https://developer.nvidia.com/content/depth-precision-visualized
