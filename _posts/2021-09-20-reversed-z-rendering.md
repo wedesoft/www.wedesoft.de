@@ -57,7 +57,7 @@ For z = -near we get: z' = w' => a + b z = -z => a - b near = near.
 
 For z = -far we get: z' = 0 => a + b z = 0 => a - b far = 0 <=> b = a / far.
 
-Substituting b we get: a - a / far = near <=> a = near far / (far - near)
+Substituting b we get: a - a near / far = near <=> a = near far / (far - near)
 
 This means b = a / far = near / (far - near).
 
