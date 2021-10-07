@@ -6,14 +6,14 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Dr. Jan Wedekind
-tagline:          'Computer Scientist'
+title:            Jan Wedekind
+tagline:          'Computer Scientist (PhD)'
 description:      'Machine vision, robotics, software engineering.'
 url:              http://www.wedesoft.de
 baseurl:          /
 
 author:
-  name:           'Dr. Jan Wedekind'
+  name:           'Jan Wedekind'
   url:            https://twitter.com/wedesoft
 
 paginate:         5
