@@ -23,9 +23,9 @@ In this case the higher precision near zero is used to compensate for the large 
 
 Fortunately [OpenGL 4.5 provides a way to perform reversed-z rendering][2]:
 
-* set glDepthFunc to GL\_GREATER or GL\_GEQUAL
-* set glClipControl to GL\_LOWER\_LEFT and GL\_ZERO\_TO\_ONE
-* set glClearDepth to 0.0
+* set [glDepthFunc](https://docs.gl/gl4/glDepthFunc) to GL\_GREATER or GL\_GEQUAL
+* set [glClipControl](https://docs.gl/gl4/glClipControl) to GL\_LOWER\_LEFT and GL\_ZERO\_TO\_ONE
+* set [glClearDepth](https://docs.gl/gl4/glClearDepth) to 0.0
 * use a suitable projection matrix
 
 ![using 0 to 1 z values](/pics/ndcltd.svg)
