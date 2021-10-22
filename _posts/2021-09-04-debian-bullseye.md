@@ -59,6 +59,7 @@ Finally a few more tweaks:
 * I installed *plasma-browser-integration* and the corresponding browser addon (available for Firefox and Chrome/Chromium)
 * I installed *ffmpegthumbs* and *kdegraphics-thumbnailers* and then enabled the thumbnail generators in the Dolphin settings
 * I installed *bleachbit* and run it to clean up unused disk space
+* You can [reduce the system swappiness to 10][5]
 
 I hope this installation summary is useful to you!
 Enjoy!
@@ -67,3 +68,4 @@ Enjoy!
 [2]: https://wiki.debian.org/plymouth
 [3]: https://deb-multimedia.org/
 [4]: https://rufus.ie/
+[5]: https://www.howtoforge.com/tutorial/linux-swappiness/
