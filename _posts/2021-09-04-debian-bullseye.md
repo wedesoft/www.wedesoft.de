@@ -60,6 +60,7 @@ Finally a few more tweaks:
 * I installed *ffmpegthumbs* and *kdegraphics-thumbnailers* and then enabled the thumbnail generators in the Dolphin settings
 * I installed *bleachbit* and run it to clean up unused disk space
 * You can [reduce the system swappiness to 10][5]
+* In the BIOS I was able to change the order of the UEFI boot files so that Debian/Grub is started by default
 
 I hope this installation summary is useful to you!
 Enjoy!
