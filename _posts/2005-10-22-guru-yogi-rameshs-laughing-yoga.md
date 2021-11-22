@@ -9,6 +9,7 @@ If you would like to feel better, <a href="http://www.universalyoga.org/">Guru Y
 
 {% youtube "https://www.youtube.com/watch?v=3dpNS2l7jNs" %}
 
+Also see [here][1] for some Zen Koans.
+
 [1]: http://www.ashidakim.com/zenkoans/zenindex.html
-[2]: http://dalailama.com/webcasts
 
