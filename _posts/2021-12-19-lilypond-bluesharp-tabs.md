@@ -73,7 +73,7 @@ You can click on the image to open the PDF file.
 
 [![Hard Times music sheet](/pics/hardtimes.png)](/downloads/hardtimes.pdf)
 
-I can really recpmmend to sign up for [David Barrett's harmonica videos][4] to learn tongue blocking which is essential to play single notes as in this example.
+I can really recommend to sign up for [David Barrett's harmonica videos][4] to learn tongue blocking which is essential to play single notes as in this example.
 
 Enjoy!
 
