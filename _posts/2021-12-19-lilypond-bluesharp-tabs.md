@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating bluesharp tabs with Lilypond
+title: Creating harmonica tabs with Lilypond
 category: software
 image: /pics/lilypond.png
 ---
