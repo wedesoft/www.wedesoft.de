@@ -77,6 +77,12 @@ I can really recommend to sign up for [David Barrett's harmonica videos][4] to l
 
 Enjoy!
 
+**Update:**
+
+I added harmonica tabs for Silent Night:
+
+[![Silent Night](/pics/silentnight.png)](/downloads/silentnight.pdf)
+
 [1]: http://lilypond.org/
 [2]: https://www.hohner.de/en/instruments/harmonicas/diatonic/progressive/special-20
 [3]: https://www.harmonicaacademy.com/categories/20080411_25
