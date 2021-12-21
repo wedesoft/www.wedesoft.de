@@ -9,7 +9,7 @@ image: /pics/lilypond.png
 
 I play a bit of music using a [Hohner Special 20][2] bluesharp.
 However I am not quick enough at reading sheet music, so I need to add tabs.
-Tabs basically tell you the number of the hole to play and whether to blow (B) or draw (D).
+Tabs basically tell you the number of the hole to play and whether to blow or draw (-).
 [Lilypond][1] is a concise programming language to generate sheet music.
 It turns out, that it is very easy to add lyrics using Lilypond.
 By putting the tabs in double quotes it is possible to add the tabs to the music.
@@ -60,10 +60,10 @@ Here is the Lilypond code:
 }
 
 \addlyrics {
-  "4B" "4D" "5B" "5B" "4D" "5B" "6B" "5B" "4D" "4B" "4B" "4D" "4B" "5B" "7B" "6D" "6B" "5B" "4B" "4D" "4B" "5B" "4D" "4B"
-  "4B" "4D" "5B" "5B" "4D" "5B" "6B" "5B" "4D" "4B" "4B" "4D" "4B" "5B" "7B" "6D" "6B" "5B" "4B" "4D" "4B" "5B" "4D" "4B"
-  "5B" "5D" "6B" "6B" "6B" "5D" "6B" "6D" "6B" "7B" "6D" "6B" "5B" "4D" "4B" "4D" "4B" "4D" "5B" "4D"
-  "4B" "4D" "5B" "5B" "4D" "5B" "6B" "5B" "4D" "4B" "4B" "4D" "4B" "5B" "7B" "6D" "6B" "5B" "4B" "4D" "4B" "5B" "4D" "4B"
+  "4" "-4" "5" "5" "-4" "5" "6" "5" "-4" "4" "4" "-4" "4" "5" "7" "-6" "6" "5" "4" "-4" "4" "5" "-4" "4"
+  "4" "-4" "5" "5" "-4" "5" "6" "5" "-4" "4" "4" "-4" "4" "5" "7" "-6" "6" "5" "4" "-4" "4" "5" "-4" "4"
+  "5" "-5" "6" "6" "6" "-5" "6" "-6" "6" "7" "-6" "6" "5" "-4" "4" "-4" "4" "-4" "5" "-4"
+  "4" "-4" "5" "5" "-4" "5" "6" "5" "-4" "4" "4" "-4" "4" "5" "7" "-6" "6" "5" "4" "-4" "4" "5" "-4" "4"
 }
 ```
 
