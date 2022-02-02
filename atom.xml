@@ -21,8 +21,8 @@ layout: null
    <link href="{{ site.url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    {% if post.image %}
-     <logo>{{ site.url }}{{ post.image }}</logo>
-     <icon>{{ site.url }}{{ post.image }}</icon>
+   <logo>{{ site.url }}{{ post.image }}</logo>
+   <icon>{{ site.url }}{{ post.image }}</icon>
    {% endif %}
    <id>{{ site.url }}{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
