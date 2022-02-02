@@ -20,6 +20,8 @@ layout: null
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <logo>{{ site.url }}{{ post.image }}</logo>
+   <icon>{{ site.url }}{{ post.image }}</icon>
    <id>{{ site.url }}{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
