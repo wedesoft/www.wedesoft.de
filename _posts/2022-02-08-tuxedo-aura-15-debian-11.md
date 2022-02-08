@@ -5,7 +5,7 @@ category: technology
 image: /pics/tuxedo-aura-15-gen1.jpg
 ---
 
-# Buying a laptop from Tuxedo Computers
+## Buying a laptop from Tuxedo Computers
 
 I upgraded to a laptop from [Tuxedo Computers][1] ([german page][2]).
 The nice thing about Tuxedo Computers is that
@@ -35,7 +35,7 @@ Also there is a Youtube video review in English below:
 
 {% youtube "https://www.youtube.com/watch?v=vjVXzuPIsS0" %}
 
-# Installing Debian 11
+## Installing Debian 11
 
 On Reddit I got [helpful information][5] from Ferdinand from Tuxedo Computers on how to install Debian 11 on the Aura 15 Gen1.
 Also see [Debian Wiki][6] for some information.
@@ -50,7 +50,7 @@ I followed the following steps (no warranty) to get Debian 11 running:
 
 ![Debian 11 on Tuxedo Aura 15 Gen1](/pics/tuxedo-debian.jpg)
 
-# Installing Tuxedo packages and other packages
+## Installing Tuxedo packages and other packages
 
 * You then need to add the Tuxedo package repository (see [here][22] for more information):
 
