@@ -22,7 +22,8 @@ I selected the laptop because of
 
 * a keyboard with a number pad and backlight
 * 15.6 inch display
-* 8 core, 8 threads CPU using only 15W power
+* 8 core, 8 threads AMD CPU using only 15W power
+* AMD/ATI graphics
 
 It is recommended when choosing the RAM to use a [multi-channel configuration][16] for better performance.
 Also make sure to order enough RAM because some of it is used by the integrated graphics card.
@@ -91,6 +92,12 @@ sh ./install.sh
 
 Enjoy!
 
+### Updates
+
+* Had to [edit 40-libinput.conf][28] to get touchpad tapping to work
+* Tuxedocomputers also gives you 10GByte of space on their Nextcloud server which you can [mount using davfs2][29]
+* Press **F2** to enter the BIOS; press **F7** to select the boot device
+
 [1]: https://www.tuxedocomputers.com/en
 [2]: https://www.tuxedocomputers.com/de
 [3]: https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen1.tuxedo
@@ -118,3 +125,5 @@ Enjoy!
 [25]: https://stackoverflow.com/questions/65978703/missing-libappindicator3-1-installing-slack
 [26]: https://deb-multimedia.org/
 [27]: https://wiki.debian.org/plymouth
+[28]: https://askubuntu.com/questions/1179275/enable-tap-to-click-kubuntu
+[29]: https://docs.nextcloud.com/server/20/user_manual/en/files/access_webdav.html
