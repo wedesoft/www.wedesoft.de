@@ -99,6 +99,8 @@ Enjoy!
 * Had to [edit 40-libinput.conf][28] to get touchpad tapping to work
 * Tuxedocomputers also gives you 10GByte of space on their Nextcloud server which you can [mount using davfs2][29]
 * Press **F2** to enter the BIOS; press **F7** to select the boot device
+* If you want to set up a Windows/Linux dual-boot (using Grub) you need to disable Bitlocker encryption
+* If you want to mount an NTFS partition you need to disable fast boot on Windows
 
 [1]: https://www.tuxedocomputers.com/en
 [2]: https://www.tuxedocomputers.com/de
