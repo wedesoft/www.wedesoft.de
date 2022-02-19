@@ -90,6 +90,8 @@ Then you copy the resulting file *install.sh* to the target machine and run
 sh ./install.sh
 {% endhighlight %}
 
+{% youtube "https://www.youtube.com/watch?v=faUdi3-mvgI" %}
+
 Enjoy!
 
 ### Updates
