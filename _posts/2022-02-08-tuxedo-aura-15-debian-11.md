@@ -23,7 +23,7 @@ I selected the laptop because of
 * a keyboard with a number pad and backlight
 * 15.6 inch display
 * 8 core, 8 threads AMD CPU using only 15W power
-* AMD/ATI graphics
+* no proprietary NVidia graphics drivers
 
 It is recommended when choosing the RAM to use a [multi-channel configuration][16] for better performance.
 Also make sure to order enough RAM because some of it is used by the integrated graphics card.
