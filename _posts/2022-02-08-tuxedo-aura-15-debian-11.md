@@ -11,7 +11,7 @@ I upgraded to a laptop from [Tuxedo Computers][1] ([german page][2]).
 The nice thing about Tuxedo Computers is that
 
 * they provide GNU/Linux support for new hardware
-* they let you customise the laptop (e.g. SSD size, RAM configuration, keyboard layout)
+* they let you customise the laptop (e.g. CPU, SSD size, RAM configuration, keyboard layout)
 * the laptops are repairable/upgradeable
 * the laptops come with 2 years warranty
 
