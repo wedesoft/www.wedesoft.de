@@ -49,7 +49,7 @@ I followed the following steps (no warranty) to get Debian 11 running:
 * The Debian installer lets you choose which desktop (I chose **KDE** here).
 * After installation you need to **comment out the cdrom entries** in /etc/apt/sources.list.
 
-![Debian 11 on Tuxedo Aura 15 Gen1](/pics/tuxedo-debian.jpg)
+<span class="center"><img src="/pics/neofetch2.png" width="508" alt=""/></span>
 
 ## Installing Tuxedo packages and other packages
 
@@ -70,6 +70,8 @@ sudo apt-get update
   * tuxedo-restore-audio-fix (options snd-hda-intel probe_mask=1) (see [package repository][7])
 * Install packages from [deb-multimedia.org][26].
 * [Install Plymouth boot splash][27].
+
+<span class="center"><img src="/pics/tuxedo-debian.jpg" width="508" alt=""/></span>
 
 Then a few more tweaks:
 
