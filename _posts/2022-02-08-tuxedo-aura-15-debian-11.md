@@ -103,6 +103,7 @@ Enjoy!
 * Press **F2** to enter the BIOS; press **F7** to select the boot device
 * If you want to set up a Windows/Linux dual-boot (using Grub) you need to disable Bitlocker encryption
 * If you want to mount an NTFS partition you need to disable fast boot on Windows
+* The BIOS supports [Flexicharger][30] which lets you set charge limits to extend battery life
 
 [1]: https://www.tuxedocomputers.com/en
 [2]: https://www.tuxedocomputers.com/de
@@ -133,3 +134,4 @@ Enjoy!
 [27]: https://wiki.debian.org/plymouth
 [28]: https://askubuntu.com/questions/1179275/enable-tap-to-click-kubuntu
 [29]: https://docs.nextcloud.com/server/20/user_manual/en/files/access_webdav.html
+[30]: https://www.tuxedocomputers.com/en/Infos/Help-Support/Frequently-asked-questions/What-is-Flexicharger-.tuxedo
