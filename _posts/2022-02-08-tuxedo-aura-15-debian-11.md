@@ -30,6 +30,7 @@ Also make sure to order enough RAM because some of it is used by the integrated 
 Finally doing parallelized builds on many cores requires more memory.
 
 Note that there also is the [Tuxedo Pulse 15 Gen1][24] which comes with a 8 core 16 threads AMD Ryzen 7 4800H.
+Also the [Tuxedo Aura 15 Gen2][32] is due to arrive in April and also comes with 16 threads.
 
 [Here][19] is an in-depth review in German language (and [here][17] is a shorter review).
 Also there is a Youtube video review in English below:
@@ -137,3 +138,4 @@ Enjoy!
 [29]: https://docs.nextcloud.com/server/20/user_manual/en/files/access_webdav.html
 [30]: https://www.tuxedocomputers.com/en/Infos/Help-Support/Frequently-asked-questions/What-is-Flexicharger-.tuxedo
 [31]: https://github.com/webketje/tuxedo-backlight-control
+[32]: https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen2.tuxedo
