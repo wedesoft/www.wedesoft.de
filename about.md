@@ -191,7 +191,7 @@ I also play the harmonica.
 		<li>Engineering lecture: <a href="http://www.slideshare.net/wedesoft/demfeb09">Ruby and Machine Vision</a></li>
 		<li>Talk at Sheffield Astronomical Society: <a href="http://www.slideshare.net/wedesoft/digital-imaging-with-free-software">Digital Imaging with Free Software</a></li>
 		<li><span class="caps">OSCON 2008</span> presentation <a href="http://www.slideshare.net/wedesoft/oscon08-foils">Real-time Computer Vision with Ruby</a> (<a href="http://assets.en.oreilly.com/1/event/12/Real-time%20Computer%20Vision%20with%20Ruby%20Presentation.pdf">mirror</a>, <a href="http://en.oreilly.com/oscon2008/public/schedule/detail/2471">abstract</a>)</li>
-		<li><span class="caps">MRC</span> seminar <a href="http://www.slideshare.net/wedesoft/machine-vision-and-device-integration-with-the-ruby-programming-language-2008">Machine vision and device integration with the Ruby programming language</a></li>
+		<li><span class="caps">MRC</span> seminar <a href="/downloads/meri-feb-08.pdf">Machine vision and device integration with the Ruby programming language</a></li>
 		<li><span class="caps">MERI</span> seminar <a href="http://www.slideshare.net/wedesoft/the-micron-project">The MiCRoN Project</a></li>
 		<li><span class="caps">MERI</span> seminar <a href="http://www.slideshare.net/wedesoft/computer-vision-for-microscopes">Computer Vision for Microscopes</a></li>
 		<li>Seminar <a href="http://digbib.ubka.uni-karlsruhe.de/volltexte/79799">Verteilte Simulation-Konservative Synchronisation und Time Warp</a></li>
