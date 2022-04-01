@@ -46,7 +46,7 @@ I followed the following steps (no warranty) to get Debian 11 running:
 
 * **Download** the [latest Debian 11 unofficial image including non-free firmware][20] and **create a bootable USB stick** using [Rufus][21] for example. The unofficial image comes with proprietary firmware for the AMD GPU and for the Wifi adapter.
 * Boot with the USB stick plugged in, press **F7** and select the USB stick.
-* You need to plug in the **network cable** for installing the updates. The Wifi doesn't work during installation.
+* You need to plug in the **network cable** for installing the updates. The Wifi adapter is recognized but doesn't work during installation.
 * The Debian installer lets you choose which desktop (I chose **KDE** here).
 * After installation you need to **comment out the cdrom entries** in /etc/apt/sources.list.
 
