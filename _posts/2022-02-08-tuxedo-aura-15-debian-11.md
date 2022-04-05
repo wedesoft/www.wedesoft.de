@@ -64,7 +64,7 @@ sudo apt-get update
 {% endhighlight %}
 
 * Install *firmware-linux*.
-* Manually install old [libappindicator3-1 and libindicator3-7 package][25] from Debian 10.
+* Manually install old [libappindicator3-1 and libindicator3-7 package][25] from Debian 10 (**update:** this is not necessary any more with the new version of tuxedo control center)
 * You can then install the following three Tuxedo packages:
   * tuxedo-control-center (user interface for power management) ([source][10])
   * tuxedo-keyboard (dkms kernel module for keyboard lighting) ([source][11])
