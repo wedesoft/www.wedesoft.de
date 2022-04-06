@@ -64,7 +64,7 @@ sudo apt-get update
 {% endhighlight %}
 
 * Install *firmware-linux*.
-* Manually install old [libappindicator3-1 and libindicator3-7 package][25] from Debian 10 (**update:** this is not necessary any more with the new version of tuxedo control center)
+* Manually install old [libappindicator3-1 and libindicator3-7 package][25] from Debian 10 (**update:** this is not necessary any more with the new version of Tuxedo Control Center thanks to [Vinz][33])
 * You can then install the following three Tuxedo packages:
   * tuxedo-control-center (user interface for power management) ([source][10])
   * tuxedo-keyboard (dkms kernel module for keyboard lighting) ([source][11])
@@ -139,3 +139,4 @@ Enjoy!
 [30]: https://www.tuxedocomputers.com/en/Infos/Help-Support/Frequently-asked-questions/What-is-Flexicharger-.tuxedo
 [31]: https://github.com/webketje/tuxedo-backlight-control
 [32]: https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen2.tuxedo
+[33]: https://vinzv.de/
