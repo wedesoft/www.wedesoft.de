@@ -188,7 +188,7 @@ I also play the harmonica.
 		<li><span class="caps">15th ShRUG meeting</span> presentation <a href="http://www.slideshare.net/wedesoft/play-squash-with-ruby-opengl-and-a-wiimote">Play squash with Ruby, OpenGL and a Wiimote</a> (<a href="http://shrug.org/meetings/shrug-15/">abstract</a>)</li>
 		<li><span class="caps">7th ShRUG meeting</span> presentation <a href="http://www.slideshare.net/wedesoft/presentation-at-sheffield-ruby-users-group-shrug">Machine Vision made easy with Ruby</a> (<a href="http://shrug.org/meetings/shrug-7/">abstract</a>)</li>
 		<li><span class="caps">Rubyconf 2009</span> presentation <a href="http://www.slideshare.net/wedesoft/rubyconf09">Computer Vision using Ruby and libJIT</a> (<a href="http://www.wedesoft.de/rubyconf09.html">abstract</a>)</li>
-		<li>Engineering lecture: <a href="http://www.slideshare.net/wedesoft/demfeb09">Ruby and Machine Vision</a></li>
+		<li>Engineering lecture: <a href="/downloads/demfeb09.pdf">Ruby and Machine Vision</a></li>
 		<li>Talk at Sheffield Astronomical Society: <a href="http://www.slideshare.net/wedesoft/digital-imaging-with-free-software">Digital Imaging with Free Software</a></li>
 		<li><span class="caps">OSCON 2008</span> presentation <a href="/downloads/oscon08.pdf">Real-time Computer Vision with Ruby</a> (<a href="http://assets.en.oreilly.com/1/event/12/Real-time%20Computer%20Vision%20with%20Ruby%20Presentation.pdf">mirror</a>, <a href="http://en.oreilly.com/oscon2008/public/schedule/detail/2471">abstract</a>)</li>
 		<li><span class="caps">MRC</span> seminar <a href="/downloads/meri-feb-08.pdf">Machine vision and device integration with the Ruby programming language</a></li>
