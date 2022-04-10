@@ -185,7 +185,7 @@ I also play the harmonica.
 	<ul>
 		<li><span class="caps">Digital Science Cambridge 2014 retreat</span> presentation <a href="http://www.wedesoft.de/downloads/cambridge2014.pdf">Fundamentals of Computing</a></li>
 		<li><span class="caps">ECOOP 2011</span> demonstration <a href="http://scc-sentinel.lancs.ac.uk/ecoop11/?q=content/implementing-machine-vision-systems-dynamically-typed-language">Implementing Machine Vision Systems with a Dynamically Typed Language</a></li>
-		<li><span class="caps">15th ShRUG meeting</span> presentation <a href="http://www.slideshare.net/wedesoft/play-squash-with-ruby-opengl-and-a-wiimote">Play squash with Ruby, OpenGL and a Wiimote</a> (<a href="http://shrug.org/meetings/shrug-15/">abstract</a>)</li>
+		<li><span class="caps">15th ShRUG meeting</span> presentation <a href="/downloads/shrug15.pdf">Play squash with Ruby, OpenGL and a Wiimote</a> (<a href="http://shrug.org/meetings/shrug-15/">abstract</a>)</li>
 		<li><span class="caps">7th ShRUG meeting</span> presentation <a href="/downloads/shrug7.pdf">Machine Vision made easy with Ruby</a> (<a href="http://shrug.org/meetings/shrug-7/">abstract</a>)</li>
 		<li><span class="caps">Rubyconf 2009</span> presentation <a href="/downloads/rubyconf09.pdf">Computer Vision using Ruby and libJIT</a> (<a href="http://www.wedesoft.de/rubyconf09.html">abstract</a>)</li>
 		<li>Engineering lecture: <a href="/downloads/demfeb09.pdf">Ruby and Machine Vision</a></li>
