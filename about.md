@@ -202,7 +202,7 @@ I also play the harmonica.
   </ul></li>
 	<li>Diploma thesis:
 	<ul>
-                <li><a href="https://publikationen.bibliothek.kit.edu/1872002">Fokusserien-basierte Rekonstruktion von Mikroobjekten</a> (<a href="http://www.slideshare.net/wedesoft/diploma1-7317818">first presentation (English)</a>, <a href="http://www.slideshare.net/wedesoft/fokusserien-basierte-rekonstruktion-von-mikroobjekten-2002">second presentation (German)</a>, <a href="http://www.wedesoft.de/downloads/masters_wedekind.bib">Bibtex</a>)</li>
+                <li><a href="https://publikationen.bibliothek.kit.edu/1872002">Fokusserien-basierte Rekonstruktion von Mikroobjekten</a> (<a href="/downloads/diploma1.pdf">first presentation (English)</a>, <a href="/downloads/diploma2.pdf">second presentation (German)</a>, <a href="http://www.wedesoft.de/downloads/masters_wedekind.bib">Bibtex</a>)</li>
 	</ul></li>
 	<li>First thesis:
 	<ul>
