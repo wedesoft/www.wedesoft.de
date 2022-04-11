@@ -8,7 +8,7 @@ I gave a talk titled <b>Computer vision using Ruby and libJIT</b> at the [RubyCo
 
 <span class="center"><a href="https://confreaks.tv/videos/rubyconf2009-computer-vision-using-ruby-and-libjit"><img src="/pics/rubyconf09video.jpg" width="508" alt="Computer vision using Ruby and libJIT"/></a></span>
 
-You can download the talk from **[this webpage][video]**. The presentation slides are available [on SlideShare][slideshare].
+You can download the talk from **[this webpage][video]**. The presentation slides are available [here][slides].
 
 Let me know if you have any questions.
 
@@ -23,4 +23,4 @@ Let me know if you have any questions.
 [video]: https://confreaks.tv/videos/rubyconf2009-computer-vision-using-ruby-and-libjit
 [other]: https://confreaks.tv/events/rubyconf2009
 [speakerrate]: http://speakerrate.com/talks/1796-computer-vision-using-ruby-and-libjit
-[slideshare]: http://www.slideshare.net/wedesoft/rubyconf09
+[slides]: http://www.wedesoft.de/downloads/rubyconf09.pdf
