@@ -301,9 +301,17 @@ Let me know if you have any comments or suggestions.
 
 Enjoy!
 
+**Updates:**
+
+* Rhawk187 pointed out that image comparisons are also problematic because updates to graphics drivers can cause subtle changes
+* submitted to [Reddit][7]
+* submitted to [Hackernews][8]
+
 [1]: https://legacy.lwjgl.org/javadoc.html
 [2]: https://clojuredocs.org/
 [3]: https://imagej.nih.gov/ij/developer/api/ij/module-summary.html
 [4]: https://cljdoc.org/d/midje/midje/
 [5]: https://www.wedesoft.de/software/2021/09/20/reversed-z-rendering/
 [6]: https://github.com/weavejester/comb
+[7]: https://www.reddit.com/r/opengl/comments/vpbcuy/test_driven_development_with_opengl/
+[8]: https://news.ycombinator.com/item?id=31953169
