@@ -112,7 +112,8 @@ The tests are therefore more like integration tests and they are not suitable fo
 
 However it is possible to use a Pbuffer just as a rendering context and perform rendering to a floating-point texture.
 One can use a texture with a single pixel as a framebuffer.
-The floating point channels of the RGB pixel then can be compared with the expected value.
+A single pixel of a uniformly colored quad is drawn.
+The floating point channels of the texture's RGB pixel then can be compared with the expected value.
 
 ```Clojure
 (defn shader-test [setup probe & shaders]
@@ -134,6 +135,13 @@ The floating point channels of the RGB pixel then can be compared with the expec
             (destroy-vertex-array-object vao)
             (destroy-program program)))
         @result)))
+
+(def vertex-passthrough "#version 410 core
+in highp vec3 point;
+void main()
+{
+  gl_Position = vec4(point, 1);
+}")
 
 (defmacro texture-render
   "Macro to render to a texture"
@@ -303,9 +311,51 @@ Enjoy!
 
 **Updates:**
 
-* Rhawk187 pointed out that image comparisons are also problematic because updates to graphics drivers can cause subtle changes
 * submitted to [Reddit][7]
 * submitted to [Hackernews][8]
+* Rhawk187 pointed out that image comparisons are also problematic because updates to graphics drivers can cause subtle changes
+
+The code of `make-vertex-array-object` and `render-quads` is added here for reference.
+
+```Clojure
+(defn make-vertex-array-object
+  "Create vertex array object and vertex buffer objects"
+  [program indices vertices attributes]
+  (let [vertex-array-object (GL30/glGenVertexArrays)]
+    (GL30/glBindVertexArray vertex-array-object)
+    (let [array-buffer (GL15/glGenBuffers)
+          index-buffer (GL15/glGenBuffers)]
+      (GL15/glBindBuffer GL15/GL_ARRAY_BUFFER array-buffer)
+      (GL15/glBufferData GL15/GL_ARRAY_BUFFER
+                         (make-float-buffer (float-array vertices)) GL15/GL_STATIC_DRAW)
+      (GL15/glBindBuffer GL15/GL_ELEMENT_ARRAY_BUFFER index-buffer)
+      (GL15/glBufferData GL15/GL_ELEMENT_ARRAY_BUFFER
+                         (make-int-buffer (int-array indices)) GL15/GL_STATIC_DRAW)
+      (let [attribute-pairs (partition 2 attributes)
+            sizes           (map second attribute-pairs)
+            stride          (apply + sizes)
+            offsets         (reductions + (cons 0 (butlast sizes)))]
+        (doseq [[i [attribute size] offset] (map list (range) attribute-pairs offsets)]
+          (GL20/glVertexAttribPointer (GL20/glGetAttribLocation
+                                        ^int program (name attribute))
+                                        ^int size
+                                      GL11/GL_FLOAT false
+                                        ^int (* stride Float/BYTES)
+                                        ^int (* offset Float/BYTES))
+          (GL20/glEnableVertexAttribArray i))
+        {:vertex-array-object vertex-array-object
+         :array-buffer        array-buffer
+         :index-buffer        index-buffer
+         :nrows               (count indices)
+         :ncols               (count attribute-pairs)}))))
+
+(defn render-quads
+  "Render one or more quads"
+  [vertex-array-object]
+  (setup-vertex-array-object vertex-array-object)
+  (GL11/glDrawElements GL11/GL_QUADS
+    ^int (:nrows vertex-array-object) GL11/GL_UNSIGNED_INT 0))
+```
 
 [1]: https://legacy.lwjgl.org/javadoc.html
 [2]: https://clojuredocs.org/
