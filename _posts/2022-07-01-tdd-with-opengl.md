@@ -9,7 +9,7 @@ image: /pics/glxgears.png
 
 ## Test Driven Development
 
-Test driven development undoubtedly helps a great deal in preventing development grinding to a halt once a project's size surpasses a few lines of code.
+Test driven development (TDD) undoubtedly helps a great deal in preventing development grinding to a halt once a project's size surpasses a few lines of code.
 
 1. The reason for first writing a failing test is to ensure that the test is actually failing and testing the next code change.
 1. A minimal change to the code is performed to pass the new test while also still passing all previously written tests.
