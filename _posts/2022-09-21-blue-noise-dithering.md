@@ -24,7 +24,7 @@ You can use a sigma value of 1.5.
 The convolution is wrapped around to facilitate a tileable result:
 
 {% latex %}
-$\displaystyle DA(x, y) = \sum_{p=-M/2}^{M/2} \sum_{q=-M/2}^{M/2} BP(p\ mod\ M, q\ mod\ M) f(p, q)$
+$\displaystyle DA(x, y) = \sum_{p=-M/2}^{M/2} \sum_{q=-M/2}^{M/2} BP((x-p)\ mod\ M, (y-q)\ mod\ M) f(p, q)$
 {% endlatex %}
 
 Maxima of the density array are called clusters and minima are called voids.
@@ -73,5 +73,7 @@ Here is an example with constant offsets when sampling 3D clouds without ditheri
 Here is the same scene using dithering to set the sampling offsets.
 
 ![dithering](/pics/dither.png)
+
+Let me know any comments/suggestions in the comments below.
 
 [1]: http://cv.ulichney.com/papers/1993-void-cluster.pdf
