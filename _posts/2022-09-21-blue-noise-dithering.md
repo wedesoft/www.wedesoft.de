@@ -55,8 +55,8 @@ The corresponding positions in the dither array are set to N, N+1, ..., (M * M) 
 ## Phase 3
 In phase 3 the density array DA is recomputed using the boolean negated mask from the previous phase (0 becomes 1 and 1 becomes 0).
 Now the mask is filled with 1 values where the density DA is the highest (clusters of 0s).
-Phase 2 stops when all the values in the mask are 1.
-The corresponding positions in the dither array are set to (M * M) / 2, ..., M * M.
+Phase 3 stops when all the values in the mask are 1.
+The corresponding positions in the dither array are set to (M * M) / 2, ..., M * M - 1.
 
 ![phase3](/pics/phase3.gif)
 
