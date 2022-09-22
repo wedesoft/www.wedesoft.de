@@ -60,4 +60,18 @@ The corresponding positions in the dither array are set to (M * M) / 2, ..., M *
 
 ![phase3](/pics/phase3.gif)
 
+## Result
+The result can be normalised to 0 to 255 in order to inspect it.
+The blue noise dither array looks as follows:
+
+![random mask](/pics/bluenoiselg.png)
+
+Here is an example with constant offsets when sampling 3D clouds without dithering.
+
+![no dithering](/pics/nodither.png)
+
+Here is the same scene using dithering to set the sampling offsets.
+
+![dithering](/pics/dither.png)
+
 [1]: http://cv.ulichney.com/papers/1993-void-cluster.pdf
