@@ -30,7 +30,7 @@ $\displaystyle DA(x, y) = \sum_{p=-M/2}^{M/2} \sum_{q=-M/2}^{M/2} BP((x-p)\ mod\
 Maxima of the density array are called clusters and minima are called voids.
 
 The 1 value in BP with the highest density value DA (tightest cluster) is set to 0 and DA is updated accordingly.
-Now the 0 value in BP with the lowest density value DA (largest void) is set to 1.
+Now the 0 value in BP with the lowest density value DA (largest void) is set to 1 (and DA is updated).
 
 This is repeated until disolving the tightest cluster creates the largest void.
 This is done to spread the 1 values evenly.
@@ -54,7 +54,7 @@ The corresponding positions in the dither array are set to N, N+1, ..., (M * M) 
 
 ## Phase 3
 In phase 3 the density array DA is recomputed using the boolean negated mask from the previous phase (0 becomes 1 and 1 becomes 0).
-Now the mask is filled with 1 values where the density DA is the highest (clusters of 0s).
+Now the mask is filled with 1 values where the density DA is the highest (clusters of 0s) always updating DA.
 Phase 3 stops when all the values in the mask are 1.
 The corresponding positions in the dither array are set to (M * M) / 2, ..., M * M - 1.
 
