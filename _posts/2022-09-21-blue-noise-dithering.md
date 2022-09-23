@@ -74,6 +74,10 @@ Here is the same scene using dithering to set the sampling offsets.
 
 ![dithering](/pics/dither.png)
 
+One can apply a blur filter to reduce the noise.
+
+![blur](/pics/blur.png)
+
 Let me know any comments/suggestions in the comments below.
 
 [1]: http://cv.ulichney.com/papers/1993-void-cluster.pdf
