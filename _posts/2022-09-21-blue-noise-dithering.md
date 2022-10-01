@@ -78,6 +78,8 @@ One can apply a blur filter to reduce the noise.
 
 ![blur](/pics/blur.png)
 
+Note how the blurred image shows more detail than the image with constant offsets even though the sampling rate is the same.
+
 Let me know any comments/suggestions in the comments below.
 
 [1]: http://cv.ulichney.com/papers/1993-void-cluster.pdf
