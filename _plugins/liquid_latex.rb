@@ -120,7 +120,7 @@ module Jekyll
           site.static_files << st_file
           # Build the <img> tag to be returned to the renderer
           png_path = File.join(@@globals["output_directory"], filename)
-          return "<img src=\"" + png_path + "\" alt=\"latex formula\"></img>"
+          return "<img src=\"" + png_path + "\" alt=\"latex formula\">"
         else
           # Generate a block of text in the post with the original source
           resp = "Failed to render the following block of LaTeX:<br/>\n"
