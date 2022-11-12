@@ -1,6 +1,12 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class : 'syntax'
 
 # Permalinks
 permalink:        pretty
@@ -8,7 +14,7 @@ permalink:        pretty
 # Setup
 title:            Jan Wedekind
 tagline:          'Computer Scientist (PhD)'
-description:      'Machine vision, robotics, software engineering.'
+description:      'Machine vision, robovtics, software engineering.'
 url:              http://www.wedesoft.de
 baseurl:          /
 
@@ -16,9 +22,7 @@ author:
   name:           'Jan Wedekind'
   url:            https://twitter.com/wedesoft
 
-paginate:         5
-
-# Custom vars
+paginate:         5# Custom vars
 github:
   repo:           https://github.com/wedesoft/www.wedesoft.de
 
@@ -27,7 +31,11 @@ plugins:
   - jekyll-gist
   - jekyll-youtube
   - jekyll-vimeo
+  - jekyll-feed
 
 liquid_latex:
   debug: false
   density: 120
+
+feed:
+  path: atom.xml
