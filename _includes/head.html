@@ -10,10 +10,12 @@
   <meta name="theme-color" content="#90a959">
 
   <!-- Open Graph Protocol -->
-  <meta name="og:title" content="{{ page.title }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:type" content="article">
   {% if page.image %}
-  <meta name="og:image" content="https://www.wedesoft.de{{ page.image }}">
+  <meta property="og:image" content="https://www.wedesoft.de{{ page.image }}">
   {% endif %}
+  <meta property="og:url" content="https://www.wedesoft.de{{ page.url }}">
 
   <title>
     {% if page.title == "Home" %}
