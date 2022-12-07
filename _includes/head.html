@@ -9,13 +9,13 @@
   <!-- Address bar color -->
   <meta name="theme-color" content="#90a959">
 
+  {% if page.image %}
   <!-- Open Graph Protocol -->
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:type" content="article">
-  {% if page.image %}
   <meta property="og:image" content="https://www.wedesoft.de{{ page.image }}">
-  {% endif %}
   <meta property="og:url" content="https://www.wedesoft.de{{ page.url }}">
+  {% endif %}
 
   <title>
     {% if page.title == "Home" %}
