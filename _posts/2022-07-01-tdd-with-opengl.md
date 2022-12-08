@@ -22,7 +22,7 @@ In order to automate this, one can perform offscreen rendering and do a pixel-wi
 
 Using the [Clojure][2] programming language and the [Lightweight Java Game Library (LWJGL)][1] one can perform offscreen rendering with a Pbuffer object using the following macro (of course this approach is not limited to Clojure and LWJGL):
 
-```Clojure
+{% highlight clojure %}
 (defn setup-rendering
   "Common code for setting up rendering"
   [width height]
@@ -49,21 +49,21 @@ Using the [Clojure][2] programming language and the [Lightweight Java Game Libra
        (finally
          (.releaseContext pbuffer#)
          (.destroy pbuffer#)))))
-```
+{% endhighlight %}
 
 Note that the code sets up [reversed-z rendering as discussed in an earlier article][5]
 
 Using the [Midje][4] testing library one can for example test a command for clearing the color buffer as follows:
 
-```Clojure
+{% highlight clojure %}
 (fact "Render background color"
   (offscreen-render 160 120 (clear (matrix [1.0 0.0 0.0])))
   => (is-image "test/sfsim25/fixtures/render/red.png"))
-```
+{% endhighlight %}
 
 The checker `is-image` is implemented using [ImageJ][3]:
 
-```Clojure
+{% highlight clojure %}
 (defn is-image
   "Compare RGB components of image and ignore alpha values."
   [filename]
@@ -82,11 +82,11 @@ The checker `is-image` is implemented using [ImageJ][3]:
     {:width (.getWidth img)
      :height (.getHeight img)
      :data (.getPixels (.getProcessor img))}))
-```
+{% endhighlight %}
 
 The image is recorded initially by using the checker `record-image` instead of `is-image` and verifying the result manually.
 
-```Clojure
+{% highlight clojure %}
 (defn record-image
   "Use this test function to record the image the first time."
   [filename]
@@ -100,7 +100,7 @@ The image is recorded initially by using the checker `record-image` instead of `
         img       (ImagePlus.)]
     (.setProcessor img processor)
     (.saveAsPng (FileSaver. img) file-name)))
-```
+{% endhighlight %}
 
 One can use this approach (and maybe only this approach) to test code for handling vertex array objects, textures, and for loading shaders.
 
@@ -115,7 +115,7 @@ One can use a texture with a single pixel as a framebuffer.
 A single pixel of a uniformly colored quad is drawn.
 The floating point channels of the texture's RGB pixel then can be compared with the expected value.
 
-```Clojure
+{% highlight clojure %}
 (defn shader-test [setup probe & shaders]
   (fn [uniforms args]
       (let [result (promise)]
@@ -171,7 +171,7 @@ void main()
       (GL11/glGetTexImage GL11/GL_TEXTURE_2D 0 GL12/GL_BGR GL11/GL_FLOAT buf)
       (.get buf data)
       {:width width :height height :data data})))
-```
+{% endhighlight %}
 
 Furthermore it is possible to compose the fragment shader by linking the shader function under test with a main function.
 I.e. it is possible to link the shader function under test with a main function implemented just for probing the shader.
@@ -181,7 +181,7 @@ The new test function then can be used using the Midje tabular environment.
 In the following example the GLSL function `phase` is tested.
 Note that parameters in the probing shaders are set using the [weavejester/comb][6] templating library.
 
-```Clojure
+{% highlight clojure %}
 (def phase-probe
   (template/fn [g mu] "#version 410 core
 out lowp vec3 fragColor;
@@ -202,14 +202,14 @@ void main()
          0  -1   (/ 6 (* 16 PI))
          0.5 0   (/ (* 3 0.75) (* 8 PI 2.25 (pow 1.25 1.5)))
          0.5 1   (/ (* 6 0.75) (* 8 PI 2.25 (pow 0.25 1.5))))
-```
+{% endhighlight %}
 
 Note that using `mget` the red channel of the pixel is extracted.
 Sometimes it might be more desirable to check all channels of the RGB pixel.
 
 Here is the actual implementation of the tested function:
 
-```GLSL
+{% highlight glsl %}
 #version 410 core
 
 float M_PI = 3.14159265358;
@@ -219,14 +219,14 @@ float phase(float g, float mu)
   return 3 * (1 - g * g) * (1 + mu * mu) /
     (8 * M_PI * (2 + g * g) * pow(1 + g * g - 2 * g * mu, 1.5));
 }
-```
+{% endhighlight %}
 
 The empty function `(fn [program])` is specified as a setup function.
 In general the setup function is used to initialise uniforms used in the shader under test.
 
 Here is an example of tests using uniform values:
 
-```Clojure
+{% highlight clojure %}
 (def transmittance-track-probe
   (template/fn [px py pz qx qy qz] "#version 410 core
 out lowp vec3 fragColor;
@@ -260,7 +260,7 @@ void main()
          0   0   6428000 0   0   6478000 0.5
          0   0   6453000 0   0   6478000 0.75
          0   0   6428000 0   0   6453000 (/ 0.5 0.75))
-```
+{% endhighlight %}
 
 Here a setup function initialising 5 uniform values is specified.
 
@@ -269,7 +269,7 @@ Here a setup function initialising 5 uniform values is specified.
 If each shader function is implemented as a separate string (loaded from a separate file), one can easily link with mock functions when testing shaders.
 Here is an example of a probing shader which also contains mocks to allow the shader to be unit tested in isolation:
 
-```Clojure
+{% highlight clojure %}
 (def cloud-track-base-probe
   (template/fn [px qx n decay scatter density ir ig ib]
 "#version 410 core
@@ -303,7 +303,7 @@ void main()
   fragColor = cloud_track_base(p, q, <%= n %>, incoming);
 }
 "))
-```
+{% endhighlight %}
 
 Let me know if you have any comments or suggestions.
 
@@ -317,7 +317,7 @@ Enjoy!
 
 The code of `make-vertex-array-object` and `render-quads` is added here for reference.
 
-```Clojure
+{% highlight clojure %}
 (defn make-vertex-array-object
   "Create vertex array object and vertex buffer objects"
   [program indices vertices attributes]
@@ -355,7 +355,7 @@ The code of `make-vertex-array-object` and `render-quads` is added here for refe
   (setup-vertex-array-object vertex-array-object)
   (GL11/glDrawElements GL11/GL_QUADS
     ^int (:nrows vertex-array-object) GL11/GL_UNSIGNED_INT 0))
-```
+{% endhighlight %}
 
 [1]: https://legacy.lwjgl.org/javadoc.html
 [2]: https://clojuredocs.org/
