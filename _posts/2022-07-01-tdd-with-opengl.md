@@ -313,7 +313,7 @@ Enjoy!
 
 * submitted to [Reddit][7]
 * submitted to [Hackernews][8]
-* Rhawk187 pointed out that image comparisons are also problematic because updates to graphics drivers can cause subtle changes
+* Rhawk187 pointed out that exact image comparisons are also problematic because updates to graphics drivers can cause subtle changes. This can be adressed by allowing a small average difference between the expected and actual image.
 
 The code of `make-vertex-array-object` and `render-quads` is added here for reference.
 
