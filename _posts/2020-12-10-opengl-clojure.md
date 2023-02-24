@@ -159,6 +159,14 @@ wget http://www.wedesoft.de/downloads/raw-opengl.clj
 clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
 {% endhighlight %}
 
+**Update:***
+
+If you are using Clojure 1.11 or later, you need to use a `deps.edn` file or specify the dependency on the command line like this:
+
+{% highlight shell %}
+clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M raw-opengl.clj
+{% endhighlight %}
+
 ![image](/pics/triangle.png)
 
 Any feedback, comments, and suggestions are welcome.
