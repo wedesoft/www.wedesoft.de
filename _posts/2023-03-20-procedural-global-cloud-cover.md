@@ -2,6 +2,7 @@
 layout: post
 title: Procedural generation of global cloud cover
 category: software
+image: /pics/cloud-cover.jpg
 ---
 
 Recently I started working on procedural generation of a cloud map.
