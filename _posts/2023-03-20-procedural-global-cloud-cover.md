@@ -8,6 +8,7 @@ image: /pics/cloud-cover.jpg
 Recently I started working on procedural generation of a cloud map.
 Initially I applied [random rotation fields to a sphere with Worley noise and posted it on Reddit][1].
 A helpful comment by [mr\_bitshift][3] pointed out the publication [Bridson et al. "Curl noise for procedural fluid flow"][4].
+In a response to a later [Reddit post][2] [smcameron][11] shared an impressive result of a [gas giant generated using curl noise][10].
 In two dimensions curl noise is fairly easy to understand and implement.
 For a thorough description of 2D curl noise see [Keith Peters' article "Curl noise, demystified"][5].
 Basically one starts with a potential field such as multiple octaves of [Worley noise][6].
@@ -102,3 +103,5 @@ Enjoy!
 [7]: https://en.wikipedia.org/wiki/Vector_projection
 [8]: https://learnopengl.com/Advanced-OpenGL/Cubemaps
 [9]: https://www.wedesoft.de/software/2022/07/01/tdd-with-opengl/
+[10]: https://smcameron.github.io/space-nerds-in-space/gaseous-giganticus-slides/slideshow.html
+[11]: https://www.reddit.com/user/smcameron/
