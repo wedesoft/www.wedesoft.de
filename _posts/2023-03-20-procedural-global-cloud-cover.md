@@ -8,7 +8,7 @@ image: /pics/cloud-cover.jpg
 Recently I started working on procedural generation of a cloud map.
 Initially I applied [random rotation fields to a sphere with Worley noise and posted it on Reddit][1].
 A helpful comment by [mr\_bitshift][3] pointed out the publication [Bridson et al. "Curl noise for procedural fluid flow"][4].
-In a response to a later [Reddit post][2] [smcameron][11] shared an impressive result of a [gas giant generated using curl noise][10].
+Also in a response to a later [Reddit post][2] [smcameron][11] shared an impressive result of a [gas giant generated using curl noise][10].
 In two dimensions curl noise is fairly easy to understand and implement.
 For a thorough description of 2D curl noise see [Keith Peters' article "Curl noise, demystified"][5].
 Basically one starts with a potential field such as multiple octaves of [Worley noise][6].
@@ -80,7 +80,7 @@ In OpenGL one can create a [cubemap][8] where each pixel on each surface contain
 ![Update warp vectors](/pics/warp-vectors.png)
 
 If one uses octaves of Worley noise one obtains vortices rotating in one direction.
-To obtain prevailing winds and vortices with different direction of rotation depending on the latitude one can use the function (1+sin(2.5\*latitute))/2 to mix positive and negative Worley noise.
+To obtain prevailing winds and vortices with different direction of rotation depending on the latitude one can use the function (1+sin(2.5\*latitude))/2 to mix positive and negative Worley noise.
 
 ![Mixing positive and negative Worley noise to obtain prevailing winds](/pics/prevailing-winds.png)
 
@@ -93,6 +93,36 @@ Also see [here](https://www.youtube.com/watch?v=dzGjDgvapfs) for a video.
 See [cover.clj](https://github.com/wedesoft/sfsim25/blob/c26adc1a1bb04d2193885b88353375fa45d0d41f/etc/cover.clj) for source code.
 
 Enjoy!
+
+## Update
+
+Another detail I forgot to mention is that the fragment shaders and the cubemap texture lookups use modified vectors to avoid performing lookups in the texture clamping regions.
+I.e. when converting fragment coordinates, one increases the range of the index by half a pixel on both ends:
+
+{% highlight glsl %}
+vec2 x = (gl_FragCoord.xy - 0.5) / (size - 1);
+{% endhighlight %}
+
+Furthermore when performing lookups, two coordinates of the lookup vector are scaled down by half a pixel:
+
+{% highlight glsl %}
+vec3 convert_cubemap_index(vec3 idx, int size)
+{
+  vec3 scale;
+  if (abs(idx.x) >= abs(idx.y)) {
+    if (abs(idx.x) >= abs(idx.z))
+      scale = vec3(size, size - 1, size - 1);
+    else
+      scale = vec3(size - 1, size - 1, size);
+  } else {
+    if (abs(idx.y) >= abs(idx.z))
+      scale = vec3(size - 1, size, size - 1);
+    else
+      scale = vec3(size - 1, size - 1, size);
+  };
+  return idx * scale / size;
+}
+{% endhighlight %}
 
 [1]: https://www.reddit.com/r/proceduralgeneration/comments/1150e4f/how_can_i_generate_realistic_planetary_cloud_cover/
 [2]: https://www.reddit.com/r/proceduralgeneration/comments/118gbqq/how_to_generate_planetary_cloud_cover_using_curl/
