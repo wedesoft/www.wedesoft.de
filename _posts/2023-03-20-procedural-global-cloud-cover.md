@@ -96,7 +96,7 @@ Enjoy!
 
 ## Update
 
-Another detail I forgot to mention is that the fragment shaders and the cubemap texture lookups use modified vectors to avoid performing lookups in the texture clamping regions.
+Another detail I forgot to mention is that the fragment shaders and the cubemap texture lookups use modified vectors to avoid performing lookups in the texture clamping regions which would lead to seams in the cloud cover.
 I.e. when converting fragment coordinates, one increases the range of the index by half a pixel on both ends:
 
 {% highlight glsl %}
