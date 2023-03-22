@@ -9,6 +9,7 @@ Recently I started working on procedural generation of a cloud map.
 Initially I applied [random rotation fields to a sphere with Worley noise and posted it on Reddit][1].
 A helpful comment by [mr\_bitshift][3] pointed out the publication [Bridson et al. "Curl noise for procedural fluid flow"][4].
 Also in a response to a later [Reddit post][2] [smcameron][11] shared an impressive result of a [gas giant generated using curl noise][10].
+
 In two dimensions curl noise is fairly easy to understand and implement.
 For a thorough description of 2D curl noise see [Keith Peters' article "Curl noise, demystified"][5].
 Basically one starts with a potential field such as multiple octaves of [Worley noise][6].
@@ -123,6 +124,10 @@ vec3 convert_cubemap_index(vec3 idx, int size)
   return idx * scale / size;
 }
 {% endhighlight %}
+
+The following picture illustrates the two related conversions.
+
+![Index conversions for cubemaps](/pics/cubemap-index.png)
 
 [1]: https://www.reddit.com/r/proceduralgeneration/comments/1150e4f/how_can_i_generate_realistic_planetary_cloud_cover/
 [2]: https://www.reddit.com/r/proceduralgeneration/comments/118gbqq/how_to_generate_planetary_cloud_cover_using_curl/
