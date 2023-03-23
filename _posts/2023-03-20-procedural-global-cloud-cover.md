@@ -5,7 +5,7 @@ category: software
 image: /pics/cloud-cover.jpg
 ---
 
-Recently I started working on procedural generation of a cloud map.
+This article is about **generating realistic planetary cloud cover**.
 Initially I applied [random rotation fields to a sphere with Worley noise and posted it on Reddit][1].
 A helpful comment by [mr\_bitshift][3] pointed out the publication [Bridson et al. "Curl noise for procedural fluid flow"][4].
 Also in a response to a later [Reddit post][2] [smcameron][11] shared an impressive result of a [gas giant generated using curl noise][10].
