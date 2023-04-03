@@ -92,7 +92,7 @@ Below is a result obtained using the method described in this article.
 
 Also see [here](https://www.youtube.com/watch?v=dzGjDgvapfs) for a video.
 
-See [cover.clj](https://github.com/wedesoft/sfsim25/blob/c26adc1a1bb04d2193885b88353375fa45d0d41f/etc/cover.clj) for source code.
+See [cover.clj](https://github.com/wedesoft/sfsim25/blob/dd0ddd7e8f0b218664232ce8e228e2c1b8b54596/etc/cover.clj) for source code.
 
 Enjoy!
 
