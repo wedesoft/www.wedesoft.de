@@ -11,7 +11,7 @@ Click on the picture to watch the video at The Huffington Post.
 
 The Whitehouse website provides [an article][1] as well as [the transcript of the speech][2].
 
-<h4>Updates</h4>
+**Update:**
 
 A video of the speech is now available from the [Whitehouse website itself][1]
 <ul>
@@ -22,7 +22,12 @@ Public media is deeply concerned that the current US government is lacking commi
 
 Also see [PBS-documentary: Bush's War][4].
 
+**Update:**
+
+The video is now only [on Youtube][5].
+
 [1]: http://www.whitehouse.gov/blog/Security-and-Values/
 [2]: http://www.whitehouse.gov/the_press_office/Remarks-by-the-President-On-National-Security-5-21-09/
 [3]: http://www.youtube.com/watch?v=1uuWVHT1WUY
 [4]: http://www.pbs.org/wgbh/pages/frontline/bushswar/
+[5]: https://www.youtube.com/watch?v=ic6Sh3zjUF0
