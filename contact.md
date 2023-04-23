@@ -5,7 +5,7 @@ title: Contact
 
 * Homepage: [https://www.wedesoft.de/](https://www.wedesoft.de/)
 * E-Mail: [jan@wedesoft.de](mailto:jan@wedesoft.de)
-* SIP: sip:84424536@voiptalk.org
+* SIP: [sip:84424536@voiptalk.org](sip:84424536@voiptalk.org)
 * Twitter: [@wedesoft](https://twitter.com/wedesoft)
 * Nostr: [npub12n5uzstmwww0vrne25lkdr68vugeqsh78r022vlzm2jh9rp7uz7qs0w3nr](nostr:npub12n5uzstmwww0vrne25lkdr68vugeqsh78r022vlzm2jh9rp7uz7qs0w3nr)
 * Youtube: [wedesoft](https://www.youtube.com/user/wedesoft)
