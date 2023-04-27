@@ -12,9 +12,32 @@
   {% if page.image %}
   <!-- Open Graph Protocol -->
   <meta property="og:title" content="{{ page.title }}">
-  <meta property="og:type" content="article">
+  <meta property="og:description" content="{{ page.title }}">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.wedesoft.de{{ page.image }}">
   <meta property="og:url" content="https://www.wedesoft.de{{ page.url }}">
+  <!-- Twitter meta-information -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.title }}">
+  <meta name="twitter:creator" content="@wedesoft">
+  <meta name="twitter:site" content="@wedesoft">
+  <meta name="twitter:url" content="https://www.wedesoft.de{{ page.url }}">
+  <meta name="twitter:image" content="https://www.wedesoft.de{{ page.image }}">
+  {% else %}
+  <meta property="og:title" content="Homepage of Jan Wedekind">
+  <meta property="og:description" content="Homepage of Jan Wedekind">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.wedesoft.de/pics/avatar.png">
+  <meta property="og:url" content="https://www.wedesoft.de{{ page.url }}">
+  <!-- Twitter meta-information -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Homepage of Jan Wedekind">
+  <meta name="twitter:description" content="Homepage of Jan Wedekind">
+  <meta name="twitter:creator" content="@wedesoft">
+  <meta name="twitter:site" content="@wedesoft">
+  <meta name="twitter:url" content="https://www.wedesoft.de{{ page.url }}">
+  <meta name="twitter:image" content="https://www.wedesoft.de/pics/avatar.png">
   {% endif %}
 
   <title>
