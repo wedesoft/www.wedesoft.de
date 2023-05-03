@@ -122,7 +122,8 @@ Enjoy!
 * add planet surface and shadow map
 * sampling with adaptive step size
 * [Powder sugar effect][2]
-* modified shading at large distances
+* problems with shadow map at large distances
+* problem with long shadows at dawn
 
 [1]: https://www.youtube.com/watch?v=4QOcCGI6xOU
 [2]: https://www.youtube.com/watch?v=Qj_tK_mdRcA
