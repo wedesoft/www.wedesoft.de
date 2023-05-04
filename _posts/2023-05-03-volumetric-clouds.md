@@ -75,7 +75,7 @@ To reduce sampling artifacts without loss of performance, one can use [blue nois
 
 ![Blue noise sampling offsets](/pics/bluenoiseoffsets.jpg)
 
-In a previous article I have demonstrated on how to [generate global cloud cover using curl noise][4].
+In a previous article I have demonstrated how to [generate global cloud cover using curl noise][4].
 One can add the global cloud cover with octaves of mixed [Perlin][6] and Worley noise and subtract a threshold.
 Clamping the resulting value creates 2D cloud patterns on a spherical surface.
 
