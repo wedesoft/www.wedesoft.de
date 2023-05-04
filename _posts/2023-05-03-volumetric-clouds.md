@@ -118,6 +118,25 @@ float remap(float value, float original_min, float original_max, float new_min, 
 }
 {% endhighlight %}
 
+The function composing all those noise values is shown here:
+
+{% highlight glsl %}
+uniform samplerCube cover;
+float cloud_density(vec3 point, float lod)
+{
+  float clouds = perlin_octaves(normalize(point) * radius / cloud_scale);
+  float profile = cloud_profile(point);
+  float level = 0.5 * (multiplier + gradient) * threshold;
+  float cover_sample = clamp(texture(cover, point).r * gradient + clouds * multiplier - level, 0.0, cap);
+  float base = cover_sample * profile;
+  float noise = cloud_octaves(point / detail_scale, lod);
+  float density = clamp(remap(noise, 1 - base / cap, 1.0, 0.0, cap), 0.0, cap);
+  return density;
+}
+{% endhighlight %}
+
+See [cloudsonly.clj](https://github.com/wedesoft/sfsim25/blob/8efe07f3c426d0564d8244b40432448ce16a6fb7/etc/cloudsonly.clj) for source code.
+
 An example obtained using these techniques is shown below:
 
 ![Remapping of noise](/pics/remapping.jpg)
