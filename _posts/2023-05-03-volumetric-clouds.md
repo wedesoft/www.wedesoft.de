@@ -49,6 +49,16 @@ I.e. the amount of scattered light is computed as follows:
   float scatter_amount = anisotropic * phase(0.76, dot(direction, light_direction)) + 1 - anisotropic;
 {% endhighlight %}
 
+I used the Cornette and Shanks phase function shown below (formula (4) in [Bruneton's paper][8]):
+
+{% highlight glsl %}
+float M_PI = 3.14159265358;
+float phase(float g, float mu)
+{
+  return 3 * (1 - g * g) * (1 + mu * mu) / (8 * M_PI * (2 + g * g) * pow(1 + g * g - 2 * g * mu, 1.5));
+}
+{% endhighlight %}
+
 The resulting rendering of the Worley noise now shows a bright halo around the sun:
 
 ![Anisotropic scattering](/pics/anisotropic.jpg)
@@ -86,6 +96,7 @@ By restricting the clouds to be between a bottom and top height, one obtains pri
 ![Cloud blocks](/pics/cloudblocks.jpg)
 
 Note that at this point it is recommended to use cascaded deep opacity maps instead of a single opacity map.
+Like [cascaded shadow maps][10], cascaded deep opacity maps are a series of cuboids covering different splits of the view frustum.
 
 One can additionally multiply the clouds with a [vertical density profile][9].
 
@@ -134,3 +145,4 @@ Enjoy!
 [7]: https://www.wedesoft.de/software/2022/09/21/blue-noise-dithering/
 [8]: https://inria.hal.science/inria-00288758/document
 [9]: https://www.youtube.com/watch?v=p48rNiJBFG0
+[10]: https://web.archive.org/web/20220526080455/https://dev.theomader.com/cascaded-shadow-mapping-1/
