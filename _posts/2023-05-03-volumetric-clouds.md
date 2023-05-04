@@ -122,6 +122,10 @@ An example obtained using these techniques is shown below:
 
 ![Remapping of noise](/pics/remapping.jpg)
 
+The example was rendered with 28.5 frames per second.
+* the resolution was 640x480
+* an AMD Ryzen 7 4700U with passmark 2034 was used for rendering
+
 Please let me know any suggestions and improvements!
 <img src="/pics/bounce.gif" width="19" alt=""/>
 
