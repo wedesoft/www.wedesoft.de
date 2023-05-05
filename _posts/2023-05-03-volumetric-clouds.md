@@ -63,7 +63,7 @@ The resulting rendering of the Worley noise now shows a bright halo around the s
 
 ![Anisotropic scattering](/pics/anisotropic.jpg)
 
-The rendering does not include self-shadowing.
+The rendering does not yet include self-shadowing.
 Shadows are usually computed by sampling light rays towards the light source for each sample of the view ray.
 However a more efficient way is to use [deep opacity maps][5].
 In a similar fashion to shadow maps, a depth map of the start of the cloud is computed as seen from the light source.
