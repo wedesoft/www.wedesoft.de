@@ -134,7 +134,7 @@ float cloud_density(vec3 point, float lod)
 }
 {% endhighlight %}
 
-See [cloudsonly.clj](https://github.com/wedesoft/sfsim25/blob/8efe07f3c426d0564d8244b40432448ce16a6fb7/etc/cloudsonly.clj) for source code.
+See [cloudsonly.clj](https://github.com/wedesoft/sfsim25/blob/0e95f2a4bc093e902c1d3e20457533da1e632e34/etc/cloudsonly.clj) for source code.
 
 An example obtained using these techniques is shown below:
 
