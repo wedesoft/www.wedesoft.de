@@ -154,7 +154,11 @@ Please let me know any suggestions and improvements!
 
 Enjoy!
 
-**Note:** I removed the clamping operation for the cover sample noise.
+**Update:** I removed the clamping operation for the cover sample noise.
+
+**Update:** Added video below.
+
+{% youtube "https://www.youtube.com/watch?v=YVCX5er7a2U" %}
 
 ## Future work
 
