@@ -126,11 +126,10 @@ float cloud_density(vec3 point, float lod)
 {
   float clouds = perlin_octaves(normalize(point) * radius / cloud_scale);
   float profile = cloud_profile(point);
-  float level = 0.5 * (multiplier + gradient) * threshold;
-  float cover_sample = clamp(texture(cover, point).r * gradient + clouds * multiplier - level, 0.0, cap);
+  float cover_sample = texture(cover, point).r * gradient + clouds * multiplier - threshold;
   float base = cover_sample * profile;
   float noise = cloud_octaves(point / detail_scale, lod);
-  float density = clamp(remap(noise, 1 - base / cap, 1.0, 0.0, cap), 0.0, cap);
+  float density = clamp(remap(noise, 1 - base, 1.0, 0.0, cap), 0.0, cap);
   return density;
 }
 {% endhighlight %}
