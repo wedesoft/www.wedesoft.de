@@ -154,6 +154,8 @@ Please let me know any suggestions and improvements!
 
 Enjoy!
 
+**Note:** I removed the clamping operation for the cover sample noise.
+
 ## Future work
 
 * add atmospheric scattering with cloud shadows
