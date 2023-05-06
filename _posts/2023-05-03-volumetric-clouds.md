@@ -65,7 +65,7 @@ The resulting rendering of the Worley noise now shows a bright halo around the s
 
 The rendering does not yet include self-shadowing.
 Shadows are usually computed by sampling light rays towards the light source for each sample of the view ray.
-However a more efficient way is to use [deep opacity maps][5].
+However a more efficient way is to use [deep opacity maps][5] (also see Pixar's work on [deep shadow maps][11]).
 In a similar fashion to shadow maps, a depth map of the start of the cloud is computed as seen from the light source.
 While rendering the depth map, several samples of the opacity (or transmittance) behind the depth map are taken with a constant stepsize.
 I.e. the opacity map consists of a depth (or offset) image and a 3D array of opacity (or transmittance) images.
@@ -179,3 +179,4 @@ Enjoy!
 [8]: https://inria.hal.science/inria-00288758/document
 [9]: https://www.youtube.com/watch?v=p48rNiJBFG0
 [10]: https://web.archive.org/web/20220526080455/https://dev.theomader.com/cascaded-shadow-mapping-1/
+[11]: https://dl.acm.org/doi/pdf/10.1145/344779.344958
