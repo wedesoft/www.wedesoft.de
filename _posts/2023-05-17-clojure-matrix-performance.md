@@ -28,7 +28,6 @@ Comparing EJML with a mix of core.matrix and direct calls to vectorz:
 * EJML has support for both single and double precision floating point numbers
 * it uses single column matrices to represent vectors leading to slower matrix-vector multiplication
 * it has a fast 4x4 matrix inverse
-* matrix-vector multiplicat
 * it does not come with a Clojure wrapper
 * it offers fast access to raw data
 
