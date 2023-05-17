@@ -1,0 +1,44 @@
+---
+layout: post
+title: Clojure/Java Matrix Library Performance Comparison
+category: software
+image: /pics/matrix.jpg
+---
+
+This is a quick performance comparison of the [Clojure core.matrix library][1] and the [Efficient Java Matrix Library][2].
+Because core.matrix uses the [VectorZ Java library][3] as a backend, direct calls to VectorZ were also included in the comparison.
+The [criterium 0.4.6][4] benchmark library was used to measure the performance of common matrix expressions.
+Here are the results:
+
+| op                                | core.matrix 0.63.0 | ejml 0.43     | vectorz-clj 0.48.0 |
+|-----------------------------------|--------------------|---------------|--------------------|
+| make 4x4 matrix                   | 677 ns             | 133 ns        | **53.4 ns**        |
+| make 4D vector                    | 259 ns             | 47.2 ns       | **8.53 ns**        |
+| add 4D vectors                    | **12.8 ns**        | 17.6 ns       | 18.0 ns            |
+| elementwise matrix multiplication | 64.6 ns            | 27.9 ns       | **26.9 ns**        |
+| matrix multiplication             | 116 ns             | **75.7 ns**   | 112 ns             |
+| matrix-vector multiplication      | 21.4 ns            | 31.3 ns       | **19.3 ns**        |
+| vector dot product                | 6.60 ns            | 6.94 ns       | **4.42 ns**        |
+| inverse matrix                    | 461 ns             | **81.4 ns**   | 456 ns             |
+| matrix determinant                | 153 ns             | **6.87 ns**   | 150 ns             |
+| matrix element access             | **2.89 ns**        | 3.09 ns       | 3.08 ns            |
+| get raw data array                | 11.8 ns            | **0.0383 ns** | 11.7 ns            |
+
+Comparing EJML with a mix of core.matrix and direct calls to vectorz:
+* EJML has support for both single and double precision floating point numbers
+* it uses single column matrices to represent vectors leading to slower matrix-vector multiplication
+* it has a fast 4x4 matrix inverse
+* matrix-vector multiplicat
+* it does not come with a Clojure wrapper
+* it offers fast access to raw data
+
+The implementations of the libraries are all quite impressive with custom optimisations for small matrices and vectors.
+Note that I didn't include [Neanderthal][5] in the comparison because it is more suitable for large matrices.
+
+I hope you find this comparison useful.
+
+[1]: https://mikera.github.io/core.matrix/
+[2]: http://ejml.org/
+[3]: https://github.com/mikera/vectorz
+[4]: https://github.com/mikera/vectorz
+[5]: https://neanderthal.uncomplicate.org/
