@@ -55,7 +55,7 @@ Here is a performance comparison of matrix inverse for 3x3, 4x4, and 5x5 matrice
 * [weavejester/euclidean][7] is a small library implementing small square matrices and vectors.
 * [play-cljc comes with a matrix library as well][8].
 * there is also [ojalgo][9] which according to the [Java Matrix Benchmark][10] is the fasted pure Java linear algebra library.
-* [fastmath][11] is a much faster Clojure library which provides matrix operations up to dimension 4.
+* [fastmath][11] is a very fast Clojure library which provides double-precision matrix operations up to dimension 4.
 
 [1]: https://mikera.github.io/core.matrix/
 [2]: http://ejml.org/
