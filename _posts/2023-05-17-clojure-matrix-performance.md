@@ -35,6 +35,11 @@ Comparing EJML with a mix of core.matrix and direct calls to vectorz:
 * it does not come with a Clojure wrapper
 * it offers fast access to raw data
 
+Comparing EJML with fastmath:
+* EJML has support for matrices larger than 4x4
+* EJML gives you access to the matrix as a flat floating point array (fastmath will add support in the future)
+* EJML is mostly slower
+
 The implementations of the libraries are all quite impressive with custom optimisations for small matrices and vectors.
 Note that I didn't include [Neanderthal][5] in the comparison because it is more suitable for large matrices.
 
