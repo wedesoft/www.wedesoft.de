@@ -11,20 +11,20 @@ Finally I added [fastmath][11] to the comparison after it was pointed out to me 
 The [criterium 0.4.6][4] benchmark library was used to measure the performance of common matrix expressions.
 Here are the results running it on an AMD Ryzen 7 4700U with a turbo speed of 4.1 GHz:
 
-| op                                | core.matrix 0.63.0 | ejml-all 0.43 | vectorz-clj 0.48.0 | fastmath 2.2.1     |
-|-----------------------------------|--------------------|---------------|--------------------|--------------------|
-| make 4x4 matrix                   | 675 ns             | 135 ns        | 50.5 ns            | **13.1 ns**        |
-| make 4D vector                    | 299 ns             | 47.6 ns       | 9.27 ns            | **3.67 ns**        |
-| add 4D vectors                    | 13.5 ns            | 18.2 ns       | 9.02 ns            | **4.29 ns**        |
-| inverse matrix                    | 439 ns             | 81.4 ns       | 440 ns             | **43.6 ns**        |
-| elementwise matrix multiplication | 64.9 ns            | 29.0 ns       | 29.1 ns            | **13.7 ns**        |
-| matrix multiplication             | 102 ns             | 74.7 ns       | 100 ns             | **22.4 ns**        |
-| matrix-vector multiplication      | 20.9 ns            | 31.2 ns       | 19.1 ns            | **6.46 ns**        |
-| vector dot product                | 6.56 ns            | 6.90 ns       | **4.46 ns**        | 6.36 ns            |
-| vector norm                       | 10.1 ns            | 11.4 ns       | not supported?     | **3.74 ns**        |
-| matrix determinant                | 170 ns             | **7.35 ns**   | 166 ns             | 7.67 ns            |
-| matrix element access             | 4.14 ns            | 3.35 ns       | **3.26 ns**        | 3.53 ns<sup>1</sup>|
-| get raw data array                | 12.0 ns            | **3.00 ns**   | 11.9 ns            | 13.2 ns<sup>1</sup>|
+| op                                | core. matrix 0.63.0 | ejml-all 0.43    | vectorz- clj 0.48.0 | fastmath 2.2.1     |
+|-----------------------------------|---------------------|------------------|---------------------|--------------------|
+| make 4x4 matrix                   | 675&nbsp;ns         | 135&nbsp;ns      | 50.5&nbsp;ns        | **13.1&nbsp;ns**        |
+| make 4D vector                    | 299&nbsp;ns         | 47.6&nbsp;ns     | 9.27&nbsp;ns        | **3.67&nbsp;ns**        |
+| add 4D vectors                    | 13.5&nbsp;ns        | 18.2&nbsp;ns     | 9.02&nbsp;ns        | **4.29&nbsp;ns**        |
+| inverse matrix                    | 439&nbsp;ns         | 81.4&nbsp;ns     | 440&nbsp;ns         | **43.6&nbsp;ns**        |
+| elementwise matrix multiplication | 64.9&nbsp;ns        | 29.0&nbsp;ns     | 29.1&nbsp;ns        | **13.7&nbsp;ns**        |
+| matrix multiplication             | 102&nbsp;ns         | 74.7&nbsp;ns     | 100&nbsp;ns         | **22.4&nbsp;ns**        |
+| matrix-vector multiplication      | 20.9&nbsp;ns        | 31.2&nbsp;ns     | 19.1&nbsp;ns        | **6.46&nbsp;ns**        |
+| vector dot product                | 6.56&nbsp;ns        | 6.90&nbsp;ns     | **4.46&nbsp;ns**    | 6.36&nbsp;ns            |
+| vector norm                       | 10.1&nbsp;ns        | 11.4&nbsp;ns     | not supported?      | **3.74&nbsp;ns**        |
+| matrix determinant                | 170&nbsp;ns         | **7.35&nbsp;ns** | 166&nbsp;ns         | 7.67&nbsp;ns            |
+| matrix element access             | 4.14&nbsp;ns        | 3.35&nbsp;ns     | **3.26&nbsp;ns**    | 3.53&nbsp;ns<sup>1</sup>|
+| get raw data array                | 12.0&nbsp;ns        | **3.00&nbsp;ns** | 11.9&nbsp;ns        | 13.2&nbsp;ns<sup>1</sup>|
 
 <sup>1</sup><small>requires fastmath 2.2.2-SNAPSHOT or later</small>
 
@@ -52,11 +52,11 @@ I hope you find this comparison useful.
 The large performance difference for matrix inversion is probably because EJML has custom 4x4 matrix classes while VectorZ stops at 3x3.
 Here is a performance comparison of matrix inverse for 3x3, 4x4, and 5x5 matrices:
 
-| op                 | core.matrix 0.63.0 | ejml-all 0.43 | vectorz-clj 0.48.0 | fastmath 2.2.1 |
-|--------------------|--------------------|---------------|--------------------|----------------|
-| 3x3 matrix inverse | 13.0 ns            | 48.3 ns       | 12.2 ns            | **10.8 ns**    |
-| 4x4 matrix inverse | 471 ns             | 98.3 ns       | 465 ns             | **50.3 ns**    |
-| 5x5 matrix inverse | 669 ns             | **172 ns**    | 666 ns             | not supported  |
+| op                 | core. matrix 0.63.0 | ejml-all 0.43   | vectorz- clj 0.48.0 | fastmath 2.2.1   |
+|--------------------|---------------------|-----------------|---------------------|------------------|
+| 3x3 matrix inverse | 13.0&nbsp;ns        | 48.3&nbsp;ns    | 12.2&nbsp;ns        | **10.8&nbsp;ns** |
+| 4x4 matrix inverse | 471&nbsp;ns         | 98.3&nbsp;ns    | 465&nbsp;ns         | **50.3&nbsp;ns** |
+| 5x5 matrix inverse | 669&nbsp;ns         | **172&nbsp;ns** | 666&nbsp;ns         | not supported    |
 
 **Further updates:**
 
