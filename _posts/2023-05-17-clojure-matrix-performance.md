@@ -11,20 +11,22 @@ Finally I added [fastmath][11] to the comparison after it was pointed out to me 
 The [criterium 0.4.6][4] benchmark library was used to measure the performance of common matrix expressions.
 Here are the results running it on an AMD Ryzen 7 4700U with a turbo speed of 4.1 GHz:
 
-| op                                | core.matrix 0.63.0 | ejml-all 0.43 | vectorz-clj 0.48.0 | fastmath 2.2.1 |
-|-----------------------------------|--------------------|---------------|--------------------|----------------|
-| make 4x4 matrix                   | 675 ns             | 135 ns        | 50.5 ns            | **13.1 ns**    |
-| make 4D vector                    | 299 ns             | 47.6 ns       | 9.27 ns            | **3.67 ns**    |
-| add 4D vectors                    | 13.5 ns            | 18.2 ns       | 9.02 ns            | **4.29 ns**    |
-| inverse matrix                    | 439 ns             | 81.4 ns       | 440 ns             | **43.6 ns**    |
-| elementwise matrix multiplication | 64.9 ns            | 29.0 ns       | 29.1 ns            | **13.7 ns**    |
-| matrix multiplication             | 102 ns             | 74.7 ns       | 100 ns             | **22.4 ns**    |
-| matrix-vector multiplication      | 20.9 ns            | 31.2 ns       | 19.1 ns            | **6.46 ns**    |
-| vector dot product                | 6.56 ns            | 6.90 ns       | **4.46 ns**        | 6.36 ns        |
-| vector norm                       | 10.1 ns            | 11.4 ns       | not supported?     | **3.74 ns**    |
-| matrix determinant                | 170 ns             | **7.35 ns**   | 166 ns             | 7.67 ns        |
-| matrix element access             | 4.14 ns            | 3.35 ns       | **3.26 ns**        | 189 ns         |
-| get raw data array                | 12.0 ns            | **3.00 ns**   | 11.9 ns            | support coming |
+| op                                | core.matrix 0.63.0 | ejml-all 0.43 | vectorz-clj 0.48.0 | fastmath 2.2.1     |
+|-----------------------------------|--------------------|---------------|--------------------|--------------------|
+| make 4x4 matrix                   | 675 ns             | 135 ns        | 50.5 ns            | **13.1 ns**        |
+| make 4D vector                    | 299 ns             | 47.6 ns       | 9.27 ns            | **3.67 ns**        |
+| add 4D vectors                    | 13.5 ns            | 18.2 ns       | 9.02 ns            | **4.29 ns**        |
+| inverse matrix                    | 439 ns             | 81.4 ns       | 440 ns             | **43.6 ns**        |
+| elementwise matrix multiplication | 64.9 ns            | 29.0 ns       | 29.1 ns            | **13.7 ns**        |
+| matrix multiplication             | 102 ns             | 74.7 ns       | 100 ns             | **22.4 ns**        |
+| matrix-vector multiplication      | 20.9 ns            | 31.2 ns       | 19.1 ns            | **6.46 ns**        |
+| vector dot product                | 6.56 ns            | 6.90 ns       | **4.46 ns**        | 6.36 ns            |
+| vector norm                       | 10.1 ns            | 11.4 ns       | not supported?     | **3.74 ns**        |
+| matrix determinant                | 170 ns             | **7.35 ns**   | 166 ns             | 7.67 ns            |
+| matrix element access             | 4.14 ns            | 3.35 ns       | **3.26 ns**        | 3.53 ns<sup>1</sup>|
+| get raw data array                | 12.0 ns            | **3.00 ns**   | 11.9 ns            | 13.2 ns<sup>1</sup>|
+
+<sup>1</sup><small>requires fastmath 2.2.2-SNAPSHOT or later</small>
 
 See [matperf.clj][12] for source code of benchmark script.
 
