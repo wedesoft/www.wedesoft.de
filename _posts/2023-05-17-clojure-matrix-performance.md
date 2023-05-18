@@ -36,6 +36,17 @@ Note that I didn't include [Neanderthal][5] in the comparison because it is more
 
 I hope you find this comparison useful.
 
+**Update:**
+
+The large performance difference for matrix inversion is probably because EJML has custom 4x4 matrix classes while VectorZ stops at 3x3.
+Here is a performance comparison of matrix inverse for 3x3, 4x4, and 5x5 matrices:
+
+| op                 | core.matrix 0.63.0 | ejml 0.43     | vectorz-clj 0.48.0 |
+|--------------------|--------------------|---------------|--------------------|
+| 3x3 matrix inverse | **12.9 ns**        | 47.9 ns       | 20.5 ns            |
+| 4x4 matrix inverse | 449 ns             | **95.9 ns**   | 451 ns             |
+| 5x5 matrix inverse | 651 ns             | **197 ns**    | 637 ns             |
+
 [1]: https://mikera.github.io/core.matrix/
 [2]: http://ejml.org/
 [3]: https://github.com/mikera/vectorz
