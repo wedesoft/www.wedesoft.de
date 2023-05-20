@@ -9,6 +9,7 @@ This is a quick performance comparison of the [Clojure core.matrix library][1] a
 Because core.matrix uses the [VectorZ Java library][3] as a backend, direct calls to VectorZ were also included in the comparison.
 Finally I added [fastmath][11] to the comparison after it was pointed out to me by the developer.
 The [criterium 0.4.6][4] benchmark library was used to measure the performance of common matrix expressions.
+The Clojure version was 1.11.1 and OpenJDK runtime version was 17.0.6.
 Here are the results running it on an AMD Ryzen 7 4700U with a turbo speed of 4.1 GHz:
 
 | op                                          | core. matrix 0.63.0 | ejml-all 0.43    | vectorz- clj 0.48.0 | fastmath 2.2.1     |
@@ -36,6 +37,7 @@ Comparing EJML with a mix of core.matrix and direct calls to vectorz:
 * it has a fast 4x4 matrix inverse
 * it does not come with a Clojure wrapper
 * it offers fast access to raw data
+* it does not support multi-dimensional arrays
 
 Comparing EJML with fastmath:
 * EJML has support for matrices larger than 4x4
