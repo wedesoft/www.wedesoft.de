@@ -224,6 +224,16 @@ Any feedback, comments, and suggestions are welcome.
 
 Enjoy!
 
+**Update:**
+
+If you are using Clojure 1.11 or later, you need to use a `deps.edn` file or specify the dependency on the command line like this:
+
+{% highlight shell %}
+wget https://www.wedesoft.de/downloads/tessellation-opengl.clj
+sudo apt-get install liblwjgl-java
+clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M tessellation-opengl.clj
+{% endhighlight %}
+
 [1]: https://www.wedesoft.de/software/2020/12/10/opengl-clojure/
 [2]: http://legacy.lwjgl.org/
 [3]: http://wiki.lwjgl.org/

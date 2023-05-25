@@ -13,7 +13,7 @@ The trouble started when I started to realise how many representations of images
 
 It get's worse. CPUs usually offer arithmetic using 8-bit, 16-bit, 32-bit, and 64-bit integers which can be signed or unsigned. Also there are single-precision and double-precision floating point numbers (*i.e.* 10 or more different native data types). When implementing a C/C++ library which just wants to support basic binary operations (addition, subtraction, division, multiplication, exponent, comparisons, ...) for array-scalar, scalar-array, and array-array combinations, one quickly ends up with literally thousands of possible combinations. This leads to a combinatorial explosion of methods as one can see in the [Framewave][3] library for example.
 
-<span class="right"><a href="http://www.wedesoft.de/hornetseye-api/"><img src="/pics/hornetseye.jpg" width="100" alt=""/></a></span>
+<span class="right"><a href="https://www.wedesoft.de/hornetseye-api/"><img src="/pics/hornetseye.jpg" width="100" alt=""/></a></span>
 In the end I wrote a thesis about a different way of implementing machine vision systems. The thesis shows how one can implement machine vision software using a popular dynamically typed programming language (*i.e.* the Ruby programming language).
 
 The listing below shows an IRB (Interactive Ruby) session to illustrate the result. Comment lines (preceded with '#') show the output of the IRB REPL (read-eval-print loop). The session first opens a video display showing the camera image. After closing the window it shows a video display with the thresholded camera image.
@@ -49,7 +49,7 @@ The example has just 7 lines of code. The REPL furthermore facilitates experimen
 
 I released the software as software libre under the name [Hornetseye][4]. My thesis is available for download now, too: [Efficient Implementations of Machine Vision Algorithms using a Dynamically Typed Programming Language][5] ([Bibtex][13]).
 
-<span class="center"><a href="http://www.wedesoft.de/downloads/thesis_wedekind.pdf"><img src="/pics/thesis.png" width="196" alt=""/></a></span>
+<span class="center"><a href="https://www.wedesoft.de/downloads/thesis_wedekind.pdf"><img src="/pics/thesis.png" width="196" alt=""/></a></span>
 
 Here's the abstract:
 
@@ -83,8 +83,8 @@ The thesis is now also [available on Figshare.com][12].
 [1]: http://www2.imperial.ac.uk/robotvision/website/php/videos.php
 [2]: http://fourcc.org/
 [3]: http://framewave.sourceforge.net/
-[4]: http://www.wedesoft.de/hornetseye-api/
-[5]: http://www.wedesoft.de/downloads/thesis_wedekind.pdf
+[4]: https://www.wedesoft.de/hornetseye-api/
+[5]: https://www.wedesoft.de/downloads/thesis_wedekind.pdf
 [6]: http://halide-lang.org/
 [7]: http://narray.rubyforge.org/
 [8]: http://lush.sourceforge.net/
@@ -92,5 +92,5 @@ The thesis is now also [available on Figshare.com][12].
 [10]: http://numpy.scipy.org/
 [11]: http://piumarta.com/software/maru/
 [12]: http://dx.doi.org/10.6084/m9.figshare.97244
-[13]: http://www.wedesoft.de/downloads/thesis_wedekind.bib
+[13]: https://www.wedesoft.de/downloads/thesis_wedekind.bib
 

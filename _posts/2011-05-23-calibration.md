@@ -42,7 +42,7 @@ I have created a [screencast on how to locate the chequerboard calibration patte
 * [Zhengyou Zhang camera calibration][6]
 * [Computer Vision: A Modern Approach][9]
 
-[1]: http://www.wedesoft.de/hornetseye-api/
+[1]: https://www.wedesoft.de/hornetseye-api/
 [2]: http://en.wikipedia.org/wiki/Otsu%27s_method
 [3]: http://en.wikipedia.org/wiki/Mathematical_morphology
 [4]: http://en.wikipedia.org/wiki/Connected_Component_Labeling
@@ -51,4 +51,4 @@ I have created a [screencast on how to locate the chequerboard calibration patte
 [8]: http://fr.linkedin.com/pub/manuel-boissenin/a/444/69
 [9]: http://www.amazon.co.uk/gp/product/0131911937/ref=as_li_ss_tl?ie=UTF8&tag=wedesoft-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=0131911937
 [10]: http://research.microsoft.com/en-us/um/people/zhang/calib/
-[11]: http://www.wedesoft.de/ai/2011/09/25/chequerboard/
+[11]: https://www.wedesoft.de/ai/2011/09/25/chequerboard/

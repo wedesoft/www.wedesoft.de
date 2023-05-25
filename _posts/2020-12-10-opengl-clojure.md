@@ -14,7 +14,6 @@ Using this library, I have translated my earlier example to Clojure.
 See code below:
 
 {% highlight clojure %}
-; clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
 (ns raw-opengl
   (:import [org.lwjgl BufferUtils]
            [org.lwjgl.opengl Display DisplayMode GL11 GL12 GL13 GL15 GL20 GL30]))
@@ -155,16 +154,8 @@ You can run the code as follows:
 
 {% highlight shell %}
 sudo apt-get install liblwjgl-java clojure
-wget http://www.wedesoft.de/downloads/raw-opengl.clj
+wget https://www.wedesoft.de/downloads/raw-opengl.clj
 clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
-{% endhighlight %}
-
-**Update:***
-
-If you are using Clojure 1.11 or later, you need to use a `deps.edn` file or specify the dependency on the command line like this:
-
-{% highlight shell %}
-clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M raw-opengl.clj
 {% endhighlight %}
 
 ![image](/pics/triangle.png)
@@ -172,6 +163,14 @@ clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M 
 Any feedback, comments, and suggestions are welcome.
 
 Enjoy!
+
+**Update:**
+
+If you are using Clojure 1.11 or later, you need to use a `deps.edn` file or specify the dependency on the command line like this:
+
+{% highlight shell %}
+clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M raw-opengl.clj
+{% endhighlight %}
 
 [1]: https://www.wedesoft.de/software/2018/08/03/raw-opengl/
 [2]: https://clojure.org/

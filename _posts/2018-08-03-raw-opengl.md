@@ -203,7 +203,7 @@ The example uses the widely supported OpenGL version 3.1 (which has the version 
 You can download, compile, and run the example as follows:
 
 {% highlight shell %}
-wget http://www.wedesoft.de/downloads/raw-opengl.c
+wget https://www.wedesoft.de/downloads/raw-opengl.c
 gcc -o raw-opengl raw-opengl.c -lGL -lGLEW -lGLU -lglut
 ./raw-opengl
 {% endhighlight %}

@@ -1,4 +1,4 @@
-; clojure -cp /usr/share/java/lwjgl.jar raw-opengl.clj
+; clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M raw-opengl.clj
 (ns raw-opengl
   (:import [org.lwjgl BufferUtils]
            [org.lwjgl.opengl Display DisplayMode GL11 GL12 GL13 GL15 GL20 GL30]))

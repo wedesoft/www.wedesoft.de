@@ -10,4 +10,4 @@ I have released version 0.20 of the [Ruby] extension [HornetsEye]. The new relea
 <span class="center"><img src="/pics/hca.jpg" width="508" alt="Picture of hypercomplex Wavelet decomposition"/></span>
 
 [Ruby]: http://www.ruby-lang.org/
-[HornetsEye]: http://www.wedesoft.de/hornetseye-api/
+[HornetsEye]: https://www.wedesoft.de/hornetseye-api/

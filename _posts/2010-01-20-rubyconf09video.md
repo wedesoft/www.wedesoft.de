@@ -19,8 +19,8 @@ Let me know if you have any questions.
 
 [Confreaks]: http://confreaks.tv/
 [RubyConf]: http://rubyconf.org/
-[HornetsEye]: http://www.wedesoft.de/hornetseye-api/
+[HornetsEye]: https://www.wedesoft.de/hornetseye-api/
 [video]: https://confreaks.tv/videos/rubyconf2009-computer-vision-using-ruby-and-libjit
 [other]: https://confreaks.tv/events/rubyconf2009
 [speakerrate]: http://speakerrate.com/talks/1796-computer-vision-using-ruby-and-libjit
-[slides]: http://www.wedesoft.de/downloads/rubyconf09.pdf
+[slides]: https://www.wedesoft.de/downloads/rubyconf09.pdf

@@ -11,5 +11,5 @@ After reading the paper [Lucas-Kanade 20 Years On: A Unifying Framework][1], I'v
 
 [1]: http://www.ri.cmu.edu/pub_files/pub3/baker_simon_2004_1/baker_simon_2004_1.pdf
 [2]: http://www.ri.cmu.edu/projects/project_515.html
-[3]: http://www.wedesoft.de/hornetseye-api/file.Applications.html#Lucas-Kanade_Tracker
-[HornetsEye]: http://www.wedesoft.de/hornetseye-api/
+[3]: https://www.wedesoft.de/hornetseye-api/file.Applications.html#Lucas-Kanade_Tracker
+[HornetsEye]: https://www.wedesoft.de/hornetseye-api/

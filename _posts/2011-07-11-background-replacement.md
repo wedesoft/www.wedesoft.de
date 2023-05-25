@@ -21,7 +21,7 @@ I am new to podcasting. So feel free to let me know any suggestions.
 * [Free Motion Backgrounds][5]
 * [Using MEncoder to create Quicktime-compatible files][9]
 
-[1]: http://www.wedesoft.de/hornetseye-api/
+[1]: https://www.wedesoft.de/hornetseye-api/
 [2]: http://www.ruby-lang.org/
 [3]: http://wedesoft.libsyn.com/webpage
 [4]: http://wedesoft.libsyn.com/rss
