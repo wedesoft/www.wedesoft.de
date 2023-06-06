@@ -4,6 +4,8 @@ title: Minimal OpenGL example in Clojure
 category: software
 ---
 
+**Update:**: I wrote a new article about [using LWJGL 3 with Clojure][6].
+
 Two years ago I published a [minimal OpenGL example in C][1].
 Recently I got renewed interest in the [Clojure programming language][2]
 (if you want to learn Clojure, I can recommend the book [Clojure in Action][3] by the way).
@@ -177,3 +179,4 @@ clj -Sdeps '{:deps {lwglj/lwglj {:local/root "/usr/share/java/lwjgl.jar"}}}' -M 
 [3]: https://www.manning.com/books/clojure-in-action-second-edition
 [4]: http://legacy.lwjgl.org/
 [5]: http://wiki.lwjgl.org/
+[6]: https://www.wedesoft.de/software/2023/05/26/lwjgl3-clojure/
