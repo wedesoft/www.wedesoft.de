@@ -58,7 +58,7 @@ module Jekyll
           @@globals["src_dir"] = File.join(site.config["source"], @@globals["output_directory"])
           @@globals["dst_dir"] = File.join(site.config["destination"], @@globals["output_directory"])
           # Verify and prepare the output folder if it doesn't exist
-          FileUtils.mkdir_p(@@globals["src_dir"]) unless File.exists?(@@globals["src_dir"])
+          FileUtils.mkdir_p(@@globals["src_dir"]) unless File.exist?(@@globals["src_dir"])
         end
       end
 
@@ -86,7 +86,7 @@ module Jekyll
         filename = "latex-" + Digest::MD5.hexdigest(hash_txt) + ".png"
         @p["png_fn"] = File.join(@@globals["src_dir"], filename)
         ok = true
-        if !File.exists?(@p["png_fn"])
+        if !File.exist?(@p["png_fn"])
           puts "Compiling with LaTeX..." if @@globals["debug"]
           @p["tex_fn"] = @@globals["temp_filename"] + ".tex"
           @p["dvi_fn"] = @@globals["temp_filename"] + ".dvi"
@@ -139,7 +139,7 @@ module Jekyll
       super_latex_write   # call the super method
       Tags::LatexBlock::init_globals(self)
       dest_folder = File.join(dest, Tags::LatexBlock::latex_output_directory)
-      FileUtils.mkdir_p(dest_folder) unless File.exists?(dest_folder)
+      FileUtils.mkdir_p(dest_folder) unless File.exist?(dest_folder)
 
       # clean all previously rendered files not rendered in the actual build
       src_files = []
@@ -149,10 +149,10 @@ module Jekyll
       pre_files = Dir.glob(File.join(source, Tags::LatexBlock::latex_output_directory, "latex-*.png"))
       to_remove = pre_files - src_files
       to_remove.each do |f|
-        File.unlink f if File.exists?(f)
+        File.unlink f if File.exist?(f)
         d, fn = File.split(f)
         df = File.join(dest, Tags::LatexBlock::latex_output_directory, fn)
-        File.unlink df if File.exists?(df)
+        File.unlink df if File.exist?(df)
       end
     end
   end
