@@ -46,7 +46,7 @@ Also one can add lens distortion and color dispersion to make the image look mor
 
 See below for the resulting video:
 
-<span class="center"><video controls src="/downloads/donut.mp4" width="100%"></video></span>
+<span class="center"><video controls src="/downloads/donut.mp4" width="100%" loop></video></span>
 
 I really enjoyed the tutorial and I hope I will remember the right tool at the right moment when creating models in the future.
 
