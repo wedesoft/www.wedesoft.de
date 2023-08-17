@@ -2,7 +2,7 @@
 layout: post
 title: Doing the Blender Guru donut tutorial
 category: graphics
-image: /pics/donut1.jpg
+image: /pics/donut6.jpg
 ---
 
 I finally did the [Blender Guru donut tutorial][3] for beginners.
