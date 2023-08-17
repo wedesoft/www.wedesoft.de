@@ -50,6 +50,8 @@ See below for the resulting video:
 
 I really enjoyed the tutorial and I hope I will remember the right tool at the right moment when creating models in the future.
 
+All the time there are people finishing the tutorial and posting it on [r/BlenderDoughnuts][1].
+
 [1]: https://www.reddit.com/r/BlenderDoughnuts
 [2]: https://www.youtube.com/shorts/pvfVBxYGoJo
 [3]: https://www.youtube.com/playlist?list=PLjEaoINr3zgFX8ZsChQVQsuDSjEqdWMAD
