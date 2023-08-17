@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Doing the Blender Guru donut tutorial
-category: software
+category: graphics
 image: /pics/donut1.jpg
 ---
 
