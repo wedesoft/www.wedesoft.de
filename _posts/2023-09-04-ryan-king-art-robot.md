@@ -11,7 +11,7 @@ Initially I looked at [Blender][4] skeletons but then I found [Ryan King Art's t
 Basically for each rigid object the following steps are executed:
 * The 3D cursor is set to a point on the center of the joint axis
 * The origin of the rigid object is set to the 3D cursor
-* The parent of the rigid object is set to the other object it is connected to via the joint
+* The parent of the rigid object is set to the other object it is connected to via the joint (while maintaining the transformation)
 * All forbidden translation axes and rotation axes are locked
 
 The resulting object then can be animated by defining keyframes for joint angles as shown in [Blender Guru donut tutorial part 11][2].
