@@ -12,7 +12,11 @@ This article is about
 * exporting to glTF
 * importing the animations with Assimp
 
-Here is a step-by-step procedure to create a proof-of-concept kinematic chain in Blender
+Here is the Youtube video showing the steps involved:
+
+{% youtube "https://www.youtube.com/watch?v=eUbaMPEnLR0" %}
+
+Here is a corresponding step-by-step procedure to create a proof-of-concept kinematic chain in Blender
 
 * first clear scene (in layout mode)
 * in Object mode add an armature which is going to be named "Armature"
@@ -87,10 +91,6 @@ You can use the LWJGL Assimp Java library to import the animations into Clojure 
 (/ (.mTime (.get (.mRotationKeys node-anim) 249)) (.mTicksPerSecond animation))
 ; 10.4166669921875
 ```
-
-Here is the corresponding Youtube video showing the steps involved:
-
-{% youtube "https://www.youtube.com/watch?v=eUbaMPEnLR0" %}
 
 For an in-depth introduction to rigging I can recommend [Mark Alloway's video on how to rig and animate a landing gear][1].
 
