@@ -92,6 +92,8 @@ You can use the LWJGL Assimp Java library to import the animations into Clojure 
 ; 10.4166669921875
 ```
 
+I used tmux, Clojure with rebel-readline, and vim with vim-slime to do the coding.
+
 For an in-depth introduction to rigging I can recommend [Mark Alloway's video on how to rig and animate a landing gear][1].
 
 Enjoy!
