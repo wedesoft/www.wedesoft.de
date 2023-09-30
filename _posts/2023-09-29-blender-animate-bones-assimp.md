@@ -2,7 +2,7 @@
 layout: post
 title: Create Blender bones and animate and import with Assimp
 category: graphics
-image: /pics/robot.jpg
+image: /pics/animate.jpg
 ---
 
 This article is about
