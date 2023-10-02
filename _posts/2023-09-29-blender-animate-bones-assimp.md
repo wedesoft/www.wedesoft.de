@@ -14,7 +14,7 @@ This article is about
 
 Here is the Youtube video showing the steps involved:
 
-{% youtube "https://www.youtube.com/watch?v=eUbaMPEnLR0" %}
+{% youtube "https://www.youtube.com/watch?v=J83S_EFRB6A" %}
 
 Here is a corresponding step-by-step procedure to create a proof-of-concept kinematic chain in Blender
 
