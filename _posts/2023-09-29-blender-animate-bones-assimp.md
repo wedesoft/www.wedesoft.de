@@ -69,7 +69,7 @@ Here is a corresponding step-by-step procedure to create a proof-of-concept kine
 
 You can use the LWJGL Assimp Java library to import the animations into Clojure as follows:
 
-```Clojure
+{% highlight clojure %}
 (import '[org.lwjgl.assimp Assimp AIAnimation AINodeAnim])
 (def scene (Assimp/aiImportFile "test.gltf" (bit-or Assimp/aiProcess_Triangulate Assimp/aiProcess_CalcTangentSpace)))
 (.mNumAnimations scene)
@@ -95,7 +95,7 @@ You can use the LWJGL Assimp Java library to import the animations into Clojure 
 ; [0.99631643 -1.20924955E-17 -1.5678631E-17 0.08575298]
 (/ (.mTime (.get (.mRotationKeys node-anim) 249)) (.mTicksPerSecond animation))
 ; 10.4166669921875
-```
+{% endhighlight %}
 
 I used tmux, Clojure with rebel-readline, and vim with vim-slime to do the coding.
 
