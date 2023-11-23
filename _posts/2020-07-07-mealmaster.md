@@ -11,6 +11,8 @@ MealMaster is the file format introduced by the MealMaster software developed by
 The website of Episoft Systems, which provided the original MealMaster software for DOS, is not online any more.
 Fortunately a [copy of the website][1] is still available on the Internet Archive.
 
+If you are looking for a MealMaster compatible recipe management software, please checkout my project [AnyMeal][4]!
+
 <h4>One-column format</h4>
 
 Below follows an example of the one-column MealMaster format (the ingredients are listed in a single column).
@@ -390,3 +392,4 @@ Please let me know any feedback in the comment section below.
 [1]: https://web.archive.org/web/20081221021301/http://episoft.home.comcast.net/~episoft/mmdown.htm
 [2]: http://www.faqs.org/rfcs/rfc2234.html
 [3]: https://en.wikipedia.org/wiki/Approximate_measures
+[4]: https://wedesoft.github.io/anymeal/
