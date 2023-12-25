@@ -123,7 +123,8 @@ If you have a multiple arity function, you can use *:function* to specify the di
 
 {% highlight clojure %}
 (defn f
-  {:malli/schema [:function [:=> [:cat :double] :double] [:=> [:cat :double :double] :double]]}
+  {:malli/schema [:function [:=> [:cat :double] :double]
+                            [:=> [:cat :double :double] :double]]}
   ([x] x)
   ([x y] (+ x y)))
 (mi/collect!)
