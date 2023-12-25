@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Specifying Clojure functions schemas with Malli
+title: Specifying Clojure function schemas with Malli
 category: software
 image: /pics/malli.png
 ---
