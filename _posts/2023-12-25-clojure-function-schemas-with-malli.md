@@ -111,6 +111,12 @@ Note that here I am replacing the default exception thrower with a more human-re
 ; ----------------------------------------------------------------------------------------------------
 {% endhighlight %}
 
+If you want to collect the schemas from a module (e.g. for testing purposes), you can specify the namespace as follows.
+
+{% highlight clojure %}
+(mi/collect! {:ns ['the.module]})
+{% endhighlight %}
+
 You can also parse code to infer a general schema for a function header.
 
 {% highlight clojure %}
@@ -134,12 +140,6 @@ If you have a multiple arity function, you can use *:function* to specify the di
 ; 5.0
 (f "test")
 ; ... error ...
-{% endhighlight %}
-
-If you want to collect the schemas from a module (e.g. for testing purposes), you can specify the namespace as follows.
-
-{% highlight clojure %}
-(mi/collect! {:ns ['the.module]})
 {% endhighlight %}
 
 There is also support for [sequence schemas][4] which allows a more compact schema in this case.
