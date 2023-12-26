@@ -7,8 +7,9 @@ image: /pics/malli.png
 
 [Clojure][2] is a dynamically typed language which means that functions can be called with arbitrary values.
 If the function cannot operate on the values (or if it calls a function which cannot operate on a value or part of a value) a runtime exception is thrown.
+Even worse, a function could exhibit undefined behaviour for the values provided.
 
-Statically typed languages are often considered safer because the types of values are known at compile time so that these checks can be performed at compile time.
+Statically typed languages are often considered safer because the types of values are known at compile time so that the validity of values can be checked.
 However statically typed implementations tend to become inflexible.
 Type checking at compile time requires the types of the values held by variables to be defined at compile time.
 When trying to keep the system both modular and extensible, the developer is forced to come up with complicated type hierarchies and possibly even generic types.
@@ -133,6 +134,12 @@ If you have a multiple arity function, you can use *:function* to specify the di
 ; 5.0
 (f "test")
 ; ... error ...
+{% endhighlight %}
+
+If you want to collect the schemas from a module (e.g. for testing purposes), you can specify the namespace as follows.
+
+{% highlight clojure %}
+(mi/collect! {:ns ['the.module]})
 {% endhighlight %}
 
 There is also support for [sequence schemas][4] which allows a more compact schema in this case.
