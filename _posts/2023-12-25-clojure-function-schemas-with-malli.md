@@ -179,7 +179,7 @@ You can also define [recursive schemas][6] by using a local registry:
 (require '[malli.core :as m])
 (def nested-vector
   (m/schema [:schema {:registry {::node [:or :int [:vector [:ref ::node]]]}}
-              [:ref ::node]]))
+                     [:ref ::node]]))
 (m/validate nested-vector [[1 2] 3])
 ; true
 (m/validate nested-vector [[1 :k] 3])
