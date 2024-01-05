@@ -171,8 +171,22 @@ I guess the solution is to instead provide the type hints at the call site inste
 
 Enjoy!
 
+**Update:**
+
+You can also define [recursive schemas][6] by using a local registry:
+
+{% highlight clojure %}
+(require '[malli.core :as m])
+(def nested-vector (m/schema [:schema {:registry {::node [:or :int [:vector [:ref ::node]]]}} [:ref ::node]]))
+(m/validate nested-vector [[1 2] 3])
+; true
+(m/validate nested-vector [[1 :k] 3])
+; false
+{% endhighlight %}
+
 [1]: https://github.com/metosin/malli
 [2]: https://clojure.org/
 [3]: https://github.com/metosin/malli/blob/master/docs/function-schemas.md
 [4]: https://github.com/metosin/malli#sequence-schemas
 [5]: https://clojure.org/reference/java_interop#typehints
+[6]: https://github.com/metosin/malli#recursive-schemas
