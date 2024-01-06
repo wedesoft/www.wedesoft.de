@@ -171,7 +171,7 @@ I guess the solution is to instead provide the type hints at the call site inste
 
 Enjoy!
 
-**Update:**
+**Updates:**
 
 You can also define [recursive schemas][6] by using a local registry:
 
@@ -184,6 +184,25 @@ You can also define [recursive schemas][6] by using a local registry:
 ; true
 (m/validate nested-vector [[1 :k] 3])
 ; false
+{% endhighlight %}
+
+One can use *m/=>* to add a Malli schemas to a function.
+This comes in handy when you need to add a schema to a Clojure multimethod.
+
+{% highlight clojure %}
+(require '[malli.core :as m])
+(require '[malli.instrument :as mi])
+(require '[malli.dev.pretty :as pretty])
+(defmulti factorial identity)
+(m/=> factorial [:=> [:cat integer?] integer?])
+(defmethod factorial 0 [_]  1N)
+(defmethod factorial :default [num]
+   (* num (factorial (dec num))))
+(mi/instrument! {:report (pretty/thrower)})
+(factorial 10)
+; 3628800N
+(factorial 1.5)
+; ... error ...
 {% endhighlight %}
 
 [1]: https://github.com/metosin/malli
