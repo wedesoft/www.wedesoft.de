@@ -67,6 +67,7 @@ Here is a performance comparison of matrix inverse for 3x3, 4x4, and 5x5 matrice
 * [play-cljc comes with a matrix library as well][8].
 * there is also [ojalgo][9] which according to the [Java Matrix Benchmark][10] is the fasted pure Java linear algebra library.
 * [fastmath][11] is a very fast Clojure library which provides double-precision matrix operations up to dimension 4.
+* 18/01/2024: fastmath version 2.3.0 was released
 
 [1]: https://mikera.github.io/core.matrix/
 [2]: http://ejml.org/

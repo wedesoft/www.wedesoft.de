@@ -186,7 +186,7 @@ You can also define [recursive schemas][6] by using a local registry:
 ; false
 {% endhighlight %}
 
-One can use *m/=>* to add a Malli schemas to a function.
+One can use *m/=>* to add a Malli schema to a function.
 This comes in handy when you need to add a schema to a Clojure multimethod.
 
 {% highlight clojure %}
