@@ -13,13 +13,14 @@ Furthermore one can download a disk image of [Flight Simulator 2][2] at atariman
 Then it was just a matter of unzipping the file and specifying the disk image on the Hatari command line.
 
 {% highlight shell %}
+sudo apt install hatari
 unzip flight_simulator_2.zip
 hatari --mono --disk-a "Flight Simulator 2.stx"
 {% endhighlight %}
 
 I took a video of the initial part of the demo mode here:
 
-<span class="center"><video controls src="/downloads/fs2-mono.mp4" width="640"></video></span>
+<span class="center"><video controls src="/downloads/fs2-mono.mp4" width="100%"></video></span>
 
 Enjoy!
 
