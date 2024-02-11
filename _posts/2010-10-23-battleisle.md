@@ -6,7 +6,7 @@ image: /pics/battleisle.png
 ---
 
 <span class="center"><a href="https://www.myabandonware.com/game/battle-isle-93-the-moon-of-chromos-24i"><img src="/pics/battleisle.png" width="508" alt="Battle Isle 93"/></a></span>
-You can [download Battle Isle 1][abandon] (Moon of Chromos) free of charge at Abandonia and you can run it under GNU/Linux using [DOSBox].
+You can [download Battle Isle 1][abandon] (Moon of Chromos) free of charge at Abandonia and you can run it under GNU/Linux using [DOSBox] (update: DOSBox also runs on Windows and MacOS).
 Battle Isle is a turn-based strategy game.
 The game can be played against the computer as well as against another human player.
 It always runs in split-screen mode.

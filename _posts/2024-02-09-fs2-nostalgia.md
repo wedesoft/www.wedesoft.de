@@ -24,5 +24,8 @@ I took a video of the initial part of the demo mode here:
 
 Enjoy!
 
+Update: You also need to [download a TOS image for Atari ST][3] and copy it to `/usr/share/hatari/tos.img`.
+
 [1]: https://hatari.tuxfamily.org/
 [2]: http://www.atarimania.com/game-atari-st-flight-simulator-ii_9342.html
+[3]: http://www.avtandil.narod.ru/tose.html
