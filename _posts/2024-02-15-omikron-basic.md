@@ -12,4 +12,6 @@ Using [Hatari][1] I recreated a short video of this:
 
 <span class="center"><video controls src="/downloads/omikron-basic.mp4" poster="/pics/omikron-basic.png" width="100%"></video></span>
 
+Here is the download link for the [Omikron Basic STX disk image](/downloads/omikron-basic.stx).
+
 [1]: https://hatari.tuxfamily.org/
