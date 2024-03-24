@@ -20,7 +20,7 @@ hatari --mono --disk-a "Flight Simulator 2.stx"
 
 I took a video of the initial part of the demo mode here:
 
-<span class="center"><video controls src="/downloads/fs2-atari-st.mp4" poster="/pics/fs2.png" width="100%"></video></span>
+{% youtube "https://www.youtube.com/watch?v=nCGCYvRd0FA" %}
 
 Enjoy!
 
