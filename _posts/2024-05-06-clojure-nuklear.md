@@ -356,6 +356,7 @@ OpenGL needs to be configured for rendering the Nuklear GUI.
                            0.0 (/ -2.0 height) 0.0 0.0,
                            0.0 0.0 -1.0 0.0,
                            -1.0 1.0 0.0 1.0]))
+(.flip buffer)
 (GL20/glUniformMatrix4fv projection false buffer)
 
 ; ...
@@ -370,6 +371,80 @@ Also the uniform projection matrix for mapping pixel coordinates \[0, width\] x 
 The projection matrix also flips the y-coordinates since the direction of the OpenGL y-axis is reversed in relation to the pixel y-coordinates.
 
 ![normalized device coordinates](/pics/ndc.svg)
+
+### Rendering Backend
+
+{% highlight clojure %}
+(ns nukleartest
+    (:import [org.lwjgl BufferUtils PointerBuffer]
+             ; ...
+             [org.lwjgl.nuklear ; ...
+              NkRect]
+             ; ...
+             ))
+
+; ...
+
+(def max-vertex-buffer (* 512 1024))
+(def max-element-buffer (* 128 1024))
+
+(def rect (NkRect/malloc stack))
+
+(def n (atom 0))
+(def progress (PointerBuffer/allocateDirect 1))
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       (Nuklear/nk_input_begin context)
+       (GLFW/glfwPollEvents)
+       (Nuklear/nk_input_end context)
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         (.put progress 0 (swap! n #(mod (inc %) 100)))
+         (Nuklear/nk_layout_row_dynamic context 32 1)
+         (Nuklear/nk_progress context progress 100 false)
+         (Nuklear/nk_end context))
+       (GL11/glViewport 0 0 width height)
+       (GL15/glBufferData GL15/GL_ARRAY_BUFFER max-vertex-buffer
+                          GL15/GL_STREAM_DRAW)
+       (GL15/glBufferData GL15/GL_ELEMENT_ARRAY_BUFFER max-element-buffer
+                          GL15/GL_STREAM_DRAW)
+       (let [vertices (GL15/glMapBuffer GL15/GL_ARRAY_BUFFER
+                                        GL15/GL_WRITE_ONLY max-vertex-buffer
+                                        nil)
+             elements (GL15/glMapBuffer GL15/GL_ELEMENT_ARRAY_BUFFER
+                                        GL15/GL_WRITE_ONLY max-element-buffer
+                                        nil)
+             stack    (MemoryStack/stackPush)
+             vbuf     (NkBuffer/malloc stack)
+             ebuf     (NkBuffer/malloc stack)]
+         (Nuklear/nk_buffer_init_fixed vbuf vertices)
+         (Nuklear/nk_buffer_init_fixed ebuf elements)
+         (Nuklear/nk_convert context cmds vbuf ebuf config)
+         (GL15/glUnmapBuffer GL15/GL_ELEMENT_ARRAY_BUFFER)
+         (GL15/glUnmapBuffer GL15/GL_ARRAY_BUFFER)
+         (loop [cmd (Nuklear/nk__draw_begin context cmds) offset 0]
+               (when cmd
+                 (when (not (zero? (.elem_count cmd)))
+                   (GL11/glBindTexture GL11/GL_TEXTURE_2D
+                                       (.id (.texture cmd)))
+                   (let [clip-rect (.clip_rect cmd)]
+                     (GL11/glScissor (int (.x clip-rect))
+                                     (int (- height
+                                             (int (+ (.y clip-rect)
+                                                     (.h clip-rect)))))
+                                     (int (.w clip-rect))
+                                     (int (.h clip-rect))))
+                   (GL11/glDrawElements GL11/GL_TRIANGLES (.elem_count cmd)
+                                        GL11/GL_UNSIGNED_SHORT offset))
+                 (recur (Nuklear/nk__draw_next cmd cmds context)
+                        (+ offset (* 2 (.elem_count cmd))))))
+         (Nuklear/nk_clear context)
+         (Nuklear/nk_buffer_clear cmds)
+         (GLFW/glfwSwapBuffers window)
+         (MemoryStack/stackPop)))
+
+; ...
+{% endhighlight %}
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
