@@ -75,7 +75,9 @@ Here is the initial *nukleartest.clj* file:
 
 (System/exit 0)
 {% endhighlight %}
-You can run the program using *clj -M -m nukleartest*.
+You can run the program using *clj -M -m nukleartest* and it should show a blank window.
+
+<span class="center"><img src="/pics/glfw.png" width="508" alt="GLFW Window"/></span>
 
 ### OpenGL Shader Program
 
@@ -146,8 +148,11 @@ void main()
 
 ; ...
 {% endhighlight %}
+
+<span class="center"><img src="/pics/opengl.png" width="508" alt="OpenGL Logo"/></span>
+
 The vertex shader passes through texture coordinates and fragment colors.
-Furthermore it scales the input position to OpenGL normalized device coordinates (NDCs).
+Furthermore it scales the input position to OpenGL normalized device coordinates (we will set the projection matrix later).
 The fragment shader performs a texture lookup and multiplies the result with the fragment color value.
 The Clojure code compiles and links the shaders and checks for possible errors.
 
@@ -228,7 +233,7 @@ For this purpose a Nuklear vertex layout object is initialised using the *NK\_VE
 ; ...
 {% endhighlight %}
 
-### Null texture
+### Null Texture
 
 For drawing flat colors using the shader program above, Nuklear needs to specify a null texture.
 {% highlight clojure %}
@@ -268,7 +273,7 @@ I.e. it is possible to embed the null texture in a bigger multi-purpose texture 
 
 ### Nuklear Context, Command Buffer, and Configuration
 
-Finally we can set up a Nuklear context object, a render command buffer, and a rendering configuration.
+Finally we can set up a Nuklear context object "context", a render command buffer "cmds", and a rendering configuration "config".
 Nuklear even delegates allocating and freeing up memory, so we need to register callbacks for that as well.
 {% highlight clojure %}
 (ns nukleartest
@@ -325,6 +330,46 @@ Nuklear even delegates allocating and freeing up memory, so we need to register 
 ; ...
 {% endhighlight %}
 We also created an empty font object which we will initialise properly later.
+
+### Setup Rendering
+OpenGL needs to be configured for rendering the Nuklear GUI.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.opengl GL GL11 GL13 GL14 GL15 GL20 GL30]
+             ; ...
+             ))
+
+; ...
+
+(GL11/glEnable GL11/GL_BLEND)
+(GL14/glBlendEquation GL14/GL_FUNC_ADD)
+(GL14/glBlendFunc GL14/GL_SRC_ALPHA GL14/GL_ONE_MINUS_SRC_ALPHA)
+(GL11/glDisable GL11/GL_CULL_FACE)
+(GL11/glDisable GL11/GL_DEPTH_TEST)
+(GL11/glEnable GL11/GL_SCISSOR_TEST)
+(GL13/glActiveTexture GL13/GL_TEXTURE0)
+
+(def projection (GL20/glGetUniformLocation program "projection"))
+(def buffer (BufferUtils/createFloatBuffer 16))
+(.put buffer (float-array [(/ 2.0 width) 0.0 0.0 0.0,
+                           0.0 (/ -2.0 height) 0.0 0.0,
+                           0.0 0.0 -1.0 0.0,
+                           -1.0 1.0 0.0 1.0]))
+(GL20/glUniformMatrix4fv projection false buffer)
+
+; ...
+{% endhighlight %}
+* Blending with existing pixel data is enabled and the blending equation and function are set
+* Culling of back or front faces is disabled
+* Depth testing is disabled
+* Scissor testing is enabled
+* The first texture slot is enabled
+
+Also the uniform projection matrix for mapping pixel coordinates \[0, width\] x \[0, height\] to \[-1, 1\] x \[-1, 1\] is defined.
+The projection matrix also flips the y-coordinates since the direction of the OpenGL y-axis is reversed in relation to the pixel y-coordinates.
+
+![normalized device coordinates](/pics/ndc.svg)
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
