@@ -204,6 +204,128 @@ A row in the array buffer contains 20 bytes:
 
 <span class="center"><img src="/pics/vao.svg" width="508" alt="vertex buffer object"/></span>
 
+The Nuklear library needs to be configured with the same layout of the vertex array buffer.
+For this purpose a Nuklear vertex layout object is initialised using the *NK\_VERTEX\_ATTRIBUTE\_COUNT* attribute as a terminator:
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.nuklear Nuklear NkDrawVertexLayoutElement]))
+
+; ...
+
+(def vertex-layout (NkDrawVertexLayoutElement/malloc 4))
+(-> vertex-layout (.position 0) (.attribute Nuklear/NK_VERTEX_POSITION)
+    (.format Nuklear/NK_FORMAT_FLOAT) (.offset 0))
+(-> vertex-layout (.position 1) (.attribute Nuklear/NK_VERTEX_TEXCOORD)
+    (.format Nuklear/NK_FORMAT_FLOAT) (.offset 8))
+(-> vertex-layout (.position 2) (.attribute Nuklear/NK_VERTEX_COLOR)
+    (.format Nuklear/NK_FORMAT_R8G8B8A8) (.offset 16))
+(-> vertex-layout (.position 3)
+    (.attribute Nuklear/NK_VERTEX_ATTRIBUTE_COUNT)
+    (.format Nuklear/NK_FORMAT_COUNT) (.offset 0))
+(.flip vertex-layout)
+
+; ...
+{% endhighlight %}
+
+### Null texture
+
+For drawing flat colors using the shader program above, Nuklear needs to specify a null texture.
+{% highlight clojure %}
+(ns nukleartest
+    (:import [org.lwjgl BufferUtils]
+             ; ...
+             [org.lwjgl.nuklear Nuklear NkDrawVertexLayoutElement
+              NkDrawNullTexture]))
+
+; ...
+
+(def null-tex (GL11/glGenTextures))
+(GL11/glBindTexture GL11/GL_TEXTURE_2D null-tex)
+(def buffer (BufferUtils/createIntBuffer 1))
+(.put buffer (int-array [0xFFFFFFFF]))
+(.flip buffer)
+(GL11/glTexImage2D GL11/GL_TEXTURE_2D 0 GL11/GL_RGBA8 1 1 0 GL11/GL_RGBA
+                   GL11/GL_UNSIGNED_BYTE buffer)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MIN_FILTER
+                      GL11/GL_NEAREST)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MAG_FILTER
+                      GL11/GL_NEAREST)
+
+(def null-texture (NkDrawNullTexture/create))
+(.id (.texture null-texture) null-tex)
+(.set (.uv null-texture) 0.5 0.5)
+
+; ...
+
+(GL11/glDeleteTextures null-tex)
+
+; ...
+{% endhighlight %}
+The null texture basically just consists of a single white pixel so that the shader term `texture(tex, frag_uv)` evaluates to `vec4(1, 1, 1, 1)`.
+The Nuklear null texture uses fixed texture coordinates for lookup (here: 0.5, 0.5).
+I.e. it is possible to embed the null texture in a bigger multi-purpose texture to save a texture slot.
+
+### Nuklear Context, Command Buffer, and Configuration
+
+Finally we can set up a Nuklear context object, a render command buffer, and a rendering configuration.
+Nuklear even delegates allocating and freeing up memory, so we need to register callbacks for that as well.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.nuklear ; ...
+              NkAllocator NkContext NkPluginAllocI NkPluginFreeI NkUserFont
+              NkBuffer NkConvertConfig]
+             [org.lwjgl.system MemoryUtil MemoryStack]))
+
+; ...
+
+(def buffer-initial-size (* 4 1024))
+
+(def stack (MemoryStack/stackPush))
+
+; ...
+
+(def allocator (NkAllocator/create))
+(.alloc allocator
+  (reify NkPluginAllocI
+         (invoke [this handle old size] (MemoryUtil/nmemAllocChecked size))))
+(.mfree allocator
+  (reify NkPluginFreeI
+         (invoke [this handle ptr] (MemoryUtil/nmemFree ptr))))
+
+(def context (NkContext/create))
+(def font (NkUserFont/create))
+(Nuklear/nk_init context allocator font)
+
+(def cmds (NkBuffer/create))
+(Nuklear/nk_buffer_init cmds allocator buffer-initial-size)
+
+(def config (NkConvertConfig/calloc stack))
+
+(doto config
+      (.vertex_layout vertex-layout)
+      (.vertex_size 20)
+      (.vertex_alignment 4)
+      (.tex_null null-texture)
+      (.circle_segment_count 22)
+      (.curve_segment_count 22)
+      (.arc_segment_count 22)
+      (.global_alpha 1.0)
+      (.shape_AA Nuklear/NK_ANTI_ALIASING_ON)
+      (.line_AA Nuklear/NK_ANTI_ALIASING_ON))
+
+; ...
+
+(Nuklear/nk_free context)
+
+(.free (.alloc allocator))
+(.free (.mfree allocator))
+
+; ...
+{% endhighlight %}
+We also created an empty font object which we will initialise properly later.
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
