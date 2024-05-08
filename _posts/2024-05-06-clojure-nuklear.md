@@ -394,7 +394,6 @@ Now we will add a minimal GUI just using a progress bar for testing rendering wi
 
 (def rect (NkRect/malloc stack))
 
-(def n (atom 0))
 (def progress (PointerBuffer/allocateDirect 1))
 
 (while (not (GLFW/glfwWindowShouldClose window))
@@ -403,9 +402,9 @@ Now we will add a minimal GUI just using a progress bar for testing rendering wi
        (Nuklear/nk_input_end context)
        (when (Nuklear/nk_begin context "Nuklear Example"
                                (Nuklear/nk_rect 0 0 width height rect) 0)
-         (.put progress 0 (swap! n #(mod (inc %) 100)))
+         (.put progress 0 (mod (inc (.get progress 0)) 100))
          (Nuklear/nk_layout_row_dynamic context 32 1)
-         (Nuklear/nk_progress context progress 100 false)
+         (Nuklear/nk_progress context progress 100 true)
          (Nuklear/nk_end context))
        ; ...
        )
@@ -488,6 +487,55 @@ Then a part of the index and vertex buffer is rendered using `GL11/glDrawElement
 
 Finally `Nuklear/nk_clear` is used to reset the GUI specification for the next frame and `Nuklear/nk_buffer_clear` is used to empty the command buffer.
 `GLFW/glfwSwapBuffers` is used to publish the new rendered frame.
+
+<span class="center"><img src="/pics/progress.png" width="508" alt="GUI showing a progress bar"/></span>
+
+### Mouse events
+
+The next step one can do is converting GLFW mouse events to Nuklear input.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.glfw GLFW GLFWCursorPosCallbackI
+              GLFWMouseButtonCallbackI]
+             ; ...
+             ))
+
+; ...
+
+(GLFW/glfwSetCursorPosCallback
+  window
+  (reify GLFWCursorPosCallbackI
+         (invoke [this window xpos ypos]
+           (Nuklear/nk_input_motion context (int xpos) (int ypos)))))
+
+(GLFW/glfwSetMouseButtonCallback
+  window
+  (reify GLFWMouseButtonCallbackI
+         (invoke [this window button action mods]
+           (let [stack (MemoryStack/stackPush)
+                 cx    (.mallocDouble stack 1)
+                 cy    (.mallocDouble stack 1)]
+             (GLFW/glfwGetCursorPos window cx cy)
+             (let [x        (int (.get cx 0))
+                   y        (int (.get cy 0))
+                   nkbutton (cond
+                              (= button GLFW/GLFW_MOUSE_BUTTON_RIGHT)
+                                Nuklear/NK_BUTTON_RIGHT
+                              (= button GLFW/GLFW_MOUSE_BUTTON_MIDDLE)
+                                Nuklear/NK_BUTTON_MIDDLE
+                              :else
+                                Nuklear/NK_BUTTON_LEFT)]
+               (Nuklear/nk_input_button context nkbutton x y
+                                        (= action GLFW/GLFW_PRESS))
+               (MemoryStack/stackPop))))))
+
+; ...
+{% endhighlight %}
+The first callback is to process mouse cursor movement events.
+The second callback converts mouse button press and release events to Nuklear input.
+The progress bar is modifyable and you should now be able to change it by clicking on it.
+Note that using a case statement instead of cond did not work for some reason.
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
