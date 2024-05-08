@@ -306,6 +306,7 @@ Nuklear even delegates allocating and freeing up memory, so we need to register 
          (invoke [this handle ptr] (MemoryUtil/nmemFree ptr))))
 
 (def context (NkContext/create))
+
 (def font (NkUserFont/create))
 (Nuklear/nk_init context allocator font)
 
@@ -537,6 +538,71 @@ The second callback converts mouse button press and release events to Nuklear in
 The progress bar is modifyable and you should now be able to change it by clicking on it.
 Note that using a case statement instead of cond did not work for some reason.
 
+### Converting Truetype Font to Bitmap Font
+
+To display other GUI controls, text output is required.
+Using the [STB][8] library a Truetype font is converted to a bitmap font of the desired size.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.stb STBTruetype STBTTFontinfo STBTTPackedchar
+              STBTTPackContext STBImageWrite]))
+
+; ...
+
+(def font-height 18)
+(def bitmap-w 512)
+(def bitmap-h 512)
+
+; ...
+
+(def font (NkUserFont/create))
+
+(def ttf-in (clojure.java.io/input-stream "FiraSans.ttf"))
+(def ttf-out (java.io.ByteArrayOutputStream.))
+(clojure.java.io/copy ttf-in ttf-out)
+(def ttf-bytes (.toByteArray ttf-out))
+(def ttf (BufferUtils/createByteBuffer (count ttf-bytes)))
+(.put ttf ttf-bytes)
+(.flip ttf)
+
+(def fontinfo (STBTTFontinfo/create))
+(def cdata (STBTTPackedchar/calloc 95))
+
+(STBTruetype/stbtt_InitFont fontinfo ttf)
+(def scale (STBTruetype/stbtt_ScaleForPixelHeight fontinfo font-height))
+
+(def d (.mallocInt stack 1))
+(STBTruetype/stbtt_GetFontVMetrics fontinfo nil d nil)
+(def descent (* (.get d 0) scale))
+(def bitmap (MemoryUtil/memAlloc (* bitmap-w bitmap-h)))
+(def pc (STBTTPackContext/malloc stack))
+(STBTruetype/stbtt_PackBegin pc bitmap bitmap-w bitmap-h 0 1 0)
+(STBTruetype/stbtt_PackSetOversampling pc 4 4)
+(STBTruetype/stbtt_PackFontRange pc ttf 0 font-height 32 cdata)
+(STBTruetype/stbtt_PackEnd pc)
+
+(def texture (MemoryUtil/memAlloc (* bitmap-w bitmap-h 4)))
+(def data (byte-array (* bitmap-w bitmap-h)))
+(.get bitmap data)
+(def data (int-array (mapv #(bit-or (bit-shift-left % 24) 0x00FFFFFF) data)))
+(def texture-int (.asIntBuffer texture))
+(.put texture-int data)
+
+; (STBImageWrite/stbi_write_png "font.png" bitmap-w bitmap-h 4 texture
+;                               (* 4 bitmap-w))
+
+; ...
+{% endhighlight %}
+Basically the font file is read and converted to a `java.nio.DirectByteBuffer` (let me know if you find a more straightforward way to do this).
+The data is used to initialise a STB font info object.
+The next steps I can't explain in detail but they basically pack the glyphs into a greyscale bitmap.
+
+Finally a white RGBA texture data is created with the greyscale bitmap as the alpha channel.
+You can write out the RGBA data to a PNG file and inspect it using GIMP or your favourite image editor.
+
+<span class="center"><img src="/pics/font.png" width="508" alt="Bitmap font created with STB library"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -544,3 +610,4 @@ Note that using a case statement instead of cond did not work for some reason.
 [5]: https://www.wedesoft.de/software/2023/05/26/lwjgl3-clojure/
 [6]: https://repo1.maven.org/maven2/org/lwjgl/lwjgl-opengl/3.3.2/
 [7]: https://github.com/HumbleUI/HumbleUI
+[8]: https://github.com/nothings/stb
