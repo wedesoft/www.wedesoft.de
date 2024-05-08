@@ -9,7 +9,7 @@ image: /pics/nuklear.png
 
 For game development I have been using [LWJGL3][1] which is a great Java library for cross-platform development.
 Among other things it has bindings for *OpenGL*, *GLFW*, and *STB*.
-Recently I discovered the *Nuklear* bindings.
+Recently I discovered that it also has *Nuklear* bindings.
 [Nuklear][2] is a small C library useful for developing GUIs for games.
 It receives control input and commands to populate a GUI and converts those into render instructions.
 Nuklear focuses solely on the user interface, while input and graphics backend are handled by the application.
@@ -43,6 +43,8 @@ The file contains dependencies to:
 * Nuklear for the GUI
 * GLFW for creating a window and handling input
 * STB for loading images and for converting a truetype font to a texture
+
+If you are not using the *natives-linux* bindings, there are more [native packages for lwjgl-opengl][6] such as *natives-windows* and *natives-macos*.
 
 ### GLFW Window
 
@@ -149,7 +151,7 @@ void main()
 ; ...
 {% endhighlight %}
 
-<span class="center"><img src="/pics/opengl.png" width="508" alt="OpenGL Logo"/></span>
+<span class="center"><img src="/pics/shaders.svg" width="508" alt="vertex and fragment shader"/></span>
 
 The vertex shader passes through texture coordinates and fragment colors.
 Furthermore it scales the input position to OpenGL normalized device coordinates (we will set the projection matrix later).
@@ -451,3 +453,4 @@ The projection matrix also flips the y-coordinates since the direction of the Op
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
 [4]: https://github.com/wedesoft/nukleartest
 [5]: https://www.wedesoft.de/software/2023/05/26/lwjgl3-clojure/
+[6]: https://repo1.maven.org/maven2/org/lwjgl/lwjgl-opengl/3.3.2/
