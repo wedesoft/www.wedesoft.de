@@ -20,6 +20,10 @@ In this article I have basically translated the input and graphics backend to Cl
 I also added examples for several different controls.
 I have [pushed the source code to Github][4] if you want to look at it straight away.
 
+The demo is more than 400 lines of code.
+This is because it has to implement the graphics backend, input conversion, and truetype font conversion to bitmap font.
+If you are rather looking for a Clojure GUI library which does not require you to do this, you might want to look at [HumbleUI][7].
+
 ### Dependencies
 
 Here is the *deps.edn* file:
@@ -374,8 +378,9 @@ The projection matrix also flips the y-coordinates since the direction of the Op
 
 <span class="center"><img src="/pics/window-to-ndc.svg" width="508" alt="Converting window coordinates to normalized device coordinates"/></span>
 
-### Rendering Backend
+### Nuklear GUI
 
+Now we will add a minimal GUI just using a progress bar for testing rendering without fonts.
 {% highlight clojure %}
 (ns nukleartest
     (:import [org.lwjgl BufferUtils PointerBuffer]
@@ -386,9 +391,6 @@ The projection matrix also flips the y-coordinates since the direction of the Op
              ))
 
 ; ...
-
-(def max-vertex-buffer (* 512 1024))
-(def max-element-buffer (* 128 1024))
 
 (def rect (NkRect/malloc stack))
 
@@ -405,6 +407,32 @@ The projection matrix also flips the y-coordinates since the direction of the Op
          (Nuklear/nk_layout_row_dynamic context 32 1)
          (Nuklear/nk_progress context progress 100 false)
          (Nuklear/nk_end context))
+       ; ...
+       )
+
+; ...
+{% endhighlight %}
+First we set up a few values and then in the main loop we start Nuklear input using `Nuklear/nk_input_begin`, call GLFW to process events, and then end Nuklear input.
+We will implement the GLFW callbacks to convert events to Nuklear calls later.
+
+We start populating the GUI by calling `Nuklear/nk_begin` thereby specifying the window size.
+We increase the progress value and store it in a PointerBuffer object.
+The call `(Nuklear/nk_layout_row_dynamic context 32 1)` sets the GUI layout to 32 pixels height and one widget per row.
+Then a progress bar is created and the GUI is finalised using `Nuklear/nk_end`.
+
+### Rendering Backend
+
+Now we are ready to add the rendering backend.
+{% highlight clojure %}
+; ...
+
+(def max-vertex-buffer (* 512 1024))
+(def max-element-buffer (* 128 1024))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
        (GL11/glViewport 0 0 width height)
        (GL15/glBufferData GL15/GL_ARRAY_BUFFER max-vertex-buffer
                           GL15/GL_STREAM_DRAW)
@@ -447,6 +475,19 @@ The projection matrix also flips the y-coordinates since the direction of the Op
 
 ; ...
 {% endhighlight %}
+The rendering backend sets the viewport and then array buffers for the vertex data and the indices is allocated.
+Then the buffers are mapped to memory resulting in the two java.nio.DirectByteBuffer objects "vertices" and "elements".
+The two static buffers are then converted to Nuklear buffer objects using `Nuklear/nk_buffer_init_fixed`.
+
+Then the core method of the Nuklear library `Nuklear/nk_convert` is called. It populates the (dynamic) command buffer "cmds" which we initialised earlier as well as the mapped vertex buffer and index buffer.
+After the conversion, the two OpenGL memory mappings are undone.
+
+A Clojure loop then is used to get chunks of type NkDrawCommand from the render buffer.
+Each draw command requires setting the texture id and the clipping region.
+Then a part of the index and vertex buffer is rendered using `GL11/glDrawElements`.
+
+Finally `Nuklear/nk_clear` is used to reset the GUI specification for the next frame and `Nuklear/nk_buffer_clear` is used to empty the command buffer.
+`GLFW/glfwSwapBuffers` is used to publish the new rendered frame.
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
@@ -454,3 +495,4 @@ The projection matrix also flips the y-coordinates since the direction of the Op
 [4]: https://github.com/wedesoft/nukleartest
 [5]: https://www.wedesoft.de/software/2023/05/26/lwjgl3-clojure/
 [6]: https://repo1.maven.org/maven2/org/lwjgl/lwjgl-opengl/3.3.2/
+[7]: https://github.com/HumbleUI/HumbleUI
