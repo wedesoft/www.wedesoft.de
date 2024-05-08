@@ -372,7 +372,7 @@ OpenGL needs to be configured for rendering the Nuklear GUI.
 Also the uniform projection matrix for mapping pixel coordinates \[0, width\] x \[0, height\] to \[-1, 1\] x \[-1, 1\] is defined.
 The projection matrix also flips the y-coordinates since the direction of the OpenGL y-axis is reversed in relation to the pixel y-coordinates.
 
-![normalized device coordinates](/pics/ndc.svg)
+<span class="center"><img src="/pics/window-to-ndc.svg" width="508" alt="Converting window coordinates to normalized device coordinates"/></span>
 
 ### Rendering Backend
 
