@@ -23,6 +23,7 @@ I have [pushed the source code to Github][4] if you want to look at it straight 
 The demo is more than 400 lines of code.
 This is because it has to implement the graphics backend, input conversion, and truetype font conversion to bitmap font.
 If you are rather looking for a Clojure GUI library which does not require you to do this, you might want to look at [HumbleUI][7].
+There also is [Quil][9] which seems to be more about graphics and animations.
 
 ### Dependencies
 
@@ -824,3 +825,4 @@ Here is a screenshot with option labels showing the three options easy, intermed
 [6]: https://repo1.maven.org/maven2/org/lwjgl/lwjgl-opengl/3.3.2/
 [7]: https://github.com/HumbleUI/HumbleUI
 [8]: https://github.com/nothings/stb
+[9]: http://quil.info/
