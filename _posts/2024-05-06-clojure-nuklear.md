@@ -603,6 +603,219 @@ You can write out the RGBA data to a PNG file and inspect it using GIMP or your 
 
 <span class="center"><img src="/pics/font.png" width="508" alt="Bitmap font created with STB library"/></span>
 
+### Font Texture and Nuklear Callbacks
+
+The RGBA bitmap font can now be converted to an OpenGL texture with linear interpolation and the texture id of the NkUserFont object is set.
+{% highlight clojure %}
+(ns nukleartest
+    (:import [org.lwjgl.nuklear ; ...
+              NkHandle]
+             ; ...
+             ))
+
+; ...
+
+(def font-tex (GL11/glGenTextures))
+(GL11/glBindTexture GL11/GL_TEXTURE_2D font-tex)
+(GL11/glTexImage2D GL11/GL_TEXTURE_2D 0 GL11/GL_RGBA8 bitmap-w bitmap-h 0
+                   GL11/GL_RGBA GL11/GL_UNSIGNED_BYTE texture)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MIN_FILTER
+                      GL11/GL_LINEAR)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MAG_FILTER
+                      GL11/GL_LINEAR)
+(MemoryUtil/memFree texture)
+(MemoryUtil/memFree bitmap)
+
+(def handle (NkHandle/create))
+(.id handle font-tex)
+(.texture font handle)
+
+; ...
+
+(GL11/glDeleteTextures font-tex)
+
+; ...
+{% endhighlight %}
+
+To get the font working with Nuklear, callbacks for text width, text height, and glyph region in the texture need to be added.
+{% highlight clojure %}
+(ns nukleartest
+    (:import [org.lwjgl.nuklear ; ...
+              NkTextWidthCallbackI NkQueryFontGlyphCallbackI NkUserFontGlyph]
+             ; ...
+             [org.lwjgl.stb ; ...
+              STBTTAlignedQuad]))
+
+; ...
+
+(.width font
+  (reify NkTextWidthCallbackI
+    (invoke [this handle h text len]
+      (let [stack     (MemoryStack/stackPush)
+            unicode   (.mallocInt stack 1)
+            advance   (.mallocInt stack 1)
+            glyph-len (Nuklear/nnk_utf_decode text
+                        (MemoryUtil/memAddress unicode) len)
+            result
+            (loop [text-len glyph-len glyph-len glyph-len text-width 0.0]
+                  (if (or (> text-len len)
+                          (zero? glyph-len)
+                          (= (.get unicode 0) Nuklear/NK_UTF_INVALID))
+                    text-width
+                    (do
+                      (STBTruetype/stbtt_GetCodepointHMetrics fontinfo
+                        (.get unicode 0) advance nil)
+                      (let [text-width (+ text-width
+                                          (* (.get advance 0) scale))
+                            glyph-len  (Nuklear/nnk_utf_decode
+                                         (+ text text-len)
+                                         (MemoryUtil/memAddress unicode)
+                                         (- len text-len))]
+                        (recur (+ text-len glyph-len)
+                               glyph-len
+                               text-width)))))]
+        (MemoryStack/stackPop)
+        result))))
+
+(.height font font-height)
+
+(.query font
+        (reify NkQueryFontGlyphCallbackI
+               (invoke [this handle font-height glyph codepoint
+                        next-codepoint]
+                 (let [stack   (MemoryStack/stackPush)
+                       x       (.floats stack 0.0)
+                       y       (.floats stack 0.0)
+                       q       (STBTTAlignedQuad/malloc stack)
+                       advance (.mallocInt stack 1)]
+                   (STBTruetype/stbtt_GetPackedQuad cdata bitmap-w bitmap-h
+                                                    (- codepoint 32) x y q
+                                                    false)
+                   (STBTruetype/stbtt_GetCodepointHMetrics fontinfo
+                     codepoint advance nil)
+                   (let [ufg (NkUserFontGlyph/create glyph)]
+                     (.width ufg (- (.x1 q) (.x0 q)))
+                     (.height ufg (- (.y1 q) (.y0 q)))
+                     (.set (.offset ufg)
+                           (.x0 q)
+                           (+ (.y0 q) font-height descent))
+                     (.xadvance ufg (* (.get advance 0) scale))
+                     (.set (.uv ufg 0) (.s0 q) (.t0 q))
+                     (.set (.uv ufg 1) (.s1 q) (.t1 q)))
+                   (MemoryStack/stackPop)))))
+
+; ...
+{% endhighlight %}
+I don't fully understand yet how the "width" and "query" implementations work.
+Hopefully I find a way to do a unit-tested reimplementation to get a better understanding later.
+
+On a positive note though, at this point it is possible to render text.
+In the following code we add a button for stopping and a button for starting the progress bar.
+{% highlight clojure %}
+; ...
+
+(def progress (PointerBuffer/allocateDirect 1))
+(def increment (atom 1))
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       (Nuklear/nk_input_begin context)
+       (GLFW/glfwPollEvents)
+       (Nuklear/nk_input_end context)
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         (.put progress 0 (mod (+ (.get progress 0) @increment) 100))
+         (Nuklear/nk_layout_row_dynamic context 32 1)
+         (Nuklear/nk_progress context progress 100 true)
+         (Nuklear/nk_layout_row_dynamic context 32 2)
+         (if (Nuklear/nk_button_label context "Start")
+           (reset! increment 1))
+         (if (Nuklear/nk_button_label context "Stop")
+           (reset! increment 0))
+         (Nuklear/nk_end context))
+       ; ...
+       )
+
+; ...
+{% endhighlight %}
+The GUI now looks like this:
+
+<span class="center"><img src="/pics/start-stop.png" width="508" alt="Progress bar with start and stop button"/></span>
+
+### Trying out Widgets
+
+#### Menubar
+
+The following code adds a main menu with an exit item to the window.
+{% highlight clojure %}
+(ns nukleartest
+    (:import [org.lwjgl.nuklear ; ...
+              NkVec2]
+             ; ...
+             ))
+
+; ...
+
+(def menu-size (NkVec2/create))
+(.x menu-size 80)
+(.y menu-size 40)
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         (Nuklear/nk_menubar_begin context)
+         (Nuklear/nk_layout_row_static context 40 40 1)
+         (when (Nuklear/nk_menu_begin_label context "Main"
+                                      Nuklear/NK_TEXT_LEFT menu-size)
+           (Nuklear/nk_layout_row_dynamic context 32 1)
+           (if (Nuklear/nk_menu_item_label context "Exit"
+                                           Nuklear/NK_TEXT_LEFT)
+             (GLFW/glfwSetWindowShouldClose window true))
+           (Nuklear/nk_menu_end context))
+         (Nuklear/nk_menubar_end context)
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here is a screenshot of the result:
+<span class="center"><img src="/pics/menu.png" width="508" alt="Menubar"/></span>
+
+#### Option Labels
+
+One can add option labels to implement a choice between different options.
+{% highlight clojure %}
+; ...
+
+(def option (atom :easy))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 32 3)
+         (if (Nuklear/nk_option_label context "easy"
+                                      (= @option :easy))
+           (reset! option :easy))
+         (if (Nuklear/nk_option_label context "intermediate"
+                                      (= @option :intermediate))
+           (reset! option :intermediate))
+         (if (Nuklear/nk_option_label context "hard"
+                                      (= @option :hard))
+           (reset! option :hard))
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here is a screenshot with option labels showing the three options easy, intermediate, and hard.
+<span class="center"><img src="/pics/option-labels.png" width="508" alt="Option Labels"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
