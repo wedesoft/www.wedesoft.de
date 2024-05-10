@@ -19,6 +19,7 @@ LWJGL Nuklear bindings come with the [GLFWDemo.java][3] example.
 In this article I have basically translated the input and graphics backend to Clojure.
 I also added examples for several different controls.
 I have [pushed the source code to Github][4] if you want to look at it straight away.
+A big thank you to [Ioannis Tsakpinis][10] who developed LWJGL and GLFWDemo.java in particular.
 
 The demo is more than 400 lines of code.
 This is because it has to implement the graphics backend, input conversion, and truetype font conversion to bitmap font.
@@ -51,7 +52,9 @@ The file contains dependencies to:
 
 If you are not using the *natives-linux* bindings, there are more [native packages for lwjgl-opengl][6] such as *natives-windows* and *natives-macos*.
 
-### GLFW Window
+### Graphics Setup
+
+#### GLFW Window
 
 We start with a simple program showing a window which can be closed by the user.
 Here is the initial *nukleartest.clj* file:
@@ -86,7 +89,7 @@ You can run the program using *clj -M -m nukleartest* and it should show a blank
 
 <span class="center"><img src="/pics/glfw.png" width="508" alt="GLFW Window"/></span>
 
-### OpenGL Shader Program
+#### OpenGL Shader Program
 
 Next thing is to add initialisation of an OpenGL shader program to be used in the rendering backend.
 The code is similar to my [earlier post showing an OpenGL Clojure example][5].
@@ -163,7 +166,7 @@ Furthermore it scales the input position to OpenGL normalized device coordinates
 The fragment shader performs a texture lookup and multiplies the result with the fragment color value.
 The Clojure code compiles and links the shaders and checks for possible errors.
 
-### Vertex Array Object
+#### Vertex Array Object
 
 Next an OpenGL vertex array object is defined.
 {% highlight clojure %}
@@ -240,7 +243,7 @@ For this purpose a Nuklear vertex layout object is initialised using the *NK\_VE
 ; ...
 {% endhighlight %}
 
-### Null Texture
+#### Null Texture
 
 For drawing flat colors using the shader program above, Nuklear needs to specify a null texture.
 {% highlight clojure %}
@@ -278,7 +281,8 @@ The null texture basically just consists of a single white pixel so that the sha
 The Nuklear null texture uses fixed texture coordinates for lookup (here: 0.5, 0.5).
 I.e. it is possible to embed the null texture in a bigger multi-purpose texture to save a texture slot.
 
-### Nuklear Context, Command Buffer, and Configuration
+### Nuklear GUI
+#### Nuklear Context, Command Buffer, and Configuration
 
 Finally we can set up a Nuklear context object "context", a render command buffer "cmds", and a rendering configuration "config".
 Nuklear even delegates allocating and freeing up memory, so we need to register callbacks for that as well.
@@ -339,7 +343,7 @@ Nuklear even delegates allocating and freeing up memory, so we need to register 
 {% endhighlight %}
 We also created an empty font object which we will initialise properly later.
 
-### Setup Rendering
+#### Setup Rendering
 OpenGL needs to be configured for rendering the Nuklear GUI.
 {% highlight clojure %}
 (ns nukleartest
@@ -380,7 +384,7 @@ The projection matrix also flips the y-coordinates since the direction of the Op
 
 <span class="center"><img src="/pics/window-to-ndc.svg" width="508" alt="Converting window coordinates to normalized device coordinates"/></span>
 
-### Nuklear GUI
+#### Minimal Test GUI
 
 Now we will add a minimal GUI just using a progress bar for testing rendering without fonts.
 {% highlight clojure %}
@@ -421,7 +425,7 @@ We increase the progress value and store it in a PointerBuffer object.
 The call `(Nuklear/nk_layout_row_dynamic context 32 1)` sets the GUI layout to 32 pixels height and one widget per row.
 Then a progress bar is created and the GUI is finalised using `Nuklear/nk_end`.
 
-### Rendering Backend
+#### Rendering Backend
 
 Now we are ready to add the rendering backend.
 {% highlight clojure %}
@@ -492,7 +496,9 @@ Finally `Nuklear/nk_clear` is used to reset the GUI specification for the next f
 
 <span class="center"><img src="/pics/progress.png" width="508" alt="GUI showing a progress bar"/></span>
 
-### Mouse events
+### Mouse Events
+
+#### Cursor Position and Buttons
 
 The next step one can do is converting GLFW mouse events to Nuklear input.
 {% highlight clojure %}
@@ -539,7 +545,37 @@ The second callback converts mouse button press and release events to Nuklear in
 The progress bar is modifyable and you should now be able to change it by clicking on it.
 Note that using a case statement instead of cond did not work for some reason.
 
-### Converting Truetype Font to Bitmap Font
+#### Scroll Events
+
+The Nuklear library can also be informed about scroll events.
+Here is the corresponding GLFW callback to pass scroll events on to the Nuklear library.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.glfw ; ...
+              GLFWScrollCallbackI]
+             ; ...
+             ))
+
+; ...
+
+(GLFW/glfwSetScrollCallback
+  window
+  (reify GLFWScrollCallbackI
+         (invoke [this window xoffset yoffset]
+           (let [stack (MemoryStack/stackPush)
+                 scroll (NkVec2/malloc stack)]
+             (.x scroll xoffset)
+             (.y scroll yoffset)
+             (Nuklear/nk_input_scroll context scroll)
+             (MemoryStack/stackPop)))))
+
+; ...
+{% endhighlight %}
+The scroll events can later be tested when we implement a combo box.
+
+### Fonts
+#### Converting Truetype Font to Bitmap Font
 
 To display other GUI controls, text output is required.
 Using the [STB][8] library a Truetype font is converted to a bitmap font of the desired size.
@@ -604,7 +640,7 @@ You can write out the RGBA data to a PNG file and inspect it using GIMP or your 
 
 <span class="center"><img src="/pics/font.png" width="508" alt="Bitmap font created with STB library"/></span>
 
-### Font Texture and Nuklear Callbacks
+#### Font Texture and Nuklear Callbacks
 
 The RGBA bitmap font can now be converted to an OpenGL texture with linear interpolation and the texture id of the NkUserFont object is set.
 {% highlight clojure %}
@@ -1025,6 +1061,110 @@ There are also methods for checking if the mouse is hovering over the widget or 
 Here we have just drawn a filled rectangle and a filled circle.
 <span class="center"><img src="/pics/widget.png" width="508" alt="Custom Widget"/></span>
 
+### Keyboard Input
+
+Finally we need keyboard input.
+The [GLFWDemo.java][3] example uses two GLFW keyboard callbacks and even implements callbacks for the clipboard.
+
+#### Character Callback
+
+First a character callback is implemented.
+To test it, we also add an edit field for entering text.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.glfw ; ...
+              GLFWCharCallbackI]
+             [org.lwjgl.nuklear ; ...
+              NkPluginFilter NkPluginFilterI]
+             ; ...
+             ))
+
+; ...
+
+(GLFW/glfwSetCharCallback
+  window
+  (reify GLFWCharCallbackI
+         (invoke [this window codepoint]
+           (Nuklear/nk_input_unicode context codepoint))))
+
+; ...
+
+(def text (BufferUtils/createByteBuffer 256))
+(def text-len (int-array [0]))
+(def text-filter
+  (NkPluginFilter/create
+    (reify NkPluginFilterI
+           (invoke [this edit unicode]
+             (Nuklear/nnk_filter_ascii edit unicode)))))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_edit_string context Nuklear/NK_EDIT_FIELD text text-len
+                                 256 text-filter)
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+The following screenshot shows the edit field with some text entered.
+<span class="center"><img src="/pics/edit.png" width="508" alt="Edit Field"/></span>
+
+#### Control Characters
+
+To get control characters working, the second GLFW callback is implemented.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.glfw ; ...
+              GLFWKeyCallbackI]
+             ; ...
+             ))
+
+; ...
+
+(GLFW/glfwSetKeyCallback
+  window
+  (reify GLFWKeyCallbackI
+    (invoke [this window k scancode action mods]
+      (let [press (= action GLFW/GLFW_PRESS)]
+        (cond
+          (= k GLFW/GLFW_KEY_ESCAPE)
+            (GLFW/glfwSetWindowShouldClose window true)
+          (= k GLFW/GLFW_KEY_DELETE)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_DEL press)
+          (= k GLFW/GLFW_KEY_ENTER)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_ENTER press)
+          (= k GLFW/GLFW_KEY_TAB)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_TAB press)
+          (= k GLFW/GLFW_KEY_BACKSPACE)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_BACKSPACE press)
+          (= k GLFW/GLFW_KEY_UP)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_UP press)
+          (= k GLFW/GLFW_KEY_DOWN)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_DOWN press)
+          (= k GLFW/GLFW_KEY_LEFT)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_LEFT press)
+          (= k GLFW/GLFW_KEY_RIGHT)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_RIGHT press)
+          (= k GLFW/GLFW_KEY_HOME)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_START press)
+          (= k GLFW/GLFW_KEY_END)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_END press)
+          (= k GLFW/GLFW_KEY_LEFT_SHIFT)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_SHIFT press)
+          (= k GLFW/GLFW_KEY_RIGHT_SHIFT)
+            (Nuklear/nk_input_key context Nuklear/NK_KEY_SHIFT press))))))
+
+; ...
+{% endhighlight %}
+Now it is possible to move the cursor in the text box and also delete characters.
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -1034,3 +1174,4 @@ Here we have just drawn a filled rectangle and a filled circle.
 [7]: https://github.com/HumbleUI/HumbleUI
 [8]: https://github.com/nothings/stb
 [9]: http://quil.info/
+[10]: https://github.com/Spasi
