@@ -1235,6 +1235,60 @@ Except for undo and redo I managed to get the keyboard combinations from the GLF
 The following screenshot shows the text edit field with some text selected to copy to the clipboard.
 <span class="center"><img src="/pics/clipboard.png" width="508" alt="Selecting Text"/></span>
 
+### Styling
+
+You can get Nuklear styles from [Nuklear/demo/common/style.c][11].
+My favourite is the dark theme.
+The style is set by populating a color table and then using `nk_style_from_table` to overwrite the style.
+
+{% highlight clojure %}
+; ...
+
+(def style-table (NkColor/malloc Nuklear/NK_COLOR_COUNT))
+(.put style-table Nuklear/NK_COLOR_TEXT (Nuklear/nk_rgb 210 210 210 rgb))
+(.put style-table Nuklear/NK_COLOR_WINDOW (Nuklear/nk_rgb 57 67 71 rgb))
+(.put style-table Nuklear/NK_COLOR_HEADER (Nuklear/nk_rgb 51 51 56 rgb))
+(.put style-table Nuklear/NK_COLOR_BORDER (Nuklear/nk_rgb 46 46 46 rgb))
+(.put style-table Nuklear/NK_COLOR_BUTTON (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_BUTTON_HOVER (Nuklear/nk_rgb 58 93 121 rgb))
+(.put style-table Nuklear/NK_COLOR_BUTTON_ACTIVE (Nuklear/nk_rgb 63 98 126 rgb))
+(.put style-table Nuklear/NK_COLOR_TOGGLE (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_TOGGLE_HOVER (Nuklear/nk_rgb 45 53 56 rgb))
+(.put style-table Nuklear/NK_COLOR_TOGGLE_CURSOR (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_SELECT (Nuklear/nk_rgb 57 67 61 rgb))
+(.put style-table Nuklear/NK_COLOR_SELECT_ACTIVE (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_SLIDER (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_SLIDER_CURSOR (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_SLIDER_CURSOR_HOVER (Nuklear/nk_rgb 53 88 116 rgb))
+(.put style-table Nuklear/NK_COLOR_SLIDER_CURSOR_ACTIVE (Nuklear/nk_rgb 58 93 121 rgb))
+(.put style-table Nuklear/NK_COLOR_PROPERTY (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_EDIT (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_EDIT_CURSOR (Nuklear/nk_rgb 210 210 210 rgb))
+(.put style-table Nuklear/NK_COLOR_COMBO (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_CHART (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_CHART_COLOR (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_CHART_COLOR_HIGHLIGHT (Nuklear/nk_rgb 255 0 0 rgb))
+(.put style-table Nuklear/NK_COLOR_SCROLLBAR (Nuklear/nk_rgb 50 58 61 rgb))
+(.put style-table Nuklear/NK_COLOR_SCROLLBAR_CURSOR (Nuklear/nk_rgb 48 83 111 rgb))
+(.put style-table Nuklear/NK_COLOR_SCROLLBAR_CURSOR_HOVER (Nuklear/nk_rgb 53 88 116 rgb))
+(.put style-table Nuklear/NK_COLOR_SCROLLBAR_CURSOR_ACTIVE (Nuklear/nk_rgb 58 93 121 rgb))
+(.put style-table Nuklear/NK_COLOR_TAB_HEADER (Nuklear/nk_rgb 48 83 111 rgb))
+(Nuklear/nk_style_from_table context style-table)
+
+; ...
+{% endhighlight %}
+And now the window looks like this:
+<span class="center"><img src="/pics/style.png" width="508" alt="Nuklear Dark Theme"/></span>
+
+### More References
+
+This article is already very long, so I will close here.
+There are still more things to explore.
+You can check out the [LWJGL Nuklear package documentation][12].
+Also I can recommend to have a look of the [Nuklear Usage Guide][13] by The Coding Fox.
+
+Enjoy!
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -1245,3 +1299,6 @@ The following screenshot shows the text edit field with some text selected to co
 [8]: https://github.com/nothings/stb
 [9]: http://quil.info/
 [10]: https://github.com/Spasi
+[11]: https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/common/style.c
+[12]: https://javadoc.lwjgl.org/org/lwjgl/nuklear/Nuklear.html
+[13]: https://www.thecodingfox.com/nuklear-usage-guide-lwjgl
