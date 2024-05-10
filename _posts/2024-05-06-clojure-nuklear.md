@@ -817,6 +817,33 @@ One can add option labels to implement a choice between different options.
 Here is a screenshot with option labels showing the three options easy, intermediate, and hard.
 <span class="center"><img src="/pics/option-labels.png" width="508" alt="Option Labels"/></span>
 
+#### Check Labels
+
+Check labels are easy to add. They look similar to the option labels, but use squares instead of circles.
+{% highlight clojure %}
+; ...
+
+(def flip (atom false))
+(def crop (atom false))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 32 2)
+         (reset! flip (Nuklear/nk_check_label context "Flip" @flip))
+         (reset! crop (Nuklear/nk_check_label context "Crop" @crop))
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here is a screenshot with two check labels.
+<span class="center"><img src="/pics/check-labels.png" width="508" alt="Option Labels"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
