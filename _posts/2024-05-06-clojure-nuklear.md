@@ -844,6 +844,187 @@ Check labels are easy to add. They look similar to the option labels, but use sq
 Here is a screenshot with two check labels.
 <span class="center"><img src="/pics/check-labels.png" width="508" alt="Option Labels"/></span>
 
+#### Property Widgets
+
+Property widgets let you change a value by either clicking on the arrows or by clicking and dragging across the widget.
+{% highlight clojure %}
+; ...
+(def compression (.put (BufferUtils/createIntBuffer 1) 0 20))
+(def quality (.put (BufferUtils/createFloatBuffer 1) 0 (float 5.0)))
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_property_int context "Compression:" 0 compression
+                                  100 10 (float 1))
+         (Nuklear/nk_property_float context "Quality:" (float 0.0) quality
+                                    (float 10.0) (float 1.0) (float 0.01))
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here is a screenshot with an integer and a float property.
+<span class="center"><img src="/pics/property.png" width="508" alt="Property Widgets"/></span>
+
+#### Symbol and Image Buttons
+
+Nuklear has several stock symbols for symbol buttons.
+Furthermore one can register a texture to be used in an image button.
+The button method returns true if it was clicked.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.nuklear ; ...
+              NkImage]
+             ; ...
+             [org.lwjgl.stb ; ...
+              STBImage]))
+
+; ...
+
+(def download-icon (NkImage/create))
+(def w (int-array 1))
+(def h (int-array 1))
+(def c (int-array 1))
+(def buffer (STBImage/stbi_load "download.png" w h c 4))
+(def download-tex (GL11/glGenTextures))
+(GL11/glBindTexture GL11/GL_TEXTURE_2D download-tex)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MIN_FILTER
+                      GL11/GL_LINEAR)
+(GL11/glTexParameteri GL11/GL_TEXTURE_2D GL11/GL_TEXTURE_MAG_FILTER
+                      GL11/GL_LINEAR)
+(GL11/glTexImage2D GL11/GL_TEXTURE_2D 0 GL11/GL_RGBA8 (aget w 0) (aget h 0)
+                   0 GL11/GL_RGBA GL11/GL_UNSIGNED_BYTE buffer)
+(GL11/glBindTexture GL11/GL_TEXTURE_2D 0)
+(def handle (NkHandle/create))
+(.id handle download-tex)
+(.handle download-icon handle)
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 32 14)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_RECT_SOLID)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_RECT_OUTLINE)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_TRIANGLE_UP)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_TRIANGLE_DOWN)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_TRIANGLE_LEFT)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_TRIANGLE_RIGHT)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_CIRCLE_SOLID)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_CIRCLE_OUTLINE)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_MAX)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_X)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_PLUS)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_MINUS)
+         (Nuklear/nk_button_symbol context Nuklear/NK_SYMBOL_UNDERSCORE)
+         (if (Nuklear/nk_button_image context download-icon)
+           (println "Download"))
+         ; ...
+         ))
+
+; ...
+
+(GL11/glDeleteTextures download-tex)
+
+; ...
+{% endhighlight %}
+Here is a screenshot showing the buttons instantiated in the code above.
+<span class="center"><img src="/pics/buttons.png" width="508" alt="Symbol and Image Buttons"/></span>
+
+#### Combo Boxes
+
+A combo box lets you choose an option using a drop down menu.
+It is even possible to have combo boxes with multiple columns.
+{% highlight clojure %}
+; ...
+
+(def combo-size (NkVec2/create))
+(.x combo-size 320)
+(.y combo-size 120)
+
+; ...
+
+(def combo-items (mapv #(str "test" (inc %)) (range 10)))
+(def selected (atom (first combo-items)))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 32 1)
+         (when (Nuklear/nk_combo_begin_label context @selected combo-size)
+           (Nuklear/nk_layout_row_dynamic context 32 1)
+           (doseq [item combo-items]
+                  (if (Nuklear/nk_combo_item_text context item
+                                                  Nuklear/NK_TEXT_LEFT)
+                    (reset! selected item)))
+           (Nuklear/nk_combo_end context))
+         ; ...
+         ))
+
+; ...
+
+(GL11/glDeleteTextures download-tex)
+
+; ...
+{% endhighlight %}
+The combo box in the following screenshot uses one column.
+<span class="center"><img src="/pics/combo.png" width="508" alt="Combo Box"/></span>
+
+#### Drawing Custom Widgets
+
+It is possible to use draw commands to draw a custom widget.
+There are also methods for checking if the mouse is hovering over the widget or if the mouse was clicked.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.nuklear ; ...
+              NkColor]
+             ; ...
+             ))
+
+; ...
+
+(def rgb (NkColor/malloc stack))
+
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (let [canvas (Nuklear/nk_window_get_canvas context)]
+           (Nuklear/nk_layout_row_dynamic context 120 1)
+           (if (Nuklear/nk_widget_is_mouse_clicked context Nuklear/NK_BUTTON_LEFT)
+             (println "Widget clicked"))
+           (let [color (if (Nuklear/nk_widget_is_hovered context)
+                         (Nuklear/nk_rgb 255 255 255 rgb)
+                         (Nuklear/nk_rgb 255 127 127 rgb))]
+             (Nuklear/nk_widget rect context)
+             (Nuklear/nk_fill_rect canvas rect 2 color)
+             (Nuklear/nk_fill_circle canvas (Nuklear/nk_rect (+ (.x rect) (- (/ (.w rect) 2) 32))
+                                                             (+ (.y rect) (- (/ (.h rect) 2) 32)) 64 64 rect)
+                                     (Nuklear/nk_rgb 127 255 127 rgb))))
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here we have just drawn a filled rectangle and a filled circle.
+<span class="center"><img src="/pics/widget.png" width="508" alt="Custom Widget"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
