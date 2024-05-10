@@ -1165,6 +1165,76 @@ To get control characters working, the second GLFW callback is implemented.
 {% endhighlight %}
 Now it is possible to move the cursor in the text box and also delete characters.
 
+#### Clipboard and other Control Key Combinations
+
+Finally one can implement some Control key combinations.
+Except for undo and redo I managed to get the keyboard combinations from the GLFWDemo.java example to work.
+{% highlight clojure %}
+(ns nukleartest
+    (:import ; ...
+             [org.lwjgl.nuklear ; ...
+              NkPluginCopyI NkPluginPasteI]
+             ; ...
+             ))
+
+; ...
+
+(GLFW/glfwSetKeyCallback
+  window
+  (reify GLFWKeyCallbackI
+    (invoke [this window k scancode action mods]
+      (let [press (= action GLFW/GLFW_PRESS)]
+        ; ...
+        (when (or (= mods GLFW/GLFW_MOD_CONTROL) (not press))
+          (cond
+            (= k GLFW/GLFW_KEY_C)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_COPY press)
+            (= k GLFW/GLFW_KEY_P)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_PASTE press)
+            (= k GLFW/GLFW_KEY_X)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_CUT press)
+            (= k GLFW/GLFW_KEY_Z)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_UNDO press)
+            (= k GLFW/GLFW_KEY_R)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_REDO press)
+            (= k GLFW/GLFW_KEY_LEFT)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_WORD_LEFT
+                                    press)
+            (= k GLFW/GLFW_KEY_RIGHT)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_WORD_RIGHT
+                                    press)
+            (= k GLFW/GLFW_KEY_B)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_LINE_START
+                                    press)
+            (= k GLFW/GLFW_KEY_E)
+              (Nuklear/nk_input_key context Nuklear/NK_KEY_TEXT_LINE_END
+                                    press)))))))
+
+; ...
+
+(.copy (.clip context)
+       (reify NkPluginCopyI
+              (invoke [this handle text len]
+                (if (not= len 0)
+                  (let [stack  (MemoryStack/stackPush)
+                        string (.malloc stack (inc len))]
+                    (MemoryUtil/memCopy text (MemoryUtil/memAddress string) len)
+                    (.put string len (byte 0))
+                    (GLFW/glfwSetClipboardString window string))))))
+
+(.paste (.clip context)
+        (reify NkPluginPasteI
+               (invoke [this handle edit]
+                 (let [text (GLFW/nglfwGetClipboardString window)]
+                   (if (not= text 0)
+                     (Nuklear/nnk_textedit_paste edit text (Nuklear/nnk_strlen text)))))))
+
+; ...
+{% endhighlight %}
+
+The following screenshot shows the text edit field with some text selected to copy to the clipboard.
+<span class="center"><img src="/pics/clipboard.png" width="508" alt="Selecting Text"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
