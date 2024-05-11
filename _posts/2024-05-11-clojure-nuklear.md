@@ -1046,7 +1046,7 @@ There are also methods for checking if the mouse is hovering over the widget or 
            (if (Nuklear/nk_widget_is_mouse_clicked context Nuklear/NK_BUTTON_LEFT)
              (println "Widget clicked"))
            (let [color (if (Nuklear/nk_widget_is_hovered context)
-                         (Nuklear/nk_rgb 255 255 255 rgb)
+                         (Nuklear/nk_rgb 255 101 101 rgb)
                          (Nuklear/nk_rgb 255 127 127 rgb))]
              (Nuklear/nk_widget rect context)
              (Nuklear/nk_fill_rect canvas rect 2 color)
