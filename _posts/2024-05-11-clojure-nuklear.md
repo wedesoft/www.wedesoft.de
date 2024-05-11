@@ -1043,16 +1043,19 @@ There are also methods for checking if the mouse is hovering over the widget or 
          ; ...
          (let [canvas (Nuklear/nk_window_get_canvas context)]
            (Nuklear/nk_layout_row_dynamic context 120 1)
-           (if (Nuklear/nk_widget_is_mouse_clicked context Nuklear/NK_BUTTON_LEFT)
+           (if (Nuklear/nk_widget_is_mouse_clicked context
+                                                   Nuklear/NK_BUTTON_LEFT)
              (println "Widget clicked"))
            (let [color (if (Nuklear/nk_widget_is_hovered context)
                          (Nuklear/nk_rgb 255 101 101 rgb)
                          (Nuklear/nk_rgb 255 127 127 rgb))]
              (Nuklear/nk_widget rect context)
              (Nuklear/nk_fill_rect canvas rect 2 color)
-             (Nuklear/nk_fill_circle canvas (Nuklear/nk_rect (+ (.x rect) (- (/ (.w rect) 2) 32))
-                                                             (+ (.y rect) (- (/ (.h rect) 2) 32)) 64 64 rect)
-                                     (Nuklear/nk_rgb 127 255 127 rgb))))
+             (Nuklear/nk_fill_circle canvas
+               (Nuklear/nk_rect (+ (.x rect) (- (/ (.w rect) 2) 32))
+                                (+ (.y rect) (- (/ (.h rect) 2) 32))
+                                64 64 rect)
+               (Nuklear/nk_rgb 127 255 127 rgb))))
          ; ...
          ))
 
@@ -1218,7 +1221,8 @@ Except for undo and redo I managed to get the keyboard combinations from the GLF
                 (if (not= len 0)
                   (let [stack  (MemoryStack/stackPush)
                         string (.malloc stack (inc len))]
-                    (MemoryUtil/memCopy text (MemoryUtil/memAddress string) len)
+                    (MemoryUtil/memCopy text (MemoryUtil/memAddress string)
+                                        len)
                     (.put string len (byte 0))
                     (GLFW/glfwSetClipboardString window string))))))
 
@@ -1227,7 +1231,8 @@ Except for undo and redo I managed to get the keyboard combinations from the GLF
                (invoke [this handle edit]
                  (let [text (GLFW/nglfwGetClipboardString window)]
                    (if (not= text 0)
-                     (Nuklear/nnk_textedit_paste edit text (Nuklear/nnk_strlen text)))))))
+                     (Nuklear/nnk_textedit_paste edit text
+                       (Nuklear/nnk_strlen text)))))))
 
 ; ...
 {% endhighlight %}
@@ -1298,7 +1303,8 @@ Here is a fix to get repeat keypress events for control characters working:
   window
   (reify GLFWKeyCallbackI
          (invoke [this window k scancode action mods]
-           (let [press (or (= action GLFW/GLFW_PRESS) (= action GLFW/GLFW_REPEAT))]
+           (let [press (or (= action GLFW/GLFW_PRESS)
+                           (= action GLFW/GLFW_REPEAT))]
              ; ...
              ))))
 {% endhighlight %}
