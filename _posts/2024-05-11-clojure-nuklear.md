@@ -1289,6 +1289,20 @@ Also I can recommend to have a look of the [Nuklear Usage Guide][13] by The Codi
 
 Enjoy!
 
+### Update
+
+Here is a fix to get repeat keypress events for control characters working:
+
+{% highlight clojure %}
+(GLFW/glfwSetKeyCallback
+  window
+  (reify GLFWKeyCallbackI
+         (invoke [this window k scancode action mods]
+           (let [press (or (= action GLFW/GLFW_PRESS) (= action GLFW/GLFW_REPEAT))]
+             ; ...
+             ))))
+{% endhighlight %}
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
