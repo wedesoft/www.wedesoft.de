@@ -20,6 +20,7 @@ In this article I have basically translated the input and graphics backend to Cl
 I also added examples for several different controls.
 I have [pushed the source code to Github][4] if you want to look at it straight away.
 A big thank you to [Ioannis Tsakpinis][10] who developed LWJGL and GLFWDemo.java in particular.
+And a big thank you to [Micha Mettke][14] who developed the Nuklear library.
 
 The demo is more than 400 lines of code.
 This is because it has to implement the graphics backend, input conversion, and truetype font conversion to bitmap font.
@@ -1322,3 +1323,4 @@ Here is a fix to get repeat keypress events for control characters working:
 [11]: https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/common/style.c
 [12]: https://javadoc.lwjgl.org/org/lwjgl/nuklear/Nuklear.html
 [13]: https://www.thecodingfox.com/nuklear-usage-guide-lwjgl
+[14]: https://github.com/vurtun
