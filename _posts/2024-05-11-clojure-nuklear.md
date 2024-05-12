@@ -1297,6 +1297,8 @@ Enjoy!
 
 ### Update
 
+#### Keyboard Repeat Events
+
 Here is a fix to get repeat keypress events for control characters working:
 
 {% highlight clojure %}
@@ -1309,6 +1311,12 @@ Here is a fix to get repeat keypress events for control characters working:
              ; ...
              ))))
 {% endhighlight %}
+
+#### Polygon Visualisation
+
+If you enable OpenGL polygon mode and clear the image, you can see the polygons Nuklear is creating.
+
+<span class="center"><img src="/pics/polygons.png" width="508" alt="Nuklear polygons"/></span>
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
