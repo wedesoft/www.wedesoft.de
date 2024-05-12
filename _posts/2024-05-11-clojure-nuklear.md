@@ -1294,11 +1294,11 @@ And now the window looks like this:
 This article is already very long, so I will close here.
 There are still more things to explore.
 You can check out the [LWJGL Nuklear package documentation][12].
-Also I can recommend to have a look of the [Nuklear Usage Guide][13] by The Coding Fox.
+Also I can recommend to have a look of the [Nuklear Usage Guide][13] and the [Nuklear Function Reference][15] by The Coding Fox.
 
 Enjoy!
 
-### Update
+### Updates
 
 #### Keyboard Repeat Events
 
@@ -1321,6 +1321,59 @@ If you enable OpenGL polygon mode and clear the image, you can see the polygons 
 
 <span class="center"><img src="/pics/polygons.png" width="508" alt="Nuklear polygons"/></span>
 
+#### Grouping Widgets
+
+One can group widgets.
+The group even gets a scrollbar if the content is bigger than the allocated region.
+The group can also have a title.
+{% highlight clojure %}
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 86 1)
+         (Nuklear/nk_group_begin_titled context "settings" "Settings"
+           (bit-or Nuklear/NK_WINDOW_TITLE Nuklear/NK_WINDOW_BORDER))
+         (Nuklear/nk_layout_row_dynamic context 32 1)
+         (Nuklear/nk_property_int context "Compression:" 0 compression 100 10
+                                  (float 1))
+         (Nuklear/nk_property_float context "Quality:" (float 0.0) quality
+                                    (float 10.0) (float 1.0) (float 0.01))
+         (Nuklear/nk_group_end context)
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+The screenshot shows the compression and quality property widgets grouped together.
+<span class="center"><img src="/pics/group.png" width="508" alt="Widget Group"/></span>
+
+### Slider
+
+Sliders are an alternative to property widgets.
+They display the value using a circle instead of using a textual representation.
+
+{% highlight clojure %}
+; ...
+(def slider (BufferUtils/createIntBuffer 1))
+(.put slider 0 50)
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_slider_int context 0 slider 100 1)
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+Here is a screenshot showing a slider.
+<span class="center"><img src="/pics/slider.png" width="508" alt="Slider Widget"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -1335,3 +1388,4 @@ If you enable OpenGL polygon mode and clear the image, you can see the polygons 
 [12]: https://javadoc.lwjgl.org/org/lwjgl/nuklear/Nuklear.html
 [13]: https://www.thecodingfox.com/nuklear-usage-guide-lwjgl
 [14]: https://github.com/vurtun
+[15]: https://www.thecodingfox.com/nuklear-function-reference
