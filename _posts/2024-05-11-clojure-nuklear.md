@@ -1349,7 +1349,7 @@ The group can also have a title.
 The screenshot shows the compression and quality property widgets grouped together.
 <span class="center"><img src="/pics/group.png" width="508" alt="Widget Group"/></span>
 
-### Slider
+#### Slider
 
 Sliders are an alternative to property widgets.
 They display the value using a circle instead of using a textual representation.
@@ -1374,6 +1374,49 @@ They display the value using a circle instead of using a textual representation.
 Here is a screenshot showing a slider.
 <span class="center"><img src="/pics/slider.png" width="508" alt="Slider Widget"/></span>
 
+#### Nested Layouts
+
+Nuklear does not seem to support nested layouts.
+However as shown by Komari Spaghetti one can [use groups for nesting layouts in Nuklear][16].
+Basically you just need to set window padding to zero temporarily and disable the scroll bars.
+In the following sample there are five buttons using two columns with different button sizes.
+{% highlight clojure %}
+; ...
+(def no-padding (NkVec2/create))
+(.x no-padding 0)
+(.y no-padding 0)
+; ...
+
+(while (not (GLFW/glfwWindowShouldClose window))
+       ; ...
+       (when (Nuklear/nk_begin context "Nuklear Example"
+                               (Nuklear/nk_rect 0 0 width height rect) 0)
+         ; ...
+         (Nuklear/nk_layout_row_dynamic context 100 2)
+         (Nuklear/nk_style_push_vec2 context
+           (.group_padding (.window (.style context))) no-padding)
+         (Nuklear/nk_group_begin context "buttons-1"
+                                 Nuklear/NK_WINDOW_NO_SCROLLBAR)
+         (Nuklear/nk_layout_row_dynamic context 26 1)
+         (Nuklear/nk_button_label context "Button A")
+         (Nuklear/nk_button_label context "Button B")
+         (Nuklear/nk_button_label context "Button C")
+         (Nuklear/nk_group_end context)
+         (Nuklear/nk_group_begin context "buttons-2"
+                                 Nuklear/NK_WINDOW_NO_SCROLLBAR)
+         (Nuklear/nk_layout_row_dynamic context 41 1)
+         (Nuklear/nk_button_label context "Button D")
+         (Nuklear/nk_button_label context "Button E")
+         (Nuklear/nk_group_end context)
+         (Nuklear/nk_style_pop_vec2 context)
+         ; ...
+         ))
+
+; ...
+{% endhighlight %}
+The screenshot shows the layout achieved in this case.
+<span class="center"><img src="/pics/layout.png" width="508" alt="Nuklear Layout"/></span>
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -1389,3 +1432,4 @@ Here is a screenshot showing a slider.
 [13]: https://www.thecodingfox.com/nuklear-usage-guide-lwjgl
 [14]: https://github.com/vurtun
 [15]: https://www.thecodingfox.com/nuklear-function-reference
+[16]: https://github.com/vurtun/nuklear/issues/906
