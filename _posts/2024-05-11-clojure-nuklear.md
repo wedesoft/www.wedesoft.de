@@ -211,7 +211,7 @@ Next an OpenGL vertex array object is defined.
 
 ; ...
 {% endhighlight %}
-An array buffer containing the position, texture coordinates, and colors is allocated.
+An array buffer containing the position, texture coordinates, and colors are allocated.
 Furthermore an element array buffer is allocated which contains element indices.
 A row in the array buffer contains 20 bytes:
 * 2 times 4 bytes for floating point "position"
@@ -481,7 +481,7 @@ Now we are ready to add the rendering backend.
 
 ; ...
 {% endhighlight %}
-The rendering backend sets the viewport and then array buffers for the vertex data and the indices is allocated.
+The rendering backend sets the viewport and then array buffers for the vertex data and the indices are allocated.
 Then the buffers are mapped to memory resulting in the two java.nio.DirectByteBuffer objects "vertices" and "elements".
 The two static buffers are then converted to Nuklear buffer objects using `Nuklear/nk_buffer_init_fixed`.
 
@@ -494,6 +494,8 @@ Then a part of the index and vertex buffer is rendered using `GL11/glDrawElement
 
 Finally `Nuklear/nk_clear` is used to reset the GUI specification for the next frame and `Nuklear/nk_buffer_clear` is used to empty the command buffer.
 `GLFW/glfwSwapBuffers` is used to publish the new rendered frame.
+
+Now we finally have a widget working!
 
 <span class="center"><img src="/pics/progress.png" width="508" alt="GUI showing a progress bar"/></span>
 
@@ -633,7 +635,7 @@ Using the [STB][8] library a Truetype font is converted to a bitmap font of the 
 ; ...
 {% endhighlight %}
 Basically the font file is read and converted to a `java.nio.DirectByteBuffer` (let me know if you find a more straightforward way to do this).
-The data is used to initialise a STB font info object.
+The data is used to initialise an STB font info object.
 The next steps I can't explain in detail but they basically pack the glyphs into a greyscale bitmap.
 
 Finally a white RGBA texture data is created with the greyscale bitmap as the alpha channel.
@@ -911,7 +913,7 @@ Here is a screenshot with an integer and a float property.
 
 Nuklear has several stock symbols for symbol buttons.
 Furthermore one can register a texture to be used in an image button.
-The button method returns true if it was clicked.
+Each button method returns true if the button was clicked.
 {% highlight clojure %}
 (ns nukleartest
     (:import ; ...
@@ -1173,6 +1175,7 @@ Now it is possible to move the cursor in the text box and also delete characters
 
 Finally one can implement some Control key combinations.
 Except for undo and redo I managed to get the keyboard combinations from the GLFWDemo.java example to work.
+We also implement the clipboard integration.
 {% highlight clojure %}
 (ns nukleartest
     (:import ; ...
