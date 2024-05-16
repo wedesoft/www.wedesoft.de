@@ -1013,10 +1013,6 @@ It is even possible to have combo boxes with multiple columns.
          ))
 
 ; ...
-
-(GL11/glDeleteTextures download-tex)
-
-; ...
 {% endhighlight %}
 The combo box in the following screenshot uses one column.
 <span class="center"><img src="/pics/combo.png" width="508" alt="Combo Box"/></span>
