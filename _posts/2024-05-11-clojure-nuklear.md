@@ -437,13 +437,16 @@ Now we are ready to add the rendering backend.
 
 ; ...
 
+(GL15/glBufferData GL15/GL_ARRAY_BUFFER max-vertex-buffer
+ GL15/GL_STREAM_DRAW)
+(GL15/glBufferData GL15/GL_ELEMENT_ARRAY_BUFFER max-element-buffer
+ GL15/GL_STREAM_DRAW)
+
+; ...
+
 (while (not (GLFW/glfwWindowShouldClose window))
        ; ...
        (GL11/glViewport 0 0 width height)
-       (GL15/glBufferData GL15/GL_ARRAY_BUFFER max-vertex-buffer
-                          GL15/GL_STREAM_DRAW)
-       (GL15/glBufferData GL15/GL_ELEMENT_ARRAY_BUFFER max-element-buffer
-                          GL15/GL_STREAM_DRAW)
        (let [vertices (GL15/glMapBuffer GL15/GL_ARRAY_BUFFER
                                         GL15/GL_WRITE_ONLY max-vertex-buffer
                                         nil)
