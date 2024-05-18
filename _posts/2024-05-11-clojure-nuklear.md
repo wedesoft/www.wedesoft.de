@@ -1419,7 +1419,7 @@ The screenshot shows the layout achieved in this case.
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
-[4]: https://github.com/wedesoft/nukleartest
+[4]: https://github.com/wedesoft/nukleartest/tree/v1.0
 [5]: https://www.wedesoft.de/software/2023/05/26/lwjgl3-clojure/
 [6]: https://repo1.maven.org/maven2/org/lwjgl/lwjgl-opengl/3.3.2/
 [7]: https://github.com/HumbleUI/HumbleUI
