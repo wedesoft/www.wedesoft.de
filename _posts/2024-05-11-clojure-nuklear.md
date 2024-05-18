@@ -1416,6 +1416,27 @@ In the following sample there are five buttons using two columns with different 
 The screenshot shows the layout achieved in this case.
 <span class="center"><img src="/pics/layout.png" width="508" alt="Nuklear Layout"/></span>
 
+#### Type hints
+
+In order to improve performance, one can use [Clojure type hints][17].
+This is especially effective when applied to the implementations of `width` and `query` method or the `NkUserFont` object.
+`width` gets called for each string and `query` even gets called for each character in the GUI.
+One can enable reflection warnings in order to find where type hints are needed to improve performance.
+{% highlight clojure %}
+(set! *warn-on-reflection* true)
+; ...
+  (STBTruetype/stbtt_GetCodepointHMetrics ^STBTTFontinfo fontinfo
+    (.get unicode 0) advance nil)
+; ...
+  (STBTruetype/stbtt_GetPackedQuad ^STBTTPackedchar$Buffer cdata
+    ^long bitmap-w ^long bitmap-h (- codepoint 32) x y q false)
+  (STBTruetype/stbtt_GetCodepointHMetrics ^STBTTFontinfo fontinfo
+    codepoint advance nil)
+; ...
+{% endhighlight %}
+
+By fixing all reflection warnings, I managed to reduce the CPU load of the GUI prototype from 50.8% down to 9.6%!
+
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
 [3]: https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/nuklear/GLFWDemo.java
@@ -1432,3 +1453,4 @@ The screenshot shows the layout achieved in this case.
 [14]: https://github.com/vurtun
 [15]: https://www.thecodingfox.com/nuklear-function-reference
 [16]: https://github.com/vurtun/nuklear/issues/906
+[17]: https://clojure.org/reference/java_interop#typehints
