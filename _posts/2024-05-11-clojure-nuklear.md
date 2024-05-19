@@ -1435,7 +1435,7 @@ One can enable reflection warnings in order to find where type hints are needed 
 ; ...
 {% endhighlight %}
 
-By fixing all reflection warnings, I managed to reduce the CPU load of the GUI prototype from 50.8% down to 9.6%!
+By fixing all reflection warnings (see [v1.1][18]), I managed to reduce the CPU load of the GUI prototype from 50.8% down to 9.6%!
 
 [1]: https://www.lwjgl.org/
 [2]: https://immediate-mode-ui.github.io/Nuklear/doc/index.html
@@ -1454,3 +1454,4 @@ By fixing all reflection warnings, I managed to reduce the CPU load of the GUI p
 [15]: https://www.thecodingfox.com/nuklear-function-reference
 [16]: https://github.com/vurtun/nuklear/issues/906
 [17]: https://clojure.org/reference/java_interop#typehints
+[18]: https://github.com/wedesoft/nukleartest/tree/v1.1
