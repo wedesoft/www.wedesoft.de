@@ -183,6 +183,7 @@ I also play the harmonica.
 	</ul></li>
 	<li>Presentations:
 	<ul>
+    <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/opengl.pdf">A Short Introduction to OpenGL</a></li>
     <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/solid.pdf">SOLID software design principles</a></li>
 		<li><span class="caps">Digital Science Cambridge 2014 retreat</span> presentation <a href="https://www.wedesoft.de/downloads/cambridge2014.pdf">Fundamentals of Computing</a></li>
 		<li><span class="caps">ECOOP 2011</span> demonstration <a href="http://scc-sentinel.lancs.ac.uk/ecoop11/?q=content/implementing-machine-vision-systems-dynamically-typed-language">Implementing Machine Vision Systems with a Dynamically Typed Language</a></li>
