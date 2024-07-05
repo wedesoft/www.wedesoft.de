@@ -259,6 +259,8 @@ clj -M -m clj-calculator.core
 
 To exit the calculator, simply press CTRL+D.
 
+See [github.com/wedesoft/clj-calculator][6] for source code.
+
 Enjoy!
 
 [1]: https://clojure.org/
@@ -266,3 +268,4 @@ Enjoy!
 [3]: https://github.com/marick/Midje/
 [4]: https://github.com/wedesoft/midje-runner
 [5]: https://github.com/miorimmax/midje-runner
+[6]: https://github.com/wedesoft/clj-calculator
