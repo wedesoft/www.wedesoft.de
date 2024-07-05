@@ -215,6 +215,19 @@ We might want to use brackets to group expressions and influence the order expre
        (calculate "( 2 - 1 ) + 3") => 4)
 {% endhighlight %}
 
+The following grammar implements this:
+
+{% highlight text %}
+START      = <WHITESPACE?> (EXPR | SUM | DIFF | PROD) <WHITESPACE?>
+<EXPR>     = SUM | DIFF | PROD | GROUP
+<GROUP>    = NUMBER | <'('> <WHITESPACE?> EXPR <WHITESPACE?>  <')'>
+SUM        = EXPR <WHITESPACE?> <'+'> <WHITESPACE?> GROUP
+DIFF       = EXPR <WHITESPACE?> <'-'> <WHITESPACE?> GROUP
+PROD       = EXPR <WHITESPACE?> <'*'> <WHITESPACE?> GROUP
+NUMBER     = #'[-+]?[0-9]+'
+WHITESPACE = #'[,\ \t]+'
+{% endhighlight %}
+
 A final consideration is operator precedence of multiplication over addition and subtraction.
 I leave this as an exercise for the interested reader ;)
 
