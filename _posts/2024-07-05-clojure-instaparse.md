@@ -93,9 +93,12 @@ Next we can add tests for sum, difference, or product of two numbers:
 {% highlight clojure %}
 (facts "Test parser"
        ; ...
-       (calc-parser "1 + 2") => [:START [:SUM [:NUMBER "1"] [:NUMBER "2"]]]
-       (calc-parser "5 - 4") => [:START [:DIFF [:NUMBER "5"] [:NUMBER "4"]]]
-       (calc-parser "2 * 3") => [:START [:PROD [:NUMBER "2"] [:NUMBER "3"]]])
+       (calc-parser "1 + 2")
+       => [:START [:SUM [:NUMBER "1"] [:NUMBER "2"]]]
+       (calc-parser "5 - 4")
+       => [:START [:DIFF [:NUMBER "5"] [:NUMBER "4"]]]
+       (calc-parser "2 * 3")
+       => [:START [:PROD [:NUMBER "2"] [:NUMBER "3"]]])
 {% endhighlight %}
 
 The grammar now becomes:
