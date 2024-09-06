@@ -5,7 +5,7 @@ category: software
 image: /pics/opengl-intro.jpg
 ---
 
-Here is a short introduction to OpenGL.
+Here is a short introduction to OpenGL using GLFW and GLEW.
 
 {% youtube "https://www.youtube.com/watch?v=dQQgHCK_lA8" %}
 
