@@ -24,6 +24,8 @@ Finally I installed Europa Universalis IV using Epic Launcher and run it.
 
 ![Europa Universalis IV on GNU/Linux (Debian 12)](/pics/eu4.jpg)
 
+Enjoy!
+
 [1]: https://wine.htmlvalidator.com/install-wine-on-debian-12.html
 [2]: https://forum.manjaro.org/t/howto-installing-epic-games-and-other-games-via-wine-without-lutris-and-proton/92236
 [3]: https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi
