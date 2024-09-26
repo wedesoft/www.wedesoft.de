@@ -7,9 +7,16 @@ image: /pics/joltphysics.jpg
 
 #### Motivation
 
-In the past I have experimented with sequential impulses to implement constraints.
-I tried to integrate Runge-Kutta integration with sequential impulses, however it was difficult to prevent interpenetration of objects.
-Also implementing a vehicle with wheels and suspension where the weight ratio between the vehicle and the wheels was high, required a high number of iterations to stabilise.
+In the past I have experimented with sequential impulses to implement constraints (see
+<a href="/simulation/2019/10/24/rigid-body-game-physics/">part 1</a>,
+<a href="/simulation/2019/11/13/rigid-body-game-physics-2/">part 2</a>,
+<a href="/simulation/2019/11/25/rigid-body-game-physics-3/">part 3</a>,
+<a href="/simulation/2019/11/29/rigid-body-game-physics-4/">part 4</a>,
+<a href="/simulation/2019/12/01/rigid-body-game-physics-5/">part 5</a>,
+<a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a> of my rigid body physics series).
+I tried to integrate Runge-Kutta integration with sequential impulses.
+However it was difficult to prevent interpenetration of objects.
+Also implementing a vehicle with wheels and suspension, where the weight ratio between the vehicle and the wheels was high, required a high number of iterations to stabilise.
 Finally stacking of boxes turned out to be unstable.
 
 In a GDC 2014 talk, [Erin Catto showed sequential impulses and stable box stacking][4] in the Box2D engine.
@@ -40,7 +47,7 @@ sudo make install
 
 Next you can have a look at [JoltPhysics/HelloWorld/HelloWorld.cpp][2] which is a simple example of a sphere bouncing on a floor.
 The example shows how to implement the required layers and collision filters (e.g. stationary objects cannot collide with each other).
-Make sure to define the `Trace` variable so you get useful debug information if something goes wrong.
+Make sure to define the `Trace` variable so you get useful warnings if something goes wrong.
 
 #### Tumbling object in space
 
@@ -69,10 +76,10 @@ clean:
 See [Makefile][9] for complete build code.
 
 The core of the example creates a shape of dimension a×b×c and sets the density to 1000.0.
-Furthermore the convex radius used for approximating collision shapes needs to much smaller than the object dimensions.
+Furthermore the convex radius used for approximating collision shapes needs to be much smaller than the object dimensions.
 The limit for the linear velocity is lifted and most importantly the solution for gyroscopic forces is enabled.
 Furthermore linear and angular damping are set to zero.
-Finally the body is created, added to the physics system and the angular velocity is set to an interesting value.
+Finally the body is created, added to the physics system, and the angular velocity is set to an interesting value.
 The code snippet is shown below:
 
 {% highlight c++ %}

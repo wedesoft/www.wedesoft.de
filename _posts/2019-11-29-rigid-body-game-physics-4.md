@@ -11,6 +11,8 @@ category: simulation
 <a href="/simulation/2019/12/01/rigid-body-game-physics-5/">part 5</a>
 <a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a>
 
+**Update:** See <a href="/simulation/2024/09/26/jolt-physics-engine/">Getting started with the Jolt Physics Engine</a>
+
 The following article is partially based on [Hubert Eichner's article on inequality constraints][1].
 
 ## Inequality Constraints for Colliding Contacts

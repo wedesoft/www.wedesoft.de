@@ -11,6 +11,8 @@ category: simulation
 <a href="/simulation/2019/12/01/rigid-body-game-physics-5/">part 5</a>
 <a href="/simulation/2019/12/03/rigid-body-game-physics-6/">part 6</a>
 
+**Update:** See <a href="/simulation/2024/09/26/jolt-physics-engine/">Getting started with the Jolt Physics Engine</a>
+
 Inspired by [Hubert Eichner's articles on game physics][1] I decided to write about **rigid body dynamics** as well.
 My motivation is to create a space flight simulator.
 Hopefully it will be possible to simulate a space ship with landing gear and docking adapter using multiple rigid bodies.
