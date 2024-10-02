@@ -2,6 +2,7 @@
 layout: post
 title: Minimal OpenGL example in C using GLEW and GLFW
 category: software
+image: /pics/triangle.png
 ---
 
 OpenGL is a reasonably abstract API for doing 3D graphics.
