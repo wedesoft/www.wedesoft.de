@@ -175,6 +175,7 @@ int main(int argc, char** argv)
   glDeleteShader(vertexShader);
   glDeleteShader(fragmentShader);
 
+  glfwDestroyWindow(window);
   glfwTerminate();
   return 0;
 }
