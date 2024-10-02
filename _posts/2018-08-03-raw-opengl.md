@@ -4,6 +4,8 @@ title: Minimal OpenGL example in C
 category: software
 ---
 
+**Update:** Please see revised [OpenGL example using GLFW instead of GLUT][1].
+
 OpenGL is a powerful cross-platform standard for 3D visualisation.
 OpenGL libraries use a domain specific language (shader language) to describe element-wise operations on vertices (vertex shader) and pixel values (fragment shader).
 More recent OpenGL versions also support geometry shaders and tesselation shaders (see [OpenGL article on Wikipedia](https://de.wikipedia.org/wiki/OpenGL_Shading_Language)).
@@ -213,3 +215,5 @@ gcc -o raw-opengl raw-opengl.c -lGL -lGLEW -lGLU -lglut
 Any feedback, comments, and suggestions are welcome.
 
 Enjoy!
+
+[1]: https://www.wedesoft.de/software/2024/10/02/raw-opengl-glfw/
