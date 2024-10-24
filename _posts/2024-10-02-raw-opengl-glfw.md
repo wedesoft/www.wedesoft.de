@@ -92,7 +92,9 @@ float pixels[] = {
 int main(int argc, char** argv)
 {
   glfwInit();
-  GLFWwindow *window = glfwCreateWindow(width, height, "minimal OpenGL example", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(width, height,
+                                        "minimal OpenGL example",
+                                        NULL, NULL);
   glfwMakeContextCurrent(window);
   glewInit();
 
@@ -119,14 +121,20 @@ int main(int argc, char** argv)
 
   glGenBuffers(1, &vbo);
   glBindBuffer(GL_ARRAY_BUFFER, vbo);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices,
+               GL_STATIC_DRAW);
 
   glGenBuffers(1, &idx);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idx);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
+               GL_STATIC_DRAW);
 
-  glVertexAttribPointer(glGetAttribLocation(program, "point"), 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
-  glVertexAttribPointer(glGetAttribLocation(program, "texcoord"), 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
+  glVertexAttribPointer(glGetAttribLocation(program, "point"), 3,
+                        GL_FLOAT, GL_FALSE, 5 * sizeof(float),
+                        (void *)0);
+  glVertexAttribPointer(glGetAttribLocation(program, "texcoord"), 2,
+                        GL_FLOAT, GL_FALSE, 5 * sizeof(float),
+                        (void *)(3 * sizeof(float)));
 
   glEnable(GL_DEPTH_TEST);
 

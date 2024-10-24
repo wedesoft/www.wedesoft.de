@@ -27,7 +27,7 @@ Stacking of 2D boxes was made stable by solving for multiple impulses at the sam
 In 2022 Jorrit Rouwe released [JoltPhysics][1] which is a physics engine for 3D rigid objects also using sequential impulses.
 His GDC 2022 talk [Architecting Jolt Physics for Horizon Forbidden West][10] refers to Erin Catto's talk and discusses various performance optimisations developed in Jolt Physics.
 
-In the following I have tested a few base cases of rigid body physics with the Jolt Physics library.
+In the following I have provided a few **Jolt physics example programs** to demonstrate some capabilities of the physics engine.
 
 #### Installing Jolt
 
