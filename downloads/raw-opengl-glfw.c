@@ -4,7 +4,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-
+// Vertex shader source code:
+// This shader takes in vertex positions and texture coordinates,
+// passing them to the fragment shader.
 const char *vertexSource = "#version 130\n\
 in mediump vec3 point;\n\
 in mediump vec2 texcoord;\n\
@@ -15,6 +17,8 @@ void main()\n\
   UV = texcoord;\n\
 }";
 
+// Fragment shader source code:
+// This shader samples the color from a texture based on UV coordinates.
 const char *fragmentSource = "#version 130\n\
 in mediump vec2 UV;\n\
 out mediump vec3 fragColor;\n\
@@ -24,14 +28,15 @@ void main()\n\
   fragColor = texture(tex, UV).rgb;\n\
 }";
 
-GLuint vao;
-GLuint vbo;
-GLuint idx;
-GLuint tex;
-GLuint program;
-int width = 320;
-int height = 240;
+GLuint vao; // Vertex Array Object
+GLuint vbo; // Vertex Buffer Object
+GLuint idx; // Index Buffer Object
+GLuint tex; // Texture
+GLuint program; // Shader program
+int width = 320; // Width of window in pixels
+int height = 240; // Height of window in pixels
 
+// Function to handle shader compile errors
 void handleCompileError(const char *step, GLuint shader)
 {
   GLint result = GL_FALSE;
@@ -44,6 +49,7 @@ void handleCompileError(const char *step, GLuint shader)
   };
 }
 
+// Function to handle shader program link errors
 void handleLinkError(const char *step, GLuint program)
 {
   GLint result = GL_FALSE;
@@ -56,14 +62,18 @@ void handleLinkError(const char *step, GLuint program)
   };
 }
 
+// Vertex data:
+// Each vertex has a position (x, y, z) and a texture coordinate (u, v)
 GLfloat vertices[] = {
-   0.5f,  0.5f,  0.0f, 1.0f, 1.0f,
-  -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
-  -0.5f, -0.5f,  0.0f, 0.0f, 0.0f
+   0.5f,  0.5f,  0.0f, 1.0f, 1.0f,  // Top right
+  -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  // Top left
+  -0.5f, -0.5f,  0.0f, 0.0f, 0.0f   // Bottom left
 };
 
+// Indices for drawing the triangle
 unsigned int indices[] = { 0, 1, 2 };
 
+// Texture BGR data for a 2x2 texture
 float pixels[] = {
   0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
   1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f
@@ -71,23 +81,30 @@ float pixels[] = {
 
 int main(int argc, char** argv)
 {
+  // Initialize GLFW library.
   glfwInit();
+  // Create a window.
   GLFWwindow *window = glfwCreateWindow(width, height, "minimal OpenGL example", NULL, NULL);
+  // Set current OpenGL context to window.
   glfwMakeContextCurrent(window);
+  // Initialize GLEW library.
   glewInit();
 
   glViewport(0, 0, width, height);
 
+  // Compile and check vertex shader.
   GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
   glShaderSource(vertexShader, 1, &vertexSource, NULL);
   glCompileShader(vertexShader);
   handleCompileError("Vertex shader", vertexShader);
 
+  // Compile and check fragment shader.
   GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
   glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
   glCompileShader(fragmentShader);
   handleCompileError("Fragment shader", fragmentShader);
 
+  // Link and check shader program.
   program = glCreateProgram();
   glAttachShader(program, vertexShader);
   glAttachShader(program, fragmentShader);
