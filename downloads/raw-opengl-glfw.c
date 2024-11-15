@@ -111,68 +111,100 @@ int main(int argc, char** argv)
   glLinkProgram(program);
   handleLinkError("Shader program", program);
 
+  // Create a vertex array object which serves as context for the
+  // vertex buffer object and the index buffer object.
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
 
+  // Initialize vertex buffer object with the vertex data.
   glGenBuffers(1, &vbo);
   glBindBuffer(GL_ARRAY_BUFFER, vbo);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+  // Initialize the index buffer object with the index data.
   glGenBuffers(1, &idx);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idx);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-  glVertexAttribPointer(glGetAttribLocation(program, "point"), 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
-  glVertexAttribPointer(glGetAttribLocation(program, "texcoord"), 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
+  // Set up layout of vertex buffer object.
+  glVertexAttribPointer(glGetAttribLocation(program, "point"), 3, GL_FLOAT,
+                        GL_FALSE, 5 * sizeof(float), (void *)0);
+  glVertexAttribPointer(glGetAttribLocation(program, "texcoord"), 2, GL_FLOAT,
+                        GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
 
+  // Enable depth testing using depth buffer.
   glEnable(GL_DEPTH_TEST);
 
+  // Switch to the shader program.
   glUseProgram(program);
 
-  glEnableVertexAttribArray(0);
-  glEnableVertexAttribArray(1);
+  // Enable the two variables of the vertex buffer layout.
+  glEnableVertexAttribArray(glGetAttribLocation(program, "point"));
+  glEnableVertexAttribArray(glGetAttribLocation(program, "texcoord"));
 
+  // Initialize texture.
   glGenTextures(1, &tex);
+  // Bind texture to first slot.
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, tex);
+  // Set uniform texture in shader object to first texture.
   glUniform1i(glGetUniformLocation(program, "tex"), 0);
+  // Load pixel data into texture.
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_BGR, GL_FLOAT, pixels);
+  // Set texture wrapping mode and interpolation modes.
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+  // Initialize multiresolution layers.
   glGenerateMipmap(GL_TEXTURE_2D);
 
+  // Loop until the user closes the window.
   while (!glfwWindowShouldClose(window)) {
+    // Clear color buffer and depth buffer.
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    // Switch to the shader program.
     glUseProgram(program);
+    // Draw triangle(s).
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void *)0);
+    // Swap front and back buffers.
     glfwSwapBuffers(window);
+    // Poll for and process events.
     glfwPollEvents();
   };
 
-  glDisableVertexAttribArray(1);
-  glDisableVertexAttribArray(0);
+  // Disable the two shader variables.
+  glDisableVertexAttribArray(glGetAttribLocation(program, "point"));
+  glDisableVertexAttribArray(glGetAttribLocation(program, "texcoord"));
 
+  // Unbind and delete the texture.
   glBindTexture(GL_TEXTURE_2D, 0);
   glDeleteTextures(1, &tex);
 
+  // Unbind and delete the index buffer object.
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &idx);
 
+  // Unbind and delete the vertex buffer object.
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &vbo);
 
+  // Unbind and delete the vertex array object.
   glBindVertexArray(0);
   glDeleteVertexArrays(1, &vao);
 
+  // Unlink and delete the shader program.
   glDetachShader(program, vertexShader);
   glDetachShader(program, fragmentShader);
   glDeleteProgram(program);
   glDeleteShader(vertexShader);
   glDeleteShader(fragmentShader);
 
+  // Set OpenGL context to NULL.
+  glfwMakeContextCurrent(NULL);
+  // Destroy window.
   glfwDestroyWindow(window);
+  // Terminate GLFW.
   glfwTerminate();
   return 0;
 }
