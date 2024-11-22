@@ -32,17 +32,19 @@ In the following I have provided a few **Jolt physics example programs** to demo
 #### Installing Jolt
 
 Jolt Physics is a C++ library built using CMake.
-To compile with double precision, I changed the cmake call in *JoltPhysics/Build/cmake_linux_clang_gcc.sh* as follows:
+To compile with double precision, I invoked *JoltPhysics/Build/cmake_linux_clang_gcc.sh* as follows:
 {% highlight shell %}
-cmake -S . -B $BUILD_DIR -G "Unix Makefiles" -DDOUBLE_PRECISION=ON -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER "${@}"
+cd Build
+./cmake_linux_clang_gcc.sh Release g++ -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DDOUBLE_PRECISION=ON \
+    -DDEBUG_RENDERER_IN_DEBUG_AND_RELEASE=OFF -DPROFILER_IN_DEBUG_AND_RELEASE=OFF
 {% endhighlight %}
 
 A release build with g++ and installation is done as follows:
 {% highlight shell %}
-./cmake_linux_clang_gcc.sh Release g++
 cd Linux_Release
-make
+make -j `nproc`
 sudo make install
+cd ../..
 {% endhighlight %}
 
 Next you can have a look at [JoltPhysics/HelloWorld/HelloWorld.cpp][2] which is a simple example of a sphere bouncing on a floor.
@@ -58,7 +60,7 @@ If you have set up the `Trace` function, you will get a warning if the preproces
 
 Here is an example *Makefile* to compile and link a program with the release build of the Jolt library, GLFW, and GLEW.
 {% highlight makefile %}
-CCFLAGS = -g -fPIC -Wall -Werror -DNDEBUG -DJPH_PROFILE_ENABLED -DJPH_DEBUG_RENDERER -DJPH_OBJECT_STREAM -DJPH_DOUBLE_PRECISION $(shell pkg-config --cflags glfw3 glew)
+CCFLAGS = -g -O3 -fPIC -Wall -Werror -DNDEBUG -DJPH_OBJECT_STREAM -DJPH_DOUBLE_PRECISION $(shell pkg-config --cflags glfw3 glew)
 LDFLAGS = -flto=auto $(shell pkg-config --libs glfw3 glew) -lJolt
 
 all: tumble
