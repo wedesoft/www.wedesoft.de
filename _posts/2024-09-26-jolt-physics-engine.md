@@ -297,6 +297,14 @@ See [vehicle.cc][8] for full source code.
 
 Enjoy!
 
+**Update:**
+
+To prevent tunnelling when fast objects are colliding, you can switch the motion quality to linear cast instead of discrete:
+
+{% highlight c++ %}
+body_settings.mMotionQuality = EMotionQuality::LinearCast;
+{% endhighlight %}
+
 [1]: https://jrouwe.github.io/JoltPhysics/
 [2]: https://github.com/jrouwe/JoltPhysics/blob/master/HelloWorld/HelloWorld.cpp
 [3]: https://github.com/wedesoft/jolttest/blob/main/tumble.cc
