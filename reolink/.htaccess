@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile /is/htdocs/wp12768462_J0KE5I3M3F/reolink/.htpasswd
+Require user jan
+Options +Indexes
