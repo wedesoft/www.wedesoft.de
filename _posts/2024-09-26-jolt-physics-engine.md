@@ -24,7 +24,7 @@ Stacking of 2D boxes was made stable by solving for multiple impulses at the sam
 
 {% youtube "https://www.youtube.com/watch?v=SHinxAhv1ZE" %}
 
-In 2022 Jorrit Rouwe released [JoltPhysics][1] which is a physics engine for 3D rigid objects also using sequential impulses.
+In 2022 [Jorrit Rouwé][13] released [JoltPhysics][1] which is a physics engine for 3D rigid objects also using sequential impulses.
 His GDC 2022 talk [Architecting Jolt Physics for Horizon Forbidden West][10] refers to Erin Catto's talk and discusses various performance optimisations developed in Jolt Physics.
 
 In the following I have provided a few **Jolt physics example programs** to demonstrate some capabilities of the physics engine.
@@ -172,7 +172,7 @@ The following video shows the result of the simulation.
 
 See [stack.cc][5] for full source code.
 
-For a more challenging demo of this type, see the [Stable Box Stacking][11] demo video by Jorrit Rouwe.
+For a more challenging demo of this type, see the [Stable Box Stacking][11] demo video by [Jorrit Rouwé][13].
 
 #### Double pendulum
 
@@ -322,3 +322,4 @@ I.e. if two bodies collide at a velocity below that (default is 1.0 m/s), an ine
 [10]: https://gdcvault.com/play/1027891/Architecting-Jolt-Physics-for-Horizon
 [11]: https://www.youtube.com/watch?v=fTtjBLYBxco
 [12]: https://github.com/jrouwe/JoltPhysics/issues/1403
+[13]: https://www.jrouwe.nl/
