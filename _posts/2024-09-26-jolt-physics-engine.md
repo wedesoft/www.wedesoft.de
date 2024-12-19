@@ -305,6 +305,11 @@ To prevent tunnelling when fast objects are colliding, you can switch the motion
 body_settings.mMotionQuality = EMotionQuality::LinearCast;
 {% endhighlight %}
 
+**Update:**
+
+Note that there is a [mMinVelocityForRestitution setting][12].
+I.e. if two bodies collide at a velocity below that (default is 1.0 m/s), an inelastic collision will occur.
+
 [1]: https://jrouwe.github.io/JoltPhysics/
 [2]: https://github.com/jrouwe/JoltPhysics/blob/master/HelloWorld/HelloWorld.cpp
 [3]: https://github.com/wedesoft/jolttest/blob/main/tumble.cc
@@ -316,3 +321,4 @@ body_settings.mMotionQuality = EMotionQuality::LinearCast;
 [9]: https://github.com/wedesoft/jolttest/blob/main/Makefile
 [10]: https://gdcvault.com/play/1027891/Architecting-Jolt-Physics-for-Horizon
 [11]: https://www.youtube.com/watch?v=fTtjBLYBxco
+[12]: https://github.com/jrouwe/JoltPhysics/issues/1403
