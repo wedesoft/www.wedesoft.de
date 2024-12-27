@@ -114,16 +114,9 @@ def factorial(n):
     return reduce(operator.mul, range(1, n + 1))
 {% endhighlight %}
 
-### Other implementations
+### Unchecked integer math
 
-In Python one can instead use the `factorial` from the `math` module.
-
-In Clojure one can apply the multiplication function to a range of numbers, since multiplication in Clojure can take an arbitrary number of arguments.
-{% highlight clojure %}
-(defn factorial [n] (apply *' (range 1 (inc n))))
-{% endhighlight %}
-
-Furthermore one can use unchecked integers and type annotations in Clojure if it is known, that the result is not going to exceed the integer range.
+One can use unchecked integers and type annotations in Clojure if it is known, that the result is not going to exceed the integer range.
 {% highlight clojure %}
 (set! *unchecked-math* true)
 (defn factorial [^long n] (if (zero? n) 1 (* n (factorial (dec n)))))
@@ -155,6 +148,15 @@ class Factorial
 end
 {% endhighlight %}
 
+### Other implementations
+
+In Python one can instead use the `factorial` from the `math` module.
+
+In Clojure one can apply the multiplication function to a range of numbers, since multiplication in Clojure can take an arbitrary number of arguments.
+{% highlight clojure %}
+(defn factorial [n] (apply *' (range 1 (inc n))))
+{% endhighlight %}
+
 Only Clojure supports parallelism.
 For computing factorials we can use the `fold` function.
 Here we split the task into two chunks.
@@ -179,10 +181,10 @@ First we compared the performance of computing the factorial of 20.
 | recursive         |     **104 ns** |     538 ns |        957 ns |
 | loop              |     **164 ns** |     665 ns |        717 ns |
 | reduce            |     **116 ns** |    1512 ns |        718 ns |
+| unchecked integer |        44.4 ns |    77.6 ns |   **41.6 ns** |
 | fold              |    **6211 ns** |        n/a |           n/a |
 | math library      |            n/a |        n/a |   **45.4 ns** |
 | apply             |     **178 ns** |        n/a |           n/a |
-| unchecked integer |        44.4 ns |    77.6 ns |   **41.6 ns** |
 | macro             |   **0.523 ns** |        n/a |           n/a |
 
 The Clojure implementation makes use of the JVM and the resulting performance for recursive, loop, and reduce implementation of factorial is the best.
