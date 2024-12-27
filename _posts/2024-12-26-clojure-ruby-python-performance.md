@@ -180,7 +180,7 @@ First we compared the performance of computing the factorial of 20.
 | fold              |    **6211 ns** |        n/a |           n/a |
 | math library      |            n/a |        n/a |   **45.4 ns** |
 | apply             |     **178 ns** |        n/a |           n/a |
-| unchecked integer |    **53.2 ns** |        n/a |   **41.6 ns** |
+| unchecked integer |        53.2 ns |        n/a |   **41.6 ns** |
 | macro             |   **0.523 ns** |        n/a |           n/a |
 
 The Clojure implementation makes use of the JVM and the resulting performance for recursive, loop, and reduce implementation of factorial is the best.
