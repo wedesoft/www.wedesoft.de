@@ -16,6 +16,12 @@ However each language will have different application areas where it performs be
 In the following we compare the performance of Clojure, Ruby, and Python on the `factorial` function.
 While the results might not allow to make general statements about the performance of each language interpreter, it gives us an idea of what the individual strengths and weaknesses are.
 
+The measurements were performed using an AMD Ryzen 7 4700U with 16GB RAM and 8 cores.
+* For the Clojure measurements I used the [Criterium][2] benchmarking library.
+* For the Ruby measurements I used the benchmark module of the standard library.
+* For the Python measurements I used the [Pyperf][3] module.
+See this [Gist][1] for the benchmarking source code.
+
 ## Implementations
 
 There are different ways to implement the `factorial` function.
@@ -220,4 +226,7 @@ However maybe one can maybe make the following observations:
 * Currently only Clojure supports parallel algorithms such as `fold` and `pmap`. However they only offer performance benefits for larger tasks than the one tested here.
 
 Any suggestions and comments are welcome.
-Again note that this is just a very limited comparison and I 
+
+[1]: https://gist.github.com/wedesoft/f72020437ce035a394c0e12c2208f8b3
+[2]: https://cljdoc.org/d/criterium/criterium/
+[3]: https://pyperf.readthedocs.io/
