@@ -123,10 +123,10 @@ In Clojure one can apply the multiplication function to a range of numbers, sinc
 (defn factorial [n] (apply *' (range 1 (inc n))))
 {% endhighlight %}
 
-Furthermore one can use unchecked integers in Clojure if it is known, that the result is not going to exceed the integer range.
+Furthermore one can use unchecked integers and type annotations in Clojure if it is known, that the result is not going to exceed the integer range.
 {% highlight clojure %}
 (set! *unchecked-math* true)
-(defn factorial [n] (if (zero? n) 1 (* n (factorial (dec n)))))
+(defn factorial [^long n] (if (zero? n) 1 (* n (factorial (dec n)))))
 (set! *unchecked-math* false)
 {% endhighlight %}
 
@@ -180,7 +180,7 @@ First we compared the performance of computing the factorial of 20.
 | fold              |    **6211 ns** |        n/a |           n/a |
 | math library      |            n/a |        n/a |   **45.4 ns** |
 | apply             |     **178 ns** |        n/a |           n/a |
-| unchecked integer |        53.2 ns |        n/a |   **41.6 ns** |
+| unchecked integer |        44.4 ns |        n/a |   **41.6 ns** |
 | macro             |   **0.523 ns** |        n/a |           n/a |
 
 The Clojure implementation makes use of the JVM and the resulting performance for recursive, loop, and reduce implementation of factorial is the best.
@@ -238,9 +238,10 @@ However maybe one can maybe make the following observations:
 
 Any suggestions and comments are welcome.
 
-**Update:**
+**Updates:**
 
-Replaced Numba implementation with Cython.
+* Replaced Numba implementation with Cython.
+* Add type hints to unchecked math Clojure implementation.
 
 [1]: https://gist.github.com/wedesoft/f72020437ce035a394c0e12c2208f8b3
 [2]: https://cljdoc.org/d/criterium/criterium/
