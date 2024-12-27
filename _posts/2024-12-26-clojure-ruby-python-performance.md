@@ -2,12 +2,12 @@
 layout: post
 title: Performance comparison of Clojure, Ruby, and Python
 category: software
-image: /pics/speedometer.svg
+image: /pics/speedometer.png
 ---
 
 ## Introduction
 
-![Speedometer](/pics/speedometer.svg)
+![Speedometer](/pics/speedometer.png)
 
 A fair performance comparison of implementations of different programming languages is difficult.
 Ideally one measures the performance for a wide range of algorithms and programming tasks.
