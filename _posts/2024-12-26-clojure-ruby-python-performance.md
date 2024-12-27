@@ -142,6 +142,17 @@ def factorial(n):
     return result
 {% endhighlight %}
 
+A popular approach in Python for improving performance is to use the Cython compiler.
+Here the method is implemented in a dialect of Python which uses static typing.
+{% highlight python %}
+def factorial(int n):
+    cdef int i, ret
+    ret = 1
+    for i in range(n):
+        ret *= n
+    return ret
+{% endhighlight %}
+
 Only Clojure supports parallelism.
 For computing factorials we can use the `fold` function.
 Here we split the task into two chunks.
@@ -169,7 +180,7 @@ First we compared the performance of computing the factorial of 20.
 | fold              |    **6211 ns** |        n/a |           n/a |
 | math library      |            n/a |        n/a |   **45.4 ns** |
 | apply             |     **178 ns** |        n/a |           n/a |
-| unchecked integer |    **53.2 ns** |        n/a |        154 ns |
+| unchecked integer |    **53.2 ns** |        n/a |   **41.6 ns** |
 | macro             |   **0.523 ns** |        n/a |           n/a |
 
 The Clojure implementation makes use of the JVM and the resulting performance for recursive, loop, and reduce implementation of factorial is the best.
@@ -181,14 +192,14 @@ This is maybe due to the YJIT optimizing JIT compiler build into the Ruby interp
 Also note that the loop implementation in Python is faster than the recursive implementation.
 Surprisingly the reduce implementation in Python has comparable performance to the loop implementation.
 
-The factorial implementation of the Python math library however is the fastest method.
+The factorial implementation of the Python math library is very fast.
 The Python math library implementation uses a lookup table for arguments up to 20.
 
 Since the result of factorial of 20 fits into a 64 bit integer, one can use unchecked integers in Clojure to get a fast implementation.
 The resulting implementation is almost as fast as the Python math library implementation.
 Note that the factorial implementation of the Python math library does not perform unchecked 64 bit integer math.
-In Python one can use the Numba library to use the LLVM JIT compiler and unchecked math with 64 bit integers.
-But even then the performance of Clojure and the JVM cannot be reached.
+In Python one can use the Cython dialect to use the C compiler and unchecked math with 64 bit integers.
+The Cython implementation is the fastest for computing factorial of 20.
 
 Finally using a macro, which of the three languages only Clojure supports, is faster than all other implementations but obviously limited to cases where the function argument is known at compile time.
 
@@ -219,13 +230,17 @@ Overall the implementation in the Python math library is the fastest candidate (
 
 As stated before, one cannot generalize this limited performance comparison.
 However maybe one can maybe make the following observations:
-* The combination of Clojure and the JVM allows for better performance of dynamically typed programs even when comparing with Python Numba/LLVM.
+* The combination of Clojure and the JVM allows for better performance of dynamically typed programs even getting close to Cython performance.
 * The performance of numerical algorithms in Clojure can be further improved when using unchecked math.
 * Being able to call an AOT compiled C-implementation of a numerical algorithm still gives the best performance as can be seen by the Python math library implementation of factorial. This is maybe a reflection of the fact that Python has the strongest support when it comes to numerical libraries.
 * Only Clojure supports macros, which allow for results to be computed at compile time instead of at runtime, if the arguments are known early.
 * Currently only Clojure supports parallel algorithms such as `fold` and `pmap`. However they only offer performance benefits for larger tasks than the one tested here.
 
 Any suggestions and comments are welcome.
+
+**Update:**
+
+Replaced Numba implementation with Cython.
 
 [1]: https://gist.github.com/wedesoft/f72020437ce035a394c0e12c2208f8b3
 [2]: https://cljdoc.org/d/criterium/criterium/
