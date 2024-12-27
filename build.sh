@@ -1,2 +1,2 @@
 #!/bin/sh
-bundle exec jekyll build --lsi
+bundle3.1 exec jekyll build --lsi
