@@ -130,19 +130,7 @@ Furthermore one can use unchecked integers and type annotations in Clojure if it
 (set! *unchecked-math* false)
 {% endhighlight %}
 
-A similar approach using unchecked integers and a JIT compiler is possible in Python using the Numba library.
-Here we use the looping implementation, because recursion in Numba turned out to be slower.
-{% highlight python %}
-@nb.jit
-def factorial(n):
-    result = 1
-    while n > 0:
-        result *= n
-        n -= 1
-    return result
-{% endhighlight %}
-
-A popular approach in Python for improving performance is to use the Cython compiler.
+A similar approach in Python for improving performance is to use the Cython compiler.
 Here the method is implemented in a dialect of Python which uses static typing.
 {% highlight python %}
 def factorial(int n):
