@@ -249,6 +249,13 @@ Any suggestions and comments are welcome.
 * Add type hints to unchecked math Clojure implementation.
 * Add RubyInline implementation.
 
+Because Python and Ruby bind methods late, there is a significant overhead when calling methods.
+In the following the identity function is tested in Clojure, Ruby, and Python.
+
+| implementation    | Clojure 1.12.0 | Ruby 3.4.1 | Python 3.13.1 |
+|-------------------|----------------|------------|---------------|
+| identity function |  **0.0023 ns** |    42.5 ns |       44.2 ns |
+
 [1]: https://gist.github.com/wedesoft/f72020437ce035a394c0e12c2208f8b3
 [2]: https://cljdoc.org/d/criterium/criterium/
 [3]: https://pyperf.readthedocs.io/
