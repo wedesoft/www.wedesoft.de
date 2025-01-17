@@ -251,6 +251,7 @@ Any suggestions and comments are welcome.
 
 Because Python and Ruby bind methods late, there is a significant overhead when calling methods.
 In the following the identity function is tested in Clojure, Ruby, and Python.
+It looks like the JVM has even inlined the Clojure method, because the method invocation time is close to zero.
 
 | implementation    | Clojure 1.12.0 | Ruby 3.4.1 | Python 3.13.1 |
 |-------------------|----------------|------------|---------------|
