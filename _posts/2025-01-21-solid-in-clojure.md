@@ -17,5 +17,5 @@ See [github.com/wedesoft/solid][2] for source code of slides.
 
 Any suggestions and comments are welcome.
 
-[1]: /downloads/solid.pdf
+[1]: /downloads/solid-clojure.pdf
 [2]: https://github.com/wedesoft/solid
