@@ -46,9 +46,9 @@ I also play the harmonica.
   </ul></li>
   <li>Presentations:
   <ul>
-    <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/opengl.pdf">A Short Introduction to OpenGL</a></li>
+    <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/opengl.pdf">A Short Introduction to OpenGL</a> (<a href="https://www.youtube.com/watch?v=dQQgHCK_lA8">video</a>)</li>
     <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/solid-python.pdf">SOLID software design principles illustrated with Python code examples</a></li>
-    <li><span class="caps">Youtube</span> presentation <a href="https://www.wedesoft.de/downloads/solid-clojure.pdf">SOLID software design principles illustrated with Clojure code examples</a></li>
+    <li><span class="caps">Youtube</span> presentation <a href="https://www.wedesoft.de/downloads/solid-clojure.pdf">SOLID software design principles illustrated with Clojure code examples</a> (<a href="https://www.youtube.com/watch?v=_BvBPN86rQc">video</a>)</li>
     <li><span class="caps">Digital Science Cambridge 2014 retreat</span> presentation <a href="https://www.wedesoft.de/downloads/cambridge2014.pdf">Fundamentals of Computing</a></li>
     <li><span class="caps">ECOOP 2011</span> demonstration <a href="http://scc-sentinel.lancs.ac.uk/ecoop11/?q=content/implementing-machine-vision-systems-dynamically-typed-language">Implementing Machine Vision Systems with a Dynamically Typed Language</a></li>
     <li><span class="caps">15th ShRUG meeting</span> presentation <a href="/downloads/shrug15.pdf">Play squash with Ruby, OpenGL and a Wiimote</a> (<a href="http://shrug.org/meetings/shrug-15/">abstract</a>)</li>
