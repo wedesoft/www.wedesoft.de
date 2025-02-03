@@ -11,7 +11,7 @@ I also play the harmonica.
 
 <ul>
 <li>operating systems: <a href="http://debian.org/">GNU/Linux (Debian, Kubuntu)</a> (LPI101 certification), <a href="http://www.apple.com/">Mac OS X</a>, <a href="http://www.microsoft.com/">Microsoft</a> (<a href="http://mingw.org/">MinGW</a>)</li>
-<li>computer vision: <a href="https://www.wedesoft.de/hornetseye-api/">HornetsEye</a> (main-developer), <a href="http://opencv.org/">OpenCV</a></li>
+<li>computer vision: <a href="https://www.wedesoft.de/hornetseye-api/">HornetsEye</a> (deprecated, main-developer), <a href="http://opencv.org/">OpenCV</a>, <a href="https://wedesoft.github.io/aiscm/">AIscm</a> (main-developer)</li>
 <li>image files: <a href="http://www.imagemagick.org/">ImageMagick</a>, <a href="http://www.openexr.com/">OpenEXR</a></li>
 <li>audio/video files: <a href="http://www.ffmpeg.org/">FFmpeg</a></li>
 <li>sensors/actors: <a href="http://linuxtv.org/downloads/v4l-dvb-apis/">V4L2</a>, <a href="http://damien.douxchamps.net/ieee1394/libdc1394/">libdc1394</a>, <a href="https://github.com/OpenKinect/libfreenect">libfreenect</a>, <a href="http://www.alsa-project.org/">ALSA</a>, <a href="https://github.com/wedesoft/cwiid">WiiMote</a>, <a href="https://github.com/wedesoft/robobuilder">Robobuilder</a></li>
