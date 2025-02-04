@@ -25,7 +25,7 @@ I also play the harmonica.
 <li>build tools: <a href="http://rake.rubyforge.org/">rake</a>, <a href="http://www.gnu.org/software/autoconf/">autoconf</a>, <a href="http://www.gnu.org/software/automake/">automake</a>, <a href="http://www.gnu.org/software/make/">make</a></li>
 <li>version control systems: <a href="http://git-scm.com/">Git</a></li>
 <li>documentation systems: <a href="http://yardoc.org/">Yardoc</a>, <a href="http://doxygen.org/">Doxygen</a></li>
-<li>testing: <a href="http://rspec.info/">RSpec</a>, <a href="http://cukes.info/">Cucumber</a>, <a href="http://www.gnu.org/software/automake/manual/html\_node/Introduction-to-TAP.html">Automake TAP</a>, <a href="http://jenkins-ci.org/">Jenkins</a>, <a href="https://travis-ci.org/">Travis</a></li>
+<li>testing: <a href="http://rspec.info/">RSpec</a>, <a href="http://cukes.info/">Cucumber</a>, <a href="https://pytest.org/">pytest</a>, <a href="https://github.com/features/actions">GitHub Actions</a>, <a href="https://docs.gitlab.com/runner/">GitLab CI</a></li>
 <li>editors: <a href="http://www.vim.org/">Vim</a></li>
 <li>team work: Agile/SCRUM, pair programming, code reviews</li>
 </ul>
