@@ -28,6 +28,7 @@ I also play the harmonica.
 <li>documentation systems: <a href="http://yardoc.org/">Yardoc</a>, <a href="http://doxygen.org/">Doxygen</a></li>
 <li>testing: <a href="http://rspec.info/">RSpec</a>, <a href="http://cukes.info/">Cucumber</a>, <a href="https://pytest.org/">pytest</a>, <a href="https://github.com/features/actions">GitHub Actions</a>, <a href="https://docs.gitlab.com/runner/">GitLab CI</a></li>
 <li>editors: <a href="http://www.vim.org/">Vim</a></li>
+<li>publishing: <a href="https://www.latex-project.org/">LaTeX</a>, <a href="https://texpower.sourceforge.net/">TexPower/Powersem</a>, <a href="https://inkscape.org/">Inkscape</a>, <a href="https://www.gimp.org/">GIMP</a>, <a href="https://jekyllrb.com/">Jekyll</a></li>
 <li>team work: Agile/SCRUM, pair programming, code reviews</li>
 </ul>
 
