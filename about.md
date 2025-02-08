@@ -11,7 +11,7 @@ I also play the harmonica.
 
 <ul>
 <li>operating systems: <a href="http://debian.org/">GNU/Linux (Debian, Kubuntu)</a> (LPI101 certification), <a href="http://www.microsoft.com/">Microsoft</a> (<a href="http://mingw.org/">MinGW</a>)</li>
-<li>computer vision: <a href="https://wedesoft.github.io/hornetseye-doc/">HornetsEye</a> (deprecated, main-developer), <a href="http://opencv.org/">OpenCV</a>, <a href="https://wedesoft.github.io/aiscm/">AIscm</a> (main-developer)</li>
+<li>computer vision: <a href="https://wedesoft.github.io/hornetseye-doc/">HornetsEye</a> (deprecated, main-developer), <a href="http://opencv.org/">OpenCV</a>, <a href="https://pytorch.org/">PyTorch</a>, <a href="https://wedesoft.github.io/aiscm/">AIscm</a> (main-developer)</li>
 <li>Coursera <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/G5UXDAPH9DUA">Deep Learning Certificate</a></li>
 <li>image files: <a href="http://www.imagemagick.org/">ImageMagick</a>, <a href="http://www.openexr.com/">OpenEXR</a></li>
 <li>audio/video files: <a href="http://www.ffmpeg.org/">FFmpeg</a></li>
@@ -22,13 +22,14 @@ I also play the harmonica.
 <li>compiler construction: <a href="http://www.gnu.org/software/bison/">Bison</a>, <a href="http://flex.sourceforge.net/">Flex</a>, <a href="http://www.iro.umontreal.ca/~boucherd/Lalr/documentation/lalr.html">LALR for Scheme</a>, <a href="https://github.com/Engelberg/instaparse">Clojure Instaparse</a>, <a href="https://llvm.org/">LLVM JIT API</a></li>
 <li>operating systems: <a href="http://www.debian.org/">Debian</a>, <a href="http://www.microsoft.com/windows/">Microsoft Windows</a> (<a href="http://mingw.org/">MinGW</a>)</li>
 <li>programming languages: <a href="http://www.gnu.org/software/guile/">Guile</a>, <a href="http://www.ruby-lang.org/">Ruby</a>, <a href="http://www.python.org/">Python</a>, <a href="http://clojure.org">Clojure</a>, <a href="http://gcc.gnu.org/">C/C++</a>, <a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">x86-64 machine code</a></li>
+<li>software development: SOLID, TDD, Continuous Integration with <a href="https://github.com/">Github</a>/<a href="https://gitlab.com/">Gitlab</a>/<a href="https://www.docker.com/">Docker</a></li>
 <li>graphical user interfaces: <a href="https://www.qt.io/product/qt6">Qt6</a>, <a href="https://doc.qt.io/qtforpython-6/">PySide6</a>, <a href="http://www.opengl.org/">OpenGL</a>, <a href="https://en.wikipedia.org/wiki/X\_video\_extension">X video extension</a></li>
 <li>build tools: <a href="http://rake.rubyforge.org/">rake</a>, <a href="http://www.gnu.org/software/autoconf/">autoconf</a>, <a href="http://www.gnu.org/software/automake/">automake</a>, <a href="http://www.gnu.org/software/make/">make</a></li>
 <li>version control systems: <a href="http://git-scm.com/">Git</a></li>
 <li>documentation systems: <a href="http://yardoc.org/">Yardoc</a>, <a href="http://doxygen.org/">Doxygen</a></li>
 <li>testing: <a href="http://rspec.info/">RSpec</a>, <a href="http://cukes.info/">Cucumber</a>, <a href="https://pytest.org/">pytest</a>, <a href="https://github.com/features/actions">GitHub Actions</a>, <a href="https://docs.gitlab.com/runner/">GitLab CI</a></li>
 <li>editors: <a href="http://www.vim.org/">Vim</a></li>
-<li>publishing: <a href="https://www.latex-project.org/">LaTeX</a>, <a href="https://texpower.sourceforge.net/">TexPower/Powersem</a>, <a href="https://inkscape.org/">Inkscape</a>, <a href="https://www.gimp.org/">GIMP</a>, <a href="https://jekyllrb.com/">Jekyll</a></li>
+<li>publishing: <a href="https://www.latex-project.org/">LaTeX</a>, <a href="https://www.zotero.org/>">Zotero</a>, <a href="https://texpower.sourceforge.net/">TexPower/Powersem</a>, <a href="https://inkscape.org/">Inkscape</a>, <a href="https://www.gimp.org/">GIMP</a>, <a href="https://jekyllrb.com/">Jekyll</a></li>
 <li>team work: Agile/SCRUM, pair programming, code reviews</li>
 </ul>
 
