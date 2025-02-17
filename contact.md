@@ -13,6 +13,6 @@ title: Contact
 * Github: [wedesoft](https://github.com/wedesoft/)
 * Gitlab: [wedesoft](https://gitlab.com/wedesoft/)
 * Tip jar: [wedesoft@getalby.com](https://getalby.com/wedesoft)
-* GnuPG: [0BA0 06FD FF34 B5C6 B379  34B0 7321 549F 6F8E 1FCF](../gnupg-wedekind.asc)
+* GnuPG: [371E 6054 E5F8 3973 0A3C  DFF7 6FE2 C4A3 2E85 CAEF](../gnupg-wedekind.asc)
 
 ![](../pics/qrcode.png)
