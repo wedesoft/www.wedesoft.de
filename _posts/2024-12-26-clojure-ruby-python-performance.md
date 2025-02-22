@@ -257,6 +257,8 @@ It looks like the JVM has even inlined the Clojure method, because the method in
 |-------------------|----------------|------------|---------------|
 | identity function |  **0.0023 ns** |    42.5 ns |       44.2 ns |
 
+Also see: [https://clojure-goes-fast.com/](https://clojure-goes-fast.com/)
+
 [1]: https://gist.github.com/wedesoft/f72020437ce035a394c0e12c2208f8b3
 [2]: https://cljdoc.org/d/criterium/criterium/
 [3]: https://pyperf.readthedocs.io/
