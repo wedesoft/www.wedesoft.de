@@ -23,6 +23,7 @@ In order to automate this, one can perform offscreen rendering and do a pixel-wi
 Using the [Clojure][2] programming language and the [Lightweight Java Game Library (LWJGL)][1] one can perform offscreen rendering with a Pbuffer object using the following macro (of course this approach is not limited to Clojure and LWJGL):
 
 {% highlight clojure %}
+; Set up OpenGL modes
 (defn setup-rendering
   "Common code for setting up rendering"
   [width height]
@@ -33,6 +34,7 @@ Using the [Clojure][2] programming language and the [Lightweight Java Game Libra
   (GL11/glDepthFunc GL11/GL_GEQUAL)
   (GL45/glClipControl GL20/GL_LOWER_LEFT GL45/GL_ZERO_TO_ONE))
 
+; Macro accepting a block of code to be rendered to a Pbuffer
 (defmacro offscreen-render
   "Macro to use a pbuffer for offscreen rendering"
   [width height & body]
@@ -56,6 +58,7 @@ Note that the code sets up [reversed-z rendering as discussed in an earlier arti
 Using the [Midje][4] testing library one can for example test a command for clearing the color buffer as follows:
 
 {% highlight clojure %}
+; Test rendering a red background
 (fact "Render background color"
   (offscreen-render 160 120 (clear (matrix [1.0 0.0 0.0])))
   => (is-image "test/sfsim25/fixtures/render/red.png"))
@@ -64,6 +67,7 @@ Using the [Midje][4] testing library one can for example test a command for clea
 The checker `is-image` is implemented using [ImageJ][3]:
 
 {% highlight clojure %}
+; Implement equality test for RGBA images ignoring alpha channel.
 (defn is-image
   "Compare RGB components of image and ignore alpha values."
   [filename]
@@ -74,6 +78,7 @@ The checker `is-image` is implemented using [ImageJ][3]:
              (= (map #(bit-and % 0x00ffffff) (:data img))
                 (map #(bit-and % 0x00ffffff) (:data other)))))))
 
+; Load an RGB image
 (defn slurp-image
   "Load an RGB image"
   [^String file-name]
@@ -87,12 +92,14 @@ The checker `is-image` is implemented using [ImageJ][3]:
 The image is recorded initially by using the checker `record-image` instead of `is-image` and verifying the result manually.
 
 {% highlight clojure %}
+; Test method writing image to file instead of comparing it.
 (defn record-image
   "Use this test function to record the image the first time."
   [filename]
   (fn [other]
       (spit-image filename other)))
 
+; Method to save image.
 (defn spit-image
   "Save RGB image as PNG file"
   [^String file-name {:keys [width height data]}]
@@ -116,6 +123,7 @@ A single pixel of a uniformly colored quad is drawn.
 The floating point channels of the texture's RGB pixel then can be compared with the expected value.
 
 {% highlight clojure %}
+; Use shaders to render to a single pixel texture and read out result.
 (defn shader-test [setup probe & shaders]
   (fn [uniforms args]
       (let [result (promise)]
@@ -136,6 +144,7 @@ The floating point channels of the texture's RGB pixel then can be compared with
             (destroy-program program)))
         @result)))
 
+; Minimal vertex shader.
 (def vertex-passthrough "#version 410 core
 in highp vec3 point;
 void main()
@@ -143,6 +152,7 @@ void main()
   gl_Position = vec4(point, 1);
 }")
 
+; Macro to render output of a code block to a texture.
 (defmacro texture-render
   "Macro to render to a texture"
   [width height floating-point & body]
@@ -162,6 +172,7 @@ void main()
          (GL30/glBindFramebuffer GL30/GL_FRAMEBUFFER 0)
          (GL30/glDeleteFramebuffers fbo#)))))
 
+; Read out texture and return floating point RGB image.
 (defn texture->vectors
   "Extract floating-point vectors from texture"
   [texture width height]
@@ -182,6 +193,7 @@ In the following example the GLSL function `phase` is tested.
 Note that parameters in the probing shaders are set using the [weavejester/comb][6] templating library.
 
 {% highlight clojure %}
+; Probing shader generated using templating.
 (def phase-probe
   (template/fn [g mu] "#version 410 core
 out lowp vec3 fragColor;
@@ -192,8 +204,10 @@ void main()
   fragColor = vec3(result, 0, 0);
 }"))
 
+; Use shader test function and probing shader to test a shadder.
 (def phase-test (shader-test (fn [program]) phase-probe phase-function))
 
+; Midje tests using test function to test a shader.
 (tabular "Shader function for scattering phase function"
          (fact (mget (phase-test [] [?g ?mu]) 0) => (roughly ?result))
          ?g  ?mu ?result
@@ -227,6 +241,7 @@ In general the setup function is used to initialise uniforms used in the shader 
 Here is an example of tests using uniform values:
 
 {% highlight clojure %}
+; Probing shader generated using templating.
 (def transmittance-track-probe
   (template/fn [px py pz qx qy qz] "#version 410 core
 out lowp vec3 fragColor;
@@ -238,6 +253,7 @@ void main()
   fragColor = transmittance_track(p, q);
 }"))
 
+; Shader test involving some uniform variables.
 (def transmittance-track-test
   (transmittance-shader-test
     (fn [program height-size elevation-size elevation-power radius max-height]
@@ -251,6 +267,7 @@ void main()
     shaders/elevation-to-index shaders/interpolate-2d
     shaders/convert-2d-index shaders/is-above-horizon))
 
+; Midje tests to test a shader.
 (tabular "Shader function to compute transmittance between two points in the atmosphere"
          (fact (mget (transmittance-track-test [17 17 1 6378000.0 100000.0]
                                                [?px ?py ?pz ?qx ?qy ?qz]) 0)
@@ -270,6 +287,7 @@ If each shader function is implemented as a separate string (loaded from a separ
 Here is an example of a probing shader which also contains mocks to allow the shader to be unit tested in isolation:
 
 {% highlight clojure %}
+; Probing shader generated using templating and defining mock shaders.
 (def cloud-track-base-probe
   (template/fn [px qx n decay scatter density ir ig ib]
 "#version 410 core
@@ -314,6 +332,7 @@ Enjoy!
 * submitted to [Reddit][7]
 * submitted to [Hackernews][8]
 * Rhawk187 pointed out that exact image comparisons are also problematic because updates to graphics drivers can cause subtle changes. This can be adressed by allowing a small average difference between the expected and actual image.
+* In order to be independent of the graphics driver one can run the tests using `xvfb-run` to use software rendering instead.
 
 The code of `make-vertex-array-object` and `render-quads` is added here for reference.
 
