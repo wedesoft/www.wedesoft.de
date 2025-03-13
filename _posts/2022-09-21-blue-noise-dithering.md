@@ -7,7 +7,7 @@ image: /pics/bluenoise.png
 
 ## Initial seed pattern
 This is a short description on blue noise dithering.
-For more detail see the [1993 paper about blue noise dithering][1].
+For more detail see [Robert Ulichney's 1993 paper about blue noise dithering][1].
 
 Initially a binary pattern BP is created where N pixels (about 10 percent) are set to 1 and the rest to 0.
 
