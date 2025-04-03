@@ -160,12 +160,25 @@ Enjoy!
 
 {% youtube "https://www.youtube.com/watch?v=YVCX5er7a2U" %}
 
+**Update:** Implementing the [powder sugar effect][2] is actually quite simple.
+Essentially the increment to the scattered light by the cloud is multiplied with `powder(density * stepsize)` where the powder function is defined as follows:
+{% highlight glsl %}
+uniform float powder_decay;
+
+float powder(float d)
+{
+  return 1.0 - exp(-powder_decay * d);
+}
+{% endhighlight %}
+The fact that there is less light to be scattered at the fringe of a cloud is approximated by reducing the amount of scattered light in low density areas of the cloud.
+
+{% youtube "https://www.youtube.com/watch?v=ierGCAhkxAU" %}
+
 ## Future work
 
 * add atmospheric scattering with cloud shadows
 * add planet surface and shadow map
 * sampling with adaptive step size
-* [Powder sugar effect][2]
 * problems with shadow map at large distances
 * problem with long shadows at dawn
 
