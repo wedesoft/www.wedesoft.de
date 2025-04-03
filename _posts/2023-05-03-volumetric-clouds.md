@@ -156,10 +156,6 @@ Enjoy!
 
 **Update:** I removed the clamping operation for the cover sample noise.
 
-**Update:** Added video below.
-
-{% youtube "https://www.youtube.com/watch?v=YVCX5er7a2U" %}
-
 **Update:** Implementing the [powder sugar effect][2] is actually quite simple.
 Essentially the increment to the scattered light by the cloud is multiplied with `powder(density * stepsize)` where the powder function is defined as follows:
 {% highlight glsl %}
