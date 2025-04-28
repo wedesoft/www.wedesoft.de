@@ -49,7 +49,7 @@ I also play the harmonica.
   </ul></li>
   <li>Presentations:
   <ul>
-    <li>Upcoming presentation about <a href="https://www.wedesoft.de/downloads/connascence.pdf">Connascence</a></li>
+    <li><span class="caps">Youtube</span> presentation about the <a href="https://www.wedesoft.de/downloads/connascence.pdf">connascence software metric</a> (<a href="https://www.youtube.com/watch?v=bAB0XYcmM2I">video</a>)</li>
     <li><span class="caps">Youtube</span> presentation <a href="https://www.wedesoft.de/downloads/solid-clojure.pdf">SOLID software design principles illustrated with Clojure code examples</a> (<a href="https://www.youtube.com/watch?v=_BvBPN86rQc">video</a>)</li>
     <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/solid-python.pdf">SOLID software design principles illustrated with Python code examples</a></li>
     <li><span class="caps">Roke catchup meeting</span> presentation <a href="https://www.wedesoft.de/downloads/opengl.pdf">A Short Introduction to OpenGL</a> (<a href="https://www.youtube.com/watch?v=dQQgHCK_lA8">video</a>)</li>
