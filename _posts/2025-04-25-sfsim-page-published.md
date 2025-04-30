@@ -20,6 +20,8 @@ If you are interested in a space flight simulator with realistic physics, just a
   <iframe src="https://store.steampowered.com/widget/3687560/" frameborder="0" width="646" height="190"></iframe>
 </div>
 
+<a href="https://www.indiedb.com/games/sfsim" title="View sfsim on IndieDB" target="_blank"><img src="https://button.indiedb.com/popularity/medium/games/87790.png" alt="sfsim" /></a>
+
 Let me know in the comments if there is anything you would like to see in a realistic space flight simulator.
 
 [1]: https://wedesoft.github.io/sfsim/
