@@ -58,14 +58,15 @@ Here is a corresponding step-by-step procedure to create a proof-of-concept kine
   * add two keyframes for 90 degree rotation of the control bone around the y-axis
   * switch from Dope sheet to Nonlinear animation editor and push down the action
   * select the control bone in the tree view
-  * go to Edit -> Bake action and bake only the selected bones and Object data
+  * in the 3D viewport, go to the Object menu, then Animation, and select Bake Action.
+  * bake only the selected bones and Object data
   * delete the original action, rename the current action to "ControlAction", and push it down
   * uncheck the control action
   * add two keyframes moving the sphere
   * select the armature and the sphere and bake another action
   * push down the generated actions and the sphere action and rename to the same name (e.g. "CubeAction") so that they will later become one animation in glTF
   * check the control action back on so that all actions are checked now
-  * export the glTF with the animations (no need to check bake all actions)
+  * export the glTF with the animations with "Merge Animation" set to "NLA Track Names" (no need to check bake all actions)
 
 You can use the LWJGL Assimp Java library to import the animations into Clojure as follows:
 
