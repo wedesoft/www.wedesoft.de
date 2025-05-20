@@ -66,7 +66,7 @@ Here is a corresponding step-by-step procedure to create a proof-of-concept kine
   * select the armature and the sphere and bake another action
   * push down the generated actions and the sphere action and rename to the same name (e.g. "CubeAction") so that they will later become one animation in glTF
   * check the control action back on so that all actions are checked now
-  * export the glTF with the animations with "Merge Animation" set to "NLA Track Names" (no need to check bake all actions)
+  * export the glTF with the animations with "Animation Mode" set to "NLA Tracks"
 
 You can use the LWJGL Assimp Java library to import the animations into Clojure as follows:
 
