@@ -7,7 +7,13 @@ image: /pics/flight.jpg
 
 ![sfsim space flight simulator screenshot](/pics/flight.jpg)
 
-The dynamic pressure depends on air density and speed:
+**this article is currently a work in progress**
+
+This is an informational post on how to simulate a Venturestar style single-stage-to-orbit space craft.
+My dad is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of my space flight simulator realistic to some extent.
+The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
+
+The dynamic pressure *q* depends on air density *ρ* and speed *V*:
 {% latex usepackages=amsmath %}
 $q = \cfrac{1}{2}\,\rho\,V^2$
 {% endlatex %}
@@ -19,20 +25,30 @@ Drag consists of zero-lift drag and induced drag:
 $D_{total} = D_0 + D_i$
 {% endlatex %}
 
-The formula for zero-lift drag is:
+Zero-lift drag is computed using the zero-lift drag coefficient as well as dynamic pressure *q* and the reference area:
 {% latex %}
-$D_0 = C_{D_0}\,q\,S$
+$D_0 = C_{D_0}\,q\,S_{ref}$
 {% endlatex %}
+The zero-lift drag coefficient depends on the speed of the aircraft.
 
-The formula for induced drag is
+Induced drag is determined using the lift coefficient, the Oswald factor *e*, the aspect ratio *Λ*, as well as *q* and the reference area.
+{% latex usepackages=amsmath,txfonts %}
+$D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{\eqqcolon C_{D_i}}\,q\,S_{ref}$
+{% endlatex %}
+The Oswald factor *e* depends on the speed of the aircraft.
+The lift coefficient depends on the angle of attack
+
+The aspect ratio *Λ* depends on wing span *b* and wing area *S*:
 {% latex usepackages=amsmath %}
-$D_i = \cfrac{C_L^2}{\pi\,e\,AR}\,q\,S$
+$\Lambda = \cfrac{b^2}{S}$
 {% endlatex %}
 
-<!-- Oswald factor e -->
-<!-- Aspect ratio AR -->
-<!-- Reference area S -->
-<!-- zero-drag coefficient C_{D_0} -->
-<!-- C_L lift -->
+The lift *L* is computed using the lift coefficient, dynamic pressure *q*, and the reference area:
+{% latex usepackages=amsmath %}
+$L = C_L\,q\,S_{ref}$
+{% endlatex %}
+
+<!-- coordinate system aircraft -->
+<!-- wind system and angles -->
 
 [1]: https://www.jakobmaier.at/posts/flight-simulation/
