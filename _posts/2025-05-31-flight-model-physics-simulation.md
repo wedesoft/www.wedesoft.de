@@ -48,6 +48,7 @@ The lift *L* is computed using the lift coefficient, dynamic pressure *q*, and t
 $L = C_L\,q\,S_{ref}$
 {% endlatex %}
 
+<!-- side force Y and coefficient C_Y -->
 <!-- coordinate system aircraft -->
 <!-- wind system and angles -->
 
