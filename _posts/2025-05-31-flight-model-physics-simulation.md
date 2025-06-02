@@ -18,7 +18,7 @@ The dynamic pressure *q* depends on air density *ρ* and speed *V*:
 $q = \cfrac{1}{2}\,\rho\,V^2$
 {% endlatex %}
 
-Air density (and temperature) as a function of height can be obtained from Hull's book "Fundamentals of airplane flight mechanics".
+Air density (and temperature) as a function of height can be obtained from [Hull's book "Fundamentals of airplane flight mechanics"][2].
 
 Drag consists of zero-lift drag and induced drag:
 {% latex %}
@@ -51,5 +51,8 @@ $L = C_L\,q\,S_{ref}$
 <!-- side force Y and coefficient C_Y -->
 <!-- coordinate system aircraft -->
 <!-- wind system and angles -->
+<!-- Cl_beta/alf -->
+<!-- damping -->
 
 [1]: https://www.jakobmaier.at/posts/flight-simulation/
+[2]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
