@@ -1,16 +1,14 @@
 ---
 layout: post
-title: Flight model physics for simulation (WIP)
+title: Flight model physics for simulation (Draft)
 category: simulation
 image: /pics/flight.jpg
 ---
 
 ![sfsim space flight simulator screenshot](/pics/flight.jpg)
 
-**this article is currently a work in progress**
-
 This is an informational post on how to simulate a Venturestar style single-stage-to-orbit space craft.
-My dad is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of my space flight simulator realistic to some extent.
+My dad is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of a space flight simulator realistic to some extent.
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
 
 The dynamic pressure *q* depends on air density *ρ* and speed *V*:
@@ -48,11 +46,24 @@ The lift *L* is computed using the lift coefficient, dynamic pressure *q*, and t
 $L = C_L\,q\,S_{ref}$
 {% endlatex %}
 
-<!-- side force Y and coefficient C_Y -->
-<!-- coordinate system aircraft -->
-<!-- wind system and angles -->
-<!-- Cl_beta/alf -->
-<!-- damping -->
+The side force (and corresponding coefficient) was considered negligible.
+
+The following drawing shows the body coordinate system (xb, yb, zb) and the wind coordinate system (xw, yw, zw).
+The wind system is rotated against the body system so that the speed vector (in a stationary atmosphere) points in positive xw.
+
+![coordinate systems](/pics/windsystem.png)
+
+* A positive lift force points upwards (negative zw) in the wind system.
+* The drag force points backwards (negative xw) in the wind system.
+* A positive side force points starboard (positive yw) in the wind system.
+* Yaw, pitch, and roll moments on the other hand are specified in the body system.
+
+## TODO
+* description of coordinate systems, angles, forces, and moments
+* moments: Cl\_beta/alf, Cn\_beta, formula for C\_m
+* linear ranges, maxima, argmax
+* value tables
+* damping
 
 [1]: https://www.jakobmaier.at/posts/flight-simulation/
 [2]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
