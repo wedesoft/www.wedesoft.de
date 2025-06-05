@@ -165,6 +165,7 @@ V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_
 {% endlatex %}
 
 ## TODO
+* rudder, flap, aileron
 * damping
 
 [1]: https://www.jakobmaier.at/posts/flight-simulation/
