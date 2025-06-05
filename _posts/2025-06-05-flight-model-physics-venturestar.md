@@ -98,9 +98,18 @@ The rolling moment coefficient depends on the angle of attack *α* and the side 
 
 ## Data Tables
 
+Here is a data table with information for determining the remaining coefficients depending on the airspeed in Mach (Ma).
+The table shows for each speed:
+* a factor to determine the lift coefficient *CL*
+* the position *XN* of the neutral point
+* the Oswald factor *e*
+* a factor to determine the rolling moment coefficient *Cl*
+* a factor to determine the yawing moment coefficient *Cn*
+* the zero-lift drag coefficient *CD0*
+
 {% latex usepackages=booktabs %}
 \begin{tabular}{rrrrrrr}\toprule
-Mach & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta\alpha}$ & $C_{n,\beta}$ & $C_{D_0}$\\\midrule
+V/Ma & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta\alpha}$ & $C_{n,\beta}$ & $C_{D_0}$\\\midrule
  0.0 &         2.5596 & 25.7408 & 0.9846 &              -2.9217 &       -0.0134 &   0.04780\\
  0.6 &         2.7825 & 25.8613 & 0.9859 &              -3.1333 &       -0.0067 &   0.04741\\
  0.8 &         3.0453 & 26.0130 & 0.9873 &              -3.3667 &        0.0005 &   0.04728\\\midrule
@@ -131,9 +140,31 @@ For small values of *β*, the yawing moment coefficient increases linearly with 
 $C_n = C_{n,\beta}\,\beta$
 {% endlatex %}
 
+The following table shows for each speed:
+* the value for *α* at which the linear relation of *CL* and *α* breaks down
+* the maximum value of *CL*
+* the angle of attack where *CL* reaches its maximum
+* the drag coefficient for 90° angle of attack
+
+{% latex usepackages=booktabs,gensymb %}
+\begin{tabular}{rrrrr}\toprule
+V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_{\mathrm{max}}}}$ & $C_{D_{90}}$ \\\midrule
+ 0.0 &                              20 &                   1.20 &                              35 &   1.1000\\
+ 0.6 &                              22 &                   1.30 &                              33 &   1.1000\\
+ 0.8 &                              24 &                   1.40 &                              30 &   1.1000\\\midrule
+ 1.2 &                              24 &                   1.20 &                              30 &   0.0000\\
+ 1.4 &                              24 &                   1.10 &                              30 &  -0.7289\\
+ 1.6 &                              24 &                   1.00 &                              30 &  -0.5580\\
+ 1.8 &                              24 &                   0.90 &                              30 &  -0.4409\\
+ 2.0 &                              24 &                   0.80 &                              30 &  -0.3571\\
+ 3.0 &                              24 &                   0.50 &                              30 &  -0.1587\\
+ 4.0 &                              24 &                   0.40 &                              30 &  -0.0893\\
+ 5.0 &                              24 &                   0.35 &                              30 &  -0.0571\\\midrule
+10.0 &                              30 &                   1.00 &                              45 &  -0.0143\\\bottomrule
+\end{tabular}
+{% endlatex %}
+
 ## TODO
-* formulas: C\_L, Cl\_beta/alf, Cn\_beta
-* table with linear ranges, maxima, argmax
 * damping
 
 [1]: https://www.jakobmaier.at/posts/flight-simulation/
