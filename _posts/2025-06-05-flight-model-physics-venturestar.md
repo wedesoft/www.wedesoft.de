@@ -26,11 +26,11 @@ Note that lift, drag, and side force are defined in the wind system and not in t
 Yaw, pitch, and roll moments on the other hand are specified in the body system.
 
 A coordinate system transformation from body system to wind system can be performed using two angles:
-* α is the angle of attack
-* β is the sideslip angle
+* *α* is the angle of attack
+* *β* is the sideslip angle
 
-When transforming coordinates from body system to wind system, one first rotates by β (sideslip angle) about the body z axis (zb).
-Then one rotates by α (angle of attack) about the new y axis.
+When transforming coordinates from body system to wind system, one first rotates by *β* (sideslip angle) about the body z axis (zb).
+Then one rotates by *α* (angle of attack) about the new y axis.
 
 ## Dynamic pressure
 
@@ -59,7 +59,7 @@ Induced drag is determined using the lift coefficient *CL*, the Oswald factor *e
 $D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{\eqqcolon C_{D_i}}\,q\,S_{ref}$
 {% endlatex %}
 The Oswald factor *e* depends on the speed of the aircraft.
-The lift coefficient depends on the angle of attack α.
+The lift coefficient depends on the angle of attack *α*.
 
 The aspect ratio *Λ* depends on wing span *b* and wing area *S*:
 {% latex usepackages=amsmath %}
@@ -88,19 +88,19 @@ The yawing moment *N* is the product of the yawing moment coefficient *Cn*, the 
 {% latex usepackages=amsmath %}
 $N = C_n\,q\,S_{ref}\,\cfrac{b}{2}$
 {% endlatex %}
-The yawing moment coefficient depends on the side slip angle β.
+The yawing moment coefficient depends on the side slip angle *β*.
 
 The rolling moment *L* (using the same symbol as lift for some reason) is the product of the rolling moment coefficient *Cl*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
 {% latex usepackages=amsmath %}
 $L = C_l\,q\,S_{ref}\,\cfrac{b}{2}$
 {% endlatex %}
-The rolling moment coefficient depends on the angle of attack α and the side slip angle β.
+The rolling moment coefficient depends on the angle of attack *α* and the side slip angle *β*.
 
 ## Data Tables
 
 {% latex usepackages=booktabs %}
 \begin{tabular}{rrrrrrr}\toprule
-Mach & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta,\alpha}$ & $C_{n,\beta}$ & $C_{D_0}$\\\midrule
+Mach & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta\alpha}$ & $C_{n,\beta}$ & $C_{D_0}$\\\midrule
  0.0 &         2.5596 & 25.7408 & 0.9846 &              -2.9217 &       -0.0134 &   0.04780\\
  0.6 &         2.7825 & 25.8613 & 0.9859 &              -3.1333 &       -0.0067 &   0.04741\\
  0.8 &         3.0453 & 26.0130 & 0.9873 &              -3.3667 &        0.0005 &   0.04728\\\midrule
@@ -114,6 +114,21 @@ Mach & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta,\alpha}$ & $C_{n,\beta}$ 
  5.0 &         0.7816 & 25.2361 & 0.0930 &               0.0463 &       -0.0290 &   0.13197\\\midrule
 10.0 &         2.0000 & 50.0000 & 0.0006 &               0.0000 &        0.0000 &   0.21126\\\bottomrule
 \end{tabular}
+{% endlatex %}
+
+For small values of *α*, the lift coefficient increases linearly with *α*:
+{% latex %}
+$C_L = C_{L,\alpha}\,\alpha$
+{% endlatex %}
+
+For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β*:
+{% latex %}
+$C_l = C_{l,\beta\alpha}\,\alpha\,\beta$
+{% endlatex %}
+
+For small values of *β*, the yawing moment coefficient increases linearly with *β*:
+{% latex %}
+$C_n = C_{n,\beta}\,\beta$
 {% endlatex %}
 
 ## TODO
