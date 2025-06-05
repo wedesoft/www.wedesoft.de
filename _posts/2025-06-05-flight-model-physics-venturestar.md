@@ -8,7 +8,7 @@ image: /pics/flight.jpg
 ![sfsim space flight simulator screenshot](/pics/flight.jpg)
 
 This is an informational post on how to simulate atmospheric flight of a [Venturestar][3] style single-stage-to-orbit space craft.
-My dad is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][4] space flight simulator realistic to some extent.
+My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][4] space flight simulator realistic to some extent.
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
 
 ## Coordinate systems
@@ -109,19 +109,19 @@ The table shows for each speed:
 
 {% latex usepackages=booktabs %}
 \begin{tabular}{rrrrrrr}\toprule
-V/Ma & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta\alpha}$ & $C_{n,\beta}$ & $C_{D_0}$\\\midrule
- 0.0 &         2.5596 & 25.7408 & 0.9846 &              -2.9217 &       -0.0134 &   0.04780\\
- 0.6 &         2.7825 & 25.8613 & 0.9859 &              -3.1333 &       -0.0067 &   0.04741\\
- 0.8 &         3.0453 & 26.0130 & 0.9873 &              -3.3667 &        0.0005 &   0.04728\\\midrule
- 1.2 &         2.8237 & 26.3814 & 0.3359 &               0.5971 &        0.3199 &   0.26410\\
- 1.4 &         2.7156 & 26.2970 & 0.3167 &              -0.8761 &        0.1797 &   0.26382\\
- 1.6 &         2.3735 & 26.0632 & 0.2817 &              -0.0015 &        0.1164 &   0.26355\\
- 1.8 &         2.1063 & 25.8788 & 0.2504 &              -0.1113 &        0.0782 &   0.26327\\
- 2.0 &         1.8934 & 25.7365 & 0.2255 &              -0.0751 &        0.0521 &   0.26299\\
- 3.0 &         1.3273 & 25.4226 & 0.1579 &              -0.1459 &       -0.0123 &   0.20472\\
- 4.0 &         0.9907 & 25.2999 & 0.1179 &               0.0981 &       -0.0290 &   0.15512\\
- 5.0 &         0.7816 & 25.2361 & 0.0930 &               0.0463 &       -0.0290 &   0.13197\\\midrule
-10.0 &         2.0000 & 50.0000 & 0.0006 &               0.0000 &        0.0000 &   0.21126\\\bottomrule
+V/Ma & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta/\alpha}$ & $C_{n,\beta,\mathrm{tot}}$ & $C_{D_0}$\\\midrule
+ 0.0 &         2.5596 & 25.7408 & 0.9846 &              -2.9217 &                     0.0369 &   0.04780\\
+ 0.6 &         2.7825 & 25.8613 & 0.9859 &              -3.1333 &                     0.0578 &   0.04741\\
+ 0.8 &         3.0453 & 26.0130 & 0.9873 &              -3.3667 &                     0.0923 &   0.04728\\\midrule
+ 1.2 &         2.8237 & 26.3814 & 0.3359 &               0.5971 &                     0.3199 &   0.26410\\
+ 1.4 &         2.7156 & 26.2970 & 0.3167 &              -0.8761 &                     0.1797 &   0.26382\\
+ 1.6 &         2.3735 & 26.0632 & 0.2817 &              -0.0015 &                     0.1164 &   0.26355\\
+ 1.8 &         2.1063 & 25.8788 & 0.2504 &              -0.1113 &                     0.0782 &   0.26327\\
+ 2.0 &         1.8934 & 25.7365 & 0.2255 &              -0.0751 &                     0.0521 &   0.26299\\
+ 3.0 &         1.3273 & 25.4226 & 0.1579 &              -0.1459 &                    -0.0123 &   0.20472\\
+ 4.0 &         0.9907 & 25.2999 & 0.1179 &               0.0981 &                    -0.0398 &   0.15512\\
+ 5.0 &         0.7816 & 25.2361 & 0.0930 &               0.0463 &                    -0.0554 &   0.13197\\\midrule
+10.0 &         2.0000 & 50.0000 & 0.0006 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
 \end{tabular}
 {% endlatex %}
 
@@ -132,12 +132,12 @@ $C_L = C_{L,\alpha}\,\alpha$
 
 For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β*:
 {% latex %}
-$C_l = C_{l,\beta\alpha}\,\alpha\,\beta$
+$C_l = C_{l,\beta/\alpha}\,\alpha\,\beta$
 {% endlatex %}
 
 For small values of *β*, the yawing moment coefficient increases linearly with *β*:
 {% latex %}
-$C_n = C_{n,\beta}\,\beta$
+$C_n = C_{n,\beta\,\mathrm{tot}}\,\beta$
 {% endlatex %}
 
 The following table shows for each speed:
