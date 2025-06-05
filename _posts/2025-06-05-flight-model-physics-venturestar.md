@@ -148,7 +148,7 @@ The following table shows for each speed:
 
 {% latex usepackages=booktabs,gensymb %}
 \begin{tabular}{rrrrr}\toprule
-V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_{\mathrm{max}}}}$ & $C_{D_{90}}$ \\\midrule
+V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_{\mathrm{max}}}}/\degree$ & $C_{D_{90}}$ \\\midrule
  0.0 &                              20 &                   1.20 &                              35 &   1.1000\\
  0.6 &                              22 &                   1.30 &                              33 &   1.1000\\
  0.8 &                              24 &                   1.40 &                              30 &   1.1000\\\midrule
