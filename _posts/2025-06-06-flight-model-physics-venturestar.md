@@ -51,13 +51,13 @@ $D_{total} = D_0 + D_i$
 
 Zero-lift drag is computed using the zero-lift drag coefficient *CD0* as well as dynamic pressure *q* and the reference area *Sref*:
 {% latex %}
-$D_0 = C_{D_0}\,q\,S_{ref}$
+$D_0 = C_{D_0}\,q\,S_{\mathrm{ref}}$
 {% endlatex %}
 The zero-lift drag coefficient depends on the speed of the aircraft.
 
 Induced drag is determined using the lift coefficient *CL*, the Oswald factor *e*, the aspect ratio *Λ*, as well as *q* and the reference area *Sref*.
 {% latex usepackages=amsmath,txfonts %}
-$D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{\eqqcolon C_{D_i}}\,q\,S_{ref}$
+$D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{\eqqcolon C_{D_i}}\,q\,S_{\mathrm{ref}}$
 {% endlatex %}
 The Oswald factor *e* depends on the speed of the aircraft.
 The lift coefficient depends on the angle of attack *α*.
@@ -69,7 +69,7 @@ $\Lambda = \cfrac{b^2}{S}$
 
 The lift *L* is computed using the lift coefficient *CL*, dynamic pressure *q*, and the reference area *Sref*:
 {% latex usepackages=amsmath %}
-$L = C_L\,q\,S_{ref}$
+$L = C_L\,q\,S_{\mathrm{ref}}$
 {% endlatex %}
 
 The side force *Y* (and corresponding coefficient) is usually not important but we will look into it later.
@@ -78,22 +78,22 @@ The side force *Y* (and corresponding coefficient) is usually not important but 
 
 The pitching moment *M* is computed using the pitching moment coefficient *Cm*, the dynamic pressure *q*, the reference area *Sref*, and the aerodynamic chord *cbar*:
 {% latex usepackages=amsmath %}
-$M = C_m\,q\,S_{ref}\,c_{bar}$
+$M = C_m\,q\,S_{\mathrm{ref}}\,c_{\mathrm{bar}}$
 {% endlatex %}
 The pitching moment coefficient depends on the lift coefficient *CL*, the position of the neutral point *XN*, the centre of gravity *xref*. and the aerodynamic chord *cbar*:
 {% latex usepackages=amsmath %}
-$C_m = C_L\,\cfrac{X_N - x_{ref}}{c_{bar}}$
+$C_m = C_L\,\cfrac{X_N - x_{\mathrm{ref}}}{c_{\mathrm{bar}}}$
 {% endlatex %}
 
 The yawing moment *N* is the product of the yawing moment coefficient *Cn*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
 {% latex usepackages=amsmath %}
-$N = C_n\,q\,S_{ref}\,\cfrac{b}{2}$
+$N = C_n\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}$
 {% endlatex %}
 The yawing moment coefficient depends on the side slip angle *β*.
 
 The rolling moment *L* (using the same symbol as lift for some reason) is the product of the rolling moment coefficient *Cl*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
 {% latex usepackages=amsmath %}
-$L = C_l\,q\,S_{ref}\,\cfrac{b}{2}$
+$L = C_l\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}$
 {% endlatex %}
 The rolling moment coefficient depends on the angle of attack *α* and the side slip angle *β*.
 
@@ -173,6 +173,21 @@ $C_L=C_{D_{90}}\,\cos(\alpha)$, $C_{D_0}=C_{D_{90}}\,\sin(\alpha)$
 At hypersonic speeds (V/Ma=10.0), lift and induced drag coefficients behave as follows:
 {% latex %}
 $C_L=C_N\,\cos(\alpha)$, $C_{D_i}=C_N\,\sin(\alpha)$, $C_N=2\,\sin(\alpha)$
+{% endlatex %}
+
+## Data Sheet
+
+Here are the parameters for the flight model above:
+
+{% latex usepackages=units %}
+\begin{itemize}
+\item wing area: $S=\unit[682.1415]{m^2}$
+\item reference area: $S_{\mathrm{ref}}=\unit[668.7206]{m^2}$
+\item aspect ratio: $\Lambda=2.6226$
+\item half span: $b/2=\unit[21.1480]{m}$
+\item aerodynamic chord: $c_{\mathrm{bar}}=\unit[22.5714]{m}$
+\item reference x-station: $x_{\mathrm{ref}}=\unit[23.5473]{m}$
+\end{itemize}
 {% endlatex %}
 
 ## TODO
