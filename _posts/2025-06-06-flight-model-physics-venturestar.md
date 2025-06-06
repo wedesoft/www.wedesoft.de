@@ -7,8 +7,8 @@ image: /pics/flight.jpg
 
 ![sfsim space flight simulator screenshot](/pics/flight.jpg)
 
-This is an informational post on how to simulate atmospheric flight of a [Venturestar][3] style single-stage-to-orbit space craft.
-My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][4] space flight simulator realistic to some extent.
+This is an informational post on how to simulate atmospheric flight of a [Venturestar][2] style single-stage-to-orbit space craft.
+My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][3] space flight simulator realistic to some extent.
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
 The information provided in this article is for general informational purposes only and comes without any warranty, express or implied.
 
@@ -40,7 +40,7 @@ The dynamic pressure *q* depends on air density *ρ* and speed *V*:
 $q = \cfrac{1}{2}\,\rho\,V^2$
 {% endlatex %}
 
-Air density (and temperature) as a function of height can be obtained from [Hull's book "Fundamentals of airplane flight mechanics"][2].
+Air density (and temperature) as a function of height can be obtained from [Hull's book "Fundamentals of airplane flight mechanics"][1].
 
 ## Forces
 
@@ -238,7 +238,8 @@ $C_n = C_{n \xi A}\,\xi$
 
 The damping moment formulas and coefficients still need to be added.
 
-[1]: https://www.jakobmaier.at/posts/flight-simulation/
-[2]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
-[3]: https://en.wikipedia.org/wiki/VentureStar
-[4]: https://wedesoft.github.io/sfsim/
+Feel free to leave a comment or suggestion below.
+
+[1]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
+[2]: https://en.wikipedia.org/wiki/VentureStar
+[3]: https://wedesoft.github.io/sfsim/
