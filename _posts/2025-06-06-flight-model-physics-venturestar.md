@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flight model physics for simulating Venturestar style spacecraft (Draft)
+title: Flight model physics for simulating Venturestar style spacecraft
 category: simulation
 image: /pics/flight.jpg
 ---
