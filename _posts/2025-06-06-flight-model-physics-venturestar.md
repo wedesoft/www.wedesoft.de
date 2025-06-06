@@ -7,7 +7,7 @@ image: /pics/flight.jpg
 
 ![sfsim space flight simulator screenshot](/pics/flight.jpg)
 
-This is an informational post on how to simulate atmospheric flight of a [Venturestar][2] style single-stage-to-orbit space craft.
+This is an informational post on how to simulate the physics of atmospheric flight of a [Venturestar][2] style single-stage-to-orbit space craft.
 My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][3] space flight simulator realistic to some extent.
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
 The information provided in this article is for general informational purposes only and comes without any warranty, express or implied.
