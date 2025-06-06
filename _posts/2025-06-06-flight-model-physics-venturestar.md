@@ -10,6 +10,7 @@ image: /pics/flight.jpg
 This is an informational post on how to simulate atmospheric flight of a [Venturestar][3] style single-stage-to-orbit space craft.
 My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked him to help with making the aerodynamics of the [sfsim][4] space flight simulator realistic to some extent.
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
+The information provided in this article is for general informational purposes only and comes without any warranty, express or implied.
 
 ## Coordinate systems
 
@@ -121,7 +122,7 @@ V/Ma & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta/\alpha}$ & $C_{n,\beta,\m
  3.0 &         1.3273 & 25.4226 & 0.1579 &              -0.1459 &                    -0.0123 &   0.20472\\
  4.0 &         0.9907 & 25.2999 & 0.1179 &               0.0981 &                    -0.0398 &   0.15512\\
  5.0 &         0.7816 & 25.2361 & 0.0930 &               0.0463 &                    -0.0554 &   0.13197\\\midrule
-10.0 &         2.0000 & 50.0000 & 0.0006 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
+10.0 &         2.0000 & 50.0000 & 0.0264 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
 \end{tabular}
 {% endlatex %}
 
@@ -149,19 +150,29 @@ The following table shows for each speed:
 {% latex usepackages=booktabs,gensymb %}
 \begin{tabular}{rrrrr}\toprule
 V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_{\mathrm{max}}}}/\degree$ & $C_{D_{90}}$ \\\midrule
- 0.0 &                              20 &                   1.20 &                              35 &   1.1000\\
- 0.6 &                              22 &                   1.30 &                              33 &   1.1000\\
- 0.8 &                              24 &                   1.40 &                              30 &   1.1000\\\midrule
- 1.2 &                              24 &                   1.20 &                              30 &   0.0000\\
- 1.4 &                              24 &                   1.10 &                              30 &  -0.7289\\
- 1.6 &                              24 &                   1.00 &                              30 &  -0.5580\\
- 1.8 &                              24 &                   0.90 &                              30 &  -0.4409\\
- 2.0 &                              24 &                   0.80 &                              30 &  -0.3571\\
- 3.0 &                              24 &                   0.50 &                              30 &  -0.1587\\
- 4.0 &                              24 &                   0.40 &                              30 &  -0.0893\\
- 5.0 &                              24 &                   0.35 &                              30 &  -0.0571\\\midrule
-10.0 &                              30 &                   1.00 &                              45 &  -0.0143\\\bottomrule
+ 0.0 &                              20 &                   1.20 &                              35 &   1,1000\\
+ 0.6 &                              22 &                   1.30 &                              33 &   1,1000\\
+ 0.8 &                              24 &                   1.40 &                              30 &   1,1000\\\midrule
+ 1.2 &                              24 &                   1.20 &                              30 &   2,3884\\
+ 1.4 &                              24 &                   1.10 &                              30 &   1,4936\\
+ 1.6 &                              24 &                   1.00 &                              30 &   1,5653\\
+ 1.8 &                              24 &                   0.90 &                              30 &   1,6180\\
+ 2.0 &                              24 &                   0.80 &                              30 &   1,6573\\
+ 3.0 &                              24 &                   0.50 &                              30 &   1,7557\\
+ 4.0 &                              24 &                   0.40 &                              30 &   1,7918\\
+ 5.0 &                              24 &                   0.35 &                              30 &   1,8088\\\midrule
+10.0 &                              30 &                   1.00 &                              45 &   1,8317\\\bottomrule
 \end{tabular}
+{% endlatex %}
+
+Near *α=90°*, the lift and drag coefficients behave as follows:
+{% latex %}
+$C_L=C_{D_{90}}\,\cos(\alpha)$, $C_{D_0}=C_{D_{90}}\,\sin(\alpha)$
+{% endlatex %}
+
+At hypersonic speeds (V/Ma=10.0), lift and induced drag coefficients behave as follows:
+{% latex %}
+$C_L=C_N\,\cos(\alpha)$, $C_{D_i}=C_N\,\sin(\alpha)$, $C_N=2\,\sin(\alpha)$
 {% endlatex %}
 
 ## TODO
