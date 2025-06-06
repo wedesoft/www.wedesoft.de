@@ -236,7 +236,10 @@ The yawing moment coefficient is
 $C_n = C_{n \xi A}\,\xi$
 {% endlatex %}
 
-The damping moment formulas and coefficients still need to be added.
+## Next steps
+
+Using the information, the curves for a full range of angles and speeds need to be fitted and guessed in some places.
+Also the damping moment formulas and coefficients still need to be added.
 
 Feel free to leave a comment or suggestion below.
 
