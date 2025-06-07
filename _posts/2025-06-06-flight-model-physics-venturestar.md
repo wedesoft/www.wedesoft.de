@@ -78,11 +78,11 @@ The side force *Y* (and corresponding coefficient) is usually not important but 
 
 The pitching moment *M* is computed using the pitching moment coefficient *Cm*, the dynamic pressure *q*, the reference area *Sref*, and the aerodynamic chord *cbar*:
 {% latex usepackages=amsmath %}
-$M = C_m\,q\,S_{\mathrm{ref}}\,c_{\mathrm{bar}}$
+$M = C_m\,q\,S_{\mathrm{ref}}\,\bar{c}$
 {% endlatex %}
 The pitching moment coefficient depends on the lift coefficient *CL*, the position of the neutral point *XN*, the centre of gravity *xref*. and the aerodynamic chord *cbar*:
 {% latex usepackages=amsmath %}
-$C_m = C_L\,\cfrac{X_N - x_{\mathrm{ref}}}{c_{\mathrm{bar}}}$
+$C_m = C_L\,\cfrac{X_N - x_{\mathrm{ref}}}{\bar{c}}$
 {% endlatex %}
 
 The yawing moment *N* is the product of the yawing moment coefficient *Cn*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
@@ -107,17 +107,23 @@ Here are the parameters for the flight model above:
 \item reference area: $S_{\mathrm{ref}}=\unit[668.7206]{m^2}$
 \item aspect ratio: $\Lambda=2.6226$
 \item half span: $b/2=\unit[21.1480]{m}$
-\item aerodynamic chord: $c_{\mathrm{bar}}=\unit[22.5714]{m}$
+\item aerodynamic chord: $\bar{c}=\unit[22.5714]{m}$
 \item reference x-station: $x_{\mathrm{ref}}=\unit[23.5473]{m}$
 \end{itemize}
 {% endlatex %}
+
+Note that *xref* is defined in a coordinate system where *x=0* is at the intersection of the inner leading edges (wing apex).
+The following picture also shows the position of the aerodynamic chord with length *cbar*.
+The center of gravity is at 25% of the aerodynamic chord.
+
+![coordinate system origin at intersection of leading edges](/pics/leadingedges.jpg)
 
 ## Tables
 
 Here is a data table with information for determining the remaining coefficients depending on the airspeed in Mach (Ma).
 The table shows for each speed:
 * a factor to determine the lift coefficient *CL*
-* the position *XN* of the neutral point
+* the position *XN* of the neutral point relative to the aerodynamic chord (note that the center of gravity *xref* is at the 25% mark of the aerodynamic chord)
 * the Oswald factor *e*
 * a factor to determine the rolling moment coefficient *Cl*
 * a factor to determine the yawing moment coefficient *Cn*
@@ -125,33 +131,33 @@ The table shows for each speed:
 
 {% latex usepackages=booktabs %}
 \begin{tabular}{rrrrrrr}\toprule
-V/Ma & $C_{L,\alpha}$ & $X_N$   & $e$    & $C_{l,\beta/\alpha}$ & $C_{n,\beta,\mathrm{tot}}$ & $C_{D_0}$\\\midrule
- 0.0 &         2.5596 & 25.7408 & 0.9846 &              -2.9217 &                     0.0369 &   0.04780\\
- 0.6 &         2.7825 & 25.8613 & 0.9859 &              -3.1333 &                     0.0578 &   0.04741\\
- 0.8 &         3.0453 & 26.0130 & 0.9873 &              -3.3667 &                     0.0923 &   0.04728\\\midrule
- 1.2 &         2.8237 & 26.3814 & 0.3359 &               0.5971 &                     0.3199 &   0.26410\\
- 1.4 &         2.7156 & 26.2970 & 0.3167 &              -0.8761 &                     0.1797 &   0.26382\\
- 1.6 &         2.3735 & 26.0632 & 0.2817 &              -0.0015 &                     0.1164 &   0.26355\\
- 1.8 &         2.1063 & 25.8788 & 0.2504 &              -0.1113 &                     0.0782 &   0.26327\\
- 2.0 &         1.8934 & 25.7365 & 0.2255 &              -0.0751 &                     0.0521 &   0.26299\\
- 3.0 &         1.3273 & 25.4226 & 0.1579 &              -0.1459 &                    -0.0123 &   0.20472\\
- 4.0 &         0.9907 & 25.2999 & 0.1179 &               0.0981 &                    -0.0398 &   0.15512\\
- 5.0 &         0.7816 & 25.2361 & 0.0930 &               0.0463 &                    -0.0554 &   0.13197\\\midrule
-10.0 &         2.0000 & 50.0000 & 0.0264 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
+V/Ma & $C_{L,\alpha}$ & $(X_N-x_{\mathrm{ref}})/\bar{c} + 0.25 $ & $e$    & $C_{l,\beta/\alpha}$ & $C_{n,\beta,\mathrm{tot}}$ & $C_{D_0}$\\\midrule
+ 0.0 &         2.5596 & 25.7408\% & 0.9846 &              -2.9217 &                     0.0369 &   0.04780\\
+ 0.6 &         2.7825 & 25.8613\% & 0.9859 &              -3.1333 &                     0.0578 &   0.04741\\
+ 0.8 &         3.0453 & 26.0130\% & 0.9873 &              -3.3667 &                     0.0923 &   0.04728\\\midrule
+ 1.2 &         2.8237 & 26.3814\% & 0.3359 &               0.5971 &                     0.3199 &   0.26410\\
+ 1.4 &         2.7156 & 26.2970\% & 0.3167 &              -0.8761 &                     0.1797 &   0.26382\\
+ 1.6 &         2.3735 & 26.0632\% & 0.2817 &              -0.0015 &                     0.1164 &   0.26355\\
+ 1.8 &         2.1063 & 25.8788\% & 0.2504 &              -0.1113 &                     0.0782 &   0.26327\\
+ 2.0 &         1.8934 & 25.7365\% & 0.2255 &              -0.0751 &                     0.0521 &   0.26299\\
+ 3.0 &         1.3273 & 25.4226\% & 0.1579 &              -0.1459 &                    -0.0123 &   0.20472\\
+ 4.0 &         0.9907 & 25.2999\% & 0.1179 &               0.0981 &                    -0.0398 &   0.15512\\
+ 5.0 &         0.7816 & 25.2361\% & 0.0930 &               0.0463 &                    -0.0554 &   0.13197\\\midrule
+10.0 &         2.0000 & 50.0000\% & 0.0264 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
 \end{tabular}
 {% endlatex %}
 
-For small values of *α*, the lift coefficient increases linearly with *α*:
+For small values of *α*, the lift coefficient increases linearly with *α* (where *α* is specified in radians):
 {% latex %}
 $C_L = C_{L,\alpha}\,\alpha$
 {% endlatex %}
 
-For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β*:
+For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β* (where *α* and *β* are specified in radians):
 {% latex %}
 $C_l = C_{l,\beta/\alpha}\,\alpha\,\beta$
 {% endlatex %}
 
-For small values of *β*, the yawing moment coefficient increases linearly with *β*:
+For small values of *β*, the yawing moment coefficient increases linearly with *β* (where *β* is specified in radians):
 {% latex %}
 $C_n = C_{n,\beta\,\mathrm{tot}}\,\beta$
 {% endlatex %}
