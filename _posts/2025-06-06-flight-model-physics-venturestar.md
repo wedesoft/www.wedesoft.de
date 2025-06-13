@@ -12,6 +12,18 @@ My dad **Gerhard Wedekind** is an experienced aerodynamics engineer and I asked 
 The information in this post is a write-up of relevant formulas and approximate data he obtained from numerical simulation and estimates from aerodynamics knowledge.
 The information provided in this article is for general informational purposes only and comes without any warranty, express or implied.
 
+## Simulation
+
+Here are a few beautiful snapshots from simulation.
+The first one shows a Mach box for V = 2 Ma and α = 3°.
+![Venturestar Mach Box for V = 2 Ma and α = 3°](/pics/venturestar-machbox-2-alpha-3.jpg)
+
+The next one shows a Mach box for V = 4 Ma and α = 3°.
+![Venturestar Mach Box for V = 4 Ma and α = 3°](/pics/venturestar-machbox-4-alpha-3.jpg)
+
+Finally here is a distribution of the pressure difference between top and bottom of wing.
+![Venturestar Pressure Difference](/pics/venturestar-pressure-difference.jpg)
+
 ## Coordinate systems
 
 The following drawing shows the body coordinate system (xb, yb, zb) and the wind coordinate system (xw, yw, zw).
@@ -146,6 +158,8 @@ V/Ma & $C_{L,\alpha}$ & $(X_N-x_{\mathrm{ref}})/\bar{c} + 0.25 $ & $e$    & $C_{
 10.0 &         2.0000 & 50.0000\% & 0.0264 &               0.0000 &                    -0.0290 &   0.21126\\\bottomrule
 \end{tabular}
 {% endlatex %}
+
+The outlier of Clβα for V = 1.2 Ma (0.5971) should be ignored because the value was changing a lot with mesh resolution.
 
 For small values of *α*, the lift coefficient increases linearly with *α* (where *α* is specified in radians):
 {% latex %}
