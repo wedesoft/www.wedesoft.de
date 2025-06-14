@@ -2,7 +2,7 @@
 layout: post
 title: Akima splines
 category: software
-image: /pics/connascence.jpg
+image: /pics/aspline.png
 ---
 
 Recently I was looking for spline interpolation for creating curves from a set of samples.
