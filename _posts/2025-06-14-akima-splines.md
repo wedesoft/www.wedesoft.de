@@ -77,7 +77,12 @@ So if you have a data set which causes cubic splines to oscillate, give Akima sp
 
 Enjoy!
 
+**Update:** [u/joinr][5] showed, how you can use [Clojupyter][6] to quickly [test a lot of splines][7].
+
 [1]: https://github.com/generateme/fastmath
 [2]: https://haifengl.github.io/interpolation.html
 [3]: http://www.gnuplot.info/
 [4]: https://en.wikipedia.org/wiki/Akima_spline
+[5]: https://www.reddit.com/user/joinr/
+[6]: https://github.com/clojupyter/clojupyter
+[7]: https://joinr.github.io/demo.html
