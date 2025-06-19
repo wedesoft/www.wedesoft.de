@@ -20,7 +20,7 @@ I saved the interpolated samples to a text file and plotted them with [Gnuplot][
 (spit "/tmp/points.dat" (apply str (map (fn [x y] (str x " " y "\n")) px py)))
 
 (def cspline (interpolation/cubic-spline px py))
-(def x (range 0 8.0 0.01))
+(def x (range 0 9.0 0.01))
 (spit "/tmp/cspline.dat" (apply str (map (fn [x y] (str x " " y "\n")) x (map cspline x))))
 (sh "gnuplot" "-c" "plot.gp" "/tmp/cspline.png" "/tmp/cspline.dat")
 (sh "display" "/tmp/cspline.png")
@@ -65,7 +65,7 @@ The first and last point use the next or previous slope and the second and secon
 (spit "/tmp/points.dat" (apply str (map (fn [x y] (str x " " y "\n")) px py)))
 
 (def aspline (interpolation/akima-spline px py))
-(def x (range 0 8.0 0.01))
+(def x (range 0 9.0 0.01))
 (spit "/tmp/aspline.dat" (apply str (map (fn [x y] (str x " " y "\n")) x (map aspline x))))
 (sh "gnuplot" "-c" "plot.gp" "/tmp/aspline.png" "/tmp/aspline.dat")
 (sh "display" "/tmp/aspline.png")
