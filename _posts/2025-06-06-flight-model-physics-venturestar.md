@@ -258,10 +258,60 @@ The yawing moment coefficient is
 $C_n = C_{n \xi A}\,\xi$
 {% endlatex %}
 
+## Angular damping
+
+The formula for roll, pitch, and yaw damping moments (L, M, N) due to roll, pitch, and yaw rates (p, q, r) uses a coefficient matrix:
+{% latex usepackages=amsmath %}
+$\begin{pmatrix}
+L \\
+M \\
+N
+\end{pmatrix}
+=
+\cfrac{1}{2}\,\rho\,V^2\,S
+\cdot
+\begin{pmatrix}
+b & 0 & 0 \\
+0 & c & 0 \\
+0 & 0 & b
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+C_{l_p} & C_{l_q} & C_{l_r} \\
+C_{m_p} & C_{m_q} & C_{m_r} \\
+C_{n_p} & C_{n_q} & C_{n_r}
+\end{pmatrix}
+\cdot
+\cfrac{1}{2\,V}
+\cdot
+\begin{pmatrix}
+p\,b \\
+q\,c \\
+r\,b
+\end{pmatrix}$
+{% endlatex %}
+The coefficients for *V = 0 Ma* are as follows.
+Note that damping moments are negligible for higher speeds.
+{% latex usepackages=booktabs %}
+\begin{tabular}{lr}\toprule
+coefficient & value \\\midrule
+$C_{l_p}$ & -0.4228\\
+$C_{m_p}$ &  0.0000\\
+$C_{n_p}$ &  0.0535\\
+$C_{l_q}$ &  0.0000\\
+$C_{m_q}$ & -1.3470\\
+$C_{n_q}$ &  0.0000\\
+$C_{l_r}$ &  0.1929\\
+$C_{m_r}$ &  0.0000\\
+$C_{n_r}$ & -0.2838\\\midrule
+$C_{L_q}$ &  4.2624\\\bottomrule
+\end{tabular}
+{% endlatex %}
+The last (10th) value in the table *CLq* is the change in the lift coefficient due to the pitch rate q.
+
 ## Next steps
 
 Using the information, the curves for a full range of angles and speeds need to be fitted and guessed in some places.
-Also the damping moment formulas and coefficients still need to be added.
 
 Feel free to leave a comment or suggestion below.
 
