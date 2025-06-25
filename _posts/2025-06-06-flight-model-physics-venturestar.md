@@ -84,7 +84,7 @@ The lift *L* is computed using the lift coefficient *CL*, dynamic pressure *q*, 
 $L = C_L\,q\,S_{\mathrm{ref}}$
 {% endlatex %}
 
-The side force *Y* (and corresponding coefficient) is usually not important but we will look into it later.
+The side force *Y* (and corresponding coefficient) is usually not important but we will look into it <s>later</s> in a future article.
 
 ## Moments
 
@@ -94,7 +94,7 @@ $M = C_m\,q\,S_{\mathrm{ref}}\,\bar{c}$
 {% endlatex %}
 The pitching moment coefficient depends on the lift coefficient *CL*, the position of the neutral point *XN*, the centre of gravity *xref*. and the aerodynamic chord *cbar*:
 {% latex usepackages=amsmath %}
-$C_m = C_L\,\cfrac{X_N - x_{\mathrm{ref}}}{\bar{c}}$
+$C_m = C_L\,\cfrac{x_{\mathrm{ref} - X_N}}{\bar{c}}$
 {% endlatex %}
 
 The yawing moment *N* is the product of the yawing moment coefficient *Cn*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
@@ -160,6 +160,11 @@ V/Ma & $C_{L,\alpha}$ & $(X_N-x_{\mathrm{ref}})/\bar{c} + 0.25 $ & $e$    & $C_{
 {% endlatex %}
 
 The outlier of Clβα for V = 1.2 Ma (0.5971) should be ignored because the value was changing a lot with mesh resolution.
+
+The speed of sound as a function of temperature *T* is [according to Wikipedia][4]:
+{% latex usepackages=amsmath %}
+$c_{\mathrm{air}} \approx 331.3\,\mathrm{m/s}\,\sqrt{\cfrac{T}{273.15\,\mathrm{K}}}$
+{% endlatex %}
 
 For small values of *α*, the lift coefficient increases linearly with *α* (where *α* is specified in radians):
 {% latex %}
@@ -318,3 +323,4 @@ Feel free to leave a comment or suggestion below.
 [1]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
 [2]: https://en.wikipedia.org/wiki/VentureStar
 [3]: https://wedesoft.github.io/sfsim/
+[4]: https://en.wikipedia.org/wiki/Speed_of_sound
