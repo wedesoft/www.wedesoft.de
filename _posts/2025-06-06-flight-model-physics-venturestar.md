@@ -171,7 +171,9 @@ For small values of *α*, the lift coefficient increases linearly with *α* (whe
 $C_L = C_{L,\alpha}\,\alpha$
 {% endlatex %}
 
-For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β* (where *α* and *β* are specified in radians):
+For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β* (where *α* and *β* are specified in radians).
+This is a particular behaviour of delta wing configurations.
+If there is side slip, the wings generate different amounts of lift causing a significant roll moment:
 {% latex %}
 $C_l = C_{l,\beta/\alpha}\,\alpha\,\beta$
 {% endlatex %}
