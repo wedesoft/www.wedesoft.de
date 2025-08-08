@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'logger'
 gem 'jekyll'
 gem 'jekyll-paginate'
 gem 'jekyll-gist'
