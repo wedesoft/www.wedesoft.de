@@ -58,3 +58,7 @@ The following plot shows the height deviations observed when using Runge Kutta i
 The plot of maximum deviation shows that the errors are much smaller.
 
 ![RK orbit deviation as a function of time step](/pics/rk-errors.png)
+
+The orbital error of the Euler integration method looks like a sine wave.
+The error after one orbit for dt = 0.031 s is just 1.5 m.
+However the maximum orbit deviation for dt = 0.031 s is 123.8 m.
