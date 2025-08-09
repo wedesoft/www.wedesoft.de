@@ -5,10 +5,10 @@ category: simulation
 image: /pics/aspline.png
 ---
 
-I want to simulate an orbiting spacecraft using the Jolt Physics engine.
+I want to simulate an orbiting spacecraft using the [Jolt Physics][1] engine.
 The Jolt Physics engine solves difficult problems such as gyroscopic forces, collision detection with linear casting, and special solutions for wheeled vehicles with suspension.
 
-The integration method of the Jolt Physics engine is the semi-implicit Euler method.
+The integration method of the Jolt Physics engine is the [semi-implicit Euler method][2].
 The following formula shows how speed **v** and position **x** are integrated for each time step:
 
 {% latex usepackages=amsmath %}
@@ -18,13 +18,13 @@ The following formula shows how speed **v** and position **x** are integrated fo
 \end{align*}
 {% endlatex %}
 
-The gravitational acceleration by a planet is given by:
+The [gravitational acceleration by a planet][3] is given by:
 
 {% latex usepackages=amsmath %}
 $\mathbf{a}_n = -\cfrac{G\,M}{|\mathbf{x}_n|^3} \mathbf{x}_n$
 {% endlatex %}
 
-To test orbiting, one can set the initial conditions of the spacecraft to a perfect circular orbit:
+To test orbiting, one can set the initial conditions of the spacecraft to a [perfect circular orbit][4]:
 
 {% latex usepackages=amsmath %}
 \begin{align*}
@@ -76,3 +76,8 @@ The updated plot of maximum deviation shows that using double precision the erro
 
 I am currently looking into building a modified Jolt Physics version which uses double precision for speed and impulse vectors.
 I hope that I will get the Runge Kutta 4th order matching scheme to work so that I get an integrated solution for numerically accurate orbits as well as collision and vehicle simulation.
+
+[1]: https://jrouwe.github.io/JoltPhysics/
+[2]: https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
+[3]: https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation#Gravity_field
+[4]: https://en.wikipedia.org/wiki/Circular_orbit#Velocity
