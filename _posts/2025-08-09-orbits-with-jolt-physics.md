@@ -2,7 +2,7 @@
 layout: post
 title: Orbits with Jolt Physics
 category: simulation
-image: /pics/aspline.png
+image: /pics/orbit.png
 ---
 
 I want to simulate an orbiting spacecraft using the [Jolt Physics][1] engine.
