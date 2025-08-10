@@ -113,9 +113,7 @@ I hope that I will get the Runge Kutta 4th order matching scheme to work so that
 [Jorrit Rouwé][5] has [informed me][6] that he currently does not want to add [support for double precision speed values][7].
 He also has more detailed information about [using Jolt Physics for space simulation][8] on his website.
 
-**Update:**
-
-I have found a workaround.
+I have managed to get a prototype working using the moving coordinate system approach.
 One can perform the Runge Kutta integration using double precision coordinates and speed vectors with the Earth at the centre of the coordinate system.
 The Jolt Physics integration then happens in a coordinate system which is at the initial position and moving with the initial speed of the spaceship.
 The first impulse of the matching scheme is applied and then the semi-implicit Euler integration step is performed using Jolt Physics with single precision speed vectors and impulses.
