@@ -111,6 +111,7 @@ I hope that I will get the Runge Kutta 4th order matching scheme to work so that
 **Update:**
 
 [Jorrit Rouwé][5] has [informed me][6] that he currently does not want to add [support for double precision speed values][7].
+He also has more detailed information about [using Jolt Physics for space simulation][8] on his website.
 
 **Update:**
 
@@ -137,3 +138,4 @@ The maximum errors for different time steps are shown in the following plot:
 [5]: https://www.jrouwe.nl/
 [6]: https://github.com/jrouwe/JoltPhysics/issues/1721
 [7]: https://github.com/jrouwe/JoltPhysics/discussions/1638
+[8]: https://jrouwe.github.io/JoltPhysics/#space-simulations
