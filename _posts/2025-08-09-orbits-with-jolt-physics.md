@@ -50,7 +50,8 @@ The following plot shows that for increasing time steps, the maximum error grows
 ![Euler orbit deviation as a function of time step](/pics/euler-errors.png)
 
 For time lapse simulation with a time step of 16 seconds, the errors will exceed 50 km.
-A possible solution might be to use Runge Kutta 4th order integration instead of symplectic Euler.
+
+A possible solution is to use Runge Kutta 4th order integration instead of symplectic Euler.
 The 4th order Runge Kutta method can be implemented using a state vector consisting of position and speed.
 
 The Runge Kutta method can be implemented in Clojure as follows:
@@ -86,6 +87,17 @@ The Jolt Physics library allows to apply impulses to the spacecraft.
 The idea is to use Runge Kutta 4th order integration to get an accurate estimate of the speed and position of the spacecraft after the next time step.
 One can then apply an impulse before running an Euler step so that the position after the Euler step matches the Runge Kutta estimate.
 A second impulse then is used after the Euler time step to also make the speed match the Runge Kutta estimate.
+The following code shows the implementation of the matching scheme in Clojure:
+
+{% highlight clojure %}
+(defn matching-scheme
+  "Use two custom acceleration values to make semi-implicit Euler result match a ground truth after the integration step"
+  [y0 dt y1 scale subtract]
+  (let [delta-speed0 (scale (/ 1.0 ^double dt) (subtract (subtract (:position y1) (:position y0)) (scale dt (:speed y0))))
+        delta-speed1 (subtract (subtract (:speed y1) (:speed y0)) delta-speed0)]
+    [delta-speed0 delta-speed1]))
+{% endhighlight %}
+
 The following plot shows the height deviations observed when using Runge Kutta integration.
 
 ![Orbits with Runge Kutta 4th order](/pics/rk-height.png)
