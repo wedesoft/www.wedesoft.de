@@ -51,6 +51,37 @@ The following plot shows that for increasing time steps, the maximum error grows
 
 For time lapse simulation with a time step of 16 seconds, the errors will exceed 50 km.
 A possible solution might be to use Runge Kutta 4th order integration instead of symplectic Euler.
+The 4th order Runge Kutta method can be implemented using a state vector consisting of position and speed.
+
+The Runge Kutta method can be implemented in Clojure as follows:
+{% highlight clojure %}
+(defn runge-kutta
+  "Runge-Kutta integration method"
+  {:malli/schema [:=> [:cat :some :double [:=> [:cat :some :double] :some] add-schema scale-schema] :some]}
+  [y0 dt dy + *]
+  (let [dt2 (/ ^double dt 2.0)
+        k1  (dy y0                0.0)
+        k2  (dy (+ y0 (* dt2 k1)) dt2)
+        k3  (dy (+ y0 (* dt2 k2)) dt2)
+        k4  (dy (+ y0 (* dt  k3)) dt)]
+    (+ y0 (* (/ ^double dt 6.0) (reduce + [k1 (* 2.0 k2) (* 2.0 k3) k4])))))
+{% endhighlight %}
+
+The following code can be used to test the implementation:
+{% highlight clojure %}
+(def add (fn [x y] (+ x y)))
+(def scale (fn [s x] (* s x)))
+
+(facts "Runge-Kutta integration method"
+       (runge-kutta 42.0 1.0 (fn [_y _dt] 0.0) add scale) => 42.0
+       (runge-kutta 42.0 1.0 (fn [_y _dt] 5.0) add scale) => 47.0
+       (runge-kutta 42.0 2.0 (fn [_y _dt] 5.0) add scale) => 52.0
+       (runge-kutta 42.0 1.0 (fn [_y dt] (* 2.0 dt)) add scale) => 43.0
+       (runge-kutta 42.0 2.0 (fn [_y dt] (* 2.0 dt)) add scale) => 46.0
+       (runge-kutta 42.0 1.0 (fn [_y dt] (* 3.0 dt dt)) add scale) => 43.0
+       (runge-kutta 1.0 1.0 (fn [y _dt] y) add scale) => (roughly (exp 1) 1e-2))
+{% endhighlight %}
+
 The Jolt Physics library allows to apply impulses to the spacecraft.
 The idea is to use Runge Kutta 4th order integration to get an accurate estimate of the speed and position of the spacecraft after the next time step.
 One can then apply an impulse before running an Euler step so that the position after the Euler step matches the Runge Kutta estimate.
@@ -77,7 +108,13 @@ The updated plot of maximum deviation shows that using double precision the erro
 I am currently looking into building a modified Jolt Physics version which uses double precision for speed and impulse vectors.
 I hope that I will get the Runge Kutta 4th order matching scheme to work so that I get an integrated solution for numerically accurate orbits as well as collision and vehicle simulation.
 
+**Update:**
+[Jorrit Rouwé][5] has [informed me][6] that he currently does not want to add [support for double precision speed values][7].
+
 [1]: https://jrouwe.github.io/JoltPhysics/
 [2]: https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
 [3]: https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation#Gravity_field
 [4]: https://en.wikipedia.org/wiki/Circular_orbit#Velocity
+[5]: https://www.jrouwe.nl/
+[6]: https://github.com/jrouwe/JoltPhysics/issues/1721
+[7]: https://github.com/jrouwe/JoltPhysics/discussions/1638
