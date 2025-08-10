@@ -130,7 +130,7 @@ One can perform the Runge Kutta integration using double precision coordinates a
 The Jolt Physics integration then happens in a coordinate system which is at the initial position and moving with the initial speed of the spaceship.
 The first impulse of the matching scheme is applied and then the semi-implicit Euler integration step is performed using Jolt Physics with single precision speed vectors and impulses.
 Then the second impulse is applied.
-Finally the position and speed of the double precision moving coordinate system is updated using the position and speed value of the Jolt Physics body.
+Finally the position and speed of the double precision moving coordinate system are incremented using the position and speed value of the Jolt Physics body.
 The position and speed of the Jolt Physics body are then reset to zero and the next iteration begins.
 
 The following plot shows the height deviations observed using this approach:
