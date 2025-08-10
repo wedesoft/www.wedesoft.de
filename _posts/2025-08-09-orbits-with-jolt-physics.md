@@ -109,7 +109,26 @@ I am currently looking into building a modified Jolt Physics version which uses 
 I hope that I will get the Runge Kutta 4th order matching scheme to work so that I get an integrated solution for numerically accurate orbits as well as collision and vehicle simulation.
 
 **Update:**
+
 [Jorrit Rouwé][5] has [informed me][6] that he currently does not want to add [support for double precision speed values][7].
+
+**Update:**
+
+I have found a different workaround.
+One can perform the Runge Kutta integration using double precision coordinates and speed vectors with the Earth at the centre of the coordinate system.
+The Jolt Physics integration then happens in a coordinate system which is at the initial position and moving with the initial speed of the spaceship.
+The first impulse of the matching scheme is applied and then the semi-implicit Euler integration step is performed using Jolt Physics with single precision speed vectors and impulses.
+Then the second impulse is applied.
+Finally the position and speed of the double precision moving coordinate system is updated using the position and speed value of the Jolt Physics body.
+The position and speed of the Jolt Physics body are then reset to zero and the next iteration begins.
+
+The following plot shows the height deviations observed using this approach:
+
+![Orbits using moving coordinate system](/pics/rk-moving-height.png)
+
+The maximum errors for different time steps are shown in the following plot:
+
+![Maximum errors with moving coordinate system as a function of time step](/pics/rk-moving-errors.png)
 
 [1]: https://jrouwe.github.io/JoltPhysics/
 [2]: https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
