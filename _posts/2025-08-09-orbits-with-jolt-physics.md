@@ -5,7 +5,7 @@ category: simulation
 image: /pics/orbit.png
 ---
 
-I want to simulate an orbiting spacecraft using the [Jolt Physics][1] engine.
+I want to simulate an orbiting spacecraft using the [Jolt Physics][1] engine (see [sfsim homepage][9] for details).
 The Jolt Physics engine solves difficult problems such as gyroscopic forces, collision detection with linear casting, and special solutions for wheeled vehicles with suspension.
 
 The integration method of the Jolt Physics engine is the [semi-implicit Euler method][2].
@@ -184,3 +184,4 @@ The maximum errors for different time steps are shown in the following plot:
 [6]: https://github.com/jrouwe/JoltPhysics/issues/1721
 [7]: https://github.com/jrouwe/JoltPhysics/discussions/1638
 [8]: https://jrouwe.github.io/JoltPhysics/#space-simulations
+[9]: https://wedesoft.github.io/sfsim/
