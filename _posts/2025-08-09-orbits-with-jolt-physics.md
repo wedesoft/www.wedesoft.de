@@ -13,15 +13,15 @@ The following formula shows how speed **v** and position **x** are integrated fo
 
 {% latex usepackages=amsmath %}
 \begin{align*}
-\mathbf{v}_{n+1} &= \mathbf{v}_n + \Delta t \mathbf{a}_n\\
-\mathbf{x}_{n+1} &= \mathbf{x}_n + \Delta t \mathbf{v}_{n+1}
+\mathbf{v}_{n+1} &= \mathbf{v}_n + \Delta t \, \mathbf{a}_n\\
+\mathbf{x}_{n+1} &= \mathbf{x}_n + \Delta t \, \mathbf{v}_{n+1}
 \end{align*}
 {% endlatex %}
 
 The [gravitational acceleration by a planet][3] is given by:
 
 {% latex usepackages=amsmath %}
-$\mathbf{a}_n = -\cfrac{G\,M}{|\mathbf{x}_n|^3} \mathbf{x}_n$
+$\mathbf{a}_n = -\cfrac{G\,M}{|\mathbf{x}_n|^3} \, \mathbf{x}_n$
 {% endlatex %}
 
 To test orbiting, one can set the initial conditions of the spacecraft to a [perfect circular orbit][4]:
@@ -52,7 +52,33 @@ The following plot shows that for increasing time steps, the maximum error grows
 For time lapse simulation with a time step of 16 seconds, the errors will exceed 50 km.
 
 A possible solution is to use Runge Kutta 4th order integration instead of symplectic Euler.
-The 4th order Runge Kutta method can be implemented using a state vector consisting of position and speed.
+The 4th order Runge Kutta method can be implemented using a state vector consisting of position and speed:
+
+{% latex %}
+$\mathbf{y} = (x_1, x_2, x_3, v_1, v_2, v_3)^\top$
+{% endlatex %}
+
+The derivative of the state vector consists of speed and gravitational acceleration:
+
+{% latex usepackages=amsmath %}
+\begin{align*}
+\mathbf{a}(\mathbf{x}) &= -\cfrac{G\,M}{|\mathbf{x}|^3} \, \mathbf{x}\\
+\mathbf{f}(t, \mathbf{y}) &= (v_1, v_2, v_3, a_1, a_2, a_3)^\top
+\end{align*}
+{% endlatex %}
+
+The Runge Kutta 4th order integration method is as follows:
+
+{% latex usepackages=amsmath %}
+\begin{align*}
+\mathbf{y}_{n+1} &= \mathbf{y}_n + \cfrac{\Delta t}{6}\,(\mathbf{k}_1 + 2\,\mathbf{k}_2 + 2\,\mathbf{k}_3 + \mathbf{k}_4)\\
+\mathbf{k}_1 &= \mathbf{f}(t_n, \mathbf{y}_n)\\
+\mathbf{k}_2 &= \mathbf{f}(t_n + \cfrac{\Delta t}{2}, \mathbf{y}_n + \cfrac{\Delta t}{2}\,\mathbf{k}_1)\\
+\mathbf{k}_3 &= \mathbf{f}(t_n + \cfrac{\Delta t}{2}, \mathbf{y}_n + \cfrac{\Delta t}{2}\,\mathbf{k}_2)\\
+\mathbf{k}_4 &= \mathbf{f}(t_n + \Delta t, \mathbf{y}_n + \Delta t\,\mathbf{k}_3)
+\end{align*}
+{% endlatex %}
+
 
 The Runge Kutta method can be implemented in Clojure as follows:
 {% highlight clojure %}
