@@ -111,9 +111,18 @@ The following code can be used to test the implementation:
 
 The Jolt Physics library allows to apply impulses to the spacecraft.
 The idea is to use Runge Kutta 4th order integration to get an accurate estimate of the speed and position of the spacecraft after the next time step.
-One can then apply an impulse before running an Euler step so that the position after the Euler step matches the Runge Kutta estimate.
+One can apply an impulse before running an Euler step so that the position after the Euler step matches the Runge Kutta estimate.
 A second impulse then is used after the Euler time step to also make the speed match the Runge Kutta estimate.
-The following code shows the implementation of the matching scheme in Clojure:
+Given the initial state **(x(n), v(n))** and the desired next state **(x(n+1), v(n+1))** (obtained from Runge Kutta) the formulas for the two impulses are as follows:
+
+{% latex usepackages=amsmath %}
+\begin{align*}
+\Delta\mathbf{i}_{n,0} &= m \, \Delta\mathbf{v}_{n,0} = \cfrac{m}{\Delta t}\,(\mathbf{x}_{n+1} - \mathbf{x}_n - \Delta t\,\mathbf{v}_n)\\
+\Delta\mathbf{i}_{n,1} &= m \, \Delta\mathbf{v}_{n,1} = m \, (\mathbf{v}_{n+1} - \mathbf{v}_n - \Delta\mathbf{v}_{n,0})
+\end{align*}
+{% endlatex %}
+
+The following code shows the implementation of the matching scheme using two speed changes in Clojure:
 
 {% highlight clojure %}
 (defn matching-scheme
