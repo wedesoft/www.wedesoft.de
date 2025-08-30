@@ -19,9 +19,12 @@ However I kept getting the following error when trying to upload a sketch to the
 Initially I thought it was an issue with the QinHeng Electronics CH340 serial converter driver software.
 After exchanging a few emails with [keyestudio support][2] however I was pointed out that the board type of my smart home version was not "Arduino Uno".
 The box of the control board says "Keyestudio Control Board for ESP-32" and I had to [install version 3.1.3 of the esp32 board software][3] for being able to program the board.
+I.e. the Keyestudio IoT Smart Home Kit for ESP32 is not to be confused with the Keyestudio Smart Home Kit for Arduino.
+
 The documentation for the Keyestudio smart home using ESP-32 is [here][1].
 Also the correct version of the [smart home sketches are here][4].
-I.e. the Keyestudio IoT Smart Home Kit for ESP32 is not to be confused with the Keyestudio Smart Home Kit for Arduino.
+Finally you can find many sample projects in the [keyestudio blog][5].
+Note that in some cases you have to adapt the io pin numbers using the smart home documentation.
 
 Many thanks to Keyestudio support for helping me to get it working.
 
@@ -29,3 +32,4 @@ Many thanks to Keyestudio support for helping me to get it working.
 [2]: mailto:service@keyestudio.com
 [3]: https://docs.keyestudio.com/projects/KS5009/en/latest/docs/Arduino/arduino.html#add-the-esp32-environment-add-version-3-1-0
 [4]: https://docs.keyestudio.com/projects/KS5009/en/latest/docs/Arduino/arduino.html#resource-compression-package
+[5]: https://www.keyestudio.com/blog/
