@@ -12,7 +12,7 @@ title: Contact
 * Zotero: [wedesoft](https://www.zotero.org/wedesoft/items)
 * Github: [wedesoft](https://github.com/wedesoft/)
 * Gitlab: [wedesoft](https://gitlab.com/wedesoft/)
-* Tip jar: [wedesoft@getalby.com](https://getalby.com/wedesoft)
+* Tip jar: [paltrypiano05@walletofsatoshi.com](lightning:paltrypiano05@walletofsatoshi.com)
 * GnuPG: [371E 6054 E5F8 3973 0A3C  DFF7 6FE2 C4A3 2E85 CAEF](../gnupg-wedekind.asc)
 
 ![](../pics/qrcode.png)
