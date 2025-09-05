@@ -160,7 +160,7 @@ One can then for example define the function *fbm\_noise* using octaves of the b
 
 ## Planet rendering
 
-{% youtube "https://www.youtube.com/watch?v=qQ0EueGDPrI" %}
+{% youtube "https://www.youtube.com/watch?v=Ce3oWQflYOY" %}
 
 To render the planet, [NASA Bluemarble][25] data, [NASA Blackmarble][26] data, and [NASA Elevation][27] data was used.
 The images were converted to a multi resolution pyramid of map tiles.
