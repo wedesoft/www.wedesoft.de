@@ -7,7 +7,7 @@ image: /pics/sfsim.jpg
 
 {% youtube "https://www.youtube.com/watch?v=38FGT7SWVh0" %}
 
-In 2017 discovered the free of charge [Orbiter 2016][16] space flight simulator which was proprietary at the time and it inspired me to develop a space flight simulator myself.
+In 2017 I discovered the free of charge [Orbiter 2016][16] space flight simulator which was proprietary at the time and it inspired me to develop a space flight simulator myself.
 I prototyped some rigid body physics in C and later in [GNU Guile][17] and also prototyped loading and rendering of Wavefront OBJ files.
 I used GNU Guile (a Scheme implementation) because it has a good native interface and of course it has hygienic macros.
 Eventually I got interested in Clojure because unlike GNU Guile it has multi-methods as well as fast hash maps and vectors.
@@ -95,7 +95,7 @@ Integration over a ray in 3D space (using fastmath vectors) was implemented as f
 
 Precomputing the atmospheric tables takes several hours even though [pmap][23] was used.
 When sampling the multi-dimensional functions, *pmap* was used as a top-level loop and *map* was used for interior loops.
-Using [java.nio.ByteBuffer][21] the floating point values were converted to a byte array and then written to disk using a [clojure.java.io/output-stream][22]
+Using [java.nio.ByteBuffer][21] the floating point values were converted to a byte array and then written to disk using a [clojure.java.io/output-stream][22]:
 
 {% highlight clojure %}
 (defn floats->bytes
@@ -123,7 +123,7 @@ Using [java.nio.ByteBuffer][21] the floating point values were converted to a by
 When launching the game, the lookup tables get loaded and copied into OpenGL textures.
 Shader functions are used to lookup and interpolate values from the tables.
 When rendering the planet surface or the space craft, the atmosphere essentially gets superimposed using ray tracing.
-After rendering the planet, a background quad is rendered to display the part of the atmosphere which appears above the horizon.
+After rendering the planet, a background quad is rendered to display the remaining part of the atmosphere above the horizon.
 
 ## Templating OpenGL shaders
 
@@ -155,7 +155,7 @@ One can then for example define the function *fbm\_noise* using octaves of the b
 
 ; ...
 
-(noise-octaves "fbm_noise" "noise" [0.57 0.28 0.15])
+(def fbm-noise-shader (noise-octaves "fbm_noise" "noise" [0.57 0.28 0.15]))
 {% endhighlight %}
 
 ## Planet rendering
@@ -180,11 +180,11 @@ For each tile, the following files were generated:
 * A normal map
 
 Altogether 655350 files were generated.
-Because the Steam content builder does not support a large number of files, each row of tile data was aggregated into a tar file.
+Because the Steam ContentBuilder does not support a large number of files, each row of tile data was aggregated into a tar file.
 The *Apache Commons Compress* library allows you to open a tar file to get a list of entries and then perform random access on the contents of the tar file.
 A Clojure LRU cache was used to maintain a cache of open tar files for improved performance.
 
-At run time, a future is created which returns an updated tile tree, a list of tiles to drop, and a path list of the tiles to load into OpenGL.
+At run time, a future is created, which returns an updated tile tree, a list of tiles to drop, and a path list of the tiles to load into OpenGL.
 When the future is realized, the main thread deletes the OpenGL textures from the drop list, and then uses the path list to get the new loaded images from the tile tree, load them into OpenGL textures, and create an updated tile tree with the new OpenGL textures added.
 The following functions to manipulate quad trees were implemented to realize this:
 
@@ -224,11 +224,12 @@ The astronomy code for getting the position and orientation of planets was imple
 The Python library in turn is based on the [SPICE][29] toolkit of the NASA JPL.
 The JPL basically provides sequences of [Chebyshev polynomials][30] to interpolate positions of Moon and planets as well as the orientation of the Moon as binary files.
 Reference coordinate systems and orientations of other bodies are provided in text files which consist of human and machine readable sections.
+The binary files were parsed using *Gloss* (see [Wiki][32] for some examples) and the text files using *Instaparse*.
 
 ### Jolt bindings
 
 The required Jolt functions for wheeled vehicle dynamics and collisions with meshes were wrapped in C functions and compiled into a shared library.
-The *Coffi* Clojure library (which is a wrapper for Java's Foreign Function & Memory API) was used to make the C functions and data types usable in Clojure.
+The *Coffi* Clojure library (which is a wrapper for Java's new Foreign Function & Memory API) was used to make the C functions and data types usable in Clojure.
 
 For example the following code implements a call to the C function *add\_force*:
 
@@ -238,7 +239,8 @@ For example the following code implements a call to the C function *add\_force*:
   add_force [::mem/int ::vec3] ::mem/void)
 {% endhighlight %}
 
-Here `::vec3` refers to a custom composite type defined using basic types.
+Here *::vec3* refers to a custom composite type defined using basic types.
+The memory layout, serialisation, and deserialisation for *::vec3* are defined as follows:
 
 {% highlight clojure %}
 (def vec3-struct
@@ -267,14 +269,13 @@ Here `::vec3` refers to a custom composite type defined using basic types.
 ### Performance
 
 The *clj-async-profiler* was used to create flame graphs visualising the performance of the game.
-In order to get reflection warnings for Java calls without sufficient type declarations, *unchecked-math* was used.
+In order to get reflection warnings for Java calls without sufficient type declarations, *\*unchecked-math\** was set to *:warn-on-boxed*.
 {% highlight clojure %}
 (set! *unchecked-math* :warn-on-boxed)
 {% endhighlight %}
 
-Furthermore to discover missing declarations of numerical types, *warn-on-reflection* was used.
+Furthermore to discover missing declarations of numerical types, *\*warn-on-reflection\** was set to *true*.
 {% highlight clojure %}
-(set! *unchecked-math* :warn-on-boxed)
 (set! *warn-on-reflection* true)
 {% endhighlight %}
 
@@ -290,9 +291,6 @@ The following section in *deps.edn* ensures that the ZGC garbage collector is us
 {% endhighlight %}
 
 The option to use ZGC is also specified in the Packr JSON file used to deploy the application.
-
-* Source code link, wishlist
-* input code uses multimethods to dispatch events to methods of an input handler (protocol), a hash map is used to map keys, buttons, and axes to keywords which are then used to dispatch to code for making state changes (atom referencing a hash map)
 
 ### Building the project
 
@@ -347,7 +345,7 @@ In order to distribute the game on Steam, three depots were created:
 * a Linux depot with the Linux executable and Uberjar including LWJGL's Linux native bindings
 * and a Windows depot with the Windows executable and an Uberjar including LWJGL's Windows native bindings
 
-When updating a depot, the Steam ContentBuilder command line tool creates and uploads a patch in order to preserve storage space.
+When updating a depot, the Steam ContentBuilder command line tool creates and uploads a patch in order to preserve storage space and bandwidth.
 
 ## Future work
 
@@ -418,3 +416,4 @@ Enjoy!
 [29]: https://naif.jpl.nasa.gov/naif/index.html
 [30]: https://en.wikipedia.org/wiki/Chebyshev_polynomials
 [31]: https://clojure.org/guides/tools_build
+[32]: https://github.com/clj-commons/gloss/wiki/Introduction
