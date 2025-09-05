@@ -358,8 +358,8 @@ Although the hard parts are mostly done, there are still several things to do:
 
 It would also be interesting to make the game modable in a safe way (maybe evaluating Clojure files in a sandboxed environment?).
 
-You can find the source code on Github: [github.com/wedesoft/sfsim](https://github.com/wedesoft/sfsim).
-Currently there is only a playtest build, but if you want to get notified, when the game gets released, you can wishlist it here: [store.steampowered.com/app/3687560/sfsim/](https://store.steampowered.com/app/3687560/sfsim/).
+You can find the [source code on Github](https://github.com/wedesoft/sfsim).
+Currently there is only a playtest build, but if you want to get notified, when the game gets released, you can [wishlist it here](https://store.steampowered.com/app/3687560/sfsim/).
 
 Anyway, let me know any comments and suggestions.
 
