@@ -73,6 +73,8 @@ In order to manage the different dependencies for Microsoft Windows, a separate 
 
 ## Atmosphere rendering
 
+{% youtube "https://www.youtube.com/watch?v=q9aWd_14qhA" %}
+
 For the atmosphere, [Bruneton's precomputed atmospheric scattering][20] was used.
 The implementation uses a 2D transmittance table, a 2D surface scattering table, a 4D Rayleigh scattering, and a 4D Mie scattering table.
 The tables are computed using several iterations of numerical integration.
@@ -157,6 +159,8 @@ One can then for example define the function *fbm\_noise* using octaves of the b
 {% endhighlight %}
 
 ## Planet rendering
+
+{% youtube "https://www.youtube.com/watch?v=qQ0EueGDPrI" %}
 
 To render the planet, [NASA Bluemarble][25] data, [NASA Blackmarble][26] data, and [NASA Elevation][27] data was used.
 The images were converted to a multi resolution pyramid of map tiles.
