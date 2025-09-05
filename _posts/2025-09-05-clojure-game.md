@@ -7,7 +7,7 @@ image: /pics/sfsim.jpg
 
 {% youtube "https://www.youtube.com/watch?v=38FGT7SWVh0" %}
 
-In 2017 discovered the free of charge [Orbiter 2016][16] space flight simulator which was proprietary at the time and it eventually inspired me to develop a space flight simulator myself.
+In 2017 discovered the free of charge [Orbiter 2016][16] space flight simulator which was proprietary at the time and it inspired me to develop a space flight simulator myself.
 I prototyped some rigid body physics in C and later in [GNU Guile][17] and also prototyped loading and rendering of Wavefront OBJ files.
 I used GNU Guile (a Scheme implementation) because it has a good native interface and of course it has hygienic macros.
 Eventually I got interested in Clojure because unlike GNU Guile it has multi-methods as well as fast hash maps and vectors.
@@ -15,12 +15,61 @@ I finally decided to develop the game for real in Clojure.
 I have been developing a space flight simulator in Clojure for almost 5 years now.
 While using Clojure I have come to appreciate the immutable values and safe parallelism using atoms, agents, and refs.
 
-In the beginning I decided to work on the hard parts first which for me were 3D rendering of a planet, an atmosphere, shadows, and volumetric clouds.
-I read the [OpenGL Superbible][19] to get an understanding on what functionality OpenGL implementations provide.
+In the beginning I decided to work on the hard parts first, which for me were 3D rendering of a planet, an atmosphere, shadows, and volumetric clouds.
+I read the [OpenGL Superbible][19] to get an understanding on what functionality OpenGL provides.
 When Orbiter was eventually open sourced and released unter MIT license [here][18], I inspected the source code and discovered that about 90% of the code is graphics-related.
+So starting with the graphics problems was not a bad decision.
 
+## Atmosphere rendering
 
-* Bruneton paper using atmospheric lookup tables, render background quad (essentially ray tracing)
+For the atmosphere, [Bruneton's precomputed atmospheric scattering][20] was used.
+The implementation uses a 2D transmittance table, a 2D surface scattering table, a 4D Rayleigh scattering, and a 4D Mie scattering table.
+The tables are computed using several iterations of numerical integration.
+Higher order functions for integration over a sphere and over a line segment were implemented in Clojure.
+Integration over a ray in 3D space (using fastmath vectors) was implemented as follows for example:
+
+{% highlight clojure %}
+(defn integral-ray
+  "Integrate given function over a ray in 3D space"
+  {:malli/schema [:=> [:cat ray N :double [:=> [:cat [:vector :double]] :some]] :some]}
+  [{::keys [origin direction]} steps distance fun]
+  (let [stepsize      (/ distance steps)
+        samples       (mapv #(* (+ 0.5 %) stepsize) (range steps))
+        interpolate   (fn interpolate [s] (add origin (mult direction s)))
+        direction-len (mag direction)]
+    (reduce add (mapv #(-> % interpolate fun (mult (* stepsize direction-len))) samples))))
+{% endhighlight %}
+
+Precomputing the atmospheric tables takes several hours even though [pmap][23] was used.
+When sampling the multi-dimensional functions, *pmap* was used as a top-level loop and *map* was used for interior loops.
+Using [java.nio.ByteBuffer][21] the floating point values were converted to a byte array and then written to disk using a [clojure.java.io/output-stream][22]
+
+{% highlight clojure %}
+(defn floats->bytes
+  "Convert float array to byte buffer"
+  [^floats float-data]
+  (let [n           (count float-data)
+        byte-buffer (.order (ByteBuffer/allocate (* n 4)) ByteOrder/LITTLE_ENDIAN)]
+    (.put (.asFloatBuffer byte-buffer) float-data)
+    (.array byte-buffer)))
+
+(defn spit-bytes
+  "Write bytes to a file"
+  {:malli/schema [:=> [:cat non-empty-string bytes?] :nil]}
+  [^String file-name ^bytes byte-data]
+  (with-open [out (io/output-stream file-name)]
+    (.write out byte-data)))
+
+(defn spit-floats
+  "Write floating point numbers to a file"
+  {:malli/schema [:=> [:cat non-empty-string seqable?] :nil]}
+  [^String file-name ^floats float-data]
+  (spit-bytes file-name (floats->bytes float-data)))
+{% endhighlight %}
+
+When launching the game, the lookup tables get loaded and copied into OpenGL textures.
+Shader functions are used to lookup and interpolate values from the tables.
+
 * generate blue noise, worley noise, perlin noise (spit-floats) use pfor and generate flat vector with 2D or 3D noise data
 * Use templating language to make flexible shaders, nested lists of shaders are used to specify dependencies and build shader programs
 * astronomy from Skyfield
@@ -35,6 +84,17 @@ When Orbiter was eventually open sourced and released unter MIT license [here][1
 * Use Assimp to read glTF model with animations into a nested data structure
 * physics uses multi methods to map from source to target coordinate system
 * Steam does not like insane number of files, so map tiles are stored in tar files and random accessed using an lru cache of opened tar files
+* Flame graph
+* Unboxed math
+* Warn on reflection
+* Cross platform (where OpenGL is supported)
+* Using packet
+* Can include project in build.clj
+* xvfb-run to test shaders
+* Steam depots and diffs
+* Vim-slime
+* Midje
+* Source code link, wishlist
 
 * [Clojure][1] the programming languagte
 * [LWJGL][15] provides Java wrappers for various libraries
@@ -77,3 +137,7 @@ When Orbiter was eventually open sourced and released unter MIT license [here][1
 [17]: https://www.gnu.org/software/guile/
 [18]: https://github.com/orbitersim/orbiter
 [19]: https://www.informit.com/store/opengl-superbible-comprehensive-tutorial-and-reference-9780672337475
+[20]: https://ebruneton.github.io/precomputed_atmospheric_scattering/
+[21]: https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html
+[22]: https://clojuredocs.org/clojure.java.io/output-stream
+[23]: https://clojuredocs.org/clojure.core/pmap
