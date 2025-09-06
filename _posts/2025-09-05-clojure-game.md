@@ -269,14 +269,14 @@ The memory layout, serialisation, and deserialisation for *::vec3* are defined a
 ### Performance
 
 The *clj-async-profiler* was used to create flame graphs visualising the performance of the game.
-In order to get reflection warnings for Java calls without sufficient type declarations, *\*unchecked-math\** was set to *:warn-on-boxed*.
-{% highlight clojure %}
-(set! *unchecked-math* :warn-on-boxed)
-{% endhighlight %}
-
-Furthermore to discover missing declarations of numerical types, *\*warn-on-reflection\** was set to *true*.
+In order to get reflection warnings for Java calls without sufficient type declarations, *\*warn-on-reflection\** was set to *true*.
 {% highlight clojure %}
 (set! *warn-on-reflection* true)
+{% endhighlight %}
+
+Furthermore to discover missing declarations of numerical types, *\*unchecked-math\** was set to *:warn-on-boxed*.
+{% highlight clojure %}
+(set! *unchecked-math* :warn-on-boxed)
 {% endhighlight %}
 
 To reduce garbage collector pauses, the ZGC low-latency garbage collector for the JVM was used.
