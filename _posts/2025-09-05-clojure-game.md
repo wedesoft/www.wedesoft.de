@@ -44,6 +44,7 @@ The software libraries run on both GNU/Linux and Microsoft Windows.
 * [Immuconf][3] to load the configuration file
 * [Progrock][7] a progress bar for long running builds
 * [Claypoole][8] to implement parallel for loops
+* [Midje][33] for test-driven development
 * [tools.build][31] to build the project
 * [clj-async-profiler][24] Clojure profiler creating flame graphs
 * [slf4j-timbre][4] Java logging implementation for Clojure
@@ -423,3 +424,4 @@ Enjoy!
 [30]: https://en.wikipedia.org/wiki/Chebyshev_polynomials
 [31]: https://clojure.org/guides/tools_build
 [32]: https://github.com/clj-commons/gloss/wiki/Introduction
+[33]: https://github.com/marick/Midje
