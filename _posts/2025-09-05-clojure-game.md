@@ -371,6 +371,12 @@ Anyway, let me know any comments and suggestions.
 
 Enjoy!
 
+
+## Updates
+
+* Submitted for discussion to Reddit [here](https://www.reddit.com/r/Clojure/comments/1n9j5d6/developing_a_space_flight_simulator_in_clojure/)
+* See HackerNews discussion of this project [here](https://news.ycombinator.com/item?id=45145794)
+
 ## Related blog posts
 
 * [Flight dynamics model for simulating Venturestar style spacecraft](https://www.wedesoft.de/simulation/2025/06/06/flight-model-physics-venturestar/)
