@@ -10,7 +10,7 @@ image: /pics/sfsim.jpg
 In 2017 I discovered the free of charge [Orbiter 2016][16] space flight simulator which was proprietary at the time and it inspired me to develop a space flight simulator myself.
 I prototyped some rigid body physics in C and later in [GNU Guile][17] and also prototyped loading and rendering of Wavefront OBJ files.
 I used GNU Guile (a Scheme implementation) because it has a good native interface and of course it has hygienic macros.
-Eventually I got interested in Clojure because unlike GNU Guile it has multi-methods as well as fast hash maps and vectors.
+Eventually I got interested in Clojure because it has more generic multi-methods as well as fast hash maps and vectors.
 I finally decided to develop the game for real in Clojure.
 I have been developing a space flight simulator in Clojure for almost 5 years now.
 While using Clojure I have come to appreciate the immutable values and safe parallelism using atoms, agents, and refs.
