@@ -107,6 +107,21 @@ Enjoy!
 * The BIOS supports [Flexicharger][30] which lets you set charge limits to extend battery life
 * You can also set the keyboard backlight color using [webketje/tuxedo-backlight-control][31]
 
+You can now use the following content for */etc/apt/sources.list.d/tuxedo.sources*:
+{% highlight text %}
+Types: deb
+URIs: https://deb.tuxedocomputers.com/debian
+Suites: trixie
+Components: main
+Signed-By: /usr/share/keyrings/tuxedo-archive-keyring.gpg
+{% endhighlight %}
+
+You can install the keyring as follows:
+{% highlight shell %}
+wget https://deb.tuxedocomputers.com/ubuntu/pool/main/t/tuxedo-archive-keyring/tuxedo-archive-keyring_2022.04.01~tux_all.deb
+sudo dpkg -i tuxedo-archive-keyring_2022.04.01~tux_all.deb
+{% endhighlight %}
+
 [1]: https://www.tuxedocomputers.com/en
 [2]: https://www.tuxedocomputers.com/de
 [3]: https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen1.tuxedo
