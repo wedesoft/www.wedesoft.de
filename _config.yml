@@ -38,3 +38,8 @@ liquid_latex:
 
 feed:
   path: atom.xml
+
+exclude:
+  - lftp.sh
+  - build.sh
+  - serve.sh
