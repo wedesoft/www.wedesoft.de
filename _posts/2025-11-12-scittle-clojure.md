@@ -19,7 +19,7 @@ Here is an example evaluating the content of an HTML textarea:
   (let [code (.-value (js/document.getElementById "code"))
         output-elem (js/document.getElementById "output")]
     (try
-      (let [result (.eval_string js/scittle.core code)]
+      (let [result (js/scittle.core.eval_string code)]
         (set! (.-textContent output-elem) (str result)))
       (catch :default e
         (set! (.-textContent output-elem)
@@ -48,7 +48,7 @@ Here is an example evaluating the content of an HTML textarea:
   (let [code (.-value (js/document.getElementById "code"))
         output-elem (js/document.getElementById "output")]
     (try
-      (let [result (.eval_string js/scittle.core code)]
+      (let [result (js/scittle.core.eval_string code)]
         (set! (.-textContent output-elem) (str result)))
       (catch :default e
         (set! (.-textContent output-elem)
