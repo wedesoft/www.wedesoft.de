@@ -58,13 +58,12 @@ Here is an example evaluating the content of an HTML textarea:
 (set! (.-run js/window) run)
 </script>
 <textarea id="code" rows="30" cols="120">
-(defn fib
-  []
-  (map first
-    (iterate
-      (fn [[a b]] [b (+ a b)]) [0 1])))
+(defn primes [i p]
+  (if (some #(zero? (mod i %)) p)
+    (recur (inc i) p)
+    (cons i (lazy-seq (primes (inc i) (conj p i))))))
 
-(take 10 (fib))
+(take 100 (primes 2 []))
 </textarea>
 <br />
 <button id="run-button" onclick="run()">Run</button>
