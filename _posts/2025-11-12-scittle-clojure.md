@@ -27,7 +27,7 @@ Here is an example evaluating the content of an HTML textarea:
 
 (set! (.-run js/window) run)
 </script>
-<textarea id="code" rows="30" cols="120">
+<textarea id="code" rows="20" style="width:100%;">
 (defn fib
   []
   (map first
@@ -57,7 +57,7 @@ Here is an example evaluating the content of an HTML textarea:
 
 (set! (.-run js/window) run)
 </script>
-<textarea id="code" rows="30" cols="120">
+<textarea id="code" rows="20" style="width:100%;">
 (defn primes [i p]
   (if (some #(zero? (mod i %)) p)
     (recur (inc i) p)
