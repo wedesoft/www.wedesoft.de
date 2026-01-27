@@ -842,7 +842,7 @@ Note that we need to create an invisible window to get an OpenGL context, even t
 
 ### Compiling and linking shader programs
 
-The following method is used compile a shader program.
+The following method is used to compile a shader.
 
 {% highlight clojure %}
 (defn make-shader [source shader-type]
@@ -854,7 +854,7 @@ The following method is used compile a shader program.
     shader))
 {% endhighlight %}
 
-The different shaders are then linked to become a shader program using the following method.
+The different shaders are then linked to become a program using the following method.
 
 {% highlight clojure %}
 (defn make-program [& shaders]
@@ -978,7 +978,7 @@ This method sets up rendering using a specified texture as a framebuffer and the
        (GL11/glBindTexture GL11/GL_TEXTURE_2D ~texture)
        (GL32/glFramebufferTexture GL30/GL_FRAMEBUFFER GL30/GL_COLOR_ATTACHMENT0
                                   ~texture 0)
-       (GL20/glDrawBuffers (volumetric-clouds.main/make-int-buffer
+       (GL20/glDrawBuffers (make-int-buffer
                              (int-array [GL30/GL_COLOR_ATTACHMENT0])))
        (GL11/glViewport 0 0 ~width ~height)
        ~@body
@@ -1016,10 +1016,10 @@ We now have all definitions ready to implement rendering of an image.
 {% highlight clojure %}
 (defmacro render-array
   [width height & body]
-  `(let [texture# (volumetric-clouds.main/make-texture-2d ~width ~height)]
+  `(let [texture# (make-texture-2d ~width ~height)]
      (try
-       (volumetric-clouds.main/framebuffer-render texture# ~width ~height ~@body)
-       (volumetric-clouds.main/read-texture-2d texture# ~width ~height)
+       (framebuffer-render texture# ~width ~height ~@body)
+       (read-texture-2d texture# ~width ~height)
        (finally
          (GL11/glDeleteTextures texture#)))))
 {% endhighlight %}
