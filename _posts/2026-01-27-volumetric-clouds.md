@@ -52,7 +52,7 @@ We are going to import the following methods and namespaces:
         '[org.lwjgl.opengl GL GL11 GL12 GL13 GL15 GL20 GL30 GL32 GL42])
 {% endhighlight %}
 
-[1]: https://clojurecivitas.github.io/volumetric_clouds/main.html
+[1]: https://clojurecivitas.org/volumetric_clouds/main.html
 
 ## Worley noise
 

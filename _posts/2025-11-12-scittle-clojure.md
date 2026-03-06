@@ -69,4 +69,4 @@ Here is an example evaluating the content of an HTML textarea:
 <pre id="output"></pre>
 
 [1]: https://github.com/babashka/scittle
-[2]: https://clojurecivitas.github.io/scittle/presentations/browser_native_slides.html
+[2]: https://clojurecivitas.org/scittle/presentations/browser_native_slides.html

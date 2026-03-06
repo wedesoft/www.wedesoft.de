@@ -1162,4 +1162,4 @@ Note that in practise you will
 
 Thanks to [Timothy Pratley](https://timothypratley.blogspot.com/p/httpswww.html) for helping getting this post online.
 
-[1]: https://clojurecivitas.github.io/opengl_visualization/main.html
+[1]: https://clojurecivitas.org/opengl_visualization/main.html
