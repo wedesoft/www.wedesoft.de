@@ -322,7 +322,12 @@ Using the information, the curves for a full range of angles and speeds need to 
 
 Feel free to leave a comment or suggestion below.
 
+## Updates
+
+* Found an interesting paper: [Dominic Dirkx, Erwin Mooij: Continuous Aerodynamic Modelling of Entry Shapes][5]
+
 [1]: https://aerostarsolutions.wordpress.com/wp-content/uploads/2011/10/fundmentals_of_airplane_flight_mechanics.pdf
 [2]: https://en.wikipedia.org/wiki/VentureStar
 [3]: https://wedesoft.github.io/sfsim/
 [4]: https://en.wikipedia.org/wiki/Speed_of_sound
+[5]: https://www.researchgate.net/publication/268557220_Continuous_Aerodynamic_Modelling_of_Entry_Shapes

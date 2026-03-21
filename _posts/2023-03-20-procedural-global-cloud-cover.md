@@ -98,6 +98,8 @@ Enjoy!
 
 ## Update
 
+#### Avoid texture clamping regions
+
 Another detail I forgot to mention is that the fragment shaders and the cubemap texture lookups use modified vectors to avoid performing lookups in the texture clamping regions which would lead to seams in the cloud cover.
 I.e. when converting fragment coordinates, one increases the range of the index by half a pixel on both ends:
 
@@ -130,6 +132,12 @@ The following picture illustrates the two related conversions.
 
 ![Index conversions for cubemaps](/pics/cubemap-index.png)
 
+#### Curl noise in Unity
+
+Here is a [curl flow simulation][12] implemented in Unity.
+Also see [corresponding article][13].
+
+
 [1]: https://www.reddit.com/r/proceduralgeneration/comments/1150e4f/how_can_i_generate_realistic_planetary_cloud_cover/
 [2]: https://www.reddit.com/r/proceduralgeneration/comments/118gbqq/how_to_generate_planetary_cloud_cover_using_curl/
 [3]: https://www.reddit.com/user/mr_bitshift/
@@ -141,3 +149,5 @@ The following picture illustrates the two related conversions.
 [9]: https://www.wedesoft.de/software/2022/07/01/tdd-with-opengl/
 [10]: https://smcameron.github.io/space-nerds-in-space/gaseous-giganticus-slides/slideshow.html
 [11]: https://www.reddit.com/user/smcameron/
+[12]: https://github.com/Parallel-Cascades/curl-flow-simulation
+[13]: https://parallelcascades.com/gas-giant-curl-simulation/
