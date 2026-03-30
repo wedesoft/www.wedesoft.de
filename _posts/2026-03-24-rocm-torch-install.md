@@ -6,20 +6,23 @@ category: graphics
 
 Quickly sharing my notes on how to install drivers for ROCm and Pytorch for machine learning on AMD GPUs:
 
-First [install ROCm and the AMD GPU driver][1].
-
-Then as shown in this [Reddit post][2] install triton, torch, torchvision, and torchaudio.
-Make sure to install the packages matching your ROCm version and Python version (e.g. Python 3.12 requires cp312 builds).
-You can browse the available versions at [https://repo.radeon.com/rocm/manylinux/][3].
+First [install ROCm and the AMD GPU driver][1]:
 
 {% highlight shell %}
-pip install https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0/pytorch_triton_rocm-3.4.0%2Brocm7.0.0.gitf9e5bf54-cp312-cp312
-pip install https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0/torch-2.8.0%2Brocm7.0.0.lw.git64359f59-cp312-cp312-linux_x86_64.whl
-pip install https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0/torchvision-0.24.0%2Brocm7.0.0.gitf52c4f1a-cp312-cp312-linux_x86_64.whl
-pip install https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0/torchaudio-2.8.0%2Brocm7.0.0.git6e1c7fe9-cp312-cp312-linux_x86_64.whl
+# Install ROCm
+wget https://repo.radeon.com/amdgpu-install/7.2.1/ubuntu/noble/amdgpu-install_7.2.1.70201-1_all.deb
+sudo apt install ./amdgpu-install_7.2.1.70201-1_all.deb
+# Install AMD driver
+wget https://repo.radeon.com/amdgpu-install/7.2.1/ubuntu/noble/amdgpu-install_7.2.1.70201-1_all.deb
+sudo apt install ./amdgpu-install_7.2.1.70201-1_all.deb
+sudo apt update
+sudo apt install "linux-headers-$(uname -r)"
+sudo apt install amdgpu-dkms
 {% endhighlight %}
 
-I am trying the following program to train a neural network to imitate an XOR gate.
+Then as shown in this [Reddit post][2], I installed install triton, torch, torchvision, and torchaudio from [https://repo.radeon.com/rocm/manylinux/][3].
+
+Then I tried the following program to train a neural network to imitate an XOR gate.
 
 {% highlight python %}
 import torch
@@ -37,8 +40,8 @@ Y = torch.tensor([[0], [1], [1], [0]], dtype=torch.float32).to(device)
 class XORNet(nn.Module):
     def __init__(self):
         super(XORNet, self).__init__()
-        self.fc1 = nn.Linear(2, 2)
-        self.fc2 = nn.Linear(2, 1)
+        self.fc1 = nn.Linear(2, 5)
+        self.fc2 = nn.Linear(5, 1)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
@@ -70,14 +73,42 @@ with torch.no_grad():
     print("Predictions:", predictions.round())
 {% endhighlight %}
 
-Currently I am getting the following error using Torch 2.9.1 and ROCm 7.2.0.
+However I got the following error (using Torch 2.9.1 and ROCm 7.2.0).
 
 {% highlight shell %}
 RuntimeError: CUDA error: HIPBLAS_STATUS_INVALID_VALUE when calling `hipblasLtMatmulAlgoGetHeuristic( ltHandle, computeDesc.descriptor(), Adesc.descriptor(), Bdesc.descriptor(), Cdesc.descriptor(), Cdesc.descriptor(), preference.descriptor(), 1, &heuristicResult, &returnedResult)`
 {% endhighlight %}
 
-I filed issue [github.com/ROCm/ROCm/issues/6082](https://github.com/ROCm/ROCm/issues/6082)
+Then I found AMD's information on [how to install Pytorch with ROCm support][4].
+Basically you need to install the nightly build:
+
+{% highlight shell %}
+pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm7.2
+{% endhighlight %}
+
+Now the XOR test works!
+
+{% highlight shell %}
+python3 xor.py
+# Epoch [1000/10000], Loss: 0.0342
+# Epoch [2000/10000], Loss: 0.0114
+# Epoch [3000/10000], Loss: 0.0066
+# Epoch [4000/10000], Loss: 0.0046
+# Epoch [5000/10000], Loss: 0.0035
+# Epoch [6000/10000], Loss: 0.0028
+# Epoch [7000/10000], Loss: 0.0024
+# Epoch [8000/10000], Loss: 0.0020
+# Epoch [9000/10000], Loss: 0.0018
+# Epoch [10000/10000], Loss: 0.0016
+# Predictions: tensor([[0.],
+#         [1.],
+#         [1.],
+#         [0.]], device='cuda:0')
+{% endhighlight %}
+
+Enjoy!
 
 [1]: https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html
 [2]: https://www.reddit.com/r/comfyui/comments/1njjp79/complete_rocm_70_pytorch_280_installation_guide/
 [3]: https://repo.radeon.com/rocm/manylinux/
+[4]: https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/pytorch-install.html#use-a-wheels-package
