@@ -808,33 +808,23 @@ Here for example we are sampling 3 consecutives states of the pendulum.
 If we are in state \\(s_t\\) and take an action \\(a_t\\) at timestep \\(t\\), we receive reward \\(r_t\\) and end up in state \\(s_{t+1}\\).
 The cumulative reward for state \\(s_t\\) is a finite or infinite sequence using a discount factor \\(γ<1\\):
 
-{% latex %}
-$r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots$
-{% endlatex %}
+\\(r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots\\)
 
 The critic \\(V\\) estimates the expected cumulative reward for starting from the specified state.
 
-{% latex usepackages=txfonts %}
-$V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots ]$
-{% endlatex %}
+\\(V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots ]\\)
 
 In particular, the difference between discounted rewards can be used to get an estimate for the individual reward:
 
-{% latex usepackages=amsmath,txfonts %}
-$V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t ] + \gamma V(s_{t+1})$ $\Leftrightarrow$ $\mathop{\hat{\mathbb{E}}} [ r_t ] = V(s_t) - \gamma V(s_{t+1})$
-{% endlatex %}
+\\(V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t ] + \gamma V(s_{t+1})\Leftrightarrow\mathop{\hat{\mathbb{E}}} [ r_t ] = V(s_t) - \gamma V(s_{t+1})\\)
 
 The deviation of the individual reward received in state \\(s_t\\) from the expected reward is:
 
-{% latex usepackages=amsmath,txfonts %}
-$\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)$ if not $\operatorname{done}_t$
-{% endlatex %}
+\\(\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)\mathrm{\ if\ not\ }\operatorname{done}_t\\)
 
 The special case where a time series is "done" (and the next one is started) uses 0 as the remaining expected cumulative reward.
 
-{% latex usepackages=amsmath %}
-$\delta_t = r_t - V(s_t)$ if $\operatorname{done}_{t}$
-{% endlatex %}
+\\(\delta_t = r_t - V(s_t)\mathrm{\ if\ }\operatorname{done}_{t}\\)
 
 If we have a sample set with a sequence of \\(T\\) states (\\(t=0,1,\ldots,T-1\\)), one can compute the cumulative advantage for each time step going backwards:
 
