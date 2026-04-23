@@ -828,23 +828,20 @@ The special case where a time series is "done" (and the next one is started) use
 
 If we have a sample set with a sequence of \\(T\\) states (\\(t=0,1,\ldots,T-1\\)), one can compute the cumulative advantage for each time step going backwards:
 
-{% latex usepackages=amsmath %}
-\noindent
-$\hat{A}_{T-1} = -V(s_{T-1}) + r_{T-1} + \gamma V(s_T) = \delta_{T-1}$\\
-$\hat{A}_{T-2} = -V(s_{T-2}) + r_{T-2} + \gamma r_{T-1} + \gamma^2 V(s_T) = \delta_{T-2} + \gamma \delta_{T-1}$\\
-$\vdots$\\
-$\hat{A}_0 = -V(s_0) + r_0 + \gamma r_1 + \gamma^2 r_2 + \ldots + + \gamma^{T-1} r_{T-1} + \gamma^{T} V(s_{T})$\\
-$\hphantom{\hat{A}_0} = \delta_0 + \gamma \delta_1 + \gamma^2 \delta_2 + \ldots + \gamma^{T-1} \delta_{T-1}$
-{% endlatex %}
+\\(\hat{A} _ {T-1} = -V(s_{T-1}) + r_{T-1} + \gamma V(s_T) = \delta_{T-1}\\)
+
+\\(\hat{A} _ {T-2} = -V(s_{T-2}) + r_{T-2} + \gamma r_{T-1} + \gamma^2 V(s_T) = \delta_{T-2} + \gamma \delta_{T-1}\\)
+
+\\(\vdots\\)
+
+\\(\hat{A} _ 0 = -V(s_0) + r_0 + \gamma r_1 + \gamma^2 r_2 + \ldots + + \gamma^{T-1} r_{T-1} + \gamma^{T} V(s_{T})\\)
+
+\\(\hphantom{\hat{A} _ 0} = \delta_0 + \gamma \delta_1 + \gamma^2 \delta_2 + \ldots + \gamma^{T-1} \delta_{T-1}\\)
 
 I.e. we can compute the cumulative advantages as follows:
 
-{% latex usepackages=amsmath %}
-\begin{itemize}
-\item Start with $\hat{A}_{T-1} = \delta_{T-1}$
-\item Continue with $\hat{A}_t = \delta_t + \gamma \hat{A}_{t+1}$ for $t=T-2,T-3,\ldots,0$
-\end{itemize}
-{% endlatex %}
+* Start with \\(\hat{A} _ {T-1} = \delta_{T-1}\\)
+* Continue with \\(\hat{A} _ t = \delta_t + \gamma \hat{A} _ {t+1}\\) for \\(t=T-2,T-3,\ldots,0\\)
 
 PPO uses an additional factor *λ≤1* called Generalized Advantage Estimation (GAE) which can be used to steer the training towards more immediate rewards if there are stability issues.
 See [Schulman et al.](https://arxiv.org/abs/1707.06347) for more details.
@@ -986,9 +983,8 @@ If we add the target values to the samples, we can compute the critic loss for a
 
 The core of the actor loss function relies on the action probability ratio of using the updated and the old policy (actor network output).
 The ratio is defined as
-{% latex usepackages=amsmath %}
-$r_t(\theta)=\frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\operatorname{old}}}(a_t|s_t)}$
-{% endlatex %}
+\\(r_t(\theta)=\frac{\pi_\theta(a_t\|s_t)}{\pi_{\theta_{\operatorname{old}}}(a_t\|s_t)}\\).
+
 Note that \\(r_t(\theta)\\) here refers to the probability ratio as opposed to the reward of the previous section.
 
 The sampled observations, log probabilities, and actions are combined with the actor's parameter-dependent log probabilities.
