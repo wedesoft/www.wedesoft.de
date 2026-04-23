@@ -805,14 +805,14 @@ Here for example we are sampling 3 consecutives states of the pendulum.
 
 #### Theory
 
-If we are in state *s_t* and take an action *a_t* at timestep *t*, we receive reward *r_t* and end up in state *s_{t+1}*.
-The cumulative reward for state *s_t* is a finite or infinite sequence using a discount factor *γ<1*:
+If we are in state \\(s_t\\) and take an action \\(a_t\\) at timestep \\(t\\), we receive reward \\(r_t\\) and end up in state \\(s_{t+1}\\).
+The cumulative reward for state \\(s_t\\) is a finite or infinite sequence using a discount factor \\(γ<1\\):
 
 {% latex %}
 $r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots$
 {% endlatex %}
 
-The critic *V* estimates the expected cumulative reward for starting from the specified state.
+The critic \\(V\\) estimates the expected cumulative reward for starting from the specified state.
 
 {% latex usepackages=txfonts %}
 $V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots ]$
@@ -824,7 +824,7 @@ In particular, the difference between discounted rewards can be used to get an e
 $V(s_t) = \mathop{\hat{\mathbb{E}}} [ r_t ] + \gamma V(s_{t+1})$ $\Leftrightarrow$ $\mathop{\hat{\mathbb{E}}} [ r_t ] = V(s_t) - \gamma V(s_{t+1})$
 {% endlatex %}
 
-The deviation of the individual reward received in state *s_t* from the expected reward is:
+The deviation of the individual reward received in state \\(s_t\\) from the expected reward is:
 
 {% latex usepackages=amsmath,txfonts %}
 $\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)$ if not $\operatorname{done}_t$
@@ -836,7 +836,7 @@ The special case where a time series is "done" (and the next one is started) use
 $\delta_t = r_t - V(s_t)$ if $\operatorname{done}_{t}$
 {% endlatex %}
 
-If we have a sample set with a sequence of T states (*t=0,1,...,T-1*), one can compute the cumulative advantage for each time step going backwards:
+If we have a sample set with a sequence of \\(T\\) states (\\(t=0,1,\ldots,T-1\\)), one can compute the cumulative advantage for each time step going backwards:
 
 {% latex usepackages=amsmath %}
 \noindent
@@ -861,7 +861,7 @@ See [Schulman et al.](https://arxiv.org/abs/1707.06347) for more details.
 
 #### Implementation of Deltas
 
-The code for computing the $\delta$ values follows here:
+The code for computing the \\(\delta\\) values follows here:
 {% highlight clojure %}
 (defn deltas
   "Compute difference between actual reward plus discounted estimate of next state and estimated value of current state"
@@ -889,7 +889,7 @@ If the reward is 1.0 and the critic outputs zero for both observations, the diff
 ; [1.0]
 {% endhighlight %}
 
-If the reward is 1.0 and the difference of critic outputs is also 1.0 then there is no difference between the expected and received reward (when $\gamma=1$).
+If the reward is 1.0 and the difference of critic outputs is also 1.0 then there is no difference between the expected and received reward (when \\(\gamma=1\\)).
 {% highlight clojure %}
 (defn linear-critic [observation] (first observation))
 (deltas {:observations [[4]] :next-observations [[3]] :rewards [1] :dones [false]}
@@ -999,7 +999,7 @@ The ratio is defined as
 {% latex usepackages=amsmath %}
 $r_t(\theta)=\frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\operatorname{old}}}(a_t|s_t)}$
 {% endlatex %}
-Note that *r_t(θ)* here refers to the probability ratio as opposed to the reward of the previous section.
+Note that \\(r_t(\theta)\\) here refers to the probability ratio as opposed to the reward of the previous section.
 
 The sampled observations, log probabilities, and actions are combined with the actor's parameter-dependent log probabilities.
 {% highlight clojure %}
