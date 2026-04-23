@@ -1294,20 +1294,24 @@ Here we load a pre-trained model and visualise the output of the actor.
 (py. actor load_state_dict (torch/load "src/ppo/actor.pt"))
 ; <All keys matched successfully>
 
-(let [angle-values (torch/linspace (- PI) PI 854)
-      speed-values (torch/linspace 1.0 -1.0 480)
-      grid         (torch/meshgrid speed-values angle-values :indexing "ij")
-      cos-angle    (torch/cos (last grid))
-      sin-angle    (torch/sin (last grid))
-      observations (torch/stack [(py. cos-angle ravel)
-                                 (py. sin-angle ravel)
-                                 (py. (first grid) ravel)]
-                                :axis 1)
-      actions      (without-gradient
-                     (py. (py. (py. actor deterministic_act observations)
-                               reshape 480 854) numpy))
-      actions-tensor (dtype/elemwise-cast (dtt/ensure-tensor (py/->jvm actions))
-                                          :float32)]
+(let [angle-values   (torch/linspace (- PI) PI 854)
+      speed-values   (torch/linspace 1.0 -1.0 480)
+      grid           (torch/meshgrid speed-values angle-values :indexing "ij")
+      cos-angle      (torch/cos (last grid))
+      sin-angle      (torch/sin (last grid))
+      observations   (torch/stack [(py. cos-angle ravel)
+                                   (py. sin-angle ravel)
+                                   (py. (first grid) ravel)]
+                                  :axis 1)
+      actions        (without-gradient
+                       (py. (py. (py. actor deterministic_act observations)
+                                 reshape 480 854) numpy))
+      actions-tensor (dtt/clone
+                       (dtype/elemwise-cast (dtt/ensure-tensor (py/->jvm actions))
+                                            :float32))
+      actions-trsps  (dtt/transpose actions-tensor [1 0])]
+  (dtt/mset! actions-tensor 240 (dfn/- 1.0 (actions-tensor 240)))
+  (dtt/mset! actions-trsps 427 (dfn/- 1.0 (actions-trsps 427)))
   (bufimg/tensor->image (dfn/* actions-tensor 255)))
 {% endhighlight %}
 ![Actor function output over state space](/pics/actorfunction.png)
