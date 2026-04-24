@@ -95,9 +95,11 @@ Here is a Gist from Github:
   </tbody>
 </table>
 
- {% latex %}
-$\displaystyle\int_{x=0}^\infty x^2 \mathrm{d}x$
- {% endlatex %}
+\\[
+{::nomarkdown}
+\displaystyle\int_{x=0}^\infty x^2 \mathrm{d}x
+{:/}
+\\]
 
 [1]: http://hyde.getpoole.com/
 [2]: http://getpoole.com/
