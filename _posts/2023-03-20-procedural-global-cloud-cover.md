@@ -25,9 +25,11 @@ By subtracting the projected vector from the gradient vector one obtains the tan
 
 ![Project vector onto sphere](/pics/project-vector.png)
 
-{% latex %}
-$\vec{p} = \vec{v}-\displaystyle\frac{\vec{v}^\top\vec{n}}{\vec{n}^\top\vec{n}}\vec{n}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\vec{p} = \vec{v}-\displaystyle\frac{\vec{v}^\top\vec{n}}{\vec{n}^\top\vec{n}}\vec{n}
+{:/}
+\\]
 
 The resulting vector *p* needs to be rotated around the normal *n* by 90°.
 This can be achieved by rotating the vector *p* into a TBN system, rotating by 90° around N and then transforming back.
