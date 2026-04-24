@@ -806,7 +806,7 @@ Here for example we are sampling 3 consecutives states of the pendulum.
 #### Theory
 
 If we are in state \\(s_t\\) and take an action \\(a_t\\) at timestep \\(t\\), we receive reward \\(r_t\\) and end up in state \\(s_{t+1}\\).
-The cumulative reward for state \\(s_t\\) is a finite or infinite sequence using a discount factor \\(γ<1\\):
+The cumulative reward for state \\(s_t\\) is a finite or infinite sequence using a discount factor \\(\gamma<1\\):
 
 \\[
 r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + \ldots
@@ -855,7 +855,7 @@ I.e. we can compute the cumulative advantages as follows:
 * Start with \\(\hat{A} _ {T-1} = \delta_{T-1}\\)
 * Continue with \\(\hat{A} _ t = \delta_t + \gamma \hat{A} _ {t+1}\\) for \\(t=T-2,T-3,\ldots,0\\)
 
-PPO uses an additional factor *λ≤1* called Generalized Advantage Estimation (GAE) which can be used to steer the training towards more immediate rewards if there are stability issues.
+PPO uses an additional factor \\(\lambda\le 1\\) called Generalized Advantage Estimation (GAE) which can be used to steer the training towards more immediate rewards if there are stability issues.
 See [Schulman et al.](https://arxiv.org/abs/1707.06347) for more details.
 
 #### Implementation of Deltas
