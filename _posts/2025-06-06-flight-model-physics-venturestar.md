@@ -48,65 +48,85 @@ Then one rotates by *α* (angle of attack) about the new y axis.
 ## Dynamic pressure
 
 The dynamic pressure *q* depends on air density *ρ* and speed *V*:
-{% latex usepackages=amsmath %}
-$q = \cfrac{1}{2}\,\rho\,V^2$
-{% endlatex %}
+\\[
+{::nomarkdown}
+q = \cfrac{1}{2}\,\rho\,V^2
+{:/}
+\\]
 
 Air density (and temperature) as a function of height can be obtained from [Hull's book "Fundamentals of airplane flight mechanics"][1].
 
 ## Forces
 
 Drag consists of zero-lift drag and induced drag:
-{% latex %}
-$D_{total} = D_0 + D_i$
-{% endlatex %}
+\\[
+{::nomarkdown}
+D_{total} = D_0 + D_i
+{:/}
+\\]
 
 Zero-lift drag is computed using the zero-lift drag coefficient *CD0* as well as dynamic pressure *q* and the reference area *Sref*:
-{% latex %}
-$D_0 = C_{D_0}\,q\,S_{\mathrm{ref}}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+D_0 = C_{D_0}\,q\,S_{\mathrm{ref}}
+{:/}
+\\]
 The zero-lift drag coefficient depends on the speed of the aircraft.
 
 Induced drag is determined using the lift coefficient *CL*, the Oswald factor *e*, the aspect ratio *Λ*, as well as *q* and the reference area *Sref*.
-{% latex usepackages=amsmath,txfonts %}
-$D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{\eqqcolon C_{D_i}}\,q\,S_{\mathrm{ref}}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+D_i = \underbrace{\cfrac{C_L^2}{\pi\,e\,\Lambda}}_{=: C_{D_i}}\,q\,S_{\mathrm{ref}}
+{:/}
+\\]
 The Oswald factor *e* depends on the speed of the aircraft.
 The lift coefficient depends on the angle of attack *α*.
 
 The aspect ratio *Λ* depends on wing span *b* and wing area *S*:
-{% latex usepackages=amsmath %}
-$\Lambda = \cfrac{b^2}{S}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\Lambda = \cfrac{b^2}{S}
+{:/}
+\\]
 
 The lift *L* is computed using the lift coefficient *CL*, dynamic pressure *q*, and the reference area *Sref*:
-{% latex usepackages=amsmath %}
-$L = C_L\,q\,S_{\mathrm{ref}}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+L = C_L\,q\,S_{\mathrm{ref}}
+{:/}
+\\]
 
 The side force *Y* (and corresponding coefficient) is usually not important but we will look into it <s>later</s> in a future article.
 
 ## Moments
 
 The pitching moment *M* is computed using the pitching moment coefficient *Cm*, the dynamic pressure *q*, the reference area *Sref*, and the aerodynamic chord *cbar*:
-{% latex usepackages=amsmath %}
-$M = C_m\,q\,S_{\mathrm{ref}}\,\bar{c}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+M = C_m\,q\,S_{\mathrm{ref}}\,\bar{c}
+{:/}
+\\]
 The pitching moment coefficient depends on the lift coefficient *CL*, the position of the neutral point *XN*, the centre of gravity *xref*. and the aerodynamic chord *cbar*:
-{% latex usepackages=amsmath %}
-$C_m = C_L\,\cfrac{x_{\mathrm{ref} - X_N}}{\bar{c}}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_m = C_L\,\cfrac{x_{\mathrm{ref} - X_N}}{\bar{c}}
+{:/}
+\\]
 
 The yawing moment *N* is the product of the yawing moment coefficient *Cn*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
-{% latex usepackages=amsmath %}
-$N = C_n\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+N = C_n\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}
+{:/}
+\\]
 The yawing moment coefficient depends on the side slip angle *β*.
 
 The rolling moment *L* (using the same symbol as lift for some reason) is the product of the rolling moment coefficient *Cl*, the dynamic pressure *q*, the reference area *Sref*, and half the wing span *b*:
-{% latex usepackages=amsmath %}
-$L = C_l\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+L = C_l\,q\,S_{\mathrm{ref}}\,\cfrac{b}{2}
+{:/}
+\\]
 The rolling moment coefficient depends on the angle of attack *α* and the side slip angle *β*.
 
 ## Data Sheet
@@ -162,26 +182,34 @@ V/Ma & $C_{L,\alpha}$ & $(X_N-x_{\mathrm{ref}})/\bar{c} + 0.25 $ & $e$    & $C_{
 The outlier of Clβα for V = 1.2 Ma (0.5971) should be ignored because the value was changing a lot with mesh resolution.
 
 The speed of sound as a function of temperature *T* is [according to Wikipedia][4]:
-{% latex usepackages=amsmath %}
-$c_{\mathrm{air}} \approx 331.3\,\mathrm{m/s}\,\sqrt{\cfrac{T}{273.15\,\mathrm{K}}}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+c_{\mathrm{air}} \approx 331.3\,\mathrm{m/s}\,\sqrt{\cfrac{T}{273.15\,\mathrm{K}}}
+{:/}
+\\]
 
 For small values of *α*, the lift coefficient increases linearly with *α* (where *α* is specified in radians):
-{% latex %}
-$C_L = C_{L,\alpha}\,\alpha$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_L = C_{L,\alpha}\,\alpha
+{:/}
+\\]
 
 For small values of *α* and *β*, the rolling moment coefficient increases linearly with the product of *α* and *β* (where *α* and *β* are specified in radians).
 This is a particular behaviour of delta wing configurations.
 If there is side slip, the wings generate different amounts of lift causing a significant roll moment:
-{% latex %}
-$C_l = C_{l,\beta/\alpha}\,\alpha\,\beta$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_l = C_{l,\beta/\alpha}\,\alpha\,\beta
+{:/}
+\\]
 
 For small values of *β*, the yawing moment coefficient increases linearly with *β* (where *β* is specified in radians):
-{% latex %}
-$C_n = C_{n,\beta\,\mathrm{tot}}\,\beta$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_n = C_{n,\beta\,\mathrm{tot}}\,\beta
+{:/}
+\\]
 
 The following table shows for each speed:
 * the value for *α* at which the linear relation of *CL* and *α* breaks down
@@ -208,14 +236,18 @@ V/Ma & $\alpha_{\mathrm{lin}}/\degree$ & $C_{L_{\mathrm{max}}}$ & $\alpha_{C_{L_
 {% endlatex %}
 
 Near *α=90°*, the lift and drag coefficients behave as follows:
-{% latex %}
-$C_L=C_{D_{90}}\,\cos(\alpha)$, $C_{D_0}=C_{D_{90}}\,\sin(\alpha)$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_L=C_{D_{90}}\,\cos(\alpha)\mathrm{,\ }C_{D_0}=C_{D_{90}}\,\sin(\alpha)
+{:/}
+\\]
 
 At hypersonic speeds (V/Ma=10.0), lift and induced drag coefficients behave as follows:
-{% latex %}
-$C_L=C_N\,\cos(\alpha)$, $C_{D_i}=C_N\,\sin(\alpha)$, $C_N=2\,\sin(\alpha)$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_L=C_N\,\cos(\alpha)\mathrm{,\ }C_{D_i}=C_N\,\sin(\alpha)\mathrm{,\ }C_N=2\,\sin(\alpha)
+{:/}
+\\]
 
 I.e. the coefficients are stabilising at hypersonic speeds!
 
@@ -243,33 +275,44 @@ V/Ma & $C_{Y \beta R}$ & $C_{n \beta R}$ & $C_{m \delta F}$ & $C_{l \xi A}$ & $C
 {% endlatex %}
 
 The side force coefficient for a given rudder angle *ζ* is:
-{% latex %}
-$C_Y = C_{Y \beta R}\,\zeta$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_Y = C_{Y \beta R}\,\zeta
+{:/}
+\\]
 The yawing moment coefficient for the rudder is:
-{% latex %}
-$C_n = C_{n \beta R}\,\zeta$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_n = C_{n \beta R}\,\zeta
+{:/}
+\\]
 
 The pitching moment coefficient for flaps *δF* (down is positive) is
-{% latex %}
-$C_m = C_{m \delta F}\,\delta F$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_m = C_{m \delta F}\,\delta F
+{:/}
+\\]
 
 The rolling moment coefficient for ailerons with angle *ξ* (positive: port aileron up, starboard aileron down) is:
-{% latex %}
-$C_l = C_{l \xi A}\,\xi$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_l = C_{l \xi A}\,\xi
+{:/}
+\\]
 The yawing moment coefficient is
-{% latex %}
-$C_n = C_{n \xi A}\,\xi$
-{% endlatex %}
+\\[
+{::nomarkdown}
+C_n = C_{n \xi A}\,\xi
+{:/}
+\\]
 
 ## Angular damping
 
 The formula for roll, pitch, and yaw damping moments (L, M, N) due to roll, pitch, and yaw rates (p, q, r) uses a coefficient matrix:
-{% latex usepackages=amsmath %}
-$\begin{pmatrix}
+\\[
+{::nomarkdown}
+\begin{pmatrix}
 L \\
 M \\
 N
@@ -295,8 +338,9 @@ C_{n_p} & C_{n_q} & C_{n_r}
 p\,b \\
 q\,c \\
 r\,b
-\end{pmatrix}$
-{% endlatex %}
+\end{pmatrix}
+{:/}
+\\]
 The coefficients for *V = 0 Ma* are as follows.
 Note that damping moments are negligible for higher speeds.
 {% latex usepackages=booktabs %}
