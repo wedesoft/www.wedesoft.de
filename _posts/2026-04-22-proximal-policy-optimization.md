@@ -1020,7 +1020,7 @@ L^{CPI}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\frac{\pi_\theta(a_t\|s_t)}{\pi_{
 \\]
 
 The core idea of PPO is to use clipped probability ratios for the loss function in order to increase stability, .
-The probability ratio is clipped to stay below *1+ε* for positive advantages and to stay above *1-ε* for negative advantages.
+The probability ratio is clipped to stay below \\(1+\epsilon\\) for positive advantages and to stay above \\(1-\epsilon\\) for negative advantages.
 
 \\[
 {::nomarkdown}
