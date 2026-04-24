@@ -43,11 +43,13 @@ Substituting w' = -z we get x' = fw x and y' = fh y.
 
 Setting z' = a + b z we get the following matrix equation:
 
-{% latex usepackages=amsmath %}
-$\begin{pmatrix} x^\prime \\ y^\prime \\ z^\prime \\ w^\prime \end{pmatrix} =
+\\[
+{::nomarkdown}
+\begin{pmatrix} x^\prime \\ y^\prime \\ z^\prime \\ w^\prime \end{pmatrix} =
 \begin{pmatrix} f_w & 0 & 0 & 0 \\ 0 & f_h & 0 & 0 \\ 0 & 0 & b & a \\ 0 & 0 & -1 & 0\end{pmatrix}\,
-\begin{pmatrix}x \\ y \\ z \\ 1 \end{pmatrix}$
-{% endlatex %}
+\begin{pmatrix}x \\ y \\ z \\ 1 \end{pmatrix}
+{:/}
+\\]
 
 When z = -near, we want z'/w' = 1.
 
@@ -63,15 +65,19 @@ This means b = a / far = near / (far - near).
 
 I.e. we get:
 
-{% latex %}
-$a = \frac{far \cdot near}{far - near}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+a = \frac{far \cdot near}{far - near}
+{:/}
+\\]
 
 and
 
-{% latex %}
-$b = \frac{near}{far - near}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+b = \frac{near}{far - near}
+{:/}
+\\]
 
 Finally we set fw = 1 / tan(fov / 2) where fov is the horizontal field of view angle (e.g. 60 degrees in radians).
 
