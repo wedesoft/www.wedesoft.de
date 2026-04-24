@@ -1004,9 +1004,7 @@ I.e. maximising the following objective function.
 The core idea of PPO is to use clipped probability ratios for the loss function in order to increase stability, .
 The probability ratio is clipped to stay below *1+ε* for positive advantages and to stay above *1-ε* for negative advantages.
 
-{% latex usepackages=amsmath,txfonts %}
-$L^{CLIP}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\min(r_t(\theta) \hat{A}_t, \mathop{\operatorname{clip}}(r_t(\theta), 1-\epsilon, 1+\epsilon) \hat{A}_t)]$
-{% endlatex %}
+\\(L^{CLIP}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\min(r_t (\theta) \hat{A}_t, \mathop{\operatorname{clip}}(r_t (\theta), 1-\epsilon, 1+\epsilon) \hat{A}_t)]\\)
 
 See [Schulman et al.](https://arxiv.org/abs/1707.06347) for more details.
 
