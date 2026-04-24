@@ -1014,14 +1014,18 @@ The objective is to increase the probability of actions which lead to a positive
 I.e. maximising the following objective function.
 
 \\[
-L^{CPI}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\frac{\pi _ \theta(a_t\|s_t)}{\pi _ {\theta _ {\operatorname{old}}} (a_t\|s_t)} \hat{A}_t] = \mathop{\hat{\mathbb{E}}}_t [r_t (\theta) \hat{A}_t]
+{::nomarkdown}
+L^{CPI}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\frac{\pi_\theta(a_t\|s_t)}{\pi_{\theta_{\operatorname{old}}} (a_t\|s_t)} \hat{A}_t] = \mathop{\hat{\mathbb{E}}}_t [r_t (\theta) \hat{A}_t]
+{:/}
 \\]
 
 The core idea of PPO is to use clipped probability ratios for the loss function in order to increase stability, .
 The probability ratio is clipped to stay below *1+ε* for positive advantages and to stay above *1-ε* for negative advantages.
 
 \\[
+{::nomarkdown}
 L^{CLIP}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\min(r_t (\theta) \hat{A}_t, \mathop{\operatorname{clip}}(r_t (\theta), 1-\epsilon, 1+\epsilon) \hat{A}_t)]
+{:/}
 \\]
 
 See [Schulman et al.](https://arxiv.org/abs/1707.06347) for more details.
