@@ -21,14 +21,18 @@ I.e. a contact is a colliding (and not a resting) contact if the normal speed at
 Colliding contacts have restitution, i.e. the collision is partially elastic and the two objects will separate after the collision.
 The colliding contacts and affected joints are handled using a special time step of zero duration.
 Again the inequality constraint is
-{% latex %}
-$\dot{C}=Ju+b\ge 0$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\dot{C}=Ju+b\ge 0
+{:/}
+\\]
 The linear and angular components of *J* are the same as for a resting contact.
 The correction term *b* however depends on the initial normal speed at the contact point *vn* and the restitution coefficient *ε*:
-{% latex %}
-$b = \epsilon v_n $
-{% endlatex %}
+\\[
+{::nomarkdown}
+b = \epsilon \, v_n 
+{:/}
+\\]
 
 ## Sequential Impulses for Collisions
 Again the contact and joint impulses are estimated iteratively.

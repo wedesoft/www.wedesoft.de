@@ -22,9 +22,11 @@ If two polyhedra are not intersecting, a separating plane can either be defined 
 be constructed from one edge of A and one edge of B.
 
 The distance *d* of a point *x* from the plane *P(p,n)* defined by the point *p* and the normal vector *n* is:
-{% latex %}
-d = n (x - p)
-{% endlatex %}
+\\[
+{::nomarkdown}
+d = n \, (x - p)
+{:/}
+\\]
 
 ![two polyhedra and separating plane](/pics/polyhedra.svg)
 
@@ -40,16 +42,20 @@ d = n (x - p)
 From all the planes, the one with the largest distance *d* is selected.
 If the distance is zero or negative, the two polyhedra are in contact.
 One can place a plane in the "middle" of the contact by moving it by half the distance *d*, i.e.
-{% latex %}
-$P(p+\frac{d}{2}n, n)$
-{% endlatex %}
+\\[
+{::nomarkdown}
+P(p+\frac{d}{2}n, n)
+{:/}
+\\]
 
 In the next step all points from A and B, which have a distance less than *ε* to the plane, are selected.
 Two vectors *u* and *v* orthogonal to the normal *n* and orthogonal to each other are determined.
 The points are projected onto the plane and represented using the vectors *u* and *v*:
-{% latex %}
-$((x - p)^\top u, (x - p)^\top v)$
-{% endlatex %}
+\\[
+{::nomarkdown}
+((x - p)^\top u, (x - p)^\top v)
+{:/}
+\\]
 The convex hull of the each of the two polygons is determined.
 Then the intersection of the resulting two 2D polygons is computed.
 Finally the convex hull of the intersection is taken.
