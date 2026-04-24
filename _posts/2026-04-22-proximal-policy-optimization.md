@@ -839,23 +839,15 @@ The special case where a time series is "done" (and the next one is started) use
 If we have a sample set with a sequence of \\(T\\) states (\\(t=0,1,\ldots,T-1\\)), one can compute the cumulative advantage for each time step going backwards:
 
 \\[
-\hat{A} _ {T-1} = -V(s_{T-1}) + r_{T-1} + \gamma V(s_T) = \delta_{T-1}
-\\]
-
-\\[
-\hat{A} _ {T-2} = -V(s_{T-2}) + r_{T-2} + \gamma r_{T-1} + \gamma^2 V(s_T) = \delta_{T-2} + \gamma \delta_{T-1}
-\\]
-
-\\[
-\vdots
-\\]
-
-\\[
-\hat{A} _ 0 = -V(s_0) + r_0 + \gamma r_1 + \gamma^2 r_2 + \ldots + + \gamma^{T-1} r_{T-1} + \gamma^{T} V(s_{T})
-\\]
-
-\\[
-\hphantom{\hat{A} _ 0} = \delta_0 + \gamma \delta_1 + \gamma^2 \delta_2 + \ldots + \gamma^{T-1} \delta_{T-1}
+{::nomarkdown}
+\begin{aligned}
+\hat{A} _ {T-1} & = -V(s_{T-1}) + r_{T-1} + \gamma V(s_T) = \delta_{T-1} \\
+\hat{A} _ {T-2} & = -V(s_{T-2}) + r_{T-2} + \gamma r_{T-1} + \gamma^2 V(s_T) = \delta_{T-2} + \gamma \delta_{T-1} \\
+& \vdots \\
+\hat{A} _ 0 & = -V(s_0) + r_0 + \gamma r_1 + \gamma^2 r_2 + \ldots + + \gamma^{T-1} r_{T-1} + \gamma^{T} V(s_{T}) \\
+            & = \delta_0 + \gamma \delta_1 + \gamma^2 \delta_2 + \ldots + \gamma^{T-1} \delta_{T-1}
+\end{aligned}
+{:/}
 \\]
 
 I.e. we can compute the cumulative advantages as follows:
