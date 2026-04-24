@@ -24,24 +24,30 @@ An n-dimensional simplex is the convex hull of n+1 points as shown in the figure
 
 The algorithm makes use of the fact, that the distance between two sets *A* and *B* is the distance of the Minkowski difference to the origin:
 
-{% latex usepackages=amsmath %}
-$\displaystyle\mathop{\operatorname{min}}_{\vec{a}\in A, \vec{b}\in B}||\vec{a}-\vec{b}||=\mathop{\operatorname{min}}_{\vec{x}\in M(A, B)}||\vec{x}||$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\displaystyle\mathop{\operatorname{min}}_{\vec{a}\in A, \vec{b}\in B}||\vec{a}-\vec{b}||=\mathop{\operatorname{min}}_{\vec{x}\in M(A, B)}||\vec{x}||
+{:/}
+\\]
 
 where
 
-{% latex usepackages=txfonts %}
-$M(A, B)\coloneqq\{\vec{a}-\vec{b}|\vec{a}\in A, \vec{b}\in B\}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+M(A, B):=\{\vec{a}-\vec{b}|\vec{a}\in A, \vec{b}\in B\}
+{:/}
+\\]
 
 The *GJK* algorithm iteratively updates a simplex until the closest point to the origin is found.
 
 The algorithm iterates using support points.
 Given a set *M* and a vector *d*, the support point is defined as the furthest point of *M* in direction *d*:
 
-{% latex usepackages=amsmath,txfonts %}
-$s(M,\vec{d})\coloneqq\displaystyle\mathop{\operatorname{argmax}}_{\vec{x}\in M}\vec{x}\cdot\vec{d}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+s(M,\vec{d}):=\displaystyle\mathop{\operatorname{argmax}}_{\vec{x}\in M}\vec{x}\cdot\vec{d}
+{:/}
+\\]
 
 The *GJK* algorithm detects the two closest points of *A* and *B* as follows:
 
@@ -65,9 +71,11 @@ A much more compact implementation can be obtained using a divide-and-conquer ap
 
 * Let *w<sub>k</sub>={w<sub>k0</sub>,w<sub>k1</sub>,...,w<sub>kn</sub>}*
 * Solve the least squares equation system
-{% latex usepackages=amsmath,txfonts %}
-$\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\underbrace{\begin{pmatrix}w_{k1}-w_{k0} & \cdots & w_{kn}-w_{k0}\end{pmatrix}}_{\eqqcolon\mathcal{H}}\vec{t}-\underbrace{w_{k0}}_{\eqqcolon b}||$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\underbrace{\begin{pmatrix}w_{k1}-w_{k0} & \cdots & w_{kn}-w_{k0}\end{pmatrix}}_{=:\mathcal{H}}\vec{t}-\underbrace{w_{k0}}_{=: b}||
+{:/}
+\\]
 * If all *t<sub>i</sub>>=0* and *t<sub>1</sub>+t<sub>2</sub>+...+t<sub>n</sub><=1* (or *n=0*), then *w<sub>k0</sub>+Ht* is the closest point.
 * Otherwise take the closest point of all sub-simplices with *n-1* dimensions using the approach above (*i.e.* recursion).
 
@@ -76,9 +84,11 @@ The performance is not optimal, but it makes for a much more concise implementat
 
 The least squares solution is:
 
-{% latex usepackages=amsmath %}
-$\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\mathcal{H}\vec{t}-\vec{b}||=(\mathcal{H}^\top\mathcal{H})^{-1}\mathcal{H}^\top\vec{b}$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\displaystyle\mathop{\operatorname{argmin}}_{\vec{t}}||\mathcal{H}\vec{t}-\vec{b}||=(\mathcal{H}^\top\mathcal{H})^{-1}\mathcal{H}^\top\vec{b}
+{:/}
+\\]
 
 Here follows an implementation in Scheme (GNU Guile).
 By using pairs of points from *A* and *B* instead of the Minkowski difference, one can keep track of the information required to determine the pair of closest points of *A* and *B* (instead of the closest point of *M* to the origin).
