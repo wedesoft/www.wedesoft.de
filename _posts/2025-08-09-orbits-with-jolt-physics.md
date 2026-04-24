@@ -11,27 +11,33 @@ The Jolt Physics engine solves difficult problems such as gyroscopic forces, col
 The integration method of the Jolt Physics engine is the [semi-implicit Euler method][2].
 The following formula shows how speed **v** and position **x** are integrated for each time step:
 
-{% latex usepackages=amsmath %}
+\\[
+{::nomarkdown}
 \begin{align*}
 \mathbf{v}_{n+1} &= \mathbf{v}_n + \Delta t \, \mathbf{a}_n\\
 \mathbf{x}_{n+1} &= \mathbf{x}_n + \Delta t \, \mathbf{v}_{n+1}
 \end{align*}
-{% endlatex %}
+{:/}
+\\]
 
 The [gravitational acceleration by a planet][3] is given by:
 
-{% latex usepackages=amsmath %}
-$\mathbf{a}_n = -\cfrac{G\,M}{|\mathbf{x}_n|^3} \, \mathbf{x}_n$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\mathbf{a}_n = -\cfrac{G\,M}{|\mathbf{x}_n|^3} \, \mathbf{x}_n
+{:/}
+\\]
 
 To test orbiting, one can set the initial conditions of the spacecraft to a [perfect circular orbit][4]:
 
-{% latex usepackages=amsmath %}
+\\[
+{::nomarkdown}
 \begin{align*}
 \mathbf{x}_0 &= (R, 0, 0)^\top\\
 \mathbf{v}_0 &= (0, V, 0)^\top \mathrm{\ where\ } V = \sqrt{\cfrac{GM}{R}}
 \end{align*}
-{% endlatex %}
+{:/}
+\\]
 
 The orbital radius R was set to the Earth radius of 6378 km plus 408 km (the height of the ISS).
 The Earth mass was assumed to be 5.9722e+24 kg.
@@ -54,22 +60,27 @@ For time lapse simulation with a time step of 16 seconds, the errors will exceed
 A possible solution is to use Runge Kutta 4th order integration instead of symplectic Euler.
 The 4th order Runge Kutta method can be implemented using a state vector consisting of position and speed:
 
-{% latex %}
-$\mathbf{y} = (x_1, x_2, x_3, v_1, v_2, v_3)^\top$
-{% endlatex %}
+\\[
+{::nomarkdown}
+\mathbf{y} = (x_1, x_2, x_3, v_1, v_2, v_3)^\top
+{:/}
+\\]
 
 The derivative of the state vector consists of speed and gravitational acceleration:
 
-{% latex usepackages=amsmath %}
+\\[
+{::nomarkdown}
 \begin{align*}
 \mathbf{a}(\mathbf{x}) &= -\cfrac{G\,M}{|\mathbf{x}|^3} \, \mathbf{x}\\
 \mathbf{f}(t, \mathbf{y}) &= (v_1, v_2, v_3, a_1, a_2, a_3)^\top
 \end{align*}
-{% endlatex %}
+{:/}
+\\]
 
 The Runge Kutta 4th order integration method is as follows:
 
-{% latex usepackages=amsmath %}
+\\[
+{::nomarkdown}
 \begin{align*}
 \mathbf{y}_{n+1} &= \mathbf{y}_n + \cfrac{\Delta t}{6}\,(\mathbf{k}_1 + 2\,\mathbf{k}_2 + 2\,\mathbf{k}_3 + \mathbf{k}_4)\\
 \mathbf{k}_1 &= \mathbf{f}(t_n, \mathbf{y}_n)\\
@@ -77,7 +88,8 @@ The Runge Kutta 4th order integration method is as follows:
 \mathbf{k}_3 &= \mathbf{f}(t_n + \cfrac{\Delta t}{2}, \mathbf{y}_n + \cfrac{\Delta t}{2}\,\mathbf{k}_2)\\
 \mathbf{k}_4 &= \mathbf{f}(t_n + \Delta t, \mathbf{y}_n + \Delta t\,\mathbf{k}_3)
 \end{align*}
-{% endlatex %}
+{:/}
+\\]
 
 
 The Runge Kutta method can be implemented in Clojure as follows:
@@ -115,12 +127,14 @@ One can apply an impulse before running an Euler step so that the position after
 A second impulse then is used after the Euler time step to also make the speed match the Runge Kutta estimate.
 Given the initial state **(x(n), v(n))** and the desired next state **(x(n+1), v(n+1))** (obtained from Runge Kutta) the formulas for the two impulses are as follows:
 
-{% latex usepackages=amsmath %}
+\\[
+{::nomarkdown}
 \begin{align*}
 \Delta\mathbf{i}_{n,0} &= m \, \Delta\mathbf{v}_{n,0} = \cfrac{m}{\Delta t}\,(\mathbf{x}_{n+1} - \mathbf{x}_n - \Delta t\,\mathbf{v}_n)\\
 \Delta\mathbf{i}_{n,1} &= m \, \Delta\mathbf{v}_{n,1} = m \, (\mathbf{v}_{n+1} - \mathbf{v}_n - \Delta\mathbf{v}_{n,0})
 \end{align*}
-{% endlatex %}
+{:/}
+\\]
 
 The following code shows the implementation of the matching scheme using two speed changes in Clojure:
 
