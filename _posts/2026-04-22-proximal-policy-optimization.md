@@ -996,7 +996,7 @@ If we add the target values to the samples, we can compute the critic loss for a
 The core of the actor loss function relies on the action probability ratio of using the updated and the old policy (actor network output).
 The ratio is defined as
 \\[
-r_t(\theta)=\frac{\pi_\theta(a_t\|s_t)}{\pi_{\theta_{\operatorname{old}}}(a_t\|s_t)}
+r_t(\theta)=\frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\operatorname{old}}}(a_t|s_t)}
 \\].
 
 Note that \\(r_t(\theta)\\) here refers to the probability ratio as opposed to the reward of the previous section.
@@ -1015,7 +1015,7 @@ I.e. maximising the following objective function.
 
 \\[
 {::nomarkdown}
-L^{CPI}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\frac{\pi_\theta(a_t\|s_t)}{\pi_{\theta_{\operatorname{old}}} (a_t\|s_t)} \hat{A}_t] = \mathop{\hat{\mathbb{E}}}_t [r_t (\theta) \hat{A}_t]
+L^{CPI}(\theta) = \mathop{\hat{\mathbb{E}}}_t [\frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\operatorname{old}}} (a_t|s_t)} \hat{A}_t] = \mathop{\hat{\mathbb{E}}}_t [r_t (\theta) \hat{A}_t]
 {:/}
 \\]
 
