@@ -98,3 +98,255 @@ To help you with finding all the different controls, I created this interactive 
     <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1144, 1041, 90, 84)">Windshield Heater LH &amp; RH</span></li>
   </ul>
 </div>
+
+<div class="scroll-box">
+<h4>PRELIMINARY</h4>
+<ul>
+<li>Aircraft Doors: OPEN</li>
+<li>Parking Brake: SET</li>
+<li>Landing Gear Handle: DOWN</li>
+<li>Speedbrake Handle: CHECK ZERO</li>
+<li>Throttles: CUT OFF</li>
+<li>Battery Switches 1 & 2: ON</li>
+<li>Eicas Switch: ON</li>
+<li>Battery Volts (Elec Page): CHECK 24</li>
+<li>Refuel: AS NEEDED</li>
+<li>Fuel Balance: CHECK IMBALANCE <200 lbs</li>
+<li>Eicas Switch: OFF</li>
+<li>Battery Switches 1 & 2: OFF</li>
+<li>Standby Power: TEST</li>
+<li>Passengers & Cargo: BOARDED & CHECK</li>
+sw_continue
+</ul>
+
+<h4>COCKPIT PREPARATION 1</h4>
+<ul>
+<li>Battery Switches 1 & 2: ON</li>
+<li>External Power if Available: ON</li>
+<li>Left & Right Generators: UP</li>
+<li>Eicas Switch: ON</li>
+<li>Avionics Switch: ON</li>
+<li>Fuel Boost: BOTH NORM or ON</li>
+<li>FADEC Left Switch: RESET & NORMAL</li>
+<li>FADEC Right Switch: RESET & NORMAL</li>
+<li>Ignition Switches: CHECK NORM</li>
+<li>Standby Power: ON</li>
+<li>Center Wing Transfer: BOTH NORM</li>
+<li>Emergency Exit Lights: ON (Red Light On)</li>
+<li>Emergency Exit Lights: ARM</li>
+<li>Instrument Lights (FLOOD LTS, EL, LH, CTR): SET AS NEED</li>
+<li>Passenger Oxygen: AUTO</li>
+<li>Master Warning: RESET</li>
+<li>Master Caution: RESET</li>
+<li>Windshield Heater LH & RH: ON</li>
+</ul>
+
+<h4>COCKPIT PREPARATION 2</h4>
+<ul>
+<li>Aux Pump A: ON</li>
+<li>Parking Brake: OFF</li>
+<li>Parking Brake: ON</li>
+<li>Aux Pump A: OFF</li>
+<li>Seat Belt Lights: UP</li>
+<li>Recognition Light: ON</li>
+<li>Navigation Light: ON</li>
+<li>Tail Flood Light: ON</li>
+<li>Engine Bleed Air: BOTH HP/LP</li>
+<li>Righthand Panel Lights: SET</li>
+<li>APU Master: ON</li>
+<li>Test Button: CHECK</li>
+<li>APU Start: HOLD TILL START</li>
+<li>APU N1: 100 RPM</li>
+<li>APU Generator: ON</li>
+<li>APU Bleed Air: MAX COOL</li>
+<li>Cabin and Cockpit Packs: ON</li>
+</ul>
+
+<h4>PREFLIGHT PROCEDURE</h4>
+<ul>
+<li>Aircraft Doors: CLOSED</li>
+<li>External Power: DISCONNECTED</li>
+<li>Rotary Test: ROTATE TO ALL POSITIONS</li>
+<li>Aux Pump A: ON</li>
+<li>Flaps & Slats: RETRACT</li>
+<li>Aux Pump A: OFF</li>
+<li>PFD Source Selection: SELECT FMS or NAV</li>
+<li>Lateral Navigation Mode: NAV</li>
+<li>Vertical Navigation Mode: FLC</li>
+<li>Flight Level Change Vertical Speed: 180 KIAS</li>
+<li>Yaw Damper: ON</li>
+<li>Mach Trim: ON</li>
+<li>Transponder Frecuency: SET</li>
+<li>Transponder Mode: STANDBY</li>
+<li>Heading: SET TO RUNWAY</li>
+<li>Altitude Select: SET TO CLEARED ALT</li>
+<li>Altimeter Baro: SET LOCAL QNH</li>
+<li>Minimums BARO PFD: SET TO 1000FT AGL</li>
+</ul>
+
+<h4>ENGINE START</h4>
+<ul>
+<li>GND REC/ANTI-COLL Lights: ON</li>
+<li>Cabin and Cockpit Packs: OFF</li>
+<li>Engine Start RH Button: PRESS</li>
+<li>RH N2%: WAIT >10</li>
+<li>Right Power Lever: IDLE</li>
+<li>RH N2%: WAIT >60</li>
+<li>Engine Start LH Button: PRESS</li>
+<li>LH N2%: WAIT >10</li>
+<li>Left Power Lever: IDLE</li>
+<li>Eicas Fuel Page: CHECK FLOW >500 PPH</li>
+<li>Eicas Hyd Page: CHECK PSI>3000</li>
+<li>Engine Bleed Air: BOTH LP</li>
+<li>Cabin and Cockpit Packs: On</li>
+</ul>
+
+<h4>BEFORE TAXI</h4>
+<ul>
+<li>Pressurization Switches: ALL THREE NORM</li>
+<li>Pressurization Altitude: SET</li>
+<li>Pitot Static Switches: BOTH UP</li>
+<li>Flaps 5 or 15: SET</li>
+<li>Pitch Trim: SET GREEN</li>
+<li>Rudder & Aileron Trim: CHECK NEUTRAL</li>
+<li>Yoke Roll Control: FREE MOVEMENT</li>
+<li>Yoke Pitch Control: FREE MOVEMENT</li>
+<li>Rudder Control: FREE MOVEMENT</li>
+<li>Speedbrake Handle: CHECK MOVEMENT THEN ZERO</li>
+<li>Taxi Light: ON</li>
+</ul>
+
+<h4>TAXI</h4>
+<ul>
+<li>Parking Brake: RELEASED</li>
+<li>Parking Brake: SET</li>
+</ul>
+
+<h4>BEFORE TAKEOFF</h4>
+<ul>
+<li>GND REC/ANTI-COLL Lights: UP</li>
+<li>Landing Lights: ON</li>
+<li>Taxi Light: OFF</li>
+<li>Transponder: ALT</li>
+<li>Parking Brake: RELEASED</li>
+<li>Pedal Brakes: FULL PRESS</li>
+</ul>
+
+<h4>TAKEOFF</h4>
+<ul>
+<li>Throttle Lever: SET 40% N1</li>
+<li>Both Engines Simultaneous: CHECK</li>
+<li>Pedal Brakes: RELEASE</li>
+<li>Throttle Lever: MAX POSITION T/O</li>
+<li>At Vr Speed: ROTATE</li>
+</ul>
+
+<h4>AFTER TAKEOFF</h4>
+<ul>
+<li>==>: Positive Rating Climb</li>
+<li>Landing Gear: UP</li>
+<li>==>: Above 1000ft AGl</li>
+<li>Autopilot: ENGAGE</li>
+<li>Vertical Navigation Mode: FLC or VNAV</li>
+<li>Flaps & Slats: UP AS REQUIRED</li>
+<li>Throttle Lever: CLB POSITION</li>
+<li>Cabin Pressurization: CHECK POSITIVE FPM</li>
+<li>Altimeter Baro: STD AT TRANS ALT</li>
+<li>==>: Above 10000ft</li>
+<li>Landing Lights: OFF</li>
+<li>Seat Belts: OFF</li>
+<li>APU Bleed Air: OFF</li>
+<li>APU Generator: OFF</li>
+<li>APU Start: HOLD DOWN</li>
+<li>==>: APU RPM ZERO</li>
+<li>APU Master: OFF</li>
+<li>==>: Above 18000ft</li>
+<li>ENG SYNC: FAN</li>
+</ul>
+
+<h4>CRUISE</h4>
+<ul>
+<li>BANK: AS REQUIRED</li>
+<li>Throttle Lever: CRU POSITION</li>
+</ul>
+
+<h4>DESCENT</h4>
+<ul>
+<li>Altitude Knob: SET TO CLEARED ALT</li>
+<li>Vertical Navigation Mode: SET VNAV, FLC or VS</li>
+<li>==>: Below 18000ft</li>
+<li>ENG SYNC: OFF</li>
+<li>BANK: AS REQUIRED</li>
+<li>APU Master: ON</li>
+<li>APU Start: HOLD TILL START</li>
+<li>APU N1 100%: READY</li>
+<li>APU Generator: ON</li>
+<li>APU Bleed Air: MAX COOL</li>
+<li>==>: Below 10000ft</li>
+<li>Landing Lights: ON</li>
+<li>Seat Belts Lights: ON</li>
+<li>Altimeter Baro: SET LOCAL QNH</li>
+<li>RA/BARO Minimums: SET</li>
+</ul>
+
+<h4>APPROACH & LANDING</h4>
+<ul>
+<li>==>: SPEED <250 KIAS</li>
+<li>Slats & Flaps: FLAPS 5</li>
+<li>Autopilot Approach Mode: ARM</li>
+<li>==>: SPEED <210 KIAS</li>
+<li>Flaps: FLAPS 15</li>
+<li>Landing Gear: DOWN 3 GREEN</li>
+<li>==>: SPEED 180 KIAS</li>
+<li>Flaps: FLAPS 35</li>
+<li>==>: AGL <500 ft</li>
+<li>AP & YD: DISCONNECT</li>
+<li>Throttle Lever: IDLE</li>
+<li>Reverse Throttle: IF NECESSARY</li>
+<li>==>: GND SPEED <50 KIAS</li>
+<li>Reverse Throttle: OFF</li>
+</ul>
+
+<h4>AFTER LANDING</h4>
+<ul>
+<li>Pitot Static Heat: BOTH OFF</li>
+<li>GND REC/ANTI-COLL Lights: GND REC</li>
+<li>Transponder Mode: STANDBY</li>
+<li>Taxi Light: ON</li>
+<li>Landing Lights: OFF</li>
+<li>Speedbrakes: RETRACTED</li>
+<li>Flaps: UP</li>
+</ul>
+
+<h4>SHUTDOWN</h4>
+<ul>
+<li>Taxi Light: OFF</li>
+<li>Parking Brake: SET</li>
+<li>Throttles: CUT OFF</li>
+<li>Engines N2%: Below 10%</li>
+<li>GND REC/ANTI-COLL Lights: OFF</li>
+<li>Aircraft Doors: OPEN</li>
+<li>Seat Belts: OFF</li>
+<li>APU Bleed Air: OFF</li>
+<li>APU Generator: OFF</li>
+<li>APU Start: HOLD DOWN</li>
+<li>==>: APU RPM ZERO</li>
+<li>APU Master: OFF</li>
+<li>Engine Bleed Air: BOTH OFF</li>
+<li>Cabin and Cockpit Packs: OFF</li>
+<li>Recognition Light: OFF</li>
+<li>Navigation Light: OFF</li>
+<li>Tail Flood Light: OFF</li>
+<li>Windshiel Heat LH & RH: OFF</li>
+<li>Passenger Oxygen: OFF</li>
+<li>Emergency Exit Lights: OFF</li>
+<li>Center Wing Transfer: BOTH OFF</li>
+<li>Fuel Boost: BOTH OFF</li>
+<li>Standby Power: OFF</li>
+<li>Avionics Switch: OFF</li>
+<li>Eicas Switc^Mh: OFF</li>
+<li>Generators 1 & 2: OFF</li>
+<li>Battery Switches: BOTH OFF</li>
+</ul>
+
+</div>
