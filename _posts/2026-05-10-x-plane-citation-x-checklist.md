@@ -40,12 +40,15 @@ category: simulation
 }
 .scroll-box {
   width: 100%;        /* Define the width of your box */
-  height: 5lh;
+  height: 8lh;
   overflow-y: auto;    /* Adds a vertical scrollbar only when necessary */
   border: 1px solid #ccc;
   padding: 10px;
 }
 </style>
+
+If you are trying out the Citation-X with X-Plane 12, I can really recommend the [XChecklist plugin](https://forums.x-plane.org/files/file/20785-xchecklist-linwinmac/) and the [checklist file for the Citation-X](https://forums.x-plane.org/files/file/90301-xchecklist-for-laminar-citation-x/).
+To help you with finding all the different controls, I created this interactive page.
 
 <div class="image-container">
     <img id="cockpit-image" src="/pics/citation-x-1.jpg" alt="cockpit view">
@@ -69,11 +72,6 @@ category: simulation
     box_element.style.height = height + '%';
   }
 </script>
-
-If you are trying out the Citation-X with X-Plane 12, I can really recommend the [XChecklist plugin](https://forums.x-plane.org/files/file/20785-xchecklist-linwinmac/) and the [checklist file for the Citation-X](https://forums.x-plane.org/files/file/90301-xchecklist-for-laminar-citation-x/).
-To help you with finding all the different controls, I created this interactive page.
-
-(Work in progress)
 
 <div class="scroll-box">
 <h4>PRELIMINARY</h4>
@@ -127,14 +125,14 @@ To help you with finding all the different controls, I created this interactive 
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1549, 1137, 51, 77)">Navigation Lights</span>: ON</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1601, 1137, 59, 69)">Tail Flood Lights</span>: ON</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2048, 1147, 269, 87)">Engine Bleed Air</span>: BOTH HP/LP</li>
-<li>Righthand Panel Lights: SET</li>
-<li>APU Master: ON</li>
-<li>Test Button: CHECK</li>
-<li>APU Start: HOLD TILL START</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2100, 1250, 80, 92)">Righthand Panel Lights</span>: SET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1355, 855, 62, 99)">APU Master</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1295, 846, 44, 86)">Test Button</span>: CHECK</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1234, 822, 58, 98)">APU Start</span>: HOLD TILL START</li>
 <li>APU N1: 100 RPM</li>
-<li>APU Generator: ON</li>
-<li>APU Bleed Air: MAX COOL</li>
-<li>Cabin and Cockpit Packs: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1354, 581, 74, 110)">APU Generator</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1173, 542, 77, 117)">APU Bleed Air</span>: MAX COOL</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2224, 1061, 94, 86)">Cabin</span> and <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2039, 1059, 95, 88)">Cockpit Packs</span>: ON</li>
 </ul>
 
 <h4>PREFLIGHT PROCEDURE</h4>
