@@ -118,15 +118,15 @@ To help you with finding all the different controls, I created this interactive 
 
 <h4>COCKPIT PREPARATION 2</h4>
 <ul>
-<li>Aux Pump A: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1464, 957, 47, 82)">Aux Pump A</span>: ON</li>
 <li>Parking Brake: OFF</li>
 <li>Parking Brake: ON</li>
-<li>Aux Pump A: OFF</li>
-<li>Seat Belt Lights: UP</li>
-<li>Recognition Light: ON</li>
-<li>Navigation Light: ON</li>
-<li>Tail Flood Light: ON</li>
-<li>Engine Bleed Air: BOTH HP/LP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1464, 957, 47, 82)">Aux Pump A</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1593, 1052, 67, 78)">Seat Belt Lights</span>: UP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1495, 1137, 51, 77)">Recognition Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1549, 1137, 51, 77)">Navigation Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1601, 1137, 59, 69)">Tail Flood Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2048, 1147, 269, 87)">Engine Bleed Air</span>: BOTH HP/LP</li>
 <li>Righthand Panel Lights: SET</li>
 <li>APU Master: ON</li>
 <li>Test Button: CHECK</li>
