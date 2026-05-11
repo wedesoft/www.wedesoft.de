@@ -40,7 +40,7 @@ category: simulation
 }
 .scroll-box {
   width: 100%;        /* Define the width of your box */
-  height: 10lh;
+  height: 5lh;
   overflow-y: auto;    /* Adds a vertical scrollbar only when necessary */
   border: 1px solid #ccc;
   padding: 10px;
@@ -76,30 +76,6 @@ To help you with finding all the different controls, I created this interactive 
 (Work in progress)
 
 <div class="scroll-box">
-  <ul>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 926, 957, 88, 86)">Battery Switches 1 &amp; 2</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1166, 962, 37, 81)">Eicas Switch</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1112, 1134, 108, 76)">Standby Power</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1061, 958, 43, 85)">External Power</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 880, 959, 45, 81)">Left Generator</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1016, 958, 43, 81)">Right Generator</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1112, 960, 46, 83)">Avionics Switch</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 850, 1057, 101, 75)">Fuel Boost</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 971, 1140, 53, 74)">FADEC Left Switch</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1038, 1140, 53, 74)">FADEC Right Switch</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1115, 1048, 111, 81)">Ignition Switches</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1109, 1134, 112, 79)">Standby Power</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 569, 1054, 99, 75)">Center Wing Transfer</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 361, 961, 78, 80)">Emergency Exit Lights</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 352, 1051, 154, 165)">Instrument Lights</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 16, 1100, 117, 103)">Passenger Oxygen</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 728, 258, 89, 71)">Master Warning</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 817, 258, 89, 71)">Master Caution</span></li>
-    <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1144, 1041, 90, 84)">Windshield Heater LH &amp; RH</span></li>
-  </ul>
-</div>
-
-<div class="scroll-box">
 <h4>PRELIMINARY</h4>
 <ul>
 <li>Aircraft Doors: OPEN</li>
@@ -107,38 +83,37 @@ To help you with finding all the different controls, I created this interactive 
 <li>Landing Gear Handle: DOWN</li>
 <li>Speedbrake Handle: CHECK ZERO</li>
 <li>Throttles: CUT OFF</li>
-<li>Battery Switches 1 & 2: ON</li>
-<li>Eicas Switch: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 926, 957, 88, 86)">Battery Switches 1 &amp; 2</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1166, 962, 37, 81)">Eicas Switch</span>: ON</li>
 <li>Battery Volts (Elec Page): CHECK 24</li>
 <li>Refuel: AS NEEDED</li>
 <li>Fuel Balance: CHECK IMBALANCE <200 lbs</li>
-<li>Eicas Switch: OFF</li>
-<li>Battery Switches 1 & 2: OFF</li>
-<li>Standby Power: TEST</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1166, 962, 37, 81)">Eicas Switch</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 926, 957, 88, 86)">Battery Switches 1 &amp; 2</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1112, 1134, 108, 76)">Standby Power</span>: TEST</li>
 <li>Passengers & Cargo: BOARDED & CHECK</li>
-sw_continue
 </ul>
 
 <h4>COCKPIT PREPARATION 1</h4>
 <ul>
-<li>Battery Switches 1 & 2: ON</li>
-<li>External Power if Available: ON</li>
-<li>Left & Right Generators: UP</li>
-<li>Eicas Switch: ON</li>
-<li>Avionics Switch: ON</li>
-<li>Fuel Boost: BOTH NORM or ON</li>
-<li>FADEC Left Switch: RESET & NORMAL</li>
-<li>FADEC Right Switch: RESET & NORMAL</li>
-<li>Ignition Switches: CHECK NORM</li>
-<li>Standby Power: ON</li>
-<li>Center Wing Transfer: BOTH NORM</li>
-<li>Emergency Exit Lights: ON (Red Light On)</li>
-<li>Emergency Exit Lights: ARM</li>
-<li>Instrument Lights (FLOOD LTS, EL, LH, CTR): SET AS NEED</li>
-<li>Passenger Oxygen: AUTO</li>
-<li>Master Warning: RESET</li>
-<li>Master Caution: RESET</li>
-<li>Windshield Heater LH & RH: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 926, 957, 88, 86)">Battery Switches 1 &amp; 2</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1061, 958, 43, 85)">External Power</span> if Available: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 880, 959, 45, 81)">Left</span> &amp; <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1016, 958, 43, 81)">Right Generator</span>: UP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1166, 962, 37, 81)">Eicas Switch</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1112, 960, 46, 83)">Avionics Switch</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 850, 1057, 101, 75)">Fuel Boost</span>: BOTH NORM or ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 971, 1140, 53, 74)">FADEC Left Switch</span>: RESET &amp; NORMAL</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1038, 1140, 53, 74)">FADEC Right Switch</span>: RESET &amp; NORMAL</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1115, 1048, 111, 81)">Ignition Switches</span>: CHECK NORM</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1109, 1134, 112, 79)">Standby Power</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 569, 1054, 99, 75)">Center Wing Transfer</span>: BOTH NORM</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 361, 961, 78, 80)">Emergency Exit Lights</span>: ON (Red Light On)</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 361, 961, 78, 80)">Emergency Exit Lights</span>: ARM</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 352, 1051, 154, 165)">Instrument Lights</span> (FLOOD LTS, EL, LH, CTR): SET AS NEED</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 16, 1100, 117, 103)">Passenger Oxygen</span>: AUTO</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 728, 258, 89, 71)">Master Warning</span>: RESET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 817, 258, 89, 71)">Master Caution</span>: RESET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1144, 1041, 90, 84)">Windshield Heater LH &amp; RH</span>: ON</li>
 </ul>
 
 <h4>COCKPIT PREPARATION 2</h4>
@@ -168,7 +143,7 @@ sw_continue
 <li>External Power: DISCONNECTED</li>
 <li>Rotary Test: ROTATE TO ALL POSITIONS</li>
 <li>Aux Pump A: ON</li>
-<li>Flaps & Slats: RETRACT</li>
+<li>Flaps &amp; Slats: RETRACT</li>
 <li>Aux Pump A: OFF</li>
 <li>PFD Source Selection: SELECT FMS or NAV</li>
 <li>Lateral Navigation Mode: NAV</li>
@@ -208,7 +183,7 @@ sw_continue
 <li>Pitot Static Switches: BOTH UP</li>
 <li>Flaps 5 or 15: SET</li>
 <li>Pitch Trim: SET GREEN</li>
-<li>Rudder & Aileron Trim: CHECK NEUTRAL</li>
+<li>Rudder &amp; Aileron Trim: CHECK NEUTRAL</li>
 <li>Yoke Roll Control: FREE MOVEMENT</li>
 <li>Yoke Pitch Control: FREE MOVEMENT</li>
 <li>Rudder Control: FREE MOVEMENT</li>
@@ -248,7 +223,7 @@ sw_continue
 <li>==>: Above 1000ft AGl</li>
 <li>Autopilot: ENGAGE</li>
 <li>Vertical Navigation Mode: FLC or VNAV</li>
-<li>Flaps & Slats: UP AS REQUIRED</li>
+<li>Flaps &amp; Slats: UP AS REQUIRED</li>
 <li>Throttle Lever: CLB POSITION</li>
 <li>Cabin Pressurization: CHECK POSITIVE FPM</li>
 <li>Altimeter Baro: STD AT TRANS ALT</li>
@@ -289,10 +264,10 @@ sw_continue
 <li>RA/BARO Minimums: SET</li>
 </ul>
 
-<h4>APPROACH & LANDING</h4>
+<h4>APPROACH &amp; LANDING</h4>
 <ul>
 <li>==>: SPEED <250 KIAS</li>
-<li>Slats & Flaps: FLAPS 5</li>
+<li>Slats &amp; Flaps: FLAPS 5</li>
 <li>Autopilot Approach Mode: ARM</li>
 <li>==>: SPEED <210 KIAS</li>
 <li>Flaps: FLAPS 15</li>
@@ -300,7 +275,7 @@ sw_continue
 <li>==>: SPEED 180 KIAS</li>
 <li>Flaps: FLAPS 35</li>
 <li>==>: AGL <500 ft</li>
-<li>AP & YD: DISCONNECT</li>
+<li>AP &amp; YD: DISCONNECT</li>
 <li>Throttle Lever: IDLE</li>
 <li>Reverse Throttle: IF NECESSARY</li>
 <li>==>: GND SPEED <50 KIAS</li>
@@ -337,7 +312,7 @@ sw_continue
 <li>Recognition Light: OFF</li>
 <li>Navigation Light: OFF</li>
 <li>Tail Flood Light: OFF</li>
-<li>Windshiel Heat LH & RH: OFF</li>
+<li>Windshiel Heat LH &amp; RH: OFF</li>
 <li>Passenger Oxygen: OFF</li>
 <li>Emergency Exit Lights: OFF</li>
 <li>Center Wing Transfer: BOTH OFF</li>
@@ -345,7 +320,7 @@ sw_continue
 <li>Standby Power: OFF</li>
 <li>Avionics Switch: OFF</li>
 <li>Eicas Switc^Mh: OFF</li>
-<li>Generators 1 & 2: OFF</li>
+<li>Generators 1 &amp; 2: OFF</li>
 <li>Battery Switches: BOTH OFF</li>
 </ul>
 
