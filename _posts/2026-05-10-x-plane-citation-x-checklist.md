@@ -138,14 +138,14 @@ To help you with finding all the different controls, I created this interactive 
 <h4>PREFLIGHT PROCEDURE</h4>
 <ul>
 <li>Aircraft Doors: CLOSED</li>
-<li>External Power: DISCONNECTED</li>
-<li>Rotary Test: ROTATE TO ALL POSITIONS</li>
-<li>Aux Pump A: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1061, 958, 43, 85)">External Power</span> if Available: DISCONNECTED</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1442, 523, 170, 178)">Rotary Test</span>: ROTATE TO ALL POSITIONS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1464, 957, 47, 82)">Aux Pump A</span>: ON</li>
 <li>Flaps &amp; Slats: RETRACT</li>
-<li>Aux Pump A: OFF</li>
-<li>PFD Source Selection: SELECT FMS or NAV</li>
-<li>Lateral Navigation Mode: NAV</li>
-<li>Vertical Navigation Mode: FLC</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1464, 957, 47, 82)">Aux Pump A</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 661, 384, 116, 34)">PFD Source Selection</span>: SELECT FMS or NAV</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1578, 108, 79, 179)">Lateral Navigation Mode</span>: NAV</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: FLC</li>
 <li>Flight Level Change Vertical Speed: 180 KIAS</li>
 <li>Yaw Damper: ON</li>
 <li>Mach Trim: ON</li>
