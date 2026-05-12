@@ -224,7 +224,7 @@ To help you with finding all the different controls, I created this interactive 
 <li>Flaps &amp; Slats: UP AS REQUIRED</li>
 <li>Throttle Lever: CLB POSITION</li>
 <li>Cabin Pressurization: CHECK POSITIVE FPM</li>
-<li>Altimeter Baro: STD AT TRANS ALT</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 930, 885, 49, 63)">Altimeter Baro</span>: STD AT TRANS ALT</li>
 <li>==>: Above 10000ft</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1281, 1052, 116, 121)">Landing Lights</span>: OFF</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1593, 1052, 67, 78)">Seat Belt Lights</span>: OFF</li>
@@ -245,35 +245,35 @@ To help you with finding all the different controls, I created this interactive 
 
 <h4>DESCENT</h4>
 <ul>
-<li>Altitude Knob: SET TO CLEARED ALT</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1345, 1250, 97, 105)">Altitude Knob</span>: SET TO CLEARED ALT</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: SET VNAV, FLC or VS</li>
 <li>==>: Below 18000ft</li>
-<li>ENG SYNC: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1041, 1055, 182, 120)">ENG SYNC</span>: OFF</li>
 <li>BANK: AS REQUIRED</li>
-<li>APU Master: ON</li>
-<li>APU Start: HOLD TILL START</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1355, 855, 62, 99)">APU Master</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1234, 822, 58, 98)">APU Start</span>: HOLD TILL START</li>
 <li>APU N1 100%: READY</li>
-<li>APU Generator: ON</li>
-<li>APU Bleed Air: MAX COOL</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1354, 581, 74, 110)">APU Generator</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1173, 542, 77, 117)">APU Bleed Air</span>: MAX COOL</li>
 <li>==>: Below 10000ft</li>
-<li>Landing Lights: ON</li>
-<li>Seat Belts Lights: ON</li>
-<li>Altimeter Baro: SET LOCAL QNH</li>
-<li>RA/BARO Minimums: SET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1281, 1052, 116, 121)">Landing Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1593, 1052, 67, 78)">Seat Belt Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 930, 885, 49, 63)">Altimeter Baro</span>: SET LOCAL QNH</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 632, 885, 49, 63)">RA/BARO Minimums</span>: SET</li>
 </ul>
 
 <h4>APPROACH &amp; LANDING</h4>
 <ul>
 <li>==>: SPEED <250 KIAS</li>
 <li>Slats &amp; Flaps: FLAPS 5</li>
-<li>Autopilot Approach Mode: ARM</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1584, 204, 66, 41)">Autopilot Approach Mode</span>: ARM</li>
 <li>==>: SPEED <210 KIAS</li>
 <li>Flaps: FLAPS 15</li>
 <li>Landing Gear: DOWN 3 GREEN</li>
 <li>==>: SPEED 180 KIAS</li>
 <li>Flaps: FLAPS 35</li>
 <li>==>: AGL <500 ft</li>
-<li>AP &amp; YD: DISCONNECT</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1924, 113, 64, 45)">AP</span> &amp; <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1911, 157, 70, 44)">YD</span>: DISCONNECT</li>
 <li>Throttle Lever: IDLE</li>
 <li>Reverse Throttle: IF NECESSARY</li>
 <li>==>: GND SPEED <50 KIAS</li>
@@ -282,44 +282,44 @@ To help you with finding all the different controls, I created this interactive 
 
 <h4>AFTER LANDING</h4>
 <ul>
-<li>Pitot Static Heat: BOTH OFF</li>
-<li>GND REC/ANTI-COLL Lights: GND REC</li>
-<li>Transponder Mode: STANDBY</li>
-<li>Taxi Light: ON</li>
-<li>Landing Lights: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1145, 955, 90, 85)">Pitot Static Heat</span>: BOTH OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1530, 1048, 64, 81)">GND REC/ANTI-COLL Lights</span>: GND REC</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 696, 284, 43, 29)">Transponder Mode</span>: STANDBY</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1212, 1052, 68, 117)">Taxi Light</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1281, 1052, 116, 121)">Landing Lights</span>: OFF</li>
 <li>Speedbrakes: RETRACTED</li>
 <li>Flaps: UP</li>
 </ul>
 
 <h4>SHUTDOWN</h4>
 <ul>
-<li>Taxi Light: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1212, 1052, 68, 117)">Taxi Light</span>: OFF</li>
 <li>Parking Brake: SET</li>
 <li>Throttles: CUT OFF</li>
 <li>Engines N2%: Below 10%</li>
-<li>GND REC/ANTI-COLL Lights: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1530, 1048, 64, 81)">GND REC/ANTI-COLL Lights</span>: OFF</li>
 <li>Aircraft Doors: OPEN</li>
-<li>Seat Belts: OFF</li>
-<li>APU Bleed Air: OFF</li>
-<li>APU Generator: OFF</li>
-<li>APU Start: HOLD DOWN</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1593, 1052, 67, 78)">Seat Belts</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1173, 542, 77, 117)">APU Bleed Air</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1354, 581, 74, 110)">APU Generator</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1234, 822, 58, 98)">APU Start</span>: HOLD DOWN</li>
 <li>==>: APU RPM ZERO</li>
-<li>APU Master: OFF</li>
-<li>Engine Bleed Air: BOTH OFF</li>
-<li>Cabin and Cockpit Packs: OFF</li>
-<li>Recognition Light: OFF</li>
-<li>Navigation Light: OFF</li>
-<li>Tail Flood Light: OFF</li>
-<li>Windshiel Heat LH &amp; RH: OFF</li>
-<li>Passenger Oxygen: OFF</li>
-<li>Emergency Exit Lights: OFF</li>
-<li>Center Wing Transfer: BOTH OFF</li>
-<li>Fuel Boost: BOTH OFF</li>
-<li>Standby Power: OFF</li>
-<li>Avionics Switch: OFF</li>
-<li>Eicas Switc^Mh: OFF</li>
-<li>Generators 1 &amp; 2: OFF</li>
-<li>Battery Switches: BOTH OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1355, 855, 62, 99)">APU Master</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2048, 1147, 269, 87)">Engine Bleed Air</span>: BOTH OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2224, 1061, 94, 86)">Cabin</span> and <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2039, 1059, 95, 88)">Cockpit Packs</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1495, 1137, 51, 77)">Recognition Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1549, 1137, 51, 77)">Navigation Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1601, 1137, 59, 69)">Tail Flood Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1144, 1041, 90, 84)">Windshield Heater LH &amp; RH</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 16, 1100, 117, 103)">Passenger Oxygen</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 361, 961, 78, 80)">Emergency Exit Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 569, 1054, 99, 75)">Center Wing Transfer</span>: BOTH OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 850, 1057, 101, 75)">Fuel Boost</span>: BOTH OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1109, 1134, 112, 79)">Standby Power</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1112, 960, 46, 83)">Avionics Switch</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1166, 962, 37, 81)">Eicas Switch</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 880, 959, 45, 81)">Left</span> &amp; <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1016, 958, 43, 81)">Right Generator</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 926, 957, 88, 86)">Battery Switches 1 &amp; 2</span>: BOTH OFF</li>
 </ul>
 
 </div>
