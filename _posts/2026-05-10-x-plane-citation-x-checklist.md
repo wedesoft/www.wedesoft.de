@@ -176,17 +176,17 @@ To help you with finding all the different controls, I created this interactive 
 
 <h4>BEFORE TAXI</h4>
 <ul>
-<li>Pressurization Switches: ALL THREE NORM</li>
-<li>Pressurization Altitude: SET</li>
-<li>Pitot Static Switches: BOTH UP</li>
-<li>Flaps 5 or 15: SET</li>
-<li>Pitch Trim: SET GREEN</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1782, 1124, 159, 85)">Pressurization Switches</span>: ALL THREE NORM</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1839, 944, 180, 151)">Pressurization Altitude</span>: SET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1145, 955, 90, 85)">Pitot Static Switches</span>: BOTH UP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1475, 752, 61, 55)">Flaps 5 or 15</span>: SET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1475, 671, 63, 78)">Pitch Trim</span>: SET GREEN</li>
 <li>Rudder &amp; Aileron Trim: CHECK NEUTRAL</li>
 <li>Yoke Roll Control: FREE MOVEMENT</li>
 <li>Yoke Pitch Control: FREE MOVEMENT</li>
 <li>Rudder Control: FREE MOVEMENT</li>
 <li>Speedbrake Handle: CHECK MOVEMENT THEN ZERO</li>
-<li>Taxi Light: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1212, 1052, 68, 117)">Taxi Light</span>: ON</li>
 </ul>
 
 <h4>TAXI</h4>
