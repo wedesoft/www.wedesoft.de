@@ -2,6 +2,7 @@
 layout: post
 title: X-Plane 12 Citation-X Checklist
 category: simulation
+image: /pics/cockpit.jpg
 ---
 
 <style>

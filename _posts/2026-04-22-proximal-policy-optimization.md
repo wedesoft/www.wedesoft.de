@@ -2,6 +2,7 @@
 layout: post
 title: Proximal Policy Optimization with Clojure and PyTorch
 category: ai
+image: /pics/pendulum.png
 ---
 
 *(Cross posting article published at [Clojure Civitas](https://clojurecivitas.org/ppo/main.html))*
