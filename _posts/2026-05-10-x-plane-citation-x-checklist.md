@@ -197,10 +197,10 @@ To help you with finding all the different controls, I created this interactive 
 
 <h4>BEFORE TAKEOFF</h4>
 <ul>
-<li>GND REC/ANTI-COLL Lights: UP</li>
-<li>Landing Lights: ON</li>
-<li>Taxi Light: OFF</li>
-<li>Transponder: ALT</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1530, 1048, 64, 81)">GND REC/ANTI-COLL Lights</span>: UP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1281, 1052, 116, 121)">Landing Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1212, 1052, 68, 117)">Taxi Light</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 696, 284, 43, 29)">Transponder</span>: ALT</li>
 <li>Parking Brake: RELEASED</li>
 <li>Pedal Brakes: FULL PRESS</li>
 </ul>
@@ -219,22 +219,22 @@ To help you with finding all the different controls, I created this interactive 
 <li>==>: Positive Rating Climb</li>
 <li>Landing Gear: UP</li>
 <li>==>: Above 1000ft AGl</li>
-<li>Autopilot: ENGAGE</li>
-<li>Vertical Navigation Mode: FLC or VNAV</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1924, 113, 64, 45)">Autopilot</span>: ENGAGE</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: FLC or VNAV</li>
 <li>Flaps &amp; Slats: UP AS REQUIRED</li>
 <li>Throttle Lever: CLB POSITION</li>
 <li>Cabin Pressurization: CHECK POSITIVE FPM</li>
 <li>Altimeter Baro: STD AT TRANS ALT</li>
 <li>==>: Above 10000ft</li>
-<li>Landing Lights: OFF</li>
-<li>Seat Belts: OFF</li>
-<li>APU Bleed Air: OFF</li>
-<li>APU Generator: OFF</li>
-<li>APU Start: HOLD DOWN</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1281, 1052, 116, 121)">Landing Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1593, 1052, 67, 78)">Seat Belt Lights</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1173, 542, 77, 117)">APU Bleed Air</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1354, 581, 74, 110)">APU Generator</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1234, 822, 58, 98)">APU Start</span>: HOLD DOWN</li>
 <li>==>: APU RPM ZERO</li>
-<li>APU Master: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-4.jpg', 2560, 1440, 1355, 855, 62, 99)">APU Master</span>: OFF</li>
 <li>==>: Above 18000ft</li>
-<li>ENG SYNC: FAN</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1041, 1055, 182, 120)">ENG SYNC</span>: FAN</li>
 </ul>
 
 <h4>CRUISE</h4>
@@ -246,7 +246,7 @@ To help you with finding all the different controls, I created this interactive 
 <h4>DESCENT</h4>
 <ul>
 <li>Altitude Knob: SET TO CLEARED ALT</li>
-<li>Vertical Navigation Mode: SET VNAV, FLC or VS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: SET VNAV, FLC or VS</li>
 <li>==>: Below 18000ft</li>
 <li>ENG SYNC: OFF</li>
 <li>BANK: AS REQUIRED</li>
