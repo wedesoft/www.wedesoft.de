@@ -146,32 +146,32 @@ To help you with finding all the different controls, I created this interactive 
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 661, 384, 116, 34)">PFD Source Selection</span>: SELECT FMS or NAV</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1578, 108, 79, 179)">Lateral Navigation Mode</span>: NAV</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: FLC</li>
-<li>Flight Level Change Vertical Speed: 180 KIAS</li>
-<li>Yaw Damper: ON</li>
-<li>Mach Trim: ON</li>
-<li>Transponder Frecuency: SET</li>
-<li>Transponder Mode: STANDBY</li>
-<li>Heading: SET TO RUNWAY</li>
-<li>Altitude Select: SET TO CLEARED ALT</li>
-<li>Altimeter Baro: SET LOCAL QNH</li>
-<li>Minimums BARO PFD: SET TO 1000FT AGL</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1827, 99, 67, 188)">Flight Level Change Vertical Speed</span>: 180 KIAS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1911, 157, 70, 44)">Yaw Damper</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1903, 203, 68, 43)">Mach Trim</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 699, 254, 43, 29)">Transponder Frequency</span>: SET</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 696, 284, 43, 29)">Transponder Mode</span>: STANDBY</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 959, 1254, 126, 110)">Heading</span>: SET TO RUNWAY</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 1345, 1250, 97, 105)">Altitude Select</span>: SET TO CLEARED ALT</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 930, 885, 49, 63)">Altimeter Baro</span>: SET LOCAL QNH</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 632, 885, 49, 63)">Minimums BARO PFD</span>: SET TO 1000FT AGL</li>
 </ul>
 
 <h4>ENGINE START</h4>
 <ul>
-<li>GND REC/ANTI-COLL Lights: ON</li>
-<li>Cabin and Cockpit Packs: OFF</li>
-<li>Engine Start RH Button: PRESS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 1530, 1048, 64, 81)">GND REC/ANTI-COLL Lights</span>: ON</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2224, 1061, 94, 86)">Cabin</span> and <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2039, 1059, 95, 88)">Cockpit Packs</span>: OFF</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1052, 1067, 48, 51)">Engine Start RH Button</span>: PRESS</li>
 <li>RH N2%: WAIT >10</li>
 <li>Right Power Lever: IDLE</li>
 <li>RH N2%: WAIT >60</li>
-<li>Engine Start LH Button: PRESS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 969, 1067, 48, 51)">Engine Start LH Button</span>: PRESS</li>
 <li>LH N2%: WAIT >10</li>
 <li>Left Power Lever: IDLE</li>
 <li>Eicas Fuel Page: CHECK FLOW >500 PPH</li>
 <li>Eicas Hyd Page: CHECK PSI>3000</li>
-<li>Engine Bleed Air: BOTH LP</li>
-<li>Cabin and Cockpit Packs: On</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2048, 1147, 269, 87)">Engine Bleed Air</span>: BOTH LP</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2224, 1061, 94, 86)">Cabin</span> and <span class="trigger-link" onclick="cockpit_show('/pics/citation-x-2.jpg', 2560, 1440, 2039, 1059, 95, 88)">Cockpit Packs</span>: ON</li>
 </ul>
 
 <h4>BEFORE TAXI</h4>
