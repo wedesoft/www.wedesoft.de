@@ -147,7 +147,7 @@ To help you with finding all the different controls, I created this interactive 
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 661, 384, 116, 34)">PFD Source Selection</span>: SELECT FMS or NAV</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1578, 108, 79, 179)">Lateral Navigation Mode</span>: NAV</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1744, 112, 67, 44)">Vertical Navigation Mode</span>: FLC</li>
-<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1827, 99, 67, 188)">Flight Level Change Vertical Speed</span>: 180 KIAS</li>
+<li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1827, 99, 67, 188)">Flight Level Change Target Airspeed</span>: 180 KIAS</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1911, 157, 70, 44)">Yaw Damper</span>: ON</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-1.jpg', 2560, 1440, 1903, 203, 68, 43)">Mach Trim</span>: ON</li>
 <li><span class="trigger-link" onclick="cockpit_show('/pics/citation-x-3.jpg', 2560, 1440, 699, 254, 43, 29)">Transponder Frequency</span>: SET</li>
