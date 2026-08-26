@@ -169,7 +169,7 @@ Finally if the input argument is known at compile time, one can use a macro in C
 This obviously is going to have much better performance than all the other implementations.
 {% highlight clojure %}
 (defmacro factorial-macro [n]
-  `(fn [] (*' ~@(range 1 (inc n)))))
+  `(*' ~@(range 1 (inc n))))
 {% endhighlight %}
 
 ## Factorial of 20
