@@ -92,7 +92,7 @@ Below is a result obtained using the method described in this article.
 
 ![Example of resulting cloud cover](/pics/cloud-cover.jpg)
 
-Also see [here](https://www.youtube.com/watch?v=dzGjDgvapfs) for a video.
+Also see [here](https://youtu.be/YAtawbcnolU) for a video.
 
 See [cover.clj](https://github.com/wedesoft/sfsim25/blob/dd0ddd7e8f0b218664232ce8e228e2c1b8b54596/etc/cover.clj) for source code.
 
