@@ -139,6 +139,9 @@ The following picture illustrates the two related conversions.
 Here is a [curl flow simulation][12] implemented in Unity.
 Also see [corresponding article][13].
 
+#### More links
+
+See [gkhntpbs/MoonletPlanet](https://github.com/gkhntpbs/MoonletPlanet) for some planet shaders.
 
 [1]: https://www.reddit.com/r/proceduralgeneration/comments/1150e4f/how_can_i_generate_realistic_planetary_cloud_cover/
 [2]: https://www.reddit.com/r/proceduralgeneration/comments/118gbqq/how_to_generate_planetary_cloud_cover_using_curl/
