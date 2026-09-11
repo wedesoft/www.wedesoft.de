@@ -7,6 +7,14 @@ Hi, I’m a computer scientist with a background in robotics, compiler construct
 I’m particularly interested in computer vision, simulation, and programming language design and implementation.
 Outside of computing, I also play the harmonica.
 
+## Projects
+
+- [sfsim](https://wedesoft.github.io/sfsim/) — a spaceflight simulator under development.
+- [Anymeal](https://wedesoft.github.io/anymeal/) — recipe management software for working with a large collection of Mealmaster recipes.
+- [arduino-sainsmart](https://github.com/wedesoft/arduino-sainsmart) — software for working with a SainSmart 6-dof robotic arm and an Arduino board.
+- [AIscm](https://wedesoft.github.io/aiscm/) — a numerical computing library developed for GNU/Guile.
+- [HornetsEye](https://wedesoft.github.io/hornetseye-doc/) — a machine vision framework developed for Ruby, focused on expressive array programming and efficient implementation of image processing algorithms.
+
 ## Skills
 
 - operating systems: [Debian](http://www.debian.org/) (LPI101 certification), [Microsoft Windows](http://www.microsoft.com/windows/) ([MinGW](http://mingw.org/))
@@ -68,11 +76,3 @@ Outside of computing, I also play the harmonica.
 - **PhD thesis:** [Efficient Implementations of Machine Vision Algorithms using a Dynamically Typed Programming Language](https://www.wedesoft.de/downloads/thesis_wedekind.pdf) ([BibTex](https://www.wedesoft.de/downloads/thesis_wedekind.bib), [signature](https://www.wedesoft.de/downloads/thesis_wedekind.pdf.sig))
 - **Diploma thesis:*** [Fokusserien-basierte Rekonstruktion von Mikroobjekten](https://publikationen.bibliothek.kit.edu/1872002) ([first presentation (English)](/downloads/diploma1.pdf), [second presentation (German)](/downloads/diploma2.pdf), [BibTex](https://www.wedesoft.de/downloads/masters_wedekind.bib))
 - **First thesis:** [Modellierung und Erkennung von Mikroobjekten](https://www.wedesoft.de/downloads/objectDetector.pdf)
-
-## Projects
-
-- [sfsim](https://wedesoft.github.io/sfsim/) — a spaceflight simulator under development.
-- [Anymeal](https://wedesoft.github.io/anymeal/) — recipe management software for working with a large collection of Mealmaster recipes.
-- [arduino-sainsmart](https://github.com/wedesoft/arduino-sainsmart) — software for working with a SainSmart 6-dof robotic arm and an Arduino board.
-- [AIscm](https://wedesoft.github.io/aiscm/) — a numerical computing library developed for GNU/Guile.
-- [HornetsEye](https://wedesoft.github.io/hornetseye-doc/) — a machine vision framework developed for Ruby, focused on expressive array programming and efficient implementation of image processing algorithms.
